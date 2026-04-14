@@ -130,9 +130,8 @@ a {
 }
 
 /* ===================== */
-/* Search box */
+/* Search / Filter / Publications */
 /* ===================== */
-
 .search-box {
   width: 100%;
   max-width: 420px;
@@ -148,15 +147,6 @@ a {
 
 .search-box:focus {
   border-color: #999;
-}
-
-.publication-item .text-title a {
-  color: #111;
-}
-
-.publication-item .text-title a:hover {
-  color: #555;
-  text-decoration: underline;
 }
 
 .filter-bar {
@@ -187,11 +177,13 @@ a {
   border-color: #111;
 }
 
-.search-box {
-  width: 100%;
-  max-width: 400px;
-  padding: 10px;
-  border: 1px solid #ddd;
+.publication-item .text-title a {
+  color: #111;
+}
+
+.publication-item .text-title a:hover {
+  color: #555;
+  text-decoration: underline;
 }
 
 /* ===================== */
