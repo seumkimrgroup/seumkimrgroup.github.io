@@ -1,7 +1,11 @@
 const publications = [
   {
     title: "Electrostatically powered multimode liquid crystalline elastomer actuators",
-    journal: "ACS Applied Materials & Interfaces 15(48), 56285-56292 (2023)",
+    journal: "ACS Applied Materials & Interfaces",
+    year: 2025,
+    volume: "15",
+    issue: "48",
+    page: "56285-56292",
     authors: "Mohsin Hassan Saeed*, Moon-Young Choi*, Kitae Kim, Jin-Hyeong Lee, Keumbee Kim, Dowon Kim, Se-Um Kim, Hyun Kim, Suk-kyun Ahn, Ruochen Lan+, Jun-Hee Na+",
     type: "international",
     link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
