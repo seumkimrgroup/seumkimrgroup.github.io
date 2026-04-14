@@ -24,15 +24,16 @@
   <div class="content">
     <div class="section">
       <div class="text-title">Publications</div>
-      <div class="text-body">Selected journal articles and conference papers.</div>
     </div>
 
-    <div class="section">
-      <input type="text" id="pub-search" class="search-box" placeholder="Search publications">
+    <div class="section filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="international">International</button>
+      <button class="filter-btn" data-filter="domestic">Domestic</button>
+      <button class="filter-btn" data-filter="patent">Patent</button>
     </div>
 
     <div class="section" id="publication-list">
-
       <div class="item publication-item">
         <div class="text-title">
           <a href="https://example.com" target="_blank">
@@ -75,23 +76,28 @@
   </div>
 
   <script>
-    const searchInput = document.getElementById("pub-search");
-    const publications = document.querySelectorAll(".publication-item");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const publicationItems = document.querySelectorAll(".publication-item");
 
-    searchInput.addEventListener("input", function () {
-      const keyword = this.value.toLowerCase();
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
 
-      publications.forEach(function (item) {
-        const text = item.textContent.toLowerCase();
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
 
-        if (text.includes(keyword)) {
-          item.style.display = "";
-        } else {
-          item.style.display = "none";
-        }
+        publicationItems.forEach((item) => {
+          const type = item.getAttribute("data-type");
+
+          if (filter === "all" || type === filter) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
       });
     });
-  </script>
+</script>
 
 </body>
 </html>
