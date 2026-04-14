@@ -163,7 +163,6 @@ a {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
 }
 
 .filter-btn {
@@ -186,6 +185,13 @@ a {
   background-color: #111;
   color: white;
   border-color: #111;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
 /* ===================== */
