@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Se-Um Kim Research Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -11,10 +12,10 @@
 <body>
 
   <div class="navbar">
-    <a href="home.html" class="brand">Se-Um Kim Research Group</a>
+    <a href="index.html" class="brand">Se-Um Kim Research Group</a>
 
     <div class="nav-links">
-      <a href="home.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="research.html">Research</a>
       <a href="members.html">Members</a>
       <a href="publications.html" class="active">Publications</a>
@@ -22,33 +23,50 @@
   </div>
 
   <div class="content">
-    <h1>Publications</h1>
-  </div>
-  
-  <div class="publication">
-    <div class="pub-title">
-      <a href="#">Electrostatically powered multimode liquid crystalline elastomer actuators</a>
+    <div class="section">
+      <div class="text-title">Publications</div>
+      <div class="text-body">Selected journal articles and conference papers.</div>
     </div>
-    <div class="pub-journal">
-      ACS Applied Materials & Interfaces 15(48), 56285-56292 (2023)
+
+    <div class="section">
+      <input type="text" id="pub-search" class="search-box" placeholder="Search publications">
     </div>
-    <div class="pub-authors">
-      Mohsin Hassan Saeed*, Moon-Young Choi*, Kitae Kim, Jin-Hyeong Lee, Keumbee Kim, Dowon Kim, Se-Um Kim, Hyun Kim, Suk-kyun Ahn, Ruochen Lan+, Jun-Hee Na+
+
+    <div class="section" id="publication-list">
+
+      <div class="item publication-item">
+        <div class="text-title">
+          <a href="https://example.com" target="_blank">
+            Title of the First Paper
+          </a>
+        </div>
+        <div class="text-sub">Advanced Optical Materials</div>
+        <div class="text-sub">Se-Um Kim, A. Smith, B. Lee</div>
+      </div>
+
+      <div class="item publication-item">
+        <div class="text-title">
+          <a href="https://example.com" target="_blank">
+            Title of the Second Paper
+          </a>
+        </div>
+        <div class="text-sub">Optics Express</div>
+        <div class="text-sub">Se-Um Kim, C. Park, D. Choi</div>
+      </div>
+
+      <div class="item publication-item">
+        <div class="text-title">
+          <a href="https://example.com" target="_blank">
+            Title of the Third Paper
+          </a>
+        </div>
+        <div class="text-sub">Nature Photonics</div>
+        <div class="text-sub">Se-Um Kim, E. Johnson</div>
+      </div>
+
     </div>
   </div>
 
-  <div class="publication">
-    <div class="pub-title">
-      <a href="#">Voxelated opto-physically unclonable functions via irreplicable wrinkles</a>
-    </div>
-    <div class="pub-journal">
-      Light: Science & Applications 12(1), 245 (2023)
-    </div>
-    <div class="pub-authors">
-      Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na
-    </div>
-  </div>
-  
   <div class="footer">
     <div class="text-sub">
       (01811) 서울특별시 노원구 공릉로 232 서울과학기술대학교 전기정보공학과<br>
@@ -56,6 +74,25 @@
       Gongneung-ro 232, Nowon-gu, 01811 Seoul, Republic of Korea
     </div>
   </div>
+
+  <script>
+    const searchInput = document.getElementById("pub-search");
+    const publications = document.querySelectorAll(".publication-item");
+
+    searchInput.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+
+      publications.forEach(function (item) {
+        const text = item.textContent.toLowerCase();
+
+        if (text.includes(keyword)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
