@@ -130,6 +130,37 @@ a {
 }
 
 /* ===================== */
+/* Search box */
+/* ===================== */
+
+.search-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px 14px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #111;
+  background-color: white;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #999;
+}
+
+.publication-item .text-title a {
+  color: #111;
+}
+
+.publication-item .text-title a:hover {
+  color: #555;
+  text-decoration: underline;
+}
+
+
+/* ===================== */
 /* Mobile */
 /* ===================== */
 @media (max-width: 768px) {
