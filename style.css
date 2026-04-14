@@ -1,60 +1,82 @@
+/* 전체 기본 설정 */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #fafafa;  /* ⭐ 전체 배경 */
 }
 
+/* ===================== */
+/* 상단 네비게이션 바 */
+/* ===================== */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #333;
+
+  background-color: white;           /* ⭐ 흰색 */
+  border-bottom: 1px solid #ddd;     /* ⭐ 구분선 */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 0 24px;
   box-sizing: border-box;
   z-index: 1000;
 }
 
+/* 왼쪽 연구실 이름 */
 .brand {
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
   padding: 18px 0;
 }
 
+/* 오른쪽 메뉴 묶음 */
 .nav-links {
   display: flex;
   gap: 24px;
 }
 
+/* 메뉴 글자 */
 .nav-links a {
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 16px;
   padding: 18px 0;
 }
 
+/* hover 효과 */
 .nav-links a:hover,
 .brand:hover {
-  color: #dddddd;
+  color: #555;
 }
 
+/* ===================== */
+/* 본문 영역 */
+/* ===================== */
 .content {
   flex: 1;
-  padding: 30px;
-  margin-top: 80px;
+  padding: 40px 30px;
+  margin-top: 80px;   /* ⭐ 상단바 높이만큼 밀기 */
 }
 
+/* ===================== */
+/* 하단 footer */
+/* ===================== */
 .footer {
-  background-color: #222;
-  color: white;
+  background-color: white;           /* ⭐ 흰색 */
+  color: #444;
+
   text-align: center;
   padding: 24px 12px;
   font-size: 14px;
   line-height: 1.8;
+
+  border-top: 1px solid #ddd;        /* ⭐ 구분선 */
 }
