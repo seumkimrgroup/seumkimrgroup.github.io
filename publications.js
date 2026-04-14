@@ -1,3 +1,17 @@
+/* format
+  {
+    title: "",
+    journal: "",
+    volume: "",
+    issue: "",
+    page: "",
+    year: 2023,
+    authors: "",
+    type: "",
+    link: ""
+  },
+*/
+
 const publications = [
   {
     title: "Electrostatically powered multimode liquid crystalline elastomer actuators",
@@ -19,7 +33,7 @@ const publications = [
     year: 2023,
     authors: "Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na",
     type: "international",
-    link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
+    link: "https://www.nature.com/articles/s41377-023-01285-1"
   },
   {
     title: "2D Arrays of soft actuators performing out-of-plane local inflation for shape displays",
@@ -30,34 +44,47 @@ const publications = [
     year: 2023,
     authors: "Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na",
     type: "international",
-    link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
+    link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adem.202300267"
+  },
+  {
+    title: "Deformable photonic crystals based on chiral liquid crystals with thermal-mediative shape memory effect",
+    journal: "Materials",
+    volume: "16",
+    issue: "1",
+    page: "35",
+    year: 2023,
+    authors: "Min-Seok Park*, Kitae Kim*, Young-Joo Lee, Jun-Hee Na, Se-Um Kim",
+    type: "international",
+    link: "https://www.mdpi.com/1996-1944/16/1/35"
+  },
+  {
+    title: "Versatile mechanochromic sensor based on highly stretchable chiral liquid crystalline elastomer",
+    journal: "",
+    volume: "",
+    issue: "",
+    page: "",
+    year: 2023,
+    authors: "",
+    type: "",
+    link: ""
   },
   {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
-    journal: "Optics Express 20(2), 864-869 (2012)",
+    journal: "Optics Express",
+    volume: "20",
+    issue: "2",
+    page: "864-869",
+    year: 2012,
     authors: "Jun-Hee Na, Seung Chul Park, Se-Um Kim, Yoonseuk Choi, Sin-Doo Lee",
-    type: "domestic",
+    type: "international",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-20-2-864"
   }
 
 ];
 
 
-
-
 /*
 
-
-
-
-
-Deformable photonic crystals based on chiral liquid crystals with thermal-mediative shape memory effect
-Materials 16(1), 35 (2023)
-
-Min-Seok Park*, Kitae Kim*, Young-Joo Lee, Jun-Hee Na, Se-Um Kim
-
-Versatile mechanochromic sensor based on highly stretchable chiral liquid crystalline elastomer
-Small 19(7), 2206299 (2022)
 
 Woong Chan Han*, Young-Joo Lee*, Se-Um Kim*, Hye Joo Lee, Young-Seok Kim+, Dae Seok Kim+
 
