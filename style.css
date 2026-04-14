@@ -80,3 +80,39 @@ body {
 
   border-top: 1px solid #ddd;        /* ⭐ 구분선 */
 }
+
+/* ===================== */
+/* 모바일 대응 */
+/* ===================== */
+@media (max-width: 768px) {
+
+  /* 상단바 세로 정렬 */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* 메뉴 줄바꿈 */
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+  }
+
+  /* 본문 여백 줄이기 */
+  .content {
+    padding: 20px;
+    margin-top: 120px;  /* 메뉴 커지니까 늘림 */
+  }
+
+  /* 브랜드 글자 크기 약간 줄이기 */
+  .brand {
+    font-size: 18px;
+  }
+}
