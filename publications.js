@@ -59,14 +59,14 @@ const publications = [
   },
   {
     title: "Versatile mechanochromic sensor based on highly stretchable chiral liquid crystalline elastomer",
-    journal: "",
-    volume: "",
-    issue: "",
-    page: "",
-    year: 2023,
-    authors: "",
-    type: "",
-    link: ""
+    journal: "Small",
+    volume: "19",
+    issue: "7",
+    page: "2206299",
+    year: 2022,
+    authors: "Woong Chan Han*, Young-Joo Lee*, Se-Um Kim*, Hye Joo Lee, Young-Seok Kim+, Dae Seok Kim+",
+    type: "international",
+    link: "https://onlinelibrary.wiley.com/doi/10.1002/smll.202206299"
   },
   {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
@@ -85,8 +85,6 @@ const publications = [
 
 /*
 
-
-Woong Chan Han*, Young-Joo Lee*, Se-Um Kim*, Hye Joo Lee, Young-Seok Kim+, Dae Seok Kim+
 
 Reverse-engineered highly conformable leak and pressure reducing cushion for neonatal resuscitation mask
 Advanced Materials Technologies 7(7), 2101364 (2022)
