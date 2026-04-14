@@ -7,12 +7,27 @@ const publications = [
     link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
   },
   {
+    title: "Voxelated opto-physically unclonable functions via irreplicable wrinkles",
+    journal: "Light: Science & Applications 12(1), 245 (2023)",
+    authors: "Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na",
+    type: "international",
+    link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
+  },
+  {
+    title: "2D Arrays of soft actuators performing out-of-plane local inflation for shape displays",
+    journal: "Advanced Engineering Materials 25(17), 2300267 (2023)",
+    authors: "Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na",
+    type: "international",
+    link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
+  },
+  {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
     journal: "Optics Express 20(2), 864-869 (2012)",
     authors: "Jun-Hee Na, Seung Chul Park, Se-Um Kim, Yoonseuk Choi, Sin-Doo Lee",
     type: "domestic",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-20-2-864"
   }
+
 ];
 
 
@@ -20,15 +35,9 @@ const publications = [
 
 /*
 
-Voxelated opto-physically unclonable functions via irreplicable wrinkles
-Light: Science & Applications 12(1), 245 (2023)
 
-Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na
 
-2D Arrays of soft actuators performing out-of-plane local inflation for shape displays
-Advanced Engineering Materials 25(17), 2300267 (2023)
 
-Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na
 
 Deformable photonic crystals based on chiral liquid crystals with thermal-mediative shape memory effect
 Materials 16(1), 35 (2023)
