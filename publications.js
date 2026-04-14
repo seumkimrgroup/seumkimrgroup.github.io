@@ -2,24 +2,32 @@ const publications = [
   {
     title: "Electrostatically powered multimode liquid crystalline elastomer actuators",
     journal: "ACS Applied Materials & Interfaces",
-    year: 2025,
     volume: "15",
     issue: "48",
     page: "56285-56292",
+    year: 2023,
     authors: "Mohsin Hassan Saeed*, Moon-Young Choi*, Kitae Kim, Jin-Hyeong Lee, Keumbee Kim, Dowon Kim, Se-Um Kim, Hyun Kim, Suk-kyun Ahn, Ruochen Lan+, Jun-Hee Na+",
     type: "international",
     link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
   },
   {
     title: "Voxelated opto-physically unclonable functions via irreplicable wrinkles",
-    journal: "Light: Science & Applications 12(1), 245 (2023)",
+    journal: "Light: Science & Applications",
+    volume: "12",
+    issue: "1",
+    page: "245",
+    year: 2023,
     authors: "Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na",
     type: "international",
     link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
   },
   {
     title: "2D Arrays of soft actuators performing out-of-plane local inflation for shape displays",
-    journal: "Advanced Engineering Materials 25(17), 2300267 (2023)",
+    journal: "Advanced Engineering Materials",
+    volume: "25",
+    issue: "17",
+    page: "2300267",
+    year: 2023,
     authors: "Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na",
     type: "international",
     link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
