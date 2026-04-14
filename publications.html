@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
   <div class="navbar">
     <a href="home.html" class="brand">Se-Um Kim Research Group</a>
     <div class="nav-links">
@@ -27,17 +26,17 @@
     </div>
 
     <div class="section filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="international">International</button>
-      <button class="filter-btn" data-filter="domestic">Domestic</button>
-      <button class="filter-btn" data-filter="patent">Patent</button>
+      <button class="filter-btn active" data-filter="all" type="button">All</button>
+      <button class="filter-btn" data-filter="international" type="button">International</button>
+      <button class="filter-btn" data-filter="domestic" type="button">Domestic</button>
+      <button class="filter-btn" data-filter="patent" type="button">Patent</button>
     </div>
 
     <div class="section">
       <input type="text" id="searchInput" class="search-box" placeholder="Search publications">
     </div>
 
-    <div class="section" id="publication-list"></div>    
+    <div class="section" id="publication-list"></div>
   </div>
 
   <div class="footer">
@@ -104,6 +103,5 @@
 
     renderPublications();
   </script>
-  
 </body>
 </html>
