@@ -12,7 +12,7 @@
 <body>
 
   <div class="navbar">
-    <a href="index.html" class="brand">Se-Um Kim Research Group</a>
+    <a href="home.html" class="brand">Se-Um Kim Research Group</a>
     <div class="nav-links">
       <a href="home.html">Home</a>
       <a href="research.html">Research</a>
@@ -25,15 +25,18 @@
     <div class="section">
       <div class="text-title">Publications</div>
     </div>
+
     <div class="section filter-bar">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="international">International</button>
       <button class="filter-btn" data-filter="domestic">Domestic</button>
       <button class="filter-btn" data-filter="patent">Patent</button>
     </div>
+
     <div class="section">
       <input type="text" id="searchInput" class="search-box" placeholder="Search publications">
     </div>
+
     <div class="section" id="publication-list"></div>    
   </div>
 
@@ -45,30 +48,62 @@
     </div>
   </div>
 
+  <script src="publications.js"></script>
   <script>
+    const container = document.getElementById("publication-list");
+    const searchInput = document.getElementById("searchInput");
     const filterButtons = document.querySelectorAll(".filter-btn");
-    const publicationItems = document.querySelectorAll(".publication-item");
+
+    let currentFilter = "all";
+
+    function renderPublications() {
+      const keyword = searchInput.value.trim().toLowerCase();
+      container.innerHTML = "";
+
+      const filtered = publications.filter((pub) => {
+        const matchesFilter = currentFilter === "all" || pub.type === currentFilter;
+        const matchesSearch =
+          pub.title.toLowerCase().includes(keyword) ||
+          pub.journal.toLowerCase().includes(keyword) ||
+          pub.authors.toLowerCase().includes(keyword);
+
+        return matchesFilter && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<div class="text-sub">No publications found.</div>';
+        return;
+      }
+
+      filtered.forEach((pub) => {
+        const item = document.createElement("div");
+        item.className = "item publication-item";
+
+        item.innerHTML = `
+          <div class="text-title">
+            <a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a>
+          </div>
+          <div class="text-sub">${pub.journal}</div>
+          <div class="text-sub">${pub.authors}</div>
+        `;
+
+        container.appendChild(item);
+      });
+    }
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const filter = button.getAttribute("data-filter");
-
         filterButtons.forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
-
-        publicationItems.forEach((item) => {
-          const type = item.getAttribute("data-type");
-
-          if (filter === "all" || type === filter) {
-            item.style.display = "";
-          } else {
-            item.style.display = "none";
-          }
-        });
+        currentFilter = button.dataset.filter;
+        renderPublications();
       });
     });
-</script>
 
+    searchInput.addEventListener("input", renderPublications);
+
+    renderPublications();
+  </script>
+  
 </body>
 </html>
-
