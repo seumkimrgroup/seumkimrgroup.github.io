@@ -82,6 +82,44 @@ body {
 }
 
 /* ===================== */
+/* Publications 스타일 */
+/* ===================== */
+
+/* 전체 논문 블록 */
+.publication {
+  margin-bottom: 35px;
+}
+
+/* 논문 제목 (링크) */
+.pub-title a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a0dab;       /* 파란색 링크 */
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.pub-title a:hover {
+  text-decoration: underline;
+  color: #0b57d0;
+}
+
+/* 저널 이름 */
+.pub-journal {
+  font-size: 14px;
+  color: #555;
+  margin-top: 6px;
+  font-style: italic;   /* ⭐ 저널 느낌 */
+}
+
+/* 저자 */
+.pub-authors {
+  font-size: 14px;
+  color: #777;
+  margin-top: 3px;
+}
+
+/* ===================== */
 /* 모바일 대응 */
 /* ===================== */
 @media (max-width: 768px) {
