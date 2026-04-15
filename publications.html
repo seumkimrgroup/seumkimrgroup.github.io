@@ -101,10 +101,14 @@
   
     function matchesYear(pubYear, selectedYear) {
       if (selectedYear === "all") return true;
-      if (selectedYear === "2026") return pubYear === 2026;
-      if (selectedYear === "2025") return pubYear === 2025;
-      if (selectedYear === "2024-earlier") return pubYear <= 2024;
-      return true;
+    
+      const yearNum = Number(selectedYear);
+    
+      if (selectedYear === "2024-earlier") {
+        return pubYear <= 2024;
+      }
+    
+      return pubYear === yearNum;
     }
   
     function renderPublications() {
