@@ -16,7 +16,7 @@ const publications = [
     source: "Journal of Molecular Liquids",
     detail: "433(1), 127952",
     year: 2025,
-    authors: "Hui Jun Jang, Young In Lee, Hyeon Seong Hwang, Sunjae Lee, Kanghee Won, Se-Um Kim",
+    authors: "Hui Jun Jang*, Young In Lee*, Hyeon Seong Hwang, Sunjae Lee, Kanghee Won+, Se-Um Kim+",
     type: "non-sci",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S0167732225011298"
   },
