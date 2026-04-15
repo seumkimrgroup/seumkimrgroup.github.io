@@ -1,82 +1,68 @@
 /* format
-  {
-    title: "",
-    journal: "",
-    volume: "",
-    issue: "",
-    page: "",
-    year: 2023,
-    authors: "",
-    type: "",
-    link: ""
-  },
+{
+  title: "",
+  source: "",     // 저널명 / 특허 패밀리 / arXiv 등
+  detail: "",     // 권(호), 페이지, 번호 등
+  year: 2026,
+  authors: "",
+  type: "",       // "sci" | "non-sci" | "patent"
+  link: "",
+}
 */
 
 const publications = [
   {
     title: "Electrostatically powered multimode liquid crystalline elastomer actuators",
-    journal: "ACS Applied Materials & Interfaces",
-    volume: "15",
-    issue: "48",
-    page: "56285-56292",
+    source: "ACS Applied Materials & Interfaces",
+    detail: "15(48), 56285-56292",
     year: 2023,
     authors: "Mohsin Hassan Saeed*, Moon-Young Choi*, Kitae Kim, Jin-Hyeong Lee, Keumbee Kim, Dowon Kim, Se-Um Kim, Hyun Kim, Suk-kyun Ahn, Ruochen Lan+, Jun-Hee Na+",
-    type: "international",
+    type: "sci",
     link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
   },
   {
     title: "Voxelated opto-physically unclonable functions via irreplicable wrinkles",
-    journal: "Light: Science & Applications",
-    volume: "12",
-    issue: "1",
-    page: "245",
+    source: "Light: Science & Applications",
+    detail: "12(1), 245",
     year: 2023,
     authors: "Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na",
-    type: "international",
+    type: "sci",
     link: "https://www.nature.com/articles/s41377-023-01285-1"
   },
   {
     title: "2D Arrays of soft actuators performing out-of-plane local inflation for shape displays",
-    journal: "Advanced Engineering Materials",
-    volume: "25",
-    issue: "17",
-    page: "2300267",
+    source: "Advanced Engineering Materials",
+    detail: "25(17), 2300267",
     year: 2023,
     authors: "Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na",
-    type: "international",
+    type: "sci",
     link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adem.202300267"
   },
   {
     title: "Deformable photonic crystals based on chiral liquid crystals with thermal-mediative shape memory effect",
-    journal: "Materials",
-    volume: "16",
-    issue: "1",
-    page: "35",
+    source: "Materials",
+    detail: "16(1), 35",
     year: 2023,
     authors: "Min-Seok Park*, Kitae Kim*, Young-Joo Lee, Jun-Hee Na, Se-Um Kim",
-    type: "international",
+    type: "sci",
     link: "https://www.mdpi.com/1996-1944/16/1/35"
   },
   {
     title: "Versatile mechanochromic sensor based on highly stretchable chiral liquid crystalline elastomer",
-    journal: "Small",
-    volume: "19",
-    issue: "7",
-    page: "2206299",
+    source: "Small",
+    detail: "19(7), 2206299",
     year: 2022,
     authors: "Woong Chan Han*, Young-Joo Lee*, Se-Um Kim*, Hye Joo Lee, Young-Seok Kim+, Dae Seok Kim+",
-    type: "international",
+    type: "sci",
     link: "https://onlinelibrary.wiley.com/doi/10.1002/smll.202206299"
   },
   {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
-    journal: "Optics Express",
-    volume: "20",
-    issue: "2",
-    page: "864-869",
+    source: "Optics Express",
+    detail: "20(2), 864-869",
     year: 2012,
     authors: "Jun-Hee Na, Seung Chul Park, Se-Um Kim, Yoonseuk Choi, Sin-Doo Lee",
-    type: "international",
+    type: "sci",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-20-2-864"
   }
 
