@@ -12,6 +12,60 @@
 
 const publications = [
   {
+    title: "Low-voltage polymer-stabilized liquid crystals enabled by phase separation between liquid crystals and blends of mesogenic and non-mesogenic monomers",
+    source: "Journal of Molecular Liquids",
+    detail: "433, 127952",
+    year: 2025,
+    authors: "HJ Jang, YI Lee, HS Hwang, S Lee, K Won, SU Kim",
+    type: "sci",
+    link: ""
+  },
+  {
+    title: "Broadband near-infrared reflective film from stacked opposite-handed chiral liquid crystals with pitch gradients",
+    source: "Crystals",
+    detail: "15(7), 597",
+    year: 2025,
+    authors: "HS Hwang, J Lee, B Kang, M Kim, D Kim, SU Kim",
+    type: "sci",
+    link: ""
+  },
+  {
+    title: "Numerical analysis for cost-effective temperature reduction in high-power light-emitting diodes using thermal via array",
+    source: "Applied Sciences",
+    detail: "15(12), 6505",
+    year: 2025,
+    authors: "YJ Hwang, BY Lee, MJ Kim, SC Park, K Won, SU Kim",
+    type: "sci",
+    link: ""
+  },
+  {
+    title: "Tomographic strain indicator of chiral liquid crystalline elastomer",
+    source: "Chemical Engineering Journal",
+    detail: "513, 163040",
+    year: 2025,
+    authors: "HJ Lee, SU Kim, HS Oh, SM Park, J Hyun, YS Kim, DS Kim",
+    type: "sci",
+    link: ""
+  },
+  {
+    title: "Flexible phototransistors integrated with chiral liquid crystal encapsulating film for improving color selectivity and stability",
+    source: "ACS Applied Electronic Materials",
+    detail: "6(11), 8094-8103",
+    year: 2024,
+    authors: "JH Choi, HS Hwang, HB Jang, SU Kim, HL Park",
+    type: "sci",
+    link: ""
+  },
+  {
+    title: "Elastomer film of high-density porosity for efficient light scattering",
+    source: "Polymer (Korea)",
+    detail: "48(2), 165-170",
+    year: 2024,
+    authors: "H Jeong, S Lee, H Bae, B Choi, HS Hwang, SU Kim",
+    type: "non-sci",
+    link: ""
+  },
+  {
     title: "Electrostatically powered multimode liquid crystalline elastomer actuators",
     source: "ACS Applied Materials & Interfaces",
     detail: "15(48), 56285-56292",
@@ -37,6 +91,15 @@ const publications = [
     authors: "Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na",
     type: "sci",
     link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adem.202300267"
+  },
+  {
+    title: "Recent Progress in Liquid Crystal-Based Smart Windows",
+    source: "Journal of Flexible and Printed Electronics",
+    detail: "2(1), 61-76",
+    year: 2023,
+    authors: "HS Hwang, HM Cho, SU Kim",
+    type: "non-sci",
+    link: ""
   },
   {
     title: "Deformable photonic crystals based on chiral liquid crystals with thermal-mediative shape memory effect",
@@ -120,6 +183,24 @@ const publications = [
     link: "https://www.sciencedirect.com/science/article/abs/pii/S2352431620300249?via%3Dihub"
   },
   {
+    title: "Helical photonic crystal-based reflective-type color display and method for manufacturing the same",
+    source: "US Patent",
+    detail: "10,877,311",
+    year: 2020,
+    authors: "Sin-Doo Lee, Se-Um Kim",
+    type: "patent",
+    link: ""
+  },
+  {
+    title: "Light-modulated quantum dot color display and method for manufacturing the same",
+    source: "US Patent",
+    detail: "10,503,015",
+    year: 2019,
+    authors: "Sin-Doo Lee, Se-Um Kim, Jeng-Hun Suh",
+    type: "patent",
+    link: ""
+  },
+  {
     title: "Programming emergent symmetries with saddle-splay elasticity",
     source: "Nature Communications",
     detail: "10, 5104",
@@ -192,6 +273,78 @@ const publications = [
     link: "https://www.tandfonline.com/doi/full/10.1080/02678292.2017.1328748"
   },
   {
+    title: "Reduction of gamma distortions in liquid crystal display by anisotropic voltage-dividing layer of reactive mesogens",
+    source: "Liquid Crystals",
+    detail: "44(2), 364-371",
+    year: 2017,
+    authors: "Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee",
+    type: "sci",
+    link: "https://www.tandfonline.com/doi/full/10.1080/02678292.2016.1205224"
+  },
+  {
+    title: "Concept of active parallax barrier on polarizing interlayer for near-viewing autostereoscopic displays",
+    source: "Optics Express",
+    detail: "24(22), 25010-25018",
+    year: 2016,
+    authors: "Se-Um Kim, Jiyoon Kim, Jeng-Hun Suh, Jun-Hee Na, Sin-Doo Lee",
+    type: "sci",
+    link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-24-22-25010"
+  },
+  {
+    title: "The domain mixing effect on the electro-optical properties of liquid crystals using polyimide doped with reactive mesogen",
+    source: "Journal of Information Display",
+    detail: "17(3), 125-130",
+    year: 2016,
+    authors: "Eui-Sang Yu, Se-Um Kim, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee",
+    type: "non-sci",
+    link: "https://www.tandfonline.com/doi/full/10.1080/15980316.2016.1208631"
+  },
+  {
+    title: "Importance of surface modification of a microcontact stamp for pattern fidelity of soluble organic semiconductors",
+    source: "Journal of Micro/Nanolithography, MEMS, and MOEMS",
+    detail: "15(1), 13501",
+    year: 2016,
+    authors: "Hea-Lim Park, Bo-Yeon Lee, Se-Um Kim, Jeng-Hun Suh, Min-Hoi Kim, Sin-Doo Lee",
+    type: "sci",
+    link: "https://www.spiedigitallibrary.org/journals/journal-of-micro-nanolithography-mems-and-moems/volume-15/issue-1/013501/Importance-of-surface-modification-of-a-microcontact-stamp-for-pattern/10.1117/1.JMM.15.1.013501.short"
+  },
+  {
+    title: "Optically switchable grating based on dye-doped ferroelectric liquid crystal with high efficiency",
+    source: "Optics Express",
+    detail: "23(10), 12619-12627",
+    year: 2015,
+    authors: "Jiyoon Kim, Jeng-Hun Suh, Bo-Yeon Lee, Se-Um Kim, Sin-Doo Lee",
+    type: "sci",
+    link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-23-10-12619"
+  },
+  {
+    title: "Self-organized wrinkling patterns of a liquid crystalline polymer in surface wetting confinement",
+    source: "Soft Matter",
+    detail: "11(24), 4788-4792",
+    year: 2015,
+    authors: "Jun-Hee Na, Se-Um Kim, Youngjoo Sohn, Sin-Doo Lee",
+    type: "sci",
+    link: "https://pubs.rsc.org/en/content/articlelanding/2015/sm/c5sm00694e"
+  },
+  {
+    title: "Colloidal assembling template with wrinkled patterns based on liquid crystalline polymer",
+    source: "Molecular Crystals and Liquid Crystals",
+    detail: "610(1), 221-226",
+    year: 2015,
+    authors: "Se-Um Kim, Jiyoon Kim, Eui-Sang Yu, In-Ho Lee, Bo-Yeon Lee, Youngjoo Sohn, Sin-Doo Lee",
+    type: "sci",
+    link: "https://www.tandfonline.com/doi/full/10.1080/15421406.2015.1026749"
+  },
+  {
+    title: "Lenticular lens array based on liquid crystal with a polarization-dependent focusing effect for 2D–3D image applications",
+    source: "Journal of Information Display",
+    detail: "16(1), 11-15",
+    year: 2015,
+    authors: "Jiyoon Kim, Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Sin-Doo Lee",
+    type: "non-sci",
+    link: "https://www.tandfonline.com/doi/full/10.1080/15980316.2015.1010615"
+  },
+  {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
     source: "Optics Express",
     detail: "20(2), 864-869",
@@ -203,51 +356,6 @@ const publications = [
 ];
 
 /*
-Design and fabrication of liquid crystal-based lenses
-Liquid Crystals 44(12-13), 2121-2132 (2017)
-
-
-
-Reduction of gamma distortions in liquid crystal display by anisotropic voltage-dividing layer of reactive mesogens
-Liquid Crystals 44(2), 364-371 (2017)
-
-Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee
-
-Concept of active parallax barrier on polarizing interlayer for near-viewing autostereoscopic displays
-Optics Express 24(22), 25010-25018 (2016)
-
-Se-Um Kim, Jiyoon Kim, Jeng-Hun Suh, Jun-Hee Na, Sin-Doo Lee
-
-The domain mixing effect on the electro-optical properties of liquid crystals using polyimide doped with reactive mesogen
-Journal of Information Display 17(3), 125-130 (2016)
-
-Eui-Sang Yu, Se-Um Kim, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee
-
-Importance of surface modification of a microcontact stamp for pattern fidelity of soluble organic semiconductors
-Journal of Micro/Nanolithography, MEMS, and MOEMS 15(1), 13501 (2016)
-
-Hea-Lim Park, Bo-Yeon Lee, Se-Um Kim, Jeng-Hun Suh, Min-Hoi Kim, Sin-Doo Lee
-
-Optically switchable grating based on dye-doped ferroelectric liquid crystal with high efficiency
-Optics Express 23(10), 12619-12627 (2015)
-
-Jiyoon Kim, Jeng-Hun Suh, Bo-Yeon Lee, Se-Um Kim, Sin-Doo Lee
-
-Self-organized wrinkling patterns of a liquid crystalline polymer in surface wetting confinement
-Soft Matter 11(24), 4788-4792 (2015)
-
-Jun-Hee Na, Se-Um Kim, Youngjoo Sohn, Sin-Doo Lee
-
-Colloidal assembling template with wrinkled patterns based on liquid crystalline polymer
-Molecular Crystals and Liquid Crystals 610(1), 221-226 (2015)
-
-Se-Um Kim, Jiyoon Kim, Eui-Sang Yu, In-Ho Lee, Bo-Yeon Lee, Youngjoo Sohn, Sin-Doo Lee
-
-Lenticular lens array based on liquid crystal with a polarization-dependent focusing effect for 2D–3D image applications
-Journal of Information Display 16(1), 11-15 (2015)
-
-Jiyoon Kim, Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Sin-Doo Lee
-
 Combinatorial color arrays based on optical micro-resonators in monolithic architecture
 Optics Express 22(12), 15320-15327 (2014)
 
