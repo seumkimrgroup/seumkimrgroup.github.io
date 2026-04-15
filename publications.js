@@ -345,6 +345,42 @@ const publications = [
     link: "https://www.tandfonline.com/doi/full/10.1080/15980316.2015.1010615"
   },
   {
+    title: "Combinatorial color arrays based on optical micro-resonators in monolithic architecture",
+    source: "Optics Express",
+    detail: "22(12), 15320-15327",
+    year: 2014,
+    authors: "In-Ho Lee, Sin-Hyung Lee, Chang-Min Keum, Se-Um Kim, Sin-Doo Lee",
+    type: "sci",
+    link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-12-15320"
+  },
+  {
+    title: "Precise lens-on-lens architecture using selective wettability for image-depth representation",
+    source: "Molecular Crystals and Liquid Crystals",
+    detail: "591(1), 50-54",
+    year: 2014,
+    authors: "Se-Um Kim, Jiyoon Kim, Sin-Doo Lee",
+    type: "sci",
+    link: "https://www.tandfonline.com/doi/abs/10.1080/15421406.2014.917781"
+  },
+  {
+    title: "Tunable liquid crystal lens array by encapsulation with a photo-reactive polymer for short focal length",
+    source: "Optics Communications",
+    detail: "313, 329-332",
+    year: 2014,
+    authors: "Se-Um Kim, Sanghun Lee, Jun-Hee Na, Sin-Doo Lee",
+    type: "sci",
+    link: "https://www.sciencedirect.com/science/article/abs/pii/S0030401813009814?via%3Dihub"
+  },
+  {
+    title: "Array of solid-state dye-sensitized solar cells with micropatterned TiO2 nanoparticles for a high-voltage power source",
+    source: "Nanoscale Research Letters",
+    detail: "8(1), 491",
+    year: 2013,
+    authors: "Seong-Min Cho, Hea-Lim Park, Min-Hoi Kim, Se-Um Kim, Sin-Doo Lee",
+    type: "sci",
+    link: "https://link.springer.com/article/10.1186/1556-276X-8-491"
+  },
+  {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
     source: "Optics Express",
     detail: "20(2), 864-869",
@@ -354,27 +390,3 @@ const publications = [
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-20-2-864"
   }
 ];
-
-/*
-Combinatorial color arrays based on optical micro-resonators in monolithic architecture
-Optics Express 22(12), 15320-15327 (2014)
-
-In-Ho Lee, Sin-Hyung Lee, Chang-Min Keum, Se-Um Kim, Sin-Doo Lee
-
-Precise lens-on-lens architecture using selective wettability for image-depth representation
-Molecular Crystals and Liquid Crystals 591(1), 50-54 (2014)
-
-Se-Um Kim, Jiyoon Kim, Sin-Doo Lee
-
-Tunable liquid crystal lens array by encapsulation with a photo-reactive polymer for short focal length
-Optics Communications 313, 329-332 (2014)
-
-Se-Um Kim, Sanghun Lee, Jun-Hee Na, Sin-Doo Lee
-
-Array of solid-state dye-sensitized solar cells with micropatterned TiO2 nanoparticles for a high-voltage power source
-
-Nanoscale Research Letters 8(1), 491 (2013)
-
-Seong-Min Cho, Hea-Lim Park, Min-Hoi Kim, Se-Um Kim, Sin-Doo Lee
-
-*/
