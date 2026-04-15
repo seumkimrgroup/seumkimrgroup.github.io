@@ -132,9 +132,44 @@ a {
 /* ===================== */
 /* Search / Filter / Publications */
 /* ===================== */
+.search-filter-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.filter-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  min-width: 118px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #444;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .search-box {
   width: 100%;
-  max-width: 420px;
+  max-width: 320px;
   padding: 12px 14px;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -143,16 +178,11 @@ a {
   background-color: white;
   border: 1px solid #ddd;
   outline: none;
+  align-self: flex-start;
 }
 
 .search-box:focus {
   border-color: #999;
-}
-
-.filter-bar {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -164,6 +194,7 @@ a {
   border: 1px solid #ddd;
   padding: 8px 14px;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .filter-btn:hover {
@@ -184,6 +215,10 @@ a {
 .publication-item .text-title a:hover {
   color: #555;
   text-decoration: underline;
+}
+
+.empty-state {
+  padding: 6px 0;
 }
 
 /* ===================== */
@@ -228,4 +263,24 @@ a {
   .text-sub {
     font-size: 14px;
   }
+
+  .search-filter-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .filter-label {
+    min-width: auto;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
 }
+
