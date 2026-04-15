@@ -28,36 +28,36 @@
       <div class="text-sub page-subtitle">Research Archive</div>
     </div>
 
-    <div class="section search-filter-row">
-      <div class="filter-panel">
-        <div class="filter-group">
-          <div class="filter-label">Document type</div>
-          <div class="filter-bar" data-group="type">
-            <button class="filter-btn active" data-group="type" data-filter="all" type="button">All</button>
-            <button class="filter-btn" data-group="type" data-filter="patent" type="button">Patent</button>
-            <button class="filter-btn" data-group="type" data-filter="sci" type="button">SCI</button>
-            <button class="filter-btn" data-group="type" data-filter="non-sci" type="button">Non-SCI</button>
-          </div>
-        </div>
-
-        <div class="filter-group">
-          <div class="filter-label">Year</div>
-          <div class="filter-bar" data-group="year">
-            <button class="filter-btn active" data-group="year" data-filter="all" type="button">All</button>
-            <button class="filter-btn" data-group="year" data-filter="2026" type="button">2026</button>
-            <button class="filter-btn" data-group="year" data-filter="2025" type="button">2025</button>
-            <button class="filter-btn" data-group="year" data-filter="2024-earlier" type="button">2024 earlier</button>
-          </div>
+  <div class="section filter-search-row">
+    <div class="filter-group-wrap">
+      <div class="filter-group">
+        <div class="filter-label">Document type</div>
+        <div class="filter-bar">
+          <button class="filter-btn type-btn active" data-type="all">All</button>
+          <button class="filter-btn type-btn" data-type="sci">SCI</button>
+          <button class="filter-btn type-btn" data-type="non-sci">Non-SCI</button>
+          <button class="filter-btn type-btn" data-type="patent">Patent</button>
         </div>
       </div>
-
-      <input
-        type="text"
-        id="searchInput"
-        class="search-box"
-        placeholder="Search publications"
-      >
+  
+      <div class="filter-group">
+        <div class="filter-label">Year</div>
+        <div class="filter-bar">
+          <button class="filter-btn year-btn active" data-year="all" type="button">All</button>
+          <button class="filter-btn year-btn" data-year="2026" type="button">2026</button>
+          <button class="filter-btn year-btn" data-year="2025" type="button">2025</button>
+          <button class="filter-btn year-btn" data-year="2024-earlier" type="button">2024 earlier</button>
+        </div>
+      </div>
     </div>
+  
+    <input
+      type="text"
+      id="searchInput"
+      class="search-box"
+      placeholder="Search publications"
+    >
+  </div>
 
     <div id="publication-list" class="pub-list"></div>
   </div>
@@ -75,116 +75,135 @@
   <script>
     const container = document.getElementById("publication-list");
     const searchInput = document.getElementById("searchInput");
-    const filterButtons = document.querySelectorAll(".filter-btn");
-
-    let currentTypeFilter = "all";
-    let currentYearFilter = "all";
-
-    function formatJournalLine(pub) {
-      let result = pub.journal || "";
-
-      if (pub.volume) {
-        result += ` ${pub.volume}`;
+  
+    const typeButtons = document.querySelectorAll(".type-btn");
+    const yearButtons = document.querySelectorAll(".year-btn");
+  
+    let currentType = "all";
+    let currentYear = "all";
+  
+    function formatMetaLine(pub) {
+      const parts = [];
+  
+      if (pub.source) {
+        parts.push(pub.source);
       }
-
-      if (pub.issue) {
-        result += `(${pub.issue})`;
+  
+      if (pub.detail) {
+        if (parts.length > 0) {
+          parts[parts.length - 1] += ` ${pub.detail}`;
+        } else {
+          parts.push(pub.detail);
+        }
       }
-
-      if (pub.page) {
-        result += `, ${pub.page}`;
+  
+      const baseLine = parts.join("");
+  
+      if (pub.type === "patent") {
+        return baseLine;
       }
-
+  
       if (pub.year) {
-        result += ` (${pub.year})`;
+        return baseLine ? `${baseLine} (${pub.year})` : `(${pub.year})`;
       }
-
-      return result;
+  
+      return baseLine;
     }
-
-    function matchesYearFilter(pubYear, yearFilter) {
-      if (yearFilter === "all") {
-        return true;
-      }
-
-      if (yearFilter === "2024-earlier") {
-        return pubYear <= 2024;
-      }
-
-      return String(pubYear) === yearFilter;
+  
+    function matchesYear(pubYear, selectedYear) {
+      if (selectedYear === "all") return true;
+      if (selectedYear === "2026") return pubYear === 2026;
+      if (selectedYear === "2025") return pubYear === 2025;
+      if (selectedYear === "2024-earlier") return pubYear <= 2024;
+      return true;
     }
-
+  
     function renderPublications() {
       const keyword = searchInput.value.trim().toLowerCase();
       container.innerHTML = "";
-
+  
       const filtered = publications.filter((pub) => {
         const matchesType =
-          currentTypeFilter === "all" || pub.type === currentTypeFilter;
-
-        const matchesYear = matchesYearFilter(pub.year, currentYearFilter);
-
-        const matchesSearch =
-          pub.title.toLowerCase().includes(keyword) ||
-          pub.journal.toLowerCase().includes(keyword) ||
-          pub.authors.toLowerCase().includes(keyword) ||
-          String(pub.year).includes(keyword) ||
-          pub.type.toLowerCase().includes(keyword);
-
-        return matchesType && matchesYear && matchesSearch;
+          currentType === "all" || pub.type === currentType;
+  
+        const matchesYearFilter = matchesYear(pub.year, currentYear);
+  
+        const searchTarget = [
+          pub.title || "",
+          pub.authors || "",
+          pub.source || "",
+          pub.detail || "",
+          String(pub.year || "")
+        ]
+          .join(" ")
+          .toLowerCase();
+  
+        const matchesSearch = searchTarget.includes(keyword);
+  
+        return matchesType && matchesYearFilter && matchesSearch;
       });
-
+  
       if (filtered.length === 0) {
-        container.innerHTML = '<div class="text-sub empty-state">No publications found.</div>';
+        container.innerHTML =
+          '<div class="text-sub empty-state">No publications found.</div>';
         return;
       }
-
-      filtered.forEach((pub) => {
-        const journalLine = formatJournalLine(pub);
-
-        const item = document.createElement("div");
-        item.className = "item publication-item";
-
-        item.innerHTML = `
-          <div class="text-title">
-            <a href="${pub.link}" target="_blank" rel="noopener noreferrer">
-              ${pub.title}
-            </a>
-          </div>
-          <div class="text-sub">${journalLine}</div>
-          <div class="text-sub">${pub.authors}</div>
-        `;
-
-        container.appendChild(item);
-      });
+  
+      filtered
+        .sort((a, b) => (b.year || 0) - (a.year || 0))
+        .forEach((pub) => {
+          const metaLine = formatMetaLine(pub);
+  
+          const item = document.createElement("div");
+          item.className = "item publication-item";
+  
+          const titleHtml = pub.link
+            ? `
+              <div class="text-title">
+                <a href="${pub.link}" target="_blank" rel="noopener noreferrer">
+                  ${pub.title}
+                </a>
+              </div>
+            `
+            : `
+              <div class="text-title">
+                ${pub.title}
+              </div>
+            `;
+  
+          item.innerHTML = `
+            ${titleHtml}
+            <div class="text-sub">${metaLine}</div>
+            <div class="text-sub">${pub.authors || ""}</div>
+          `;
+  
+          container.appendChild(item);
+        });
     }
-
-    filterButtons.forEach((button) => {
+  
+    typeButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const group = button.dataset.group;
-        const value = button.dataset.filter;
-
-        document
-          .querySelectorAll(`.filter-btn[data-group="${group}"]`)
-          .forEach((btn) => btn.classList.remove("active"));
-
+        typeButtons.forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
-
-        if (group === "type") {
-          currentTypeFilter = value;
-        }
-
-        if (group === "year") {
-          currentYearFilter = value;
-        }
-
+        currentType = button.dataset.type;
         renderPublications();
       });
     });
-
+  
+    yearButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        yearButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        currentYear = button.dataset.year;
+        renderPublications();
+      });
+    });
+  
     searchInput.addEventListener("input", renderPublications);
-
+  
     renderPublications();
   </script>
+
+  
 </body>
 </html>
