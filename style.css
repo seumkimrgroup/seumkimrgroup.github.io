@@ -132,18 +132,20 @@ a {
 /* ===================== */
 /* Search / Filter / Publications */
 /* ===================== */
-.search-filter-row {
+.filter-search-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
+  flex-wrap: nowrap;
 }
 
-.filter-panel {
+.filter-group-wrap {
   display: flex;
   flex-direction: column;
   gap: 14px;
   flex: 1;
+  min-width: 0;
 }
 
 .filter-group {
@@ -170,6 +172,7 @@ a {
 .search-box {
   width: 100%;
   max-width: 320px;
+  min-width: 240px;
   padding: 12px 14px;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -264,7 +267,7 @@ a {
     font-size: 14px;
   }
 
-  .search-filter-row {
+  .filter-search-row {
     flex-direction: column;
     gap: 18px;
   }
@@ -281,6 +284,6 @@ a {
 
   .search-box {
     max-width: 100%;
+    min-width: 0;
   }
 }
-
