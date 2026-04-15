@@ -61,9 +61,9 @@ const publications = [
     source: "ACS Applied Electronic Materials",
     detail: "6(11), 8094-8103",
     year: 2024,
-    authors: "JH Choi, HS Hwang, HB Jang, SU Kim, HL Park",
+    authors: "Ji-Hoon Choi*, Hyeon Seong Hwang*, Hyo-Bin Jang, Se-Um Kim+, Hea-Lim Park+",
     type: "sci",
-    link: ""
+    link: "https://pubs.acs.org/doi/abs/10.1021/acsaelm.4c01439"
   },
   {
     title: "Elastomer film of high-density porosity for efficient light scattering",
