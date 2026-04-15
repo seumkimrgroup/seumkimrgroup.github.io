@@ -120,6 +120,78 @@ const publications = [
     link: "https://www.sciencedirect.com/science/article/abs/pii/S2352431620300249?via%3Dihub"
   },
   {
+    title: "Programming emergent symmetries with saddle-splay elasticity",
+    source: "Nature Communications",
+    detail: "10, 5104",
+    year: 2019,
+    authors: "Yu Xia*, Andrew A. DeBenedictis*, Dae Seok Kim, Shenglan Chen, Se-Um Kim, Douglas J. Cleaver+, Timothy J. Atherton+, Shu Yang+",
+    type: "sci",
+    link: "https://www.nature.com/articles/s41467-019-13012-9"
+  },
+  {
+    title: "Selective photonic printing based on anisotropic Fabry-Perot resonators for dual-image holography and anti-counterfeiting",
+    source: "Optics Express",
+    detail: "27(17), 24512-24523",
+    year: 2019,
+    authors: "In-Ho Lee, Gang Li, Bo-Yeon Lee, Se-Um Kim, Byoungho Lee, Sang-Hyun Oh, Sin-Doo Lee",
+    type: "sci",
+    link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-27-17-24512"
+  },
+  {
+    title: "Concept of chiral image storage and selection based on liquid crystals by circular polarization",
+    source: "Optics Express",
+    detail: "27(8), 11661-11672",
+    year: 2019,
+    authors: "Sang Hyun Lee, Sin-Hyung Lee, Se-Um Kim, Sujie Kang, Sin-Doo Lee",
+    type: "sci",
+    link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-27-8-11661"
+  },
+  {
+    title: "Self-organized wrinkling of liquid crystalline polymer with plasma treatment",
+    source: "Journal of Materials Research",
+    detail: "33(23), 4092-4100",
+    year: 2018,
+    authors: "Jaehyun Sim, Sihwa Oh, Se-Um Kim, Kyuyoung Heo, Seung-Chul Park, Jun-Hee Na",
+    type: "sci",
+    link: "https://link.springer.com/article/10.1557/jmr.2018.360"
+  },
+  {
+    title: "Transparent and flexible high power triboelectric nanogenerator with metallic nanowire-embedded tribonegative conducting polymer",
+    source: "Nano Energy",
+    detail: "53, 152-159",
+    year: 2018,
+    authors: "Bo-Yeon Lee, Se-Um Kim, Sujie Kang, Sin-Doo Lee",
+    type: "sci",
+    link: "https://www.sciencedirect.com/science/article/abs/pii/S2211285518306116?via%3Dihub"
+  },
+  {
+    title: "Topographic localization of liquid crystals based on gradual phase separation in a polymer network for electrically tunable smart window applications",
+    source: "Journal of Information Display",
+    detail: "19(4), 151-157",
+    year: 2018,
+    authors: "Se-Um Kim*, Sang Hyun Lee*, Jaehyun Sim, Sin-Doo Lee, Jun-Hee Na",
+    type: "non-sci",
+    link: "https://www.tandfonline.com/doi/full/10.1080/15980316.2018.1520158"
+  },
+  {
+    title: "Generation of intensity-tunable structural color from helical photonic crystals for full color reflective-type display",
+    source: "Optics Express",
+    detail: "26(10), 13561-13572",
+    year: 2018,
+    authors: "Se-Um Kim, Sin-Hyung Lee, In-Ho Lee, Bo-Yeon Lee, Jun-Hee Na, Sin-Doo Lee",
+    type: "sci",
+    link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-26-10-13561"
+  },
+  {
+    title: "Design and fabrication of liquid crystal-based lenses",
+    source: "Liquid Crystals",
+    detail: "44(12-13), 2121-2132",
+    year: 2017,
+    authors: "Se-Um Kim, Jun-Hee Na, Chiwoo Kim, Sin-Doo Lee",
+    type: "sci",
+    link: "https://www.tandfonline.com/doi/full/10.1080/02678292.2017.1328748"
+  },
+  {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
     source: "Optics Express",
     detail: "20(2), 864-869",
@@ -131,47 +203,10 @@ const publications = [
 ];
 
 /*
-
-
-Programming emergent symmetries with saddle-splay elasticity
-Nature Communications 10, 5104 (2019)
-
-Yu Xia*, Andrew A. DeBenedictis*, Dae Seok Kim, Shenglan Chen, Se-Um Kim, Douglas J. Cleaver+, Timothy J. Atherton+, Shu Yang+
-
-Selective photonic printing based on anisotropic Fabry-Perot resonators for dual-image holography and anti-counterfeiting
-Optics Express 27(17), 24512-24523 (2019)
-
-In-Ho Lee, Gang Li, Bo-Yeon Lee, Se-Um Kim, Byoungho Lee, Sang-Hyun Oh, Sin-Doo Lee
-
-Concept of chiral image storage and selection based on liquid crystals by circular polarization
-Optics Express 27(8), 11661-11672 (2019)
-
-Sang Hyun Lee, Sin-Hyung Lee, Se-Um Kim, Sujie Kang, Sin-Doo Lee
-
-Self-organized wrinkling of liquid crystalline polymer with plasma treatment
-Journal of Materials Research 33(23), 4092-4100 (2018)
-
-Jaehyun Sim, Sihwa Oh, Se-Um Kim, Kyuyoung Heo, Seung-Chul Park, Jun-Hee Na
-
-Transparent and flexible high power triboelectric nanogenerator with metallic nanowire-embedded tribonegative conducting polymer
-Nano Energy 53, 152-159 (2018)
-
-Bo-Yeon Lee, Se-Um Kim, Sujie Kang, Sin-Doo Lee
-
-Topographic localization of liquid crystals based on gradual phase separation in a polymer network for electrically tunable smart window applications
-Journal of Information Display 19(4), 151-157 (2018)
-
-Se-Um Kim*, Sang Hyun Lee*, Jaehyun Sim, Sin-Doo Lee, Jun-Hee Na
-
-Generation of intensity-tunable structural color from helical photonic crystals for full color reflective-type display
-Optics Express 26(10), 13561-13572 (2018)
-
-Se-Um Kim, Sin-Hyung Lee, In-Ho Lee, Bo-Yeon Lee, Jun-Hee Na, Sin-Doo Lee
-
 Design and fabrication of liquid crystal-based lenses
 Liquid Crystals 44(12-13), 2121-2132 (2017)
 
-Se-Um Kim, Jun-Hee Na, Chiwoo Kim, Sin-Doo Lee
+
 
 Reduction of gamma distortions in liquid crystal display by anisotropic voltage-dividing layer of reactive mesogens
 Liquid Crystals 44(2), 364-371 (2017)
