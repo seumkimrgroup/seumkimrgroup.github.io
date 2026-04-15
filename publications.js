@@ -14,38 +14,47 @@ const publications = [
   {
     title: "Low-voltage polymer-stabilized liquid crystals enabled by phase separation between liquid crystals and blends of mesogenic and non-mesogenic monomers",
     source: "Journal of Molecular Liquids",
-    detail: "433, 127952",
+    detail: "433(1), 127952",
     year: 2025,
-    authors: "HJ Jang, YI Lee, HS Hwang, S Lee, K Won, SU Kim",
-    type: "sci",
-    link: ""
+    authors: "Hui Jun Jang, Young In Lee, Hyeon Seong Hwang, Sunjae Lee, Kanghee Won, Se-Um Kim",
+    type: "non-sci",
+    link: "https://www.sciencedirect.com/science/article/abs/pii/S0167732225011298"
   },
   {
     title: "Broadband near-infrared reflective film from stacked opposite-handed chiral liquid crystals with pitch gradients",
     source: "Crystals",
     detail: "15(7), 597",
     year: 2025,
-    authors: "HS Hwang, J Lee, B Kang, M Kim, D Kim, SU Kim",
+    authors: "Hyeon Seong Hwang*, Jongsu Lee*, Byungsoo Kang, Minhye Kim, Doyo Kim, Se-Um Kim",
     type: "sci",
-    link: ""
+    link: "https://www.mdpi.com/2073-4352/15/7/597"
   },
   {
     title: "Numerical analysis for cost-effective temperature reduction in high-power light-emitting diodes using thermal via array",
     source: "Applied Sciences",
     detail: "15(12), 6505",
     year: 2025,
-    authors: "YJ Hwang, BY Lee, MJ Kim, SC Park, K Won, SU Kim",
+    authors: "Yong Jin Hwang*, Bo-Yeon Lee*, Min Ji Kim, Seung-Chul Park, Kanghee Won+, Se-Um Kim+",
     type: "sci",
-    link: ""
+    link: "https://www.mdpi.com/2076-3417/15/12/6505"
   },
   {
     title: "Tomographic strain indicator of chiral liquid crystalline elastomer",
     source: "Chemical Engineering Journal",
-    detail: "513, 163040",
+    detail: "513(1), 163040",
     year: 2025,
-    authors: "HJ Lee, SU Kim, HS Oh, SM Park, J Hyun, YS Kim, DS Kim",
+    authors: "Hye Joo Lee*, Se-Um Kim*, Hyo Seok Oh, Soon Mo Park, Jaeyub Hyun+, Young-Seok Kim+, Dae Seok Kim+",
     type: "sci",
-    link: ""
+    link: "https://www.sciencedirect.com/science/article/abs/pii/S1385894725038744"
+  },
+  {
+    title: "Recent advances in electrochromic devices: from multicolor to flexible applications",
+    source: "Advanced Photonics Research",
+    detail: "6(3), 2400103",
+    year: 2025,
+    authors: "Hyun Mok Cho*, Yong Jin Hwang, Hyo Seok Oh, Hyeon Seong Hwang, Kitae Kim, Se‐Um Kim+, Jun‐Hee Na+",
+    type: "non-sci",
+    link: "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adpr.202400103"
   },
   {
     title: "Flexible phototransistors integrated with chiral liquid crystal encapsulating film for improving color selectivity and stability",
@@ -61,9 +70,9 @@ const publications = [
     source: "Polymer (Korea)",
     detail: "48(2), 165-170",
     year: 2024,
-    authors: "H Jeong, S Lee, H Bae, B Choi, HS Hwang, SU Kim",
-    type: "non-sci",
-    link: ""
+    authors: "Hongbin Jeong*, Suah Lee*, Heeyoung Bae*, Bosuk Choi*, Hyeon Seong Hwang, Se Um Kim",
+    type: "sci",
+    link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11744813"
   },
   {
     title: "Electrostatically powered multimode liquid crystalline elastomer actuators",
