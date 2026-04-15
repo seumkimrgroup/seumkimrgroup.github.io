@@ -83,31 +83,21 @@
     let currentYear = "all";
   
     function formatMetaLine(pub) {
-      const parts = [];
+      let line = "";
   
       if (pub.source) {
-        parts.push(pub.source);
+        line += pub.source;
       }
   
       if (pub.detail) {
-        if (parts.length > 0) {
-          parts[parts.length - 1] += ` ${pub.detail}`;
-        } else {
-          parts.push(pub.detail);
-        }
+        line += line ? ` ${pub.detail}` : pub.detail;
       }
   
-      const baseLine = parts.join("");
-  
-      if (pub.type === "patent") {
-        return baseLine;
+      if (pub.type !== "patent" && pub.year) {
+        line += ` (${pub.year})`;
       }
   
-      if (pub.year) {
-        return baseLine ? `${baseLine} (${pub.year})` : `(${pub.year})`;
-      }
-  
-      return baseLine;
+      return line;
     }
   
     function matchesYear(pubYear, selectedYear) {
