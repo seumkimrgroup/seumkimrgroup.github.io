@@ -57,6 +57,69 @@ const publications = [
     link: "https://onlinelibrary.wiley.com/doi/10.1002/smll.202206299"
   },
   {
+    title: "Reverse-engineered highly conformable leak and pressure reducing cushion for neonatal resuscitation mask",
+    source: "Advanced Materials Technologies",
+    detail: "7(7), 2101364",
+    year: 2022,
+    authors: "Carolyn M. McGann*, Young-Joo Lee*, Se-Um Kim*, Danielle D. Weinberg*, Xincheng Zha, Matthew Huber, Michael W. Hast, Kayley Dear, Vinay Nadkarni, Elizabeth E. Foglia+, Shu Yang+",
+    type: "sci",
+    link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/admt.202101364"
+  },
+  {
+    title: "Broadband and pixelated camouflage in inflating chiral nematic liquid crystalline elastomers",
+    source: "Nature Materials",
+    detail: "21, 41-46",
+    year: 2022,
+    authors: "Se-Um Kim, Young-Joo Lee, Jiaqi Liu, Dae Seok Kim, Haihuan Wang, Shu Yang",
+    type: "sci",
+    link: "https://www.nature.com/articles/s41563-021-01075-3"
+  },
+  {
+    title: "Fabrication of transmittance tunable porous elastomers for smart window applications",
+    source: "Polymers Korea",
+    detail: "45(6), 934-939",
+    year: 2021,
+    authors: "Mira Shin*, Youngeun Lee*, Jinkyung Kim*, Gun Woo Sim*, Youngho Eom, Se-Um Kim+, Dae Seok Kim+",
+    type: "sci",
+    link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10667018"
+  },
+  {
+    title: "Printable nanocomposite metalens for high-contrast near-infrared imaging",
+    source: "ACS Nano",
+    detail: "15(1), 698-706",
+    year: 2021,
+    authors: "Gwanho Yoon*, Kwan Kim*, Se-Um Kim, Seunghoon Han, Heon Lee+, Junsuk Rho+",
+    type: "sci",
+    link: "https://pubs.acs.org/doi/10.1021/acsnano.0c06968"
+  },
+  {
+    title: "Self-regulating contact lenses with the patterning of a photochromic layer based on wettability contrast",
+    source: "Advanced Materials Interfaces",
+    detail: "8(2), 2001443",
+    year: 2020,
+    authors: "Se-Um Kim, Sang Hyun Lee, Kitae Kim, Jun-Hee Na",
+    type: "sci",
+    link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/admi.202001443"
+  },
+  {
+    title: "High-definition optophysical image construction using mosaics of pixelated wrinkles",
+    source: "Advanced Science",
+    detail: "7(24), 2002134",
+    year: 2020,
+    authors: "Kitae Kim*, Se-Um Kim*, Subi Choi, Kyuyoung Heo, Suk-kyun Ahn, Jun-Hee Na",
+    type: "sci",
+    link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202002134"
+  },
+  {
+    title: "Continuum soft actuators based on reprogrammable geometric constraints",
+    source: "Extreme Mechanics Letters",
+    detail: "36, 100649",
+    year: 2020,
+    authors: "Sihwa Oh*, Se-Um Kim*, Sooyoung Yeom, Hogyeong Kim, Sunwoo Kim, Jun-Hee Na",
+    type: "sci",
+    link: "https://www.sciencedirect.com/science/article/abs/pii/S2352431620300249?via%3Dihub"
+  },
+  {
     title: "Physical mechanism for flat-to-lenticular lens conversion in homogeneous liquid crystal cell with periodically undulated electrode",
     source: "Optics Express",
     detail: "20(2), 864-869",
@@ -65,47 +128,10 @@ const publications = [
     type: "sci",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-20-2-864"
   }
-
 ];
-
 
 /*
 
-
-Reverse-engineered highly conformable leak and pressure reducing cushion for neonatal resuscitation mask
-Advanced Materials Technologies 7(7), 2101364 (2022)
-
-Carolyn M. McGann*, Young-Joo Lee*, Se-Um Kim*, Danielle D. Weinberg*, Xincheng Zha, Matthew Huber, Michael W. Hast, Kayley Dear, Vinay Nadkarni, Elizabeth E. Foglia+, Shu Yang+
-
-Broadband and pixelated camouflage in inflating chiral nematic liquid crystalline elastomers
-Nature Materials 21, 41-46 (2022)
-
-Se-Um Kim, Young-Joo Lee, Jiaqi Liu, Dae Seok Kim, Haihuan Wang, Shu Yang
-
-Fabrication of transmittance tunable porous elastomers for smart window applications
-Polymers Korea 45(6), 934-939 (2021)
-
-Mira Shin*, Youngeun Lee*, Jinkyung Kim*, Gun Woo Sim*, Youngho Eom, Se-Um Kim+, Dae Seok Kim+
-
-Printable nanocomposite metalens for high-contrast near-infrared imaging
-ACS Nano 15(1), 698-706 (2021)
-
-Gwanho Yoon*, Kwan Kim*, Se-Um Kim, Seunghoon Han, Heon Lee+, Junsuk Rho+
-
-Self-regulating contact lenses with the patterning of a photochromic layer based on wettability contrast
-Advanced Materials Interfaces 8(2), 2001443 (2020)
-
-Se-Um Kim, Sang Hyun Lee, Kitae Kim, Jun-Hee Na
-
-High-definition optophysical image construction using mosaics of pixelated wrinkles
-Advanced Science 7(24), 2002134 (2020)
-
-Kitae Kim*, Se-Um Kim*, Subi Choi, Kyuyoung Heo, Suk-kyun Ahn, Jun-Hee Na
-
-Continuum soft actuators based on reprogrammable geometric constraints
-Extreme Mechanics Letters 36, 100649 (2020)
-
-Sihwa Oh*, Se-Um Kim*, Sooyoung Yeom, Hogyeong Kim, Sunwoo Kim, Jun-Hee Na
 
 Programming emergent symmetries with saddle-splay elasticity
 Nature Communications 10, 5104 (2019)
