@@ -133,17 +133,17 @@ a {
 /* ===================== */
 /* Publications filter card */
 /* ===================== */
-.filter-card {
+.filter-card {    /* 검색창 + 필터 포함되어있는 카드 */
   background-color: white;
   border: 1px solid #e5e5e5;
   border-radius: 18px;
-  padding: 22px 24px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.search-box {
+.search-box {   /* 검색창 */
   width: 100%;
   padding: 12px 14px;
   font-family: 'Roboto', sans-serif;
@@ -166,7 +166,7 @@ a {
   flex-wrap: wrap;
 }
 
-.filter-btn {
+.filter-btn {  /* publcation 검색창 필터버튼 */
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.4;
@@ -174,7 +174,7 @@ a {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 9px 14px;
+  padding: 5px 12px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
@@ -197,12 +197,12 @@ a {
   display: block;
 }
 
-.publication-card {
+.publication-card {   /* 논문 정보 들어가는 카드 */
   display: block;
   background-color: white;
   border: 1px solid #e5e5e5;
   border-radius: 18px;
-  padding: 22px 24px;
+  padding: 16px 24px;
   margin-bottom: 18px;
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
