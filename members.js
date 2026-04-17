@@ -55,7 +55,7 @@ const members = [
   {
     name: "Minhye Kim",
     status: "current",
-    role: "MS Student",
+    role: "MS student",
     email: "minhyeral14@seoultech.ac.kr",
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
