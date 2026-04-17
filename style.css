@@ -169,12 +169,12 @@ a {
 
 .filter-btn {  /* publcation 검색창 필터버튼 */
   font-family: 'Roboto', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.4;
   color: #111;
   background-color: white;
   border: 1px solid #ddd;
-  border-radius: 12px;
+  border-radius: 15px;
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -271,12 +271,12 @@ a {
   }
 
   .filter-card {
-    padding: 18px;
+    padding: 16px;
     border-radius: 16px;
   }
 
   .publication-card {
-    padding: 18px;
+    padding: 16px;
     border-radius: 16px;
   }
 }
