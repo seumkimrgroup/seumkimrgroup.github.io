@@ -21,9 +21,21 @@
     </div>
   </div>
 
-  <div class="content">
-    <h1>Welcome</h1>
-    <p>welcome</p>
+  <div class="content members-page">
+    <div class="section">
+      <div class="text-title page-title">Members</div>
+      <div class="text-sub page-subtitle">Research Group</div>
+    </div>
+  
+    <div class="section">
+      <div class="text-title">CURRENT MEMBERS</div>
+      <div id="current-members" class="member-list"></div>
+    </div>
+  
+    <div class="section">
+      <div class="text-title">FORMER MEMBERS</div>
+      <div id="former-members" class="member-list"></div>
+    </div>
   </div>
 
   <div class="footer">
@@ -35,5 +47,125 @@
   </div>
 
 </body>
+
+<script src="members.js"></script>
+
+<script>
+  const currentContainer = document.getElementById("current-members");
+  const formerContainer = document.getElementById("former-members");
+
+  function normalizeRole(role) {
+    const value = (role || "").trim().toLowerCase();
+
+    if (value.includes("professor")) return "professor";
+    if (value.includes("phd")) return "phd";
+    if (value.includes("ms")) return "ms";
+    if (value.includes("undergraduate")) return "undergraduate";
+
+    return value;
+  }
+
+  function currentSortPriority(member) {
+    const role = normalizeRole(member.role);
+
+    if (role === "professor") return 0;
+    if (role === "phd") return 1;
+    if (role === "ms") return 2;
+    if (role === "undergraduate") return 3;
+    return 9;
+  }
+
+  function formerSortPriority(member) {
+    const role = normalizeRole(member.role);
+
+    if (role === "phd") return 1;
+    if (role === "ms") return 2;
+    if (role === "undergraduate") return 3;
+    return 9;
+  }
+
+  function getFormerDegreeLabel(role) {
+    const normalized = normalizeRole(role);
+
+    if (normalized === "phd") return "Ph.D.";
+    if (normalized === "ms") return "M.S.";
+    if (normalized === "undergraduate") return "B.S.";
+    return role || "";
+  }
+
+  function createCurrentMemberItem(member) {
+    const item = document.createElement("div");
+    item.className = "item member-item";
+
+    item.innerHTML = `
+      <div class="text-title">${member.name}</div>
+      <div class="text-sub">${member.role || ""}</div>
+    `;
+
+    return item;
+  }
+
+  function createFormerMemberItem(member) {
+    const item = document.createElement("div");
+    item.className = "item member-item";
+
+    const degreeText = `${getFormerDegreeLabel(member.role)} ${member.leaveYear || ""}`.trim();
+
+    item.innerHTML = `
+      <div class="text-title">${member.name}</div>
+      <div class="text-sub">${degreeText}</div>
+    `;
+
+    return item;
+  }
+
+  function renderMembers() {
+    currentContainer.innerHTML = "";
+    formerContainer.innerHTML = "";
+
+    const currentMembers = members
+      .filter((member) => member.status === "current")
+      .sort((a, b) => {
+        const priorityDiff = currentSortPriority(a) - currentSortPriority(b);
+        if (priorityDiff !== 0) return priorityDiff;
+
+        const joinYearDiff = (a.joinYear || 9999) - (b.joinYear || 9999);
+        if (joinYearDiff !== 0) return joinYearDiff;
+
+        return a.name.localeCompare(b.name);
+      });
+
+    const formerMembers = members
+      .filter((member) => member.status === "former")
+      .sort((a, b) => {
+        const priorityDiff = formerSortPriority(a) - formerSortPriority(b);
+        if (priorityDiff !== 0) return priorityDiff;
+
+        const leaveYearDiff = (b.leaveYear || 0) - (a.leaveYear || 0);
+        if (leaveYearDiff !== 0) return leaveYearDiff;
+
+        return a.name.localeCompare(b.name);
+      });
+
+    if (currentMembers.length === 0) {
+      currentContainer.innerHTML = `<div class="text-sub">No current members found.</div>`;
+    } else {
+      currentMembers.forEach((member) => {
+        currentContainer.appendChild(createCurrentMemberItem(member));
+      });
+    }
+
+    if (formerMembers.length === 0) {
+      formerContainer.innerHTML = `<div class="text-sub">No former members found.</div>`;
+    } else {
+      formerMembers.forEach((member) => {
+        formerContainer.appendChild(createFormerMemberItem(member));
+      });
+    }
+  }
+
+  renderMembers();
+</script>
+  
 </html>
 
