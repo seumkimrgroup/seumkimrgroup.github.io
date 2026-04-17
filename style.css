@@ -167,6 +167,13 @@ a {
   flex-wrap: wrap;
 }
 
+.filter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
 .filter-btn {  /* publcation 검색창 필터버튼 */
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
