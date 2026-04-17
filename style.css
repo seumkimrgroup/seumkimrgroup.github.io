@@ -275,11 +275,32 @@ a {
   .text-4,
   .text-5 {
     font-size: 14px;
-  }
-
-  .filter-card {
+  }  .filter-card {
     padding: 16px;
     border-radius: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .filter-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
   }
 
   .publication-card {
