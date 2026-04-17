@@ -56,16 +56,6 @@ a {
   color: #777;
 }
 
-/* 제목 안 링크용 */
-.text-title a {
-  color: #111;
-  text-decoration: none;
-}
-
-.text-title a:hover {
-  text-decoration: underline;
-}
-
 /* ===================== */
 /* Navbar */
 /* ===================== */
