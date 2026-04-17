@@ -111,9 +111,9 @@ a {
 /* Main content */
 /* ===================== */
 .content {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 120px 30px 60px;
+  padding: 120px 40px 60px;
 }
 
 .section {
