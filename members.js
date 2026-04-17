@@ -10,7 +10,25 @@ const members = [
     phone: "+82-2-970-6425", office: "Mirae-Hall Unit 523",
     joinYear: 2022, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "RESEARCH CAREER",
+        content: [
+          "Staff researcher, Samsung Advanced Institute of Technology",
+          "Post-doctoral fellow, Materials Science and Engineering, University of Pennsylvania",
+          "Post-doctoral fellow, BK21 Creative Research Engineer Development for IT, Seoul National University",
+          "Post-doctoral fellow, Inter-University Semiconductor Research Center, Seoul National University",
+        ]
+      },
+      {
+        title: "EDUCATION",
+        content: [
+          "2022–Present: Associate Professor, SeoulTech",
+          "2020–2022: Assistant Professor, SeoulTech"
+        ]
+      }
+    ],
+    nextAffiliation: "",
     slug: "s-ukim",
   },
   {
@@ -21,18 +39,38 @@ const members = [
     phone: "", office: "",
     joinYear: 2026, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "ihchoi",
   },
   {
     name: "Minhye Kim",
     status: "current",
-    role: "Graduate",
+    role: "MS Student",
     email: "minhyeral14@seoultech.ac.kr",
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "mkim",
   },
   {
@@ -43,7 +81,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "hskim",
   },
   {
@@ -54,7 +102,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "dkim",
   },
   {
@@ -65,7 +123,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "abna",
   },
   {
@@ -76,7 +144,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "hjko",
   },
   {
@@ -87,7 +165,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "mjkim",
   },
   {
@@ -98,7 +186,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "slee",
   },
   {
@@ -109,7 +207,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: 2025,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "Wuxi Hengxin",
     slug: "slee2",
   },
   {
@@ -120,29 +228,59 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "jhkim",
   },
   {
     name: "Hyo Seok Oh",
     status: "current",
-    role: "Graduate",
+    role: "MS student",
     email: "ohs07@naver.com",
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "hsoh",
   },
   {
     name: "Hui Jun Jang",
     status: "former",
-    role: "Graduate",
+    role: "Undergraduate",
     email: "",
     phone: "", office: "",
     joinYear: 2024, leaveYear: 2025,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "LG Energy Solution",
     slug: "hjjang",
   },
   {
@@ -153,18 +291,38 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2025,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "Autonics",
     slug: "yjhwang",
   },
   {
     name: "Hyeon Seong Hwang",
     status: "current",
-    role: "Graduate",
+    role: "MS student",
     email: "he9312@seoultech.ac.kr",
     phone: "", office: "",
     joinYear: 2023, leaveYear: null,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "",
     slug: "hshwang",
   },
   {
@@ -175,7 +333,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2025,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "MTS",
     slug: "hmcho",
   },
   {
@@ -186,7 +354,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2024,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "Hyundai Motors",
     slug: "jhlee",
   },
   {
@@ -197,7 +375,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2024,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "LIG Nex1",
     slug: "jelee",
   },
   {
@@ -208,7 +396,17 @@ const members = [
     phone: "", office: "",
     joinYear: 2022, leaveYear: 2023,
     image: "",
-    description: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: []
+      }
+    ],
+    nextAffiliation: "Hitachi High-Tech in Korea",
     slug: "m-spark",
   }
 ];
