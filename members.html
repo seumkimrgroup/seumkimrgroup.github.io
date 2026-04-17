@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Se-Um Kim Research Group</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Members</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- NAVBAR -->
   <div class="navbar">
     <a href="index.html" class="brand">Se-Um Kim Research Group</a>
+
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
@@ -21,151 +21,149 @@
     </div>
   </div>
 
+  <!-- CONTENT -->
   <div class="content members-page">
+
     <div class="section">
       <div class="text-title page-title">Members</div>
       <div class="text-sub page-subtitle">Research Group</div>
     </div>
-  
+
+    <!-- CURRENT -->
     <div class="section">
       <div class="text-title">CURRENT MEMBERS</div>
       <div id="current-members" class="member-list"></div>
     </div>
-  
+
+    <!-- FORMER -->
     <div class="section">
       <div class="text-title">FORMER MEMBERS</div>
       <div id="former-members" class="member-list"></div>
     </div>
+
   </div>
 
-  <div class="footer">
-    <div class="text-sub">
-      (01811) 서울특별시 노원구 공릉로 232 서울과학기술대학교 전기정보공학과<br>
-      Electrical and Information Engineering, Seoul National University of Science and Technology<br>
-      Gongneung-ro 232, Nowon-gu, 01811 Seoul, Republic of Korea
-    </div>
-  </div>
+  <!-- SCRIPT -->
+  <script src="members.js"></script>
+
+  <script>
+    const currentContainer = document.getElementById("current-members");
+    const formerContainer = document.getElementById("former-members");
+
+    function normalizeRole(role) {
+      const r = (role || "").toLowerCase();
+
+      if (r.includes("professor")) return "professor";
+      if (r.includes("phd")) return "phd";
+      if (r.includes("ms")) return "ms";
+      if (r.includes("undergraduate")) return "undergraduate";
+
+      return "";
+    }
+
+    function currentPriority(member) {
+      const role = normalizeRole(member.role);
+
+      if (role === "professor") return 0;
+      if (role === "phd") return 1;
+      if (role === "ms") return 2;
+      if (role === "undergraduate") return 3;
+
+      return 9;
+    }
+
+    function formerPriority(member) {
+      const role = normalizeRole(member.role);
+
+      if (role === "phd") return 1;
+      if (role === "ms") return 2;
+      if (role === "undergraduate") return 3;
+
+      return 9;
+    }
+
+    function getDegreeLabel(role) {
+      const r = normalizeRole(role);
+
+      if (r === "phd") return "Ph.D.";
+      if (r === "ms") return "M.S.";
+      if (r === "undergraduate") return "B.S.";
+
+      return role || "";
+    }
+
+    function createCurrentItem(member) {
+      const item = document.createElement("div");
+      item.className = "item";
+
+      item.innerHTML = `
+        <div class="text-title">${member.name}</div>
+        <div class="text-sub">${member.role || ""}</div>
+      `;
+
+      return item;
+    }
+
+    function createFormerItem(member) {
+      const item = document.createElement("div");
+      item.className = "item";
+
+      const degree = getDegreeLabel(member.role);
+      const year = member.leaveYear || "";
+
+      item.innerHTML = `
+        <div class="text-title">${member.name}</div>
+        <div class="text-sub">${degree} ${year}</div>
+      `;
+
+      return item;
+    }
+
+    function renderMembers() {
+
+      currentContainer.innerHTML = "";
+      formerContainer.innerHTML = "";
+
+      // CURRENT
+      const currentMembers = members
+        .filter(m => m.status === "current")
+        .sort((a, b) => {
+
+          const p = currentPriority(a) - currentPriority(b);
+          if (p !== 0) return p;
+
+          const y = (a.joinYear || 9999) - (b.joinYear || 9999);
+          if (y !== 0) return y;
+
+          return a.name.localeCompare(b.name);
+        });
+
+      // FORMER
+      const formerMembers = members
+        .filter(m => m.status === "former")
+        .sort((a, b) => {
+
+          const p = formerPriority(a) - formerPriority(b);
+          if (p !== 0) return p;
+
+          const y = (b.leaveYear || 0) - (a.leaveYear || 0);
+          if (y !== 0) return y;
+
+          return a.name.localeCompare(b.name);
+        });
+
+      // 렌더링
+      currentMembers.forEach(m => {
+        currentContainer.appendChild(createCurrentItem(m));
+      });
+
+      formerMembers.forEach(m => {
+        formerContainer.appendChild(createFormerItem(m));
+      });
+    }
+
+    renderMembers();
+  </script>
 
 </body>
-
-<script src="members.js"></script>
-
-<script>
-  const currentContainer = document.getElementById("current-members");
-  const formerContainer = document.getElementById("former-members");
-
-  function normalizeRole(role) {
-    const value = (role || "").trim().toLowerCase();
-
-    if (value.includes("professor")) return "professor";
-    if (value.includes("phd")) return "phd";
-    if (value.includes("ms")) return "ms";
-    if (value.includes("undergraduate")) return "undergraduate";
-
-    return value;
-  }
-
-  function currentSortPriority(member) {
-    const role = normalizeRole(member.role);
-
-    if (role === "professor") return 0;
-    if (role === "phd") return 1;
-    if (role === "ms") return 2;
-    if (role === "undergraduate") return 3;
-    return 9;
-  }
-
-  function formerSortPriority(member) {
-    const role = normalizeRole(member.role);
-
-    if (role === "phd") return 1;
-    if (role === "ms") return 2;
-    if (role === "undergraduate") return 3;
-    return 9;
-  }
-
-  function getFormerDegreeLabel(role) {
-    const normalized = normalizeRole(role);
-
-    if (normalized === "phd") return "Ph.D.";
-    if (normalized === "ms") return "M.S.";
-    if (normalized === "undergraduate") return "B.S.";
-    return role || "";
-  }
-
-  function createCurrentMemberItem(member) {
-    const item = document.createElement("div");
-    item.className = "item member-item";
-
-    item.innerHTML = `
-      <div class="text-title">${member.name}</div>
-      <div class="text-sub">${member.role || ""}</div>
-    `;
-
-    return item;
-  }
-
-  function createFormerMemberItem(member) {
-    const item = document.createElement("div");
-    item.className = "item member-item";
-
-    const degreeText = `${getFormerDegreeLabel(member.role)} ${member.leaveYear || ""}`.trim();
-
-    item.innerHTML = `
-      <div class="text-title">${member.name}</div>
-      <div class="text-sub">${degreeText}</div>
-    `;
-
-    return item;
-  }
-
-  function renderMembers() {
-    currentContainer.innerHTML = "";
-    formerContainer.innerHTML = "";
-
-    const currentMembers = members
-      .filter((member) => member.status === "current")
-      .sort((a, b) => {
-        const priorityDiff = currentSortPriority(a) - currentSortPriority(b);
-        if (priorityDiff !== 0) return priorityDiff;
-
-        const joinYearDiff = (a.joinYear || 9999) - (b.joinYear || 9999);
-        if (joinYearDiff !== 0) return joinYearDiff;
-
-        return a.name.localeCompare(b.name);
-      });
-
-    const formerMembers = members
-      .filter((member) => member.status === "former")
-      .sort((a, b) => {
-        const priorityDiff = formerSortPriority(a) - formerSortPriority(b);
-        if (priorityDiff !== 0) return priorityDiff;
-
-        const leaveYearDiff = (b.leaveYear || 0) - (a.leaveYear || 0);
-        if (leaveYearDiff !== 0) return leaveYearDiff;
-
-        return a.name.localeCompare(b.name);
-      });
-
-    if (currentMembers.length === 0) {
-      currentContainer.innerHTML = `<div class="text-sub">No current members found.</div>`;
-    } else {
-      currentMembers.forEach((member) => {
-        currentContainer.appendChild(createCurrentMemberItem(member));
-      });
-    }
-
-    if (formerMembers.length === 0) {
-      formerContainer.innerHTML = `<div class="text-sub">No former members found.</div>`;
-    } else {
-      formerMembers.forEach((member) => {
-        formerContainer.appendChild(createFormerMemberItem(member));
-      });
-    }
-  }
-
-  renderMembers();
-</script>
-  
 </html>
-
