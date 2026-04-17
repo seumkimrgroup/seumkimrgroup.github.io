@@ -32,32 +32,33 @@
 
     <div class="section">
       <div class="filter-card">
-
+      
         <input
           type="text"
           id="searchInput"
           class="search-box"
           placeholder="Search publications"
         >
-
-        <div class="filter-group">
-          <button class="filter-btn type-btn active" data-type="all">All</button>
-          <button class="filter-btn type-btn" data-type="sci">SCI</button>
-          <button class="filter-btn type-btn" data-type="non-sci">Non-SCI</button>
-          <button class="filter-btn type-btn" data-type="patent">Patent</button>
+      
+        <div class="filter-controls">
+      
+          <div class="filter-group">
+            <button class="filter-btn type-btn active" data-type="all">All</button>
+            <button class="filter-btn type-btn" data-type="sci">SCI</button>
+            <button class="filter-btn type-btn" data-type="non-sci">Non-SCI</button>
+            <button class="filter-btn type-btn" data-type="patent">Patent</button>
+          </div>
+      
+          <div class="filter-group">
+            <button class="filter-btn year-btn active" data-year="all">All</button>
+            <button class="filter-btn year-btn" data-year="2026">2026</button>
+            <button class="filter-btn year-btn" data-year="2025">2025</button>
+            <button class="filter-btn year-btn" data-year="2024-earlier">2024 earlier</button>
+          </div>
         </div>
-
-        <div class="filter-group">
-          <button class="filter-btn year-btn active" data-year="all">All</button>
-          <button class="filter-btn year-btn" data-year="2026">2026</button>
-          <button class="filter-btn year-btn" data-year="2025">2025</button>
-          <button class="filter-btn year-btn" data-year="2024-earlier">2024 earlier</button>
-        </div>
-
       </div>
     </div>
 
-    <!-- Publication List -->
     <div id="publication-list"></div>
 
   </div>
