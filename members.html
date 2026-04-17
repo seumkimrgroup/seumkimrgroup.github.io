@@ -40,124 +40,137 @@
 
   </div>
 
-  <script src="members.js"></script>
+<script src="members.js"></script>
 
   <script>
     const currentContainer = document.getElementById("current-members");
     const formerContainer = document.getElementById("former-members");
-
+  
     function normalizeRole(role) {
       const r = (role || "").toLowerCase();
-
+  
       if (r.includes("professor")) return "professor";
       if (r.includes("phd")) return "phd";
       if (r.includes("ms")) return "ms";
       if (r.includes("undergraduate")) return "undergraduate";
-
+  
       return "";
     }
-
+  
     function currentPriority(member) {
       const role = normalizeRole(member.role);
-
+  
       if (role === "professor") return 0;
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-
+  
       return 9;
     }
-
+  
     function formerPriority(member) {
       const role = normalizeRole(member.role);
-
+  
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-
+  
       return 9;
     }
-
+  
     function getDegreeLabel(role) {
       const r = normalizeRole(role);
-
+  
       if (r === "phd") return "Ph.D.";
       if (r === "ms") return "M.S.";
       if (r === "undergraduate") return "B.S.";
-
+  
       return role || "";
     }
-
-    function createCurrentItem(member) {
+  
+    function goToMember(member) {
+      window.location.href = `member.html?id=${member.slug}`;
+    }
+  
+    function createCurrentCard(member) {
       const item = document.createElement("div");
-      item.className = "item";
-
+      item.className = "member-card";
+      item.addEventListener("click", () => goToMember(member));
+  
+      const imageHtml = member.image
+        ? `<img src="${member.image}" alt="${member.name}" class="member-photo">`
+        : `<div class="member-photo member-photo-placeholder"></div>`;
+  
       item.innerHTML = `
-        <div class="text-title">${member.name}</div>
-        <div class="text-sub">${member.role || ""}</div>
+        ${imageHtml}
+        <div class="member-info">
+          <div class="text-title">${member.name}</div>
+          <div class="text-sub">${member.role || ""}</div>
+        </div>
       `;
-
+  
       return item;
     }
-
-    function createFormerItem(member) {
+  
+    function createFormerCard(member) {
       const item = document.createElement("div");
-      item.className = "item";
-
+      item.className = "member-card";
+      item.addEventListener("click", () => goToMember(member));
+  
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
-
+      const imageHtml = member.image
+        ? `<img src="${member.image}" alt="${member.name}" class="member-photo">`
+        : `<div class="member-photo member-photo-placeholder"></div>`;
+  
       item.innerHTML = `
-        <div class="text-title">${member.name}</div>
-        <div class="text-sub">${degree} ${year}</div>
+        ${imageHtml}
+        <div class="member-info">
+          <div class="text-title">${member.name}</div>
+          <div class="text-sub">${degree} ${year}</div>
+        </div>
       `;
-
+  
       return item;
     }
-
+  
     function renderMembers() {
-
       currentContainer.innerHTML = "";
       formerContainer.innerHTML = "";
-
-      // CURRENT
+  
       const currentMembers = members
-        .filter(m => m.status === "current")
+        .filter((m) => m.status === "current")
         .sort((a, b) => {
-
           const p = currentPriority(a) - currentPriority(b);
           if (p !== 0) return p;
-
+  
           const y = (a.joinYear || 9999) - (b.joinYear || 9999);
           if (y !== 0) return y;
-
+  
           return a.name.localeCompare(b.name);
         });
-
-      // FORMER
+  
       const formerMembers = members
-        .filter(m => m.status === "former")
+        .filter((m) => m.status === "former")
         .sort((a, b) => {
-
           const p = formerPriority(a) - formerPriority(b);
           if (p !== 0) return p;
-
+  
           const y = (b.leaveYear || 0) - (a.leaveYear || 0);
           if (y !== 0) return y;
-
+  
           return a.name.localeCompare(b.name);
         });
-
-      // 렌더링
-      currentMembers.forEach(m => {
-        currentContainer.appendChild(createCurrentItem(m));
+  
+      currentMembers.forEach((member) => {
+        currentContainer.appendChild(createCurrentCard(member));
       });
-
-      formerMembers.forEach(m => {
-        formerContainer.appendChild(createFormerItem(m));
+  
+      formerMembers.forEach((member) => {
+        formerContainer.appendChild(createFormerCard(member));
       });
     }
-
+  
     renderMembers();
   </script>
 
