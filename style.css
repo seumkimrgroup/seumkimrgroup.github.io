@@ -18,7 +18,7 @@ a {
 }
 
 /* ===================== */
-/* Text styles */
+/* Text system (1~5) */
 /* ===================== */
 .text-1 {
   font-size: 26px;
@@ -169,8 +169,8 @@ a {
   min-width: 0;
 }
 
-.member-info .text-title,
-.member-info .text-sub {
+.member-info .text-3,
+.member-info .text-5 {
   word-break: keep-all;
 }
 
@@ -282,6 +282,41 @@ a {
   border-color: #111;
 }
 
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.item.publication-item {
+  margin-bottom: 0;
+}
+
+.publication-card {
+  display: block;
+  padding: 22px 24px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.publication-card.clickable {
+  cursor: pointer;
+}
+
+.publication-card.clickable:hover {
+  border-color: #bbb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.publication-card .text-4,
+.publication-card .text-5 {
+  margin-top: 6px;
+}
+
 .publication-item .text-title a {
   color: #111;
 }
@@ -326,15 +361,16 @@ a {
     padding: 150px 20px 50px;
   }
 
-  .text-title {
-    font-size: 20px;
+  .text-1 {
+    font-size: 24px;
   }
 
-  .text-body {
-    font-size: 15px;
+  .text-3 {
+    font-size: 17px;
   }
 
-  .text-sub {
+  .text-4,
+  .text-5 {
     font-size: 14px;
   }
 
@@ -356,6 +392,11 @@ a {
   .search-box {
     max-width: 100%;
     min-width: 0;
+  }
+
+  .publication-card {
+    padding: 18px 18px;
+    border-radius: 16px;
   }
 }
 
