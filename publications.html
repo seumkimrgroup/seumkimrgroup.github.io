@@ -24,7 +24,7 @@
 
   <div class="content publications-page">
     <div class="section">
-      <div class="text-title page-title">Publications</div>
+      <div class="text-1 page-title">Publications</div>
     </div>
 
   <div class="section filter-search-row">
@@ -62,7 +62,7 @@
   </div>
 
   <div class="footer">
-    <div class="text-sub">
+    <div class="text-5">
       (01811) 서울특별시 노원구 공릉로 232 서울과학기술대학교 전기정보공학과<br>
       Electrical and Information Engineering, Seoul National University of Science and Technology<br>
       Gongneung-ro 232, Nowon-gu, 01811 Seoul, Republic of Korea
@@ -138,7 +138,7 @@
   
       if (filtered.length === 0) {
         container.innerHTML =
-          '<div class="text-sub empty-state">No publications found.</div>';
+          '<div class="text-5 empty-state">No publications found.</div>';
         return;
       }
   
@@ -150,24 +150,20 @@
           const item = document.createElement("div");
           item.className = "item publication-item";
   
-          const titleHtml = pub.link
-            ? `
-              <div class="text-title">
-                <a href="${pub.link}" target="_blank" rel="noopener noreferrer">
-                  ${pub.title}
-                </a>
-              </div>
-            `
-            : `
-              <div class="text-title">
-                ${pub.title}
-              </div>
-            `;
+          const cardTag = pub.link ? "a" : "div";
+          const cardAttributes = pub.link
+            ? `href="${pub.link}" target="_blank" rel="noopener noreferrer"`
+            : "";
+          const cardClass = pub.link
+            ? "publication-card clickable"
+            : "publication-card";
   
           item.innerHTML = `
-            ${titleHtml}
-            <div class="text-sub">${metaLine}</div>
-            <div class="text-sub">${pub.authors || ""}</div>
+            <${cardTag} class="${cardClass}" ${cardAttributes}>
+              <div class="text-3">${pub.title}</div>
+              <div class="text-4">${metaLine}</div>
+              <div class="text-5">${pub.authors || ""}</div>
+            </${cardTag}>
           `;
   
           container.appendChild(item);
