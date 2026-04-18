@@ -106,9 +106,9 @@ const publications = [
     source: "Journal of Flexible and Printed Electronics",
     detail: "2(1), 61-76",
     year: 2023,
-    authors: "HS Hwang, HM Cho, SU Kim",
+    authors: "Hyeon Seong Hwang, Hyun Mok Cho, Se-Um Kim",
     type: "non-sci",
-    link: ""
+    link: "https://www.e-jfpe.org/archive/view_article?pid=jfpe-2-1-61"
   },
   {
     title: "Deformable photonic crystals based on chiral liquid crystals with thermal-mediative shape memory effect",
