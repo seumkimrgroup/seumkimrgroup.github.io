@@ -160,21 +160,34 @@
       const item = document.createElement("div");
       item.className = "people-card former-people-card";
       item.addEventListener("click", () => goToMember(member));
-  
-      const joinedAt = member.joinedAt || "";
+    
+      const degree = getDegreeLabel(member.role);
+      const year = member.leaveYear || "";
+      const statusLine = [degree, year].filter(Boolean).join(" · ");
+    
       const nextAffiliation = member.nextAffiliation || "";
-  
+    
+      let affiliationHtml = "";
+    
+      // 👉 nextAffiliation 있을 때만 표시
+      if (nextAffiliation) {
+        affiliationHtml = `
+          <div class="text-4">Joined at</div>
+          <div class="text-5">${nextAffiliation}</div>
+        `;
+      }
+    
       item.innerHTML = `
         <div class="people-info">
           <div class="text-3">${member.name}</div>
-          <div class="text-4">Joined at</div>
-          <div class="text-5">${nextAffiliation}</div>
+          <div class="text-5">${statusLine}</div>
+          ${affiliationHtml}
         </div>
       `;
-  
+    
       return item;
     }
-  
+    
     function renderMembers() {
       currentContainer.innerHTML = "";
       formerContainer.innerHTML = "";
