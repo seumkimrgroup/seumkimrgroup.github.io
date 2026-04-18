@@ -111,18 +111,21 @@ a {
 /* Main content */
 /* ===================== */
 .content {
-  width: min(100% - 32px, 1200px);
+  width: min(100% - 32px, 1080px);
   margin: 0 auto;
   padding-top: 120px;
   padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .section {
-  margin-bottom: 32px;
+  margin-bottom: 0;
 }
 
 .section-heading {
-  padding-top: 40px;
+  margin-top: 40px;
 }
 
 /* ===================== */
