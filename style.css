@@ -134,7 +134,7 @@ a {
 /* ===================== */
 /* Publications filter card */
 /* ===================== */
-.filter-card {    /* 검색창 + 필터 포함되어있는 카드 */
+.search-card {    /* 검색창 + 필터 포함되어있는 카드 */
   background-color: white;
   border: 1px solid #e5e5e5;
   border-radius: 16px;
