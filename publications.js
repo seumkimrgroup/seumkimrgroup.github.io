@@ -52,7 +52,7 @@ const publications = [
     source: "Advanced Photonics Research",
     detail: "6(3), 2400103",
     year: 2025,
-    authors: "Hyun Mok Cho*, Yong Jin Hwang, Hyo Seok Oh, Hyeon Seong Hwang, Kitae Kim, Se‐Um Kim+, Jun‐Hee Na+",
+    authors: "Hyun Mok Cho*, Yong Jin Hwang, Hyo Seok Oh, Hyeon Seong Hwang, Kitae Kim, Se-Um Kim+, Jun-Hee Na+",
     type: "non-sci",
     link: "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adpr.202400103"
   },
