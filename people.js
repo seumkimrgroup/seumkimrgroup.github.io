@@ -91,7 +91,7 @@ const members = [
       {
         title: "RESEARCH INTERESTS",
         content: [
-          "Heat ",
+          "FEM based thermal managenemts",
           "ML-assisted FEM optimization"
         ]
       }
