@@ -266,7 +266,7 @@ a {
   width: 92px;
   height: 92px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 12px;
   flex-shrink: 0;
   background-color: #f2f2f2;
 }
