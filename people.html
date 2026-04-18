@@ -45,145 +45,179 @@
   <script>
     const currentContainer = document.getElementById("current-members");
     const formerContainer = document.getElementById("former-members");
-
+  
     function normalizeRole(role) {
       const r = (role || "").toLowerCase();
-
+  
       if (r.includes("professor")) return "professor";
       if (r.includes("phd")) return "phd";
       if (r.includes("ms")) return "ms";
       if (r.includes("undergraduate")) return "undergraduate";
-
+  
       return "";
     }
-
+  
     function currentPriority(member) {
       const role = normalizeRole(member.role);
-
+  
       if (role === "professor") return 0;
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-
+  
       return 9;
     }
-
+  
     function formerPriority(member) {
       const role = normalizeRole(member.role);
-
+  
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-
+  
       return 9;
     }
-
+  
     function getDegreeLabel(role) {
       const r = normalizeRole(role);
-
+  
       if (r === "phd") return "Ph.D.";
       if (r === "ms") return "M.S.";
       if (r === "undergraduate") return "B.S.";
-
+  
       return role || "";
     }
-
+  
+    function formatRole(role) {
+      const r = normalizeRole(role);
+  
+      if (r === "phd") return "Ph.D. Student";
+      if (r === "ms") return "M.S. Student";
+      if (r === "undergraduate") return "Undergraduate Researcher";
+  
+      return role || "";
+    }
+  
     function goToMember(member) {
       window.location.href = `member.html?id=${member.slug}`;
     }
-
-    function getKeyword(member) {
-      return member.keyword || member.research || "";
+  
+    function getResearchInterests(member) {
+      const section = (member.description || []).find(
+        (d) => (d.title || "").toUpperCase() === "RESEARCH INTERESTS"
+      );
+  
+      if (!section || !Array.isArray(section.content)) return [];
+  
+      return section.content.filter(Boolean);
     }
-
+  
+    function createResearchHtml(member) {
+      const interests = getResearchInterests(member);
+  
+      if (interests.length === 0) return "";
+  
+      const itemsHtml = interests
+        .map((item) => `<div class="text-5">${item}</div>`)
+        .join("");
+  
+      return `
+        <div class="text-4">Research Interests</div>
+        <div class="people-interests">
+          ${itemsHtml}
+        </div>
+      `;
+    }
+  
     function createCurrentCard(member) {
       const item = document.createElement("div");
       item.className = "people-card";
       item.addEventListener("click", () => goToMember(member));
-
+  
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
         : `<div class="people-photo people-photo-placeholder"></div>`;
-
-      const keyword = getKeyword(member);
-
+  
+      const researchHtml = createResearchHtml(member);
+  
       item.innerHTML = `
         ${imageHtml}
         <div class="people-info">
           <div class="text-3">${member.name}</div>
-          <div class="text-4">${member.role || ""}</div>
-          <div class="text-5">${keyword}</div>
+          <div class="text-5">${formatRole(member.role)}</div>
+          ${researchHtml}
         </div>
       `;
-
+  
       return item;
     }
-
+  
     function createFormerCard(member) {
       const item = document.createElement("div");
       item.className = "people-card";
       item.addEventListener("click", () => goToMember(member));
-
+  
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
+      const subLine = [degree, year].filter(Boolean).join(" · ");
+  
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
         : `<div class="people-photo people-photo-placeholder"></div>`;
-
-      const subLine = [degree, year].filter(Boolean).join(" · ");
-      const keyword = getKeyword(member);
-
+  
+      const researchHtml = createResearchHtml(member);
+  
       item.innerHTML = `
         ${imageHtml}
         <div class="people-info">
           <div class="text-3">${member.name}</div>
-          <div class="text-4">${subLine}</div>
-          <div class="text-5">${keyword}</div>
+          <div class="text-5">${subLine}</div>
+          ${researchHtml}
         </div>
       `;
-
+  
       return item;
     }
-
+  
     function renderMembers() {
       currentContainer.innerHTML = "";
       formerContainer.innerHTML = "";
-
+  
       const currentMembers = members
         .filter((m) => m.status === "current")
         .sort((a, b) => {
           const p = currentPriority(a) - currentPriority(b);
           if (p !== 0) return p;
-
+  
           const y = (a.joinYear || 9999) - (b.joinYear || 9999);
           if (y !== 0) return y;
-
+  
           return a.name.localeCompare(b.name);
         });
-
+  
       const formerMembers = members
         .filter((m) => m.status === "former")
         .sort((a, b) => {
           const p = formerPriority(a) - formerPriority(b);
           if (p !== 0) return p;
-
+  
           const y = (b.leaveYear || 0) - (a.leaveYear || 0);
           if (y !== 0) return y;
-
+  
           return a.name.localeCompare(b.name);
         });
-
+  
       currentMembers.forEach((member) => {
         currentContainer.appendChild(createCurrentCard(member));
       });
-
+  
       formerMembers.forEach((member) => {
         formerContainer.appendChild(createFormerCard(member));
       });
     }
-
+  
     renderMembers();
   </script>
-
+  
 </body>
 </html>
