@@ -101,14 +101,14 @@
       item.addEventListener("click", () => goToMember(member));
 
       const imageHtml = member.image
-        ? `<img src="${member.image}" alt="${member.name}" class="member-photo">`
-        : `<div class="member-photo member-photo-placeholder"></div>`;
+        ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
+        : `<div class="people-photo people-photo-placeholder"></div>`;
 
       const keyword = getKeyword(member);
 
       item.innerHTML = `
         ${imageHtml}
-        <div class="member-info">
+        <div class="people-info">
           <div class="text-3">${member.name}</div>
           <div class="text-4">${member.role || ""}</div>
           <div class="text-5">${keyword}</div>
@@ -126,15 +126,15 @@
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
       const imageHtml = member.image
-        ? `<img src="${member.image}" alt="${member.name}" class="member-photo">`
-        : `<div class="member-photo member-photo-placeholder"></div>`;
+        ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
+        : `<div class="people-photo people-photo-placeholder"></div>`;
 
       const subLine = [degree, year].filter(Boolean).join(" · ");
       const keyword = getKeyword(member);
 
       item.innerHTML = `
         ${imageHtml}
-        <div class="member-info">
+        <div class="people-info">
           <div class="text-3">${member.name}</div>
           <div class="text-4">${subLine}</div>
           <div class="text-5">${keyword}</div>
