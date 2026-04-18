@@ -65,9 +65,9 @@
       const role = normalizeRole(member.role);
   
       if (role === "professor") return 0;
-      if (role === "phd") return 1;
-      if (role === "ms") return 2;
-      if (role === "undergraduate") return 3;
+      if (role === "ms") return 1;
+      if (role === "undergraduate") return 2;
+      if (role === "phd") return 3;
   
       return 9;
     }
@@ -97,7 +97,7 @@
   
       if (r === "phd") return "Ph.D. Student";
       if (r === "ms") return "M.S. Student";
-      if (r === "undergraduate") return "Undergraduate";
+      if (r === "undergraduate") return "Undergraduate Researcher";
   
       return role || "";
     }
@@ -126,7 +126,7 @@
         .join("");
   
       return `
-        <div class="text-4">RESEARCH INTERESTS</div>
+        <div class="text-4 people-interests-label">Research Interests</div>
         <div class="people-interests">
           ${itemsHtml}
         </div>
@@ -160,23 +160,22 @@
       const item = document.createElement("div");
       item.className = "people-card former-people-card";
       item.addEventListener("click", () => goToMember(member));
-    
+  
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
       const statusLine = [degree, year].filter(Boolean).join(" · ");
-    
+  
       const nextAffiliation = member.nextAffiliation || "";
-    
+  
       let affiliationHtml = "";
-    
-      // 👉 nextAffiliation 있을 때만 표시
+  
       if (nextAffiliation) {
         affiliationHtml = `
           <div class="text-4">Joined at</div>
           <div class="text-5">${nextAffiliation}</div>
         `;
       }
-    
+  
       item.innerHTML = `
         <div class="people-info">
           <div class="text-3">${member.name}</div>
@@ -184,28 +183,69 @@
           ${affiliationHtml}
         </div>
       `;
-    
+  
       return item;
     }
-    
-    function renderMembers() {
+  
+    function groupCurrentMembers(members) {
+      const groups = {
+        professor: [],
+        ms: [],
+        undergraduate: [],
+        phd: []
+      };
+  
+      members.forEach((member) => {
+        const role = normalizeRole(member.role);
+  
+        if (groups[role]) {
+          groups[role].push(member);
+        }
+      });
+  
+      return groups;
+    }
+  
+    function renderCurrentMembers(members) {
       currentContainer.innerHTML = "";
+  
+      const groups = groupCurrentMembers(members);
+      const order = ["professor", "ms", "undergraduate", "phd"];
+  
+      order.forEach((roleKey) => {
+        const groupMembers = groups[roleKey];
+  
+        if (!groupMembers || groupMembers.length === 0) return;
+  
+        const groupBlock = document.createElement("div");
+        groupBlock.className = "people-group";
+  
+        const listDiv = document.createElement("div");
+        listDiv.className = "people-list";
+  
+        groupMembers
+          .sort((a, b) => {
+            const y = (a.joinYear || 9999) - (b.joinYear || 9999);
+            if (y !== 0) return y;
+  
+            return a.name.localeCompare(b.name);
+          })
+          .forEach((member) => {
+            listDiv.appendChild(createCurrentCard(member));
+          });
+  
+        groupBlock.appendChild(listDiv);
+        currentContainer.appendChild(groupBlock);
+      });
+    }
+  
+    function renderFormerMembers(members) {
       formerContainer.innerHTML = "";
   
-      const currentMembers = members
-        .filter((m) => m.status === "current")
-        .sort((a, b) => {
-          const p = currentPriority(a) - currentPriority(b);
-          if (p !== 0) return p;
+      const listDiv = document.createElement("div");
+      listDiv.className = "people-list";
   
-          const y = (a.joinYear || 9999) - (b.joinYear || 9999);
-          if (y !== 0) return y;
-  
-          return a.name.localeCompare(b.name);
-        });
-  
-      const formerMembers = members
-        .filter((m) => m.status === "former")
+      members
         .sort((a, b) => {
           const p = formerPriority(a) - formerPriority(b);
           if (p !== 0) return p;
@@ -214,15 +254,20 @@
           if (y !== 0) return y;
   
           return a.name.localeCompare(b.name);
+        })
+        .forEach((member) => {
+          listDiv.appendChild(createFormerCard(member));
         });
   
-      currentMembers.forEach((member) => {
-        currentContainer.appendChild(createCurrentCard(member));
-      });
+      formerContainer.appendChild(listDiv);
+    }
   
-      formerMembers.forEach((member) => {
-        formerContainer.appendChild(createFormerCard(member));
-      });
+    function renderMembers() {
+      const currentMembers = members.filter((m) => m.status === "current");
+      const formerMembers = members.filter((m) => m.status === "former");
+  
+      renderCurrentMembers(currentMembers);
+      renderFormerMembers(formerMembers);
     }
   
     renderMembers();
