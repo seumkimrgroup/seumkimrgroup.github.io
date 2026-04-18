@@ -47,7 +47,11 @@
     const formerContainer = document.getElementById("former-members");
   
     function normalizeRole(role) {
-      const r = (role || "").toLowerCase();
+      const r = (role || "")
+        .toLowerCase()
+        .replace(/\./g, "")
+        .replace(/-/g, " ")
+        .trim();
   
       if (r.includes("professor")) return "professor";
       if (r.includes("phd")) return "phd";
