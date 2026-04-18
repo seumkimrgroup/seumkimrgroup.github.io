@@ -70,7 +70,7 @@ const publications = [
     source: "Polymer (Korea)",
     detail: "48(2), 165-170",
     year: 2024,
-    authors: "Hongbin Jeong*, Suah Lee*, Heeyoung Bae*, Bosuk Choi*, Hyeon Seong Hwang, Se Um Kim",
+    authors: "Hongbin Jeong*, Suah Lee*, Heeyoung Bae*, Bosuk Choi*, Hyeon Seong Hwang, Se-Um Kim",
     type: "sci",
     link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11744813"
   },
