@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Member</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+  <div class="navbar">
+    <a href="index.html" class="brand">Se-Um Kim Research Group</a>
+  </div>
+
+  <div class="content">
+    <div id="member-detail"></div>
+  </div>
+
+  <script src="people.js"></script>
+
+  <script>
+    const container = document.getElementById("member-detail");
+
+    // 1. URL에서 id 읽기
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    // 2. 해당 member 찾기
+    const member = members.find(m => m.slug === id);
+
+    if (!member) {
+      container.innerHTML = "<div>Member not found</div>";
+    } else {
+      renderMember(member);
+    }
+
+    function renderMember(member) {
+      const imageHtml = member.image
+        ? `<img src="${member.image}" class="people-photo">`
+        : `<div class="people-photo people-photo-placeholder"></div>`;
+
+      const descriptionHtml = (member.description || [])
+        .map(section => {
+          const items = (section.content || [])
+            .map(item => `<div class="text-5">${item}</div>`)
+            .join("");
+
+          return `
+            <div style="margin-top: 24px;">
+              <div class="text-3">${section.title}</div>
+              ${items}
+            </div>
+          `;
+        })
+        .join("");
+
+      container.innerHTML = `
+        <div class="people-card" style="cursor: default;">
+          ${imageHtml}
+          <div class="people-info">
+            <div class="text-1">${member.name}</div>
+            <div class="text-3">${member.role}</div>
+            <div class="text-4">${member.email || ""}</div>
+            <div class="text-4">${member.office || ""}</div>
+
+            ${descriptionHtml}
+          </div>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
