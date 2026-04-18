@@ -134,7 +134,7 @@ a {
 /* ===================== */
 /* Publications filter card */
 /* ===================== */
-.search-card {    /* 검색창 + 필터 포함되어있는 카드 */
+.search-card {
   background-color: white;
   border: 1px solid #e5e5e5;
   border-radius: 12px;
@@ -144,14 +144,13 @@ a {
   gap: 12px;
 }
 
-.search-box {   /* 검색창 */
+.search-box {
   flex: 1;
   max-width: 440px;
   padding: 6px 12px;
-  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   line-height: 1.5;
-  color: #111;
+  color: #777;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -172,24 +171,22 @@ a {
   flex-wrap: wrap;
 }
 
-.filter-controls {    /* 필터버튼 두줄 사이 간격 */
+.filter-controls {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   flex: 1;
 }
 
-.filter-btn {  /* publcation 검색창 필터버튼 */
-  font-family: 'Roboto', sans-serif;
+.filter-btn {
   font-size: 12px;
-  line-height: 1.4;
   color: #111;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
   padding: 5px 10px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: 0.2s;
 }
 
 .filter-btn:hover {
@@ -206,18 +203,14 @@ a {
 /* ===================== */
 /* Publication cards */
 /* ===================== */
-#publication-list {
-  display: block;
-}
-
-.publication-card {   /* 논문 정보 들어가는 카드 */
+.publication-card {
   display: block;
   background-color: white;
   border: 1px solid #e5e5e5;
   border-radius: 12px;
   padding: 12px 24px;
   margin-bottom: 12px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: 0.2s;
 }
 
 .publication-card .text-4 {
@@ -241,7 +234,6 @@ a {
 /* ===================== */
 /* People */
 /* ===================== */
-
 .people-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -261,7 +253,7 @@ a {
   border-radius: 16px;
   padding: 16px 24px;
   cursor: pointer;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: 0.2s;
 }
 
 .people-card:hover {
@@ -270,7 +262,7 @@ a {
   transform: translateY(-2px);
 }
 
-.member-photo {
+.people-photo {
   width: 92px;
   height: 92px;
   object-fit: cover;
@@ -279,28 +271,32 @@ a {
   background-color: #f2f2f2;
 }
 
-.member-photo-placeholder {
+.people-photo-placeholder {
   border: 1px solid #eee;
 }
 
-.member-info {
+.people-info {
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.member-info .text-3,
-.member-info .text-4,
-.member-info .text-5 {
+.people-info .text-3,
+.people-info .text-4,
+.people-info .text-5 {
   word-break: keep-all;
 }
-
-
 
 /* ===================== */
 /* Mobile */
 /* ===================== */
+@media (max-width: 900px) {
+  .people-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -329,48 +325,34 @@ a {
     padding: 132px 20px 50px;
   }
 
-  .text-1 {
-    font-size: 24px;
-  }
-
-  .text-3 {
-    font-size: 17px;
-  }
-
-  .text-4,
-  .text-5 {
-    font-size: 14px;
-  }
   .search-card {
-    padding: 12px;
-    border-radius: 12px;
     flex-direction: column;
     align-items: stretch;
+    padding: 12px;
     gap: 12px;
   }
 
   .search-box {
-    max-width: 100%;
     width: 100%;
+    max-width: 100%;
   }
 
   .filter-controls {
     width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
 
-  .filter-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 6px;
-  }
-
   .publication-card {
     padding: 12px;
-    border-radius: 12px;
+  }
+
+  .people-card {
+    padding: 16px;
+  }
+
+  .people-photo {
+    width: 76px;
+    height: 76px;
   }
 }
