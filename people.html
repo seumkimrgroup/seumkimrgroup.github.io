@@ -65,9 +65,9 @@
       const role = normalizeRole(member.role);
   
       if (role === "professor") return 0;
-      if (role === "ms") return 1;
-      if (role === "undergraduate") return 2;
-      if (role === "phd") return 3;
+      if (role === "phd") return 1;
+      if (role === "ms") return 2;
+      if (role === "undergraduate") return 3;
   
       return 9;
     }
@@ -136,6 +136,11 @@
     function createCurrentCard(member) {
       const item = document.createElement("div");
       item.className = "people-card";
+  
+      if (normalizeRole(member.role) === "professor") {
+        item.classList.add("people-card-professor");
+      }
+  
       item.addEventListener("click", () => goToMember(member));
   
       const imageHtml = member.image
@@ -187,56 +192,27 @@
       return item;
     }
   
-    function groupCurrentMembers(members) {
-      const groups = {
-        professor: [],
-        ms: [],
-        undergraduate: [],
-        phd: []
-      };
-  
-      members.forEach((member) => {
-        const role = normalizeRole(member.role);
-  
-        if (groups[role]) {
-          groups[role].push(member);
-        }
-      });
-  
-      return groups;
-    }
-  
     function renderCurrentMembers(members) {
       currentContainer.innerHTML = "";
   
-      const groups = groupCurrentMembers(members);
-      const order = ["professor", "ms", "undergraduate", "phd"];
+      const listDiv = document.createElement("div");
+      listDiv.className = "people-list";
   
-      order.forEach((roleKey) => {
-        const groupMembers = groups[roleKey];
+      members
+        .sort((a, b) => {
+          const p = currentPriority(a) - currentPriority(b);
+          if (p !== 0) return p;
   
-        if (!groupMembers || groupMembers.length === 0) return;
+          const y = (a.joinYear || 9999) - (b.joinYear || 9999);
+          if (y !== 0) return y;
   
-        const groupBlock = document.createElement("div");
-        groupBlock.className = "people-group";
+          return a.name.localeCompare(b.name);
+        })
+        .forEach((member) => {
+          listDiv.appendChild(createCurrentCard(member));
+        });
   
-        const listDiv = document.createElement("div");
-        listDiv.className = "people-list";
-  
-        groupMembers
-          .sort((a, b) => {
-            const y = (a.joinYear || 9999) - (b.joinYear || 9999);
-            if (y !== 0) return y;
-  
-            return a.name.localeCompare(b.name);
-          })
-          .forEach((member) => {
-            listDiv.appendChild(createCurrentCard(member));
-          });
-  
-        groupBlock.appendChild(listDiv);
-        currentContainer.appendChild(groupBlock);
-      });
+      currentContainer.appendChild(listDiv);
     }
   
     function renderFormerMembers(members) {
@@ -272,6 +248,6 @@
   
     renderMembers();
   </script>
-  
+
 </body>
 </html>
