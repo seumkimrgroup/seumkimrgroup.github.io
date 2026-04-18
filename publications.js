@@ -102,7 +102,7 @@ const publications = [
     link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adem.202300267"
   },
   {
-    title: "Recent Progress in Liquid Crystal-Based Smart Windows",
+    title: "Recent progress in liquid crystal-based smart windows",
     source: "Journal of Flexible and Printed Electronics",
     detail: "2(1), 61-76",
     year: 2023,
