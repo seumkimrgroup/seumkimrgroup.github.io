@@ -158,25 +158,17 @@
   
     function createFormerCard(member) {
       const item = document.createElement("div");
-      item.className = "people-card";
+      item.className = "people-card former-people-card";
       item.addEventListener("click", () => goToMember(member));
   
-      const degree = getDegreeLabel(member.role);
-      const year = member.leaveYear || "";
-      const subLine = [degree, year].filter(Boolean).join(" · ");
-  
-      const imageHtml = member.image
-        ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
-        : `<div class="people-photo people-photo-placeholder"></div>`;
-  
-      const researchHtml = createResearchHtml(member);
+      const joinedAt = member.joinedAt || "";
+      const nextAffiliation = member.nextAffiliation || "";
   
       item.innerHTML = `
-        ${imageHtml}
         <div class="people-info">
-          <div class="text-3">${member.name}</div>
-          <div class="text-5">${subLine}</div>
-          ${researchHtml}
+          <div class="text-5">${member.name}</div>
+          <div class="text-4">Joined at</div>
+          <div class="text-5">${nextAffiliation}</div>
         </div>
       `;
   
