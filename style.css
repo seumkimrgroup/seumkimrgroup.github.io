@@ -117,9 +117,15 @@ a {
   padding-bottom: 60px;
 }
 
+.section-heading {
+  margin-bottom: 16px;
+}
+
 .section {
   margin-bottom: 32px;
 }
+
+
 
 /* ===================== */
 /* Footer */
