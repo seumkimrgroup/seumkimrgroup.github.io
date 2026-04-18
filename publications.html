@@ -74,114 +74,210 @@
   <script src="publications.js"></script>
 
   <script>
-    const container = document.getElementById("publication-list");
-    const searchInput = document.getElementById("searchInput");
-
-    const typeButtons = document.querySelectorAll(".type-btn");
-    const yearButtons = document.querySelectorAll(".year-btn");
-
-    let currentType = "all";
-    let currentYear = "all";
-
-    function formatMetaLine(pub) {
-      let line = "";
-
-      if (pub.source) line += pub.source;
-      if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail;
-      if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
-
-      return line;
+    const currentContainer = document.getElementById("current-members");
+    const formerContainer = document.getElementById("former-members");
+  
+    function normalizeRole(role) {
+      const r = (role || "")
+        .toLowerCase()
+        .replace(/\./g, "")
+        .replace(/-/g, " ")
+        .trim();
+  
+      if (r.includes("professor")) return "professor";
+      if (r.includes("phd")) return "phd";
+      if (r.includes("ms")) return "ms";
+      if (r.includes("undergraduate")) return "undergraduate";
+  
+      return "";
     }
-
-    function matchesYear(pubYear, selectedYear) {
-      if (selectedYear === "all") return true;
-
-      if (selectedYear === "2024-earlier") {
-        return pubYear <= 2024;
-      }
-
-      return pubYear === Number(selectedYear);
+  
+    function currentPriority(member) {
+      const role = normalizeRole(member.role);
+  
+      if (role === "professor") return 0;
+      if (role === "phd") return 1;
+      if (role === "ms") return 2;
+      if (role === "undergraduate") return 3;
+  
+      return 9;
     }
-
-    function renderPublications() {
-      const keyword = searchInput.value.trim().toLowerCase();
-      container.innerHTML = "";
-
-      const filtered = publications.filter((pub) => {
-        const matchesType = currentType === "all" || pub.type === currentType;
-        const matchesYearFilter = matchesYear(pub.year, currentYear);
-
-        const searchTarget = [
-          pub.title || "",
-          pub.authors || "",
-          pub.source || "",
-          pub.detail || "",
-          String(pub.year || "")
-        ].join(" ").toLowerCase();
-
-        const matchesSearch = searchTarget.includes(keyword);
-
-        return matchesType && matchesYearFilter && matchesSearch;
-      });
-
-      if (filtered.length === 0) {
-        container.innerHTML =
-          '<div class="text-5">No publications found.</div>';
-        return;
+  
+    function formerPriority(member) {
+      const role = normalizeRole(member.role);
+  
+      if (role === "phd") return 1;
+      if (role === "ms") return 2;
+      if (role === "undergraduate") return 3;
+  
+      return 9;
+    }
+  
+    function getDegreeLabel(role) {
+      const r = normalizeRole(role);
+  
+      if (r === "phd") return "Ph.D.";
+      if (r === "ms") return "M.S.";
+      if (r === "undergraduate") return "B.S.";
+  
+      return role || "";
+    }
+  
+    function formatRole(role) {
+      const r = normalizeRole(role);
+  
+      if (r === "phd") return "Ph.D. Student";
+      if (r === "ms") return "M.S. Student";
+      if (r === "undergraduate") return "Undergraduate";
+  
+      return role || "";
+    }
+  
+    function goToMember(member) {
+      window.location.href = `member.html?id=${member.slug}`;
+    }
+  
+    function getResearchInterests(member) {
+      const section = (member.description || []).find(
+        (d) => (d.title || "").toUpperCase() === "RESEARCH INTERESTS"
+      );
+  
+      if (!section || !Array.isArray(section.content)) return [];
+  
+      return section.content.filter(Boolean);
+    }
+  
+    function createResearchHtml(member) {
+      const interests = getResearchInterests(member);
+  
+      if (interests.length === 0) return "";
+  
+      const itemsHtml = interests
+        .map((item) => `<div class="text-5">${item}</div>`)
+        .join("");
+  
+      return `
+        <div class="text-4 people-interests-label">Research Interests</div>
+        <div class="people-interests">
+          ${itemsHtml}
+        </div>
+      `;
+    }
+  
+    function createCurrentCard(member) {
+      const item = document.createElement("div");
+      item.className = "people-card";
+  
+      if (normalizeRole(member.role) === "professor") {
+        item.classList.add("people-card-professor");
       }
-
-      filtered
-        .sort((a, b) => (b.year || 0) - (a.year || 0))
-        .forEach((pub) => {
-
-          const metaLine = formatMetaLine(pub);
-
-          const cardInner = `
-            <div class="text-3">${pub.title}</div>
-            <div class="text-4">${metaLine}</div>
-            <div class="text-5">${pub.authors || ""}</div>
-          `;
-
-          let item;
-
-          if (pub.link) {
-            item = document.createElement("a");
-            item.href = pub.link;
-            item.target = "_blank";
-            item.rel = "noopener noreferrer";
-            item.className = "publication-card clickable";
-            item.innerHTML = cardInner;
-          } else {
-            item = document.createElement("div");
-            item.className = "publication-card";
-            item.innerHTML = cardInner;
-          }
-
-          container.appendChild(item);
+  
+      item.addEventListener("click", () => goToMember(member));
+  
+      const imageHtml = member.image
+        ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
+        : `<div class="people-photo people-photo-placeholder"></div>`;
+  
+      const researchHtml = createResearchHtml(member);
+  
+      item.innerHTML = `
+        ${imageHtml}
+        <div class="people-info">
+          <div class="text-3">${member.name}</div>
+          <div class="text-5">${formatRole(member.role)}</div>
+          ${researchHtml}
+        </div>
+      `;
+  
+      return item;
+    }
+  
+    function createFormerCard(member) {
+      const item = document.createElement("div");
+      item.className = "people-card former-people-card";
+      item.addEventListener("click", () => goToMember(member));
+  
+      const degree = getDegreeLabel(member.role);
+      const year = member.leaveYear || "";
+      const statusLine = [degree, year].filter(Boolean).join(" · ");
+  
+      const nextAffiliation = member.nextAffiliation || "";
+  
+      let affiliationHtml = "";
+  
+      if (nextAffiliation) {
+        affiliationHtml = `
+          <div class="text-4">Joined at</div>
+          <div class="text-5">${nextAffiliation}</div>
+        `;
+      }
+  
+      item.innerHTML = `
+        <div class="people-info">
+          <div class="text-3">${member.name}</div>
+          <div class="text-5">${statusLine}</div>
+          ${affiliationHtml}
+        </div>
+      `;
+  
+      return item;
+    }
+  
+    function renderCurrentMembers(members) {
+      currentContainer.innerHTML = "";
+  
+      const listDiv = document.createElement("div");
+      listDiv.className = "people-list";
+  
+      members
+        .sort((a, b) => {
+          const p = currentPriority(a) - currentPriority(b);
+          if (p !== 0) return p;
+  
+          const y = (a.joinYear || 9999) - (b.joinYear || 9999);
+          if (y !== 0) return y;
+  
+          return a.name.localeCompare(b.name);
+        })
+        .forEach((member) => {
+          listDiv.appendChild(createCurrentCard(member));
         });
+  
+      currentContainer.appendChild(listDiv);
     }
-
-    typeButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        typeButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-        currentType = button.dataset.type;
-        renderPublications();
-      });
-    });
-
-    yearButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        yearButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-        currentYear = button.dataset.year;
-        renderPublications();
-      });
-    });
-
-    searchInput.addEventListener("input", renderPublications);
-
-    renderPublications();
+  
+    function renderFormerMembers(members) {
+      formerContainer.innerHTML = "";
+  
+      const listDiv = document.createElement("div");
+      listDiv.className = "people-list";
+  
+      members
+        .sort((a, b) => {
+          const p = formerPriority(a) - formerPriority(b);
+          if (p !== 0) return p;
+  
+          const y = (b.leaveYear || 0) - (a.leaveYear || 0);
+          if (y !== 0) return y;
+  
+          return a.name.localeCompare(b.name);
+        })
+        .forEach((member) => {
+          listDiv.appendChild(createFormerCard(member));
+        });
+  
+      formerContainer.appendChild(listDiv);
+    }
+  
+    function renderMembers() {
+      const currentMembers = members.filter((m) => m.status === "current");
+      const formerMembers = members.filter((m) => m.status === "former");
+  
+      renderCurrentMembers(currentMembers);
+      renderFormerMembers(formerMembers);
+    }
+  
+    renderMembers();
   </script>
 
 </body>
