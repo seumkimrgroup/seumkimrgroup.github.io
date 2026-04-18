@@ -289,6 +289,10 @@ a {
   gap: 4px;
 }
 
+.people-info .text-4 {
+  margin-top: 8px;
+}
+
 .people-info .text-3,
 .people-info .text-4,
 .people-info .text-5 {
