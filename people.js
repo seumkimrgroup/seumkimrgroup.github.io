@@ -55,7 +55,7 @@ const members = [
   {
     name: "Minhye Kim",
     status: "current",
-    role: "MS student",
+    role: "M.S. student",
     email: "minhyeral14@seoultech.ac.kr",
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
@@ -244,7 +244,7 @@ const members = [
   {
     name: "Hyo Seok Oh",
     status: "current",
-    role: "MS student",
+    role: "M.S. student",
     email: "ohs07@naver.com",
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
@@ -307,7 +307,7 @@ const members = [
   {
     name: "Hyeon Seong Hwang",
     status: "current",
-    role: "MS student",
+    role: "M.S. student",
     email: "he9312@seoultech.ac.kr",
     phone: "", office: "",
     joinYear: 2023, leaveYear: null,
