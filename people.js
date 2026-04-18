@@ -67,7 +67,9 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "LC composite materials and systems"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -88,7 +90,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "Heat ",
+          "ML-assisted FEM optimization"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -109,7 +114,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "",
+          "LC composite materials and systems"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -130,7 +138,9 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "LC composite materials and systems"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -151,7 +161,9 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "LC-based electro-optical systems"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -172,7 +184,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "FEM based thermal managenemts",
+          "LC composite materials and systems"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -193,7 +208,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "FEM based thermal managenemts",
+          "PINN-assisted optimization of FEM"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -214,7 +232,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "LC composite materials and systems",
+          "Polymer stabilized liquid crystals"
+        ]
       }
     ],
     nextAffiliation: "Wuxi Hengxin",
@@ -235,7 +256,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "LC composite materials and systems",
+          "Polymer stabilized liquid crystals"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -256,7 +280,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "Electrochromic devices",
+          "Reflective displays"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -277,7 +304,10 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "LC composite materials and systems",
+          "Polymer stabilized liquid crystals"
+        ]
       }
     ],
     nextAffiliation: "LG Energy Solution",
@@ -298,7 +328,9 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "FEM based thermal managenemts"
+        ]
       }
     ],
     nextAffiliation: "Autonics",
@@ -319,7 +351,11 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "LC composite materials and systems",
+          "CLC-based optical filters",
+          "Polymer stabilized liquid crystals"
+        ]
       }
     ],
     nextAffiliation: "",
@@ -340,7 +376,9 @@ const members = [
       },
       {
         title: "RESEARCH INTERESTS",
-        content: []
+        content: [
+          "electrochromic devices"
+        ]
       }
     ],
     nextAffiliation: "MTS",
