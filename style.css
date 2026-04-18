@@ -239,6 +239,66 @@ a {
 }
 
 /* ===================== */
+/* People */
+/* ===================== */
+
+.people-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.people-section-title {
+  margin-bottom: 16px;
+}
+
+.people-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.people-card:hover {
+  border-color: #cfcfcf;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.member-photo {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-color: #f2f2f2;
+}
+
+.member-photo-placeholder {
+  border: 1px solid #eee;
+}
+
+.member-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.member-info .text-3,
+.member-info .text-4,
+.member-info .text-5 {
+  word-break: keep-all;
+}
+
+
+
+/* ===================== */
 /* Mobile */
 /* ===================== */
 @media (max-width: 768px) {
