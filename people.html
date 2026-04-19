@@ -76,6 +76,10 @@
       return "";
     }
 
+    function isProfessor(member) {
+      return normalizeRole(member.role) === "professor";
+    }
+
     function currentPriority(member) {
       const role = normalizeRole(member.role);
 
@@ -243,7 +247,7 @@
     function renderPI(members) {
       piContainer.innerHTML = "";
 
-      const pi = members.find((member) => normalizeRole(member.role) === "professor");
+      const pi = members.find((member) => isProfessor(member));
       if (!pi) return;
 
       const wrap = document.createElement("div");
@@ -300,8 +304,8 @@
 
     function renderMembers() {
       const currentMembers = members.filter((m) => m.status === "current");
-      const professorMembers = currentMembers.filter((m) => normalizeRole(m.role) === "professor");
-      const studentMembers = currentMembers.filter((m) => normalizeRole(m.role) !== "professor");
+      const professorMembers = currentMembers.filter((m) => isProfessor(m));
+      const studentMembers = currentMembers.filter((m) => !isProfessor(m));
       const formerMembers = members.filter((m) => m.status === "former");
 
       renderPI(professorMembers);
@@ -345,8 +349,9 @@
     }
 
     function renderDetailPublications(member) {
-      const pubs = getMemberPublications(member);
+      if (isProfessor(member)) return "";
 
+      const pubs = getMemberPublications(member);
       if (!pubs.length) return "";
 
       return `
@@ -361,14 +366,14 @@
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
         : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
-    
+
       const currentAffiliationHtml = member.currentAffiliation
         ? `<div class="text-5 member-detail-affiliation">${member.currentAffiliation}</div>`
         : "";
-    
+
       detailView.innerHTML = `
         <a href="people.html" class="back-link text-4">← Back to People</a>
-    
+
         <div class="member-detail-profile">
           <div class="member-detail-header">
             ${imageHtml}
@@ -378,23 +383,22 @@
               ${currentAffiliationHtml}
             </div>
           </div>
-    
+
           <div class="member-detail-sections">
             ${renderDetailSections(member)}
           </div>
         </div>
-    
+
         ${renderDetailPublications(member)}
       `;
-    
+
       const pubList = document.getElementById("member-publication-list");
+      if (!pubList) return;
+
       const pubs = getMemberPublications(member);
-    
-      if (!isProfessor(member) && pubList) {
-        pubs.forEach((pub) => {
-          pubList.appendChild(createPublicationCard(pub));
-        });
-      }
+      pubs.forEach((pub) => {
+        pubList.appendChild(createPublicationCard(pub));
+      });
     }
 
     function showListView() {
