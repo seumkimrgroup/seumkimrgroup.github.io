@@ -91,7 +91,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology" 
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -265,7 +267,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -315,7 +319,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -340,7 +346,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -365,7 +373,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -389,7 +399,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -415,7 +427,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -439,7 +453,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -461,7 +477,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
@@ -483,7 +501,9 @@ const members = [
     description: [
       {
         title: "EDUCATION",
-        content: []
+        content: [
+          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
+        ]
       },
       {
         title: "RESEARCH INTERESTS",
