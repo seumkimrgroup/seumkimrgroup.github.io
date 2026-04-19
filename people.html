@@ -80,6 +80,10 @@
       return normalizeRole(member.role) === "professor";
     }
 
+    function isFormer(member) {
+      return member.status === "former";
+    }
+
     function currentPriority(member) {
       const role = normalizeRole(member.role);
 
@@ -216,28 +220,17 @@
 
     function createFormerCard(member) {
       const item = document.createElement("div");
-      item.className = "people-card former-people-card";
+      item.className = "people-card people-card-member former-people-card";
       item.addEventListener("click", () => goToMember(member));
 
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
       const statusLine = [degree, year].filter(Boolean).join(" · ");
 
-      const nextAffiliation = member.nextAffiliation || "";
-      let affiliationHtml = "";
-
-      if (nextAffiliation) {
-        affiliationHtml = `
-          <div class="text-4">Joined at</div>
-          <div class="text-5">${nextAffiliation}</div>
-        `;
-      }
-
       item.innerHTML = `
         <div class="people-info">
           <div class="text-3">${member.name}</div>
           <div class="text-5">${statusLine}</div>
-          ${affiliationHtml}
         </div>
       `;
 
@@ -283,7 +276,7 @@
       formerContainer.innerHTML = "";
 
       const listDiv = document.createElement("div");
-      listDiv.className = "people-list people-alumni-list";
+      listDiv.className = "people-list people-members-list";
 
       members
         .sort((a, b) => {
@@ -326,8 +319,23 @@
       });
     }
 
+    function getFormerEducationSections(member) {
+      if (!Array.isArray(member.description)) return [];
+
+      return member.description.filter((section) => {
+        const title = String(section?.title || "").toUpperCase();
+        if (title !== "EDUCATION") return false;
+        if (!Array.isArray(section.content)) return false;
+
+        const validItems = section.content.filter((item) => String(item || "").trim() !== "");
+        return validItems.length > 0;
+      });
+    }
+
     function renderDetailSections(member) {
-      const sections = getRenderableSections(member);
+      const sections = isFormer(member)
+        ? getFormerEducationSections(member)
+        : getRenderableSections(member);
 
       if (!sections.length) return "";
 
@@ -362,55 +370,93 @@
       `;
     }
 
-    function renderMemberDetail(member) {
+    function renderCurrentMemberDetail(member) {
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
         : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
-  
+
       const currentAffiliationHtml = member.currentAffiliation
         ? `<div class="text-5 member-detail-affiliation">${member.currentAffiliation}</div>`
         : "";
-  
+
       detailView.innerHTML = `
         <a href="people.html" class="back-link text-4">← Back to People</a>
-  
+
         <div class="member-detail-profile">
           <div class="member-detail-header">
             ${imageHtml}
-  
+
             <div class="member-detail-main">
               <div class="member-detail-header-text">
                 <div class="text-3 member-detail-name">${member.name}</div>
                 <div class="text-5 member-detail-role">${formatRole(member.role)}</div>
                 ${currentAffiliationHtml}
               </div>
-  
+
               <div class="member-detail-sections">
                 ${renderDetailSections(member)}
               </div>
             </div>
           </div>
         </div>
-  
+
         ${renderDetailPublications(member)}
       `;
-  
+    }
+
+    function renderFormerMemberDetail(member) {
+      const joinedAtHtml = member.nextAffiliation
+        ? `
+          <div class="member-detail-inline-block">
+            <div class="text-4 member-detail-section-title">Joined at</div>
+            <div class="text-5 member-detail-item">${member.nextAffiliation}</div>
+          </div>
+        `
+        : "";
+
+      detailView.innerHTML = `
+        <a href="people.html" class="back-link text-4">← Back to People</a>
+
+        <div class="member-detail-profile former-member-detail-profile">
+          <div class="member-detail-main former-member-detail-main">
+            <div class="member-detail-header-text former-member-detail-header-text">
+              <div class="text-3 member-detail-name">${member.name}</div>
+              ${joinedAtHtml}
+            </div>
+
+            <div class="member-detail-sections">
+              ${renderDetailSections(member)}
+            </div>
+          </div>
+        </div>
+
+        ${renderDetailPublications(member)}
+      `;
+    }
+
+    function renderMemberDetail(member) {
+      if (isFormer(member)) {
+        renderFormerMemberDetail(member);
+      } else {
+        renderCurrentMemberDetail(member);
+      }
+
       const pubList = document.getElementById("member-publication-list");
       if (!pubList) return;
-  
+
       const pubs = getMemberPublications(member);
       pubs.forEach((pub) => {
         pubList.appendChild(createPublicationCard(pub));
       });
     }
-      
+
     function showListView() {
       listView.style.removeProperty("display");
       detailView.style.display = "none";
       renderMembers();
     }
 
-      function showDetailView(member) {
+    function showDetailView(member) {
       listView.style.display = "none";
       detailView.style.display = "flex";
       renderMemberDetail(member);
