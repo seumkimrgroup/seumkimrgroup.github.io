@@ -14,7 +14,7 @@ const members = [
       {
         title: "RESEARCH CAREER",
         content: [
-          "2026-Present: 겸직연구원, KIST 양자기술연구단",
+          "2026–Present: 겸직연구원, KIST 양자기술연구단",
           "2026–Present: Associate Professor, SeoulTech",
           "2022–2026: Assistant Professor, SeoulTech",
           "Staff researcher, Samsung Advanced Institute of Technology",
