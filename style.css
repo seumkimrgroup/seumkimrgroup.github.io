@@ -426,6 +426,20 @@ a {
     width: 80px;
     height: 80px;
   }
+
+  .member-profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-name {
+    text-align: center;
+  }
+
+  .member-role {
+    margin-top: 4px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -446,96 +460,9 @@ a {
   }
 }
 
-
 /* ===================== */
 /* Person */
 /* ===================== */
-.person-browse-top {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.back-link {
-  align-self: flex-start;
-}
-
-.back-link:hover {
-  color: #1e2a38;
-}
-
-.browse-top-card {
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
-  padding: 18px 20px;
-}
-
-.browse-top-title {
-  margin-bottom: 14px;
-}
-
-.browse-top-section + .browse-top-section {
-  margin-top: 18px;
-}
-
-.browse-top-section-title {
-  margin-bottom: 10px;
-}
-
-.browse-top-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.browse-top-grid-pi {
-  grid-template-columns: minmax(0, 320px);
-}
-
-.browse-person-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
-  padding: 10px 12px;
-  transition: 0.2s;
-}
-
-.browse-person-card:hover {
-  border-color: #cfcfcf;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
-}
-
-.browse-person-card.active {
-  border-color: #1e2a38;
-  background-color: #f8fafc;
-}
-
-.browse-person-photo {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  object-fit: cover;
-  flex-shrink: 0;
-  background-color: #f2f2f2;
-}
-
-.browse-person-info {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.browse-person-info .text-4,
-.browse-person-info .text-5 {
-  word-break: keep-all;
-}
-
 .member-profile-card {
   display: flex;
   align-items: center;
@@ -575,55 +502,4 @@ a {
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-
-@media (max-width: 1000px) {
-  .browse-top-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .browse-top-card {
-    padding: 16px;
-  }
-
-  .browse-top-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .browse-top-grid-pi {
-    grid-template-columns: 1fr;
-  }
-
-  .browse-person-card {
-    padding: 10px;
-  }
-
-  .member-profile-card {
-    padding: 18px;
-    gap: 16px;
-  }
-
-  .member-photo {
-    width: 88px;
-    height: 88px;
-  }
-}
-
-@media (max-width: 520px) {
-  .browse-top-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .member-profile-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .member-name,
-  .people-info-pi {
-    text-align: center;
-    align-items: center;
-  }
 }
