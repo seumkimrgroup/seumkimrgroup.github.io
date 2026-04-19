@@ -21,36 +21,42 @@
   </div>
 
   <div class="content people-page">
+    <div id="people-list-view">
+      <div class="section section-heading">
+        <div class="text-1">Principal Investigator</div>
+      </div>
 
-    <div class="section section-heading">
-      <div class="text-1">Principal Investigator</div>
+      <div class="section">
+        <div id="pi-members"></div>
+      </div>
+
+      <div class="section section-heading">
+        <div class="text-1">Members</div>
+      </div>
+
+      <div class="section">
+        <div id="current-members"></div>
+      </div>
+
+      <div class="section section-heading">
+        <div class="text-1">Alumni</div>
+      </div>
+
+      <div class="section">
+        <div id="former-members"></div>
+      </div>
     </div>
 
-    <div class="section">
-      <div id="pi-members"></div>
-    </div>
-
-    <div class="section section-heading">
-      <div class="text-1">Members</div>
-    </div>
-
-    <div class="section">
-      <div id="current-members"></div>
-    </div>
-
-    <div class="section section-heading">
-      <div class="text-1">Alumni</div>
-    </div>
-
-    <div class="section">
-      <div id="former-members"></div>
-    </div>
-
+    <div id="member-detail-view" class="member-detail-view"></div>
   </div>
 
   <script src="people.js"></script>
+  <script src="publications.js"></script>
 
   <script>
+    const listView = document.getElementById("people-list-view");
+    const detailView = document.getElementById("member-detail-view");
+
     const piContainer = document.getElementById("pi-members");
     const currentContainer = document.getElementById("current-members");
     const formerContainer = document.getElementById("former-members");
@@ -111,7 +117,57 @@
     }
 
     function goToMember(member) {
-      window.location.href = `person.html?id=${member.slug}`;
+      window.location.href = `people.html?id=${member.slug}`;
+    }
+
+    function formatMetaLine(pub) {
+      let line = "";
+
+      if (pub.source) line += pub.source;
+      if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail;
+      if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
+
+      return line;
+    }
+
+    function getMemberPublications(member) {
+      if (!Array.isArray(publications)) return [];
+
+      const memberName = (member.name || "").toLowerCase();
+
+      return publications
+        .filter((pub) => {
+          const authors = (pub.authors || "").toLowerCase();
+          return authors.includes(memberName);
+        })
+        .sort((a, b) => (b.year || 0) - (a.year || 0));
+    }
+
+    function createPublicationCard(pub) {
+      const metaLine = formatMetaLine(pub);
+
+      const cardInner = `
+        <div class="text-3">${pub.title || ""}</div>
+        <div class="text-4">${metaLine}</div>
+        <div class="text-5">${pub.authors || ""}</div>
+      `;
+
+      let item;
+
+      if (pub.link) {
+        item = document.createElement("a");
+        item.href = pub.link;
+        item.target = "_blank";
+        item.rel = "noopener noreferrer";
+        item.className = "publication-card clickable";
+        item.innerHTML = cardInner;
+      } else {
+        item = document.createElement("div");
+        item.className = "publication-card";
+        item.innerHTML = cardInner;
+      }
+
+      return item;
     }
 
     function createPiCard(member) {
@@ -253,7 +309,129 @@
       renderFormerMembers(formerMembers);
     }
 
-    renderMembers();
+    function getRenderableSections(member) {
+      if (!Array.isArray(member.description)) return [];
+
+      return member.description.filter((section) => {
+        if (!section) return false;
+        if (!section.title) return false;
+        if (!Array.isArray(section.content)) return false;
+
+        const validItems = section.content.filter((item) => String(item || "").trim() !== "");
+        return validItems.length > 0;
+      });
+    }
+
+    function renderDetailSections(member) {
+      const sections = getRenderableSections(member);
+
+      if (!sections.length) return "";
+
+      return sections.map((section) => {
+        const itemsHtml = section.content
+          .filter((item) => String(item || "").trim() !== "")
+          .map((item) => `<div class="text-5 member-detail-item">${item}</div>`)
+          .join("");
+
+        return `
+          <div class="member-detail-section">
+            <div class="text-4 member-detail-section-title">${section.title}</div>
+            <div class="member-detail-section-body">
+              ${itemsHtml}
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderDetailPublications(member) {
+      const pubs = getMemberPublications(member);
+
+      if (!pubs.length) return "";
+
+      return `
+        <div class="member-publications-section">
+          <div class="text-2 member-publications-title">Publications</div>
+          <div id="member-publication-list"></div>
+        </div>
+      `;
+    }
+
+    function renderMemberDetail(member) {
+      const imageHtml = member.image
+        ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
+        : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
+
+      const currentAffiliationHtml = member.currentAffiliation
+        ? `<div class="text-5 member-detail-affiliation">${member.currentAffiliation}</div>`
+        : "";
+
+      detailView.innerHTML = `
+        <a href="people.html" class="back-link text-4">← Back to People</a>
+
+        <div class="member-detail-header">
+          ${imageHtml}
+          <div class="member-detail-header-text">
+            <div class="text-3 member-detail-name">${member.name}</div>
+            <div class="text-5 member-detail-role">${formatRole(member.role)}</div>
+            ${currentAffiliationHtml}
+          </div>
+        </div>
+
+        <div class="member-detail-sections">
+          ${renderDetailSections(member)}
+        </div>
+
+        ${renderDetailPublications(member)}
+      `;
+
+      const pubList = document.getElementById("member-publication-list");
+      const pubs = getMemberPublications(member);
+
+      if (pubList) {
+        pubs.forEach((pub) => {
+          pubList.appendChild(createPublicationCard(pub));
+        });
+      }
+    }
+
+    function showListView() {
+      listView.style.display = "block";
+      detailView.style.display = "none";
+      renderMembers();
+    }
+
+    function showDetailView(member) {
+      listView.style.display = "none";
+      detailView.style.display = "flex";
+      renderMemberDetail(member);
+    }
+
+    if (typeof members === "undefined" || !Array.isArray(members)) {
+      listView.style.display = "none";
+      detailView.style.display = "flex";
+      detailView.innerHTML = `<div class="text-2">Member data could not be loaded.</div>`;
+    } else {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      if (!id) {
+        showListView();
+      } else {
+        const member = members.find((m) => m.slug === id);
+
+        if (!member) {
+          listView.style.display = "none";
+          detailView.style.display = "flex";
+          detailView.innerHTML = `
+            <a href="people.html" class="back-link text-4">← Back to People</a>
+            <div class="text-2">Member not found.</div>
+          `;
+        } else {
+          showDetailView(member);
+        }
+      }
+    }
   </script>
 
 </body>
