@@ -139,7 +139,7 @@ a {
 }
 
 /* ===================== */
-/* Publications filter card */
+/* @Publications search card and filter button */
 /* ===================== */
 .search-card {
   background-color: white;
@@ -208,7 +208,7 @@ a {
 }
 
 /* ===================== */
-/* Publication cards */
+/* @Publications Publication cards */
 /* ===================== */
 .publication-card {
   display: block;
@@ -448,7 +448,7 @@ a {
 
 
 /* ===================== */
-/* Person detail */
+/* Person */
 /* ===================== */
 .person-browse-top {
   display: flex;
