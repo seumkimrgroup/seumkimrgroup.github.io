@@ -249,7 +249,7 @@ a {
 .people-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 .people-section-title {
@@ -258,19 +258,25 @@ a {
 
 .people-card {
   display: flex;
-  align-items: flex-start;
-  gap: 18px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 10px;
   background-color: white;
   border: 1px solid #e5e5e5;
-  border-radius: 16px;
-  padding: 16px 24px;
+  border-radius: 14px;
+  padding: 14px 16px;
   cursor: pointer;
   transition: 0.2s;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .people-card-professor {
   grid-column: span 2;
-  padding: 20px 24px;
+  padding: 16px 18px;
 }
 
 .people-card:hover {
@@ -280,8 +286,8 @@ a {
 }
 
 .people-photo {
-  width: 120px;
-  height: 120px;
+  width: 88px;
+  height: 88px;
   object-fit: cover;
   border-radius: 12px;
   flex-shrink: 0;
@@ -294,19 +300,39 @@ a {
 
 .people-info {
   min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.people-info-compact {
   gap: 4px;
 }
 
+.people-name {
+  margin: 0;
+}
+
+.people-role {
+  margin: 0;
+}
+
+.former-people-card {
+  justify-content: center;
+  min-height: 120px;
+}
+
 .people-info .text-4 {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .people-info .text-3,
 .people-info .text-4,
 .people-info .text-5 {
   word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 /* ===================== */
@@ -369,11 +395,23 @@ a {
   }
 
   .people-card {
-    padding: 16px;
+    padding: 12px 14px;
+  }
+
+  .people-card-professor {
+    grid-column: span 1;
   }
 
   .people-photo {
-    width: 76px;
-    height: 76px;
+    width: 72px;
+    height: 72px;
+  }
+
+  .people-name {
+    font-size: 16px;
+  }
+
+  .people-role {
+    font-size: 13px;
   }
 }
