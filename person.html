@@ -21,6 +21,7 @@
   </div>
 
   <div class="content">
+    <div id="member-browse" class="person-browse-top"></div>
     <div id="member-detail"></div>
   </div>
 
@@ -29,75 +30,72 @@
 
   <script>
     const container = document.getElementById("member-detail");
-  
+    const browseContainer = document.getElementById("member-browse");
+
     function normalizeRole(role) {
       const r = (role || "")
         .toLowerCase()
         .replace(/\./g, "")
         .replace(/-/g, " ")
         .trim();
-  
+
       if (r.includes("professor")) return "professor";
       if (r.includes("phd")) return "phd";
       if (r.includes("ms")) return "ms";
       if (r.includes("undergraduate")) return "undergraduate";
-  
+
       return "";
     }
-  
+
     function formatRole(role) {
       const r = normalizeRole(role);
-  
+
       if (r === "phd") return "Ph.D. Student";
       if (r === "ms") return "M.S. Student";
       if (r === "undergraduate") return "Undergraduate";
-  
+
       return role || "";
     }
-  
-    function goBackToPeople() {
-      window.location.href = "people.html";
-    }
-  
+
     function formatMetaLine(pub) {
       let line = "";
-  
+
       if (pub.source) line += pub.source;
       if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail;
       if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
-  
+
       return line;
     }
-  
+
     function isProfessor(member) {
       return normalizeRole(member.role) === "professor";
     }
-  
+
     function getResearchInterests(member) {
       const section = (member.description || []).find(
         (d) => (d.title || "").toUpperCase() === "RESEARCH INTERESTS"
       );
-  
+
       if (!section || !Array.isArray(section.content)) return [];
-  
+
       return section.content.filter(Boolean);
     }
-  
+
     function getEducation(member) {
       const section = (member.description || []).find(
         (d) => (d.title || "").toUpperCase() === "EDUCATION"
       );
-  
+
       if (!section || !Array.isArray(section.content)) return [];
-  
+
       return section.content.filter(Boolean);
     }
-  
+
     function getMemberPublications(member) {
       if (!Array.isArray(publications)) return [];
-  
+
       const memberName = (member.name || "").toLowerCase();
-  
+
       return publications
         .filter((pub) => {
           const authors = (pub.authors || "").toLowerCase();
@@ -105,18 +103,18 @@
         })
         .sort((a, b) => (b.year || 0) - (a.year || 0));
     }
-  
+
     function createPublicationCard(pub) {
       const metaLine = formatMetaLine(pub);
-  
+
       const cardInner = `
         <div class="text-3">${pub.title || ""}</div>
         <div class="text-4">${metaLine}</div>
         <div class="text-5">${pub.authors || ""}</div>
       `;
-  
+
       let item;
-  
+
       if (pub.link) {
         item = document.createElement("a");
         item.href = pub.link;
@@ -129,17 +127,17 @@
         item.className = "publication-card";
         item.innerHTML = cardInner;
       }
-  
+
       return item;
     }
-  
+
     function renderSection(title, items) {
       if (!items || items.length === 0) return "";
-  
+
       const itemsHtml = items
         .map((item) => `<div class="text-5">${item}</div>`)
         .join("");
-  
+
       return `
         <div class="member-block">
           <div class="text-2 member-block-title">${title}</div>
@@ -149,12 +147,12 @@
         </div>
       `;
     }
-  
+
     function renderPublicationsSection(member) {
       if (isProfessor(member)) return "";
-  
+
       const pubs = getMemberPublications(member);
-  
+
       if (pubs.length === 0) {
         return `
           <div class="member-block">
@@ -163,47 +161,47 @@
           </div>
         `;
       }
-  
+
       const listWrap = document.createElement("div");
       listWrap.className = "member-block";
-  
+
       listWrap.innerHTML = `
         <div class="text-2 member-block-title">Publications</div>
         <div id="member-publication-list"></div>
       `;
-  
+
       return listWrap.outerHTML;
     }
-  
+
     function renderMember(member) {
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-photo">`
         : `<div class="people-photo people-photo-placeholder member-photo"></div>`;
-  
+
       const educationHtml = renderSection("Education", getEducation(member));
       const interestsHtml = renderSection("Research Interests", getResearchInterests(member));
       const publicationsHtml = renderPublicationsSection(member);
-  
+
       container.innerHTML = `
         <div class="member-profile-card">
           ${imageHtml}
-          <div class="people-info">
+          <div class="people-info people-info-pi">
             <div class="text-1 member-name">${member.name}</div>
             <div class="text-5 member-role">${formatRole(member.role)}</div>
             ${member.email ? `<div class="text-4">${member.email}</div>` : ""}
             ${member.office ? `<div class="text-4">${member.office}</div>` : ""}
           </div>
         </div>
-  
+
         ${educationHtml}
         ${interestsHtml}
         ${publicationsHtml}
       `;
-  
+
       if (!isProfessor(member)) {
         const pubList = document.getElementById("member-publication-list");
         const pubs = getMemberPublications(member);
-  
+
         if (pubList) {
           pubs.forEach((pub) => {
             pubList.appendChild(createPublicationCard(pub));
@@ -211,15 +209,95 @@
         }
       }
     }
-  
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    const member = members.find((m) => m.slug === id);
-  
-    if (!member) {
-      container.innerHTML = `<div class="text-2">Member not found.</div>`;
+
+    function memberSort(a, b) {
+      const order = { phd: 1, ms: 2, undergraduate: 3, professor: 9 };
+      const pa = order[normalizeRole(a.role)] || 9;
+      const pb = order[normalizeRole(b.role)] || 9;
+      if (pa !== pb) return pa - pb;
+      const ya = a.joinYear || 9999;
+      const yb = b.joinYear || 9999;
+      if (ya !== yb) return ya - yb;
+      return a.name.localeCompare(b.name);
+    }
+
+    function formerSort(a, b) {
+      const order = { phd: 1, ms: 2, undergraduate: 3, professor: 9 };
+      const pa = order[normalizeRole(a.role)] || 9;
+      const pb = order[normalizeRole(b.role)] || 9;
+      if (pa !== pb) return pa - pb;
+      const ya = b.leaveYear || 0;
+      const yb = a.leaveYear || 0;
+      if (ya !== yb) return ya - yb;
+      return a.name.localeCompare(b.name);
+    }
+
+    function createBrowseLink(member, currentId) {
+      const active = member.slug === currentId ? " active" : "";
+      return `
+        <a class="browse-person-card${active}" href="person.html?id=${member.slug}">
+          ${member.image
+            ? `<img src="${member.image}" alt="${member.name}" class="browse-person-photo">`
+            : `<div class="browse-person-photo people-photo-placeholder"></div>`}
+          <div class="browse-person-info">
+            <div class="text-4">${member.name}</div>
+            <div class="text-5">${formatRole(member.role)}</div>
+          </div>
+        </a>
+      `;
+    }
+
+    function createBrowseSection(title, items, currentId, extraClass = "") {
+      if (!items.length) return "";
+      const cards = items.map((member) => createBrowseLink(member, currentId)).join("");
+      return `
+        <div class="browse-top-section">
+          <div class="text-4 browse-top-section-title">${title}</div>
+          <div class="browse-top-grid ${extraClass}">
+            ${cards}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderBrowse(currentId) {
+      const piMembers = members
+        .filter((m) => m.status === "current" && normalizeRole(m.role) === "professor")
+        .sort(memberSort);
+
+      const currentMembers = members
+        .filter((m) => m.status === "current" && normalizeRole(m.role) !== "professor")
+        .sort(memberSort);
+
+      const alumniMembers = members
+        .filter((m) => m.status === "former")
+        .sort(formerSort);
+
+      browseContainer.innerHTML = `
+        <a href="people.html" class="back-link text-4">← Back to People</a>
+        <div class="browse-top-card">
+          <div class="text-2 browse-top-title">Browse People</div>
+          ${createBrowseSection("Principal Investigator", piMembers, currentId, "browse-top-grid-pi")}
+          ${createBrowseSection("Members", currentMembers, currentId)}
+          ${createBrowseSection("Alumni", alumniMembers, currentId)}
+        </div>
+      `;
+    }
+
+    if (typeof members === "undefined" || !Array.isArray(members)) {
+      container.innerHTML = `<div class="text-2">Member data could not be loaded.</div>`;
     } else {
-      renderMember(member);
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const member = members.find((m) => m.slug === id) || members[0];
+
+      renderBrowse(member.slug);
+
+      if (!member) {
+        container.innerHTML = `<div class="text-2">Member not found.</div>`;
+      } else {
+        renderMember(member);
+      }
     }
   </script>
 
