@@ -239,7 +239,7 @@ a {
 }
 
 /* ===================== */
-/* People */
+/* People list */
 /* ===================== */
 .people-group {
   margin-bottom: 32px;
@@ -349,6 +349,88 @@ a {
 }
 
 /* ===================== */
+/* People detail */
+/* ===================== */
+.member-detail-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.back-link {
+  align-self: flex-start;
+  margin-bottom: 18px;
+}
+
+.back-link:hover {
+  color: #1e2a38;
+}
+
+.member-detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.member-detail-photo {
+  width: 104px;
+  height: 104px;
+}
+
+.member-detail-header-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.member-detail-name,
+.member-detail-role,
+.member-detail-affiliation {
+  word-break: keep-all;
+}
+
+.member-detail-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.member-detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.member-detail-section + .member-detail-section {
+  margin-top: 6px;
+}
+
+.member-detail-section-title {
+  margin-bottom: 2px;
+  text-transform: none;
+}
+
+.member-detail-section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.member-detail-item {
+  word-break: keep-all;
+}
+
+.member-publications-section {
+  margin-top: 28px;
+}
+
+.member-publications-title {
+  margin-bottom: 14px;
+}
+
+/* ===================== */
 /* Mobile */
 /* ===================== */
 @media (max-width: 900px) {
@@ -427,18 +509,22 @@ a {
     height: 80px;
   }
 
-  .member-profile-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .member-detail-header {
+    gap: 16px;
   }
 
-  .member-name {
-    text-align: center;
+  .member-detail-photo {
+    width: 88px;
+    height: 88px;
   }
 
-  .member-role {
-    margin-top: 4px;
+  .member-detail-sections {
+    margin-top: 16px;
+    gap: 16px;
+  }
+
+  .member-publications-section {
+    margin-top: 24px;
   }
 }
 
@@ -458,48 +544,24 @@ a {
     align-items: center;
     text-align: center;
   }
-}
 
-/* ===================== */
-/* Person */
-/* ===================== */
-.member-profile-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
-  padding: 20px 24px;
-}
+  .member-detail-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-.member-photo {
-  width: 104px;
-  height: 104px;
-}
+  .member-detail-header-text {
+    align-items: center;
+    text-align: center;
+  }
 
-.member-name {
-  text-align: left;
-}
+  .member-detail-photo {
+    width: 96px;
+    height: 96px;
+  }
 
-.member-role {
-  margin-top: 2px;
-}
-
-.member-block {
-  margin-top: 16px;
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
-  padding: 18px 20px;
-}
-
-.member-block-title {
-  margin-bottom: 12px;
-}
-
-.member-block-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  .back-link {
+    margin-bottom: 16px;
+  }
 }
