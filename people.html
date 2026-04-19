@@ -361,33 +361,35 @@
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
         : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
-
+  
       const currentAffiliationHtml = member.currentAffiliation
         ? `<div class="text-5 member-detail-affiliation">${member.currentAffiliation}</div>`
         : "";
-
+  
       detailView.innerHTML = `
         <a href="people.html" class="back-link text-4">← Back to People</a>
-
-        <div class="member-detail-header">
-          ${imageHtml}
-          <div class="member-detail-header-text">
-            <div class="text-3 member-detail-name">${member.name}</div>
-            <div class="text-5 member-detail-role">${formatRole(member.role)}</div>
-            ${currentAffiliationHtml}
+  
+        <div class="member-detail-profile">
+          <div class="member-detail-header">
+            ${imageHtml}
+            <div class="member-detail-header-text">
+              <div class="text-3 member-detail-name">${member.name}</div>
+              <div class="text-5 member-detail-role">${formatRole(member.role)}</div>
+              ${currentAffiliationHtml}
+            </div>
+          </div>
+  
+          <div class="member-detail-sections">
+            ${renderDetailSections(member)}
           </div>
         </div>
-
-        <div class="member-detail-sections">
-          ${renderDetailSections(member)}
-        </div>
-
+  
         ${renderDetailPublications(member)}
       `;
-
+  
       const pubList = document.getElementById("member-publication-list");
       const pubs = getMemberPublications(member);
-
+  
       if (pubList) {
         pubs.forEach((pub) => {
           pubList.appendChild(createPublicationCard(pub));
