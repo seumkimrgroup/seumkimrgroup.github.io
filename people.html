@@ -405,12 +405,12 @@
     }
       
     function showListView() {
-      listView.style.display = "block";
+      listView.style.removeProperty("display");
       detailView.style.display = "none";
       renderMembers();
     }
 
-    function showDetailView(member) {
+      function showDetailView(member) {
       listView.style.display = "none";
       detailView.style.display = "flex";
       renderMemberDetail(member);
