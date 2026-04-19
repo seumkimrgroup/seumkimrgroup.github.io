@@ -28,6 +28,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "",
     nextAffiliation: "",
     slug: "s-ukim",
   },
@@ -49,7 +50,7 @@ const members = [
         content: []
       }
     ],
-    currentAffiliation: "",
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "ihchoi",
   },
@@ -75,7 +76,7 @@ const members = [
         ]
       }
     ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
+    currentAffiliation: "Department of Materials Science & Engineering",
     nextAffiliation: "",
     slug: "jwchoi",
   },
@@ -101,6 +102,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "mkim",
   },
@@ -125,6 +127,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "hskim",
   },
@@ -149,6 +152,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "dkim",
   },
@@ -172,6 +176,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "abna",
   },
@@ -195,6 +200,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "hjko",
   },
@@ -219,6 +225,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "mjkim",
   },
@@ -243,6 +250,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "slee",
   },
@@ -267,6 +275,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "Wuxi Hengxin",
     slug: "slee2",
   },
@@ -291,6 +300,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "jhkim",
   },
@@ -315,6 +325,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "hsoh",
   },
@@ -339,6 +350,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "LG Energy Solution",
     slug: "hjjang",
   },
@@ -362,6 +374,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "Autonics",
     slug: "yjhwang",
   },
@@ -387,6 +400,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "hshwang",
   },
@@ -410,6 +424,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "MTS",
     slug: "hmcho",
   },
@@ -431,11 +446,12 @@ const members = [
         content: []
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "Hyundai Motors",
     slug: "jhlee",
   },
   {
-    name: "Jung Eum Lee",
+    name: "Jung Eun Lee",
     status: "former",
     role: "Undergraduate",
     email: "",
@@ -452,6 +468,7 @@ const members = [
         content: []
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "LIG Nex1",
     slug: "jelee",
   },
@@ -473,6 +490,7 @@ const members = [
         content: []
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "Hitachi High-Tech in Korea",
     slug: "m-spark",
   }
