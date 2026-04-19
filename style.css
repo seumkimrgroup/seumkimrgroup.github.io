@@ -366,6 +366,11 @@ a {
   color: #1e2a38;
 }
 
+.member-detail-profile {
+  display: flex;
+  flex-direction: column;
+}
+
 .member-detail-header {
   display: flex;
   align-items: flex-start;
@@ -403,13 +408,8 @@ a {
   gap: 6px;
 }
 
-.member-detail-section + .member-detail-section {
-  margin-top: 6px;
-}
-
 .member-detail-section-title {
   margin-bottom: 2px;
-  text-transform: none;
 }
 
 .member-detail-section-body {
@@ -424,6 +424,8 @@ a {
 
 .member-publications-section {
   margin-top: 28px;
+  display: block;
+  width: 100%;
 }
 
 .member-publications-title {
