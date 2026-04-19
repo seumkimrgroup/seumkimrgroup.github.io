@@ -49,6 +49,7 @@ const members = [
         content: []
       }
     ],
+    currentAffiliation: "",
     nextAffiliation: "",
     slug: "ihchoi",
   },
@@ -74,6 +75,7 @@ const members = [
         ]
       }
     ],
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "jwchoi",
   },
