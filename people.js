@@ -14,6 +14,9 @@ const members = [
       {
         title: "RESEARCH CAREER",
         content: [
+          "2026-Present: 겸직연구원, KIST 양자기술연구단",
+          "2026–Present: Associate Professor, SeoulTech",
+          "2022–2026: Assistant Professor, SeoulTech"
           "Staff researcher, Samsung Advanced Institute of Technology",
           "Post-doctoral fellow, Materials Science and Engineering, University of Pennsylvania",
           "Post-doctoral fellow, BK21 Creative Research Engineer Development for IT, Seoul National University",
@@ -23,8 +26,8 @@ const members = [
       {
         title: "EDUCATION",
         content: [
-          "2022–Present: Associate Professor, SeoulTech",
-          "2020–2022: Assistant Professor, SeoulTech"
+          "Ph.D. in Electrical and Computer Engineering, Seoul National University",
+          "B.S. in Electrical Engineering, Seoul National University"
         ]
       }
     ],
