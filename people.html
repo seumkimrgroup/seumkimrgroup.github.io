@@ -106,33 +106,6 @@
       window.location.href = `person.html?id=${member.slug}`;
     }
   
-    function getResearchInterests(member) {
-      const section = (member.description || []).find(
-        (d) => (d.title || "").toUpperCase() === "RESEARCH INTERESTS"
-      );
-  
-      if (!section || !Array.isArray(section.content)) return [];
-  
-      return section.content.filter(Boolean);
-    }
-  
-    function createResearchHtml(member) {
-      const interests = getResearchInterests(member);
-  
-      if (interests.length === 0) return "";
-  
-      const itemsHtml = interests
-        .map((item) => `<div class="text-5">${item}</div>`)
-        .join("");
-  
-      return `
-        <div class="text-4 people-interests-label">Research Interests</div>
-        <div class="people-interests">
-          ${itemsHtml}
-        </div>
-      `;
-    }
-  
     function createCurrentCard(member) {
       const item = document.createElement("div");
       item.className = "people-card";
@@ -147,14 +120,12 @@
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
         : `<div class="people-photo people-photo-placeholder"></div>`;
   
-      const researchHtml = createResearchHtml(member);
   
       item.innerHTML = `
         ${imageHtml}
-        <div class="people-info">
-          <div class="text-3">${member.name}</div>
-          <div class="text-5">${formatRole(member.role)}</div>
-          ${researchHtml}
+        <div class="people-info people-info-compact">
+          <div class="text-3 people-name">${member.name}</div>
+          <div class="text-5 people-role">${formatRole(member.role)}</div>
         </div>
       `;
   
@@ -182,9 +153,9 @@
       }
   
       item.innerHTML = `
-        <div class="people-info">
-          <div class="text-3">${member.name}</div>
-          <div class="text-5">${statusLine}</div>
+        <div class="people-info people-info-compact">
+          <div class="text-3 people-name">${member.name}</div>
+          <div class="text-5 people-role">${statusLine}</div>
           ${affiliationHtml}
         </div>
       `;
