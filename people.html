@@ -23,17 +23,25 @@
   <div class="content people-page">
 
     <div class="section section-heading">
-      <div class="text-1">Current Members</div>
+      <div class="text-1">Principal Investigator</div>
     </div>
-  
+
+    <div class="section">
+      <div id="pi-members"></div>
+    </div>
+
+    <div class="section section-heading">
+      <div class="text-1">Members</div>
+    </div>
+
     <div class="section">
       <div id="current-members"></div>
     </div>
-  
+
     <div class="section section-heading">
-      <div class="text-1">Former Members</div>
+      <div class="text-1">Alumni</div>
     </div>
-  
+
     <div class="section">
       <div id="former-members"></div>
     </div>
@@ -43,180 +51,208 @@
   <script src="people.js"></script>
 
   <script>
+    const piContainer = document.getElementById("pi-members");
     const currentContainer = document.getElementById("current-members");
     const formerContainer = document.getElementById("former-members");
-  
+
     function normalizeRole(role) {
       const r = (role || "")
         .toLowerCase()
         .replace(/\./g, "")
         .replace(/-/g, " ")
         .trim();
-  
+
       if (r.includes("professor")) return "professor";
       if (r.includes("phd")) return "phd";
       if (r.includes("ms")) return "ms";
       if (r.includes("undergraduate")) return "undergraduate";
-  
+
       return "";
     }
-  
+
     function currentPriority(member) {
       const role = normalizeRole(member.role);
-  
-      if (role === "professor") return 0;
+
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-  
+
       return 9;
     }
-  
+
     function formerPriority(member) {
       const role = normalizeRole(member.role);
-  
+
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-  
+
       return 9;
     }
-  
+
     function getDegreeLabel(role) {
       const r = normalizeRole(role);
-  
+
       if (r === "phd") return "Ph.D.";
       if (r === "ms") return "M.S.";
       if (r === "undergraduate") return "B.S.";
-  
+
       return role || "";
     }
-  
+
     function formatRole(role) {
       const r = normalizeRole(role);
-  
+
       if (r === "phd") return "Ph.D. Student";
       if (r === "ms") return "M.S. Student";
       if (r === "undergraduate") return "Undergraduate";
-  
+
       return role || "";
     }
-  
+
     function goToMember(member) {
       window.location.href = `person.html?id=${member.slug}`;
     }
-  
+
+    function createPiCard(member) {
+      const item = document.createElement("div");
+      item.className = "people-card people-card-pi";
+      item.addEventListener("click", () => goToMember(member));
+
+      const imageHtml = member.image
+        ? `<img src="${member.image}" alt="${member.name}" class="people-photo people-photo-pi">`
+        : `<div class="people-photo people-photo-pi people-photo-placeholder"></div>`;
+
+      item.innerHTML = `
+        ${imageHtml}
+        <div class="people-info people-info-pi">
+          <div class="text-3">${member.name}</div>
+          <div class="text-5">${member.role || ""}</div>
+        </div>
+      `;
+
+      return item;
+    }
+
     function createCurrentCard(member) {
       const item = document.createElement("div");
-      item.className = "people-card";
-  
-      if (normalizeRole(member.role) === "professor") {
-        item.classList.add("people-card-professor");
-      }
-  
+      item.className = "people-card people-card-member";
       item.addEventListener("click", () => goToMember(member));
-  
+
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
         : `<div class="people-photo people-photo-placeholder"></div>`;
-  
-  
+
       item.innerHTML = `
         ${imageHtml}
-        <div class="people-info people-info-compact">
-          <div class="text-3 people-name">${member.name}</div>
-          <div class="text-5 people-role">${formatRole(member.role)}</div>
+        <div class="people-info">
+          <div class="text-3">${member.name}</div>
+          <div class="text-5">${formatRole(member.role)}</div>
         </div>
       `;
-  
+
       return item;
     }
-  
+
     function createFormerCard(member) {
       const item = document.createElement("div");
       item.className = "people-card former-people-card";
       item.addEventListener("click", () => goToMember(member));
-  
+
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
       const statusLine = [degree, year].filter(Boolean).join(" · ");
-  
+
       const nextAffiliation = member.nextAffiliation || "";
-  
       let affiliationHtml = "";
-  
+
       if (nextAffiliation) {
         affiliationHtml = `
           <div class="text-4">Joined at</div>
           <div class="text-5">${nextAffiliation}</div>
         `;
       }
-  
+
       item.innerHTML = `
-        <div class="people-info people-info-compact">
-          <div class="text-3 people-name">${member.name}</div>
-          <div class="text-5 people-role">${statusLine}</div>
+        <div class="people-info">
+          <div class="text-3">${member.name}</div>
+          <div class="text-5">${statusLine}</div>
           ${affiliationHtml}
         </div>
       `;
-  
+
       return item;
     }
-  
+
+    function renderPI(members) {
+      piContainer.innerHTML = "";
+
+      const pi = members.find((member) => normalizeRole(member.role) === "professor");
+      if (!pi) return;
+
+      const wrap = document.createElement("div");
+      wrap.className = "people-pi-list";
+      wrap.appendChild(createPiCard(pi));
+      piContainer.appendChild(wrap);
+    }
+
     function renderCurrentMembers(members) {
       currentContainer.innerHTML = "";
-  
+
       const listDiv = document.createElement("div");
-      listDiv.className = "people-list";
-  
+      listDiv.className = "people-list people-members-list";
+
       members
         .sort((a, b) => {
           const p = currentPriority(a) - currentPriority(b);
           if (p !== 0) return p;
-  
+
           const y = (a.joinYear || 9999) - (b.joinYear || 9999);
           if (y !== 0) return y;
-  
+
           return a.name.localeCompare(b.name);
         })
         .forEach((member) => {
           listDiv.appendChild(createCurrentCard(member));
         });
-  
+
       currentContainer.appendChild(listDiv);
     }
-  
+
     function renderFormerMembers(members) {
       formerContainer.innerHTML = "";
-  
+
       const listDiv = document.createElement("div");
-      listDiv.className = "people-list";
-  
+      listDiv.className = "people-list people-alumni-list";
+
       members
         .sort((a, b) => {
           const p = formerPriority(a) - formerPriority(b);
           if (p !== 0) return p;
-  
+
           const y = (b.leaveYear || 0) - (a.leaveYear || 0);
           if (y !== 0) return y;
-  
+
           return a.name.localeCompare(b.name);
         })
         .forEach((member) => {
           listDiv.appendChild(createFormerCard(member));
         });
-  
+
       formerContainer.appendChild(listDiv);
     }
-  
+
     function renderMembers() {
       const currentMembers = members.filter((m) => m.status === "current");
+      const professorMembers = currentMembers.filter((m) => normalizeRole(m.role) === "professor");
+      const studentMembers = currentMembers.filter((m) => normalizeRole(m.role) !== "professor");
       const formerMembers = members.filter((m) => m.status === "former");
-  
-      renderCurrentMembers(currentMembers);
+
+      renderPI(professorMembers);
+      renderCurrentMembers(studentMembers);
       renderFormerMembers(formerMembers);
     }
-  
+
     renderMembers();
   </script>
 
