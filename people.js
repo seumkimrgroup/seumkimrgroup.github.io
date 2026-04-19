@@ -93,8 +93,8 @@ const members = [
       {
         title: "RESEARCH INTERESTS",
         content: [
-          "LC composite materials and systems"
-          "LC elastomers"
+          "LC composite materials and systems",
+          "LC elastomers",
           "LC synthesis"
         ]
       }
