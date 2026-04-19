@@ -7,6 +7,104 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific overrides for compact people cards */
+    .people-page .people-list {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px !important;
+      align-items: stretch;
+    }
+
+    .people-page .people-card,
+    .people-page .former-people-card,
+    .people-page .people-card-professor {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      text-align: center !important;
+      padding: 18px 14px !important;
+      box-sizing: border-box;
+      min-height: 200px;
+      cursor: pointer;
+    }
+
+    .people-page .former-people-card {
+      min-height: 160px;
+      justify-content: center !important;
+    }
+
+    .people-page .people-photo {
+      width: 88px !important;
+      height: 88px !important;
+      border-radius: 50% !important;
+      object-fit: cover;
+      margin: 0 0 12px 0 !important;
+      flex-shrink: 0;
+    }
+
+    .people-page .people-info {
+      width: 100%;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      gap: 6px;
+      text-align: center !important;
+    }
+
+    .people-page .people-info .text-3 {
+      width: 100%;
+      line-height: 1.35;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .people-page .people-info .text-5,
+    .people-page .people-info .text-4 {
+      width: 100%;
+      line-height: 1.4;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .people-page .former-meta {
+      opacity: 0.9;
+    }
+
+    .people-page .former-affiliation-label {
+      margin-top: 4px;
+      opacity: 0.75;
+    }
+
+    @media (max-width: 768px) {
+      .people-page .people-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px !important;
+      }
+
+      .people-page .people-card,
+      .people-page .former-people-card,
+      .people-page .people-card-professor {
+        padding: 14px 10px !important;
+        min-height: 170px;
+      }
+
+      .people-page .former-people-card {
+        min-height: 140px;
+      }
+
+      .people-page .people-photo {
+        width: 72px !important;
+        height: 72px !important;
+        margin-bottom: 10px !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -106,33 +204,6 @@
       window.location.href = `person.html?id=${member.slug}`;
     }
   
-    function getResearchInterests(member) {
-      const section = (member.description || []).find(
-        (d) => (d.title || "").toUpperCase() === "RESEARCH INTERESTS"
-      );
-  
-      if (!section || !Array.isArray(section.content)) return [];
-  
-      return section.content.filter(Boolean);
-    }
-  
-    function createResearchHtml(member) {
-      const interests = getResearchInterests(member);
-  
-      if (interests.length === 0) return "";
-  
-      const itemsHtml = interests
-        .map((item) => `<div class="text-5">${item}</div>`)
-        .join("");
-  
-      return `
-        <div class="text-4 people-interests-label">Research Interests</div>
-        <div class="people-interests">
-          ${itemsHtml}
-        </div>
-      `;
-    }
-  
     function createCurrentCard(member) {
       const item = document.createElement("div");
       item.className = "people-card";
@@ -147,14 +218,11 @@
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
         : `<div class="people-photo people-photo-placeholder"></div>`;
   
-      const researchHtml = createResearchHtml(member);
-  
       item.innerHTML = `
         ${imageHtml}
         <div class="people-info">
           <div class="text-3">${member.name}</div>
           <div class="text-5">${formatRole(member.role)}</div>
-          ${researchHtml}
         </div>
       `;
   
@@ -164,28 +232,20 @@
     function createFormerCard(member) {
       const item = document.createElement("div");
       item.className = "people-card former-people-card";
-      item.addEventListener("click", () => goToMember(member));
   
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
       const statusLine = [degree, year].filter(Boolean).join(" · ");
-  
       const nextAffiliation = member.nextAffiliation || "";
-  
-      let affiliationHtml = "";
-  
-      if (nextAffiliation) {
-        affiliationHtml = `
-          <div class="text-4">Joined at</div>
-          <div class="text-5">${nextAffiliation}</div>
-        `;
-      }
   
       item.innerHTML = `
         <div class="people-info">
           <div class="text-3">${member.name}</div>
-          <div class="text-5">${statusLine}</div>
-          ${affiliationHtml}
+          <div class="text-5 former-meta">${statusLine}</div>
+          ${nextAffiliation ? `
+            <div class="text-4 former-affiliation-label">Joined at</div>
+            <div class="text-5">${nextAffiliation}</div>
+          ` : ""}
         </div>
       `;
   
@@ -251,3 +311,5 @@
 
 </body>
 </html>
+
+
