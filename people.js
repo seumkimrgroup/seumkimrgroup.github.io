@@ -53,6 +53,31 @@ const members = [
     slug: "ihchoi",
   },
   {
+    name: "Ji Won Choi",
+    status: "current",
+    role: "Undergraduate",
+    email: "lxhana@seoultech.ac.kr",
+    phone: "", office: "",
+    joinYear: 2025, leaveYear: null,
+    image: "",
+    description: [
+      {
+        title: "EDUCATION",
+        content: []
+      },
+      {
+        title: "RESEARCH INTERESTS",
+        content: [
+          "LC-based electro-optical systems",
+          "ferronematic LCs",
+          "LC synthesis"
+        ]
+      }
+    ],
+    nextAffiliation: "",
+    slug: "jwchoi",
+  },
+  {
     name: "Minhye Kim",
     status: "current",
     role: "M.S. student",
@@ -69,6 +94,8 @@ const members = [
         title: "RESEARCH INTERESTS",
         content: [
           "LC composite materials and systems"
+          "LC elastomers"
+          "LC synthesis"
         ]
       }
     ],
@@ -91,7 +118,7 @@ const members = [
       {
         title: "RESEARCH INTERESTS",
         content: [
-          "FEM based thermal managenemts",
+          "FEM-based thermal managenemts",
           "ML-assisted FEM optimization"
         ]
       }
@@ -185,7 +212,7 @@ const members = [
       {
         title: "RESEARCH INTERESTS",
         content: [
-          "FEM based thermal managenemts",
+          "FEM-based thermal managenemts",
           "LC composite materials and systems"
         ]
       }
