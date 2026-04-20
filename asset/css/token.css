@@ -1,0 +1,62 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-text-strong: #1e2a38;
+  --color-text-muted: #5a6b7c;
+  --color-text-subtle: #8a98a8;
+  --color-border: #e5e5e5;
+  --color-border-soft: #eeeeee;
+  --color-border-strong: #cfcfcf;
+  --color-border-nav: #dddddd;
+  --color-hover-text: #555555;
+  --color-input: #777777;
+  --color-input-placeholder: #aaaaaa;
+  --color-input-focus: #999999;
+  --color-button-active: #111111;
+  --color-button-hover: #f3f3f3;
+  --color-surface-muted: #f2f2f2;
+
+  --font-family-base: 'Roboto', sans-serif;
+
+  --font-size-1: 26px;
+  --font-size-2: 20px;
+  --font-size-3: 18px;
+  --font-size-4: 14px;
+  --font-size-5: 14px;
+  --font-size-nav: 16px;
+  --font-size-brand: 20px;
+  --font-size-input: 15px;
+  --font-size-filter: 12px;
+  --font-size-member-name: 16px;
+  --font-size-member-meta: 13px;
+
+  --line-height-tight: 1.4;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.6;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-pill: 15px;
+
+  --shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.06);
+
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 6px;
+  --space-4: 8px;
+  --space-5: 10px;
+  --space-6: 12px;
+  --space-7: 14px;
+  --space-8: 16px;
+  --space-9: 18px;
+  --space-10: 20px;
+  --space-11: 24px;
+  --space-12: 28px;
+  --space-13: 32px;
+  --space-14: 40px;
+
+  --container-width: 1080px;
+  --navbar-z: 1000;
+
+  --transition-fast: 0.2s;
+}
