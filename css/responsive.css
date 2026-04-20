@@ -1,0 +1,160 @@
+/* ===================== */
+/* Responsive */
+/* ===================== */
+@media (max-width: 900px) {
+  .people-members-list,
+  .people-alumni-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+  }
+
+  .brand {
+    padding: 16px 0 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 10px;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+  }
+
+  .content {
+    padding: 132px 20px 50px;
+  }
+
+  .search-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .search-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .filter-controls {
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .publication-card {
+    padding: 12px;
+  }
+
+  .people-card-pi {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .former-people-card {
+    padding: 14px 12px;
+  }
+
+  .people-photo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .people-photo-pi {
+    width: 80px;
+    height: 80px;
+  }
+
+  .member-detail-header {
+    gap: 18px;
+  }
+
+  .member-detail-photo {
+    width: 112px;
+    height: 112px;
+  }
+
+  .member-detail-sections {
+    margin-top: 16px;
+    gap: 16px;
+  }
+
+  .member-publications-section {
+    margin-top: 24px;
+  }
+
+  .contact-card {
+    padding: 16px;
+  }
+
+  .contact-map {
+    height: 300px;
+  }
+}
+
+@media (max-width: 520px) {
+  .people-members-list,
+  .people-alumni-list {
+    grid-template-columns: 1fr;
+  }
+
+  .people-card-pi {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .people-info-pi {
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-detail-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-detail-main {
+    width: 100%;
+  }
+
+  .member-detail-header-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .former-member-detail-header-text {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .member-detail-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .back-link {
+    margin-bottom: 16px;
+  }
+
+  .contact-map {
+    height: 260px;
+  }
+}
