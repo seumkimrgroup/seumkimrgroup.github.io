@@ -47,7 +47,7 @@ if (slider && prevBtn && nextBtn) {
   });
 
   function updateSlide() {
-    slider.style.transform = \`translateX(-\${currentIndex * 100}%)\`;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
 
   nextBtn.addEventListener("click", () => {
@@ -59,4 +59,6 @@ if (slider && prevBtn && nextBtn) {
     currentIndex = (currentIndex - 1 + projects.length) % projects.length;
     updateSlide();
   });
+
+  updateSlide();
 }
