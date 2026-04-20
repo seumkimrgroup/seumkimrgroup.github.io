@@ -3,7 +3,7 @@ const projects = [
     subtitle: "Exploring Future Photonics",
     title: "Quantum Photonic Circuits",
     description: "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
-    image: "assets/images/project1.jpg"
+    image: "assets/images/project1.png"
   },
   {
     subtitle: "Advanced Materials",
