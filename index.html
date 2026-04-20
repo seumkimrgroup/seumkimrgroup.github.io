@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Se-Um Kim Research Group</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_draft.css">
 </head>
 
 <body>
@@ -19,13 +20,188 @@
     </div>
   </div>
 
-  <div class="content">
-    <h1>Welcome</h1>
-    <p>welcome</p>
+  <div class="content home-content">
+
+    <section class="hero-section">
+      <div class="hero-background"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <div class="hero-kicker">SeoulTech · Liquid Crystal Photonics</div>
+        <h1 class="hero-title reveal-up">Advancing liquid crystal materials, electro-optics, and photonic systems</h1>
+        <p class="hero-description reveal-up delay-1">
+          Our lab explores liquid crystal materials, electro-optical devices, simulation-driven optimization,
+          and emerging photonic quantum platforms.
+        </p>
+        <div class="hero-actions reveal-up delay-2">
+          <a href="#projects" class="hero-button primary">Current Projects</a>
+          <a href="#topics" class="hero-button secondary">Research Topics</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section home-section">
+      <div class="section-header">
+        <div class="text-1 section-title-left">Current Projects</div>
+        <div class="text-4 section-caption">Start with one card now, then add more project cards later.</div>
+      </div>
+
+      <div class="project-rail">
+        <article class="project-card project-card-hero">
+          <div class="project-card-image project-image-jql"></div>
+          <div class="project-card-overlay"></div>
+          <div class="project-card-content">
+            <div class="project-badge">Ongoing</div>
+            <div class="text-2 project-title">Joint Quantum Lab</div>
+            <div class="text-4 project-summary">
+              Development of liquid crystal phase modulators and hybrid photonic platforms for scalable quantum photonic systems.
+            </div>
+            <div class="project-meta">
+              <span>LC phase modulation</span>
+              <span>SiN photonics</span>
+              <span>Quantum platform</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section home-section intro-section">
+      <div class="section-header intro-header">
+        <div class="text-1 section-title-left">About the Lab</div>
+      </div>
+
+      <div class="intro-grid">
+        <div class="intro-copy">
+          <div class="intro-copy-block reveal-up">
+            <div class="text-2 intro-lead">
+              We build material-to-device research workflows around liquid crystals, photonics, and computational design.
+            </div>
+          </div>
+
+          <div class="intro-copy-block reveal-up delay-1">
+            <div class="text-4 intro-body">
+              Rather than focusing on a single narrow topic, the lab connects responsive liquid crystal materials,
+              electro-optical device engineering, and modeling-based optimization to create functional photonic systems.
+            </div>
+          </div>
+
+          <div class="intro-copy-block reveal-up delay-2">
+            <div class="text-4 intro-body">
+              This section can work as your “hero-style introduction,” with text rising upward as the user scrolls.
+              Later, you can swap this copy for a shorter single-sentence lab identity if you want a sharper tone.
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-side-card">
+          <div class="text-3">Lab Keywords</div>
+          <div class="keyword-list">
+            <span class="keyword-chip">Liquid crystals</span>
+            <span class="keyword-chip">Electro-optics</span>
+            <span class="keyword-chip">Photonic devices</span>
+            <span class="keyword-chip">Quantum systems</span>
+            <span class="keyword-chip">FEM simulation</span>
+            <span class="keyword-chip">ML-assisted design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topics" class="section home-section">
+      <div class="section-header">
+        <div class="text-1 section-title-left">Research Topics</div>
+        <div class="text-4 section-caption">For the first draft, I recommend stacking these vertically for readability.</div>
+      </div>
+
+      <div class="topic-stack">
+        <article class="topic-card">
+          <div class="topic-number">01</div>
+          <div class="topic-content">
+            <div class="text-2">LC composite materials and systems</div>
+            <div class="text-4">
+              Synthesis, formulation, and application of liquid crystal composite materials for responsive optical and functional systems.
+            </div>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-number">02</div>
+          <div class="topic-content">
+            <div class="text-2">LC-based electro-optical systems</div>
+            <div class="text-4">
+              Development of phase modulators, tunable optical elements, and anisotropy-driven electro-optic components from visible to near-infrared.
+            </div>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-number">03</div>
+          <div class="topic-content">
+            <div class="text-2">ML-assisted optimization of FEM simulations</div>
+            <div class="text-4">
+              Data-driven thermal, electrical, and optical simulation workflows for faster device analysis and scalable design exploration.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section home-section contact-home-section">
+      <div class="section-header">
+        <div class="text-1 section-title-left">Contact</div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="text-2 contact-card-title">Location</div>
+          <div class="contact-map-wrap">
+            <iframe
+              class="contact-map"
+              src="https://www.google.com/maps?q=Seoul%20National%20University%20of%20Science%20and%20Technology&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="text-2 contact-card-title">Contact Information</div>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="text-4 contact-label">Email</div>
+              <a href="mailto:seumkim@seoultech.ac.kr" class="text-5 contact-value">seumkim@seoultech.ac.kr</a>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="text-4 contact-label">Phone</div>
+              <div class="text-5 contact-value">+82-2-970-6425</div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="text-4 contact-label">Office</div>
+              <div class="text-5 contact-value">Mirae-Hall Unit 523</div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="text-4 contact-label">Address</div>
+              <div class="text-5 contact-value">
+                Department of Electrical and Information Engineering,<br>
+                Seoul National University of Science and Technology,<br>
+                232 Gongneung-ro, Nowon-gu, Seoul 01811, Republic of Korea
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 
   <div class="footer">
-    <div class="text-sub">
+    <div class="text-5">
       (01811) 서울특별시 노원구 공릉로 232 서울과학기술대학교 전기정보공학과<br>
       Electrical and Information Engineering, Seoul National University of Science and Technology<br>
       Gongneung-ro 232, Nowon-gu, 01811 Seoul, Republic of Korea
