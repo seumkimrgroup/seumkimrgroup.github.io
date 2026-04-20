@@ -1,0 +1,196 @@
+#people-list-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-13);
+}
+
+.people-group {
+  margin-bottom: var(--space-13);
+}
+
+.people-pi-list {
+  display: block;
+}
+
+.people-list {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.people-members-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.people-alumni-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.people-section-title {
+  margin-bottom: var(--space-8);
+}
+
+.people-card {
+  border-radius: var(--radius-md);
+}
+
+.people-card-pi {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  padding: 18px 22px;
+}
+
+.people-card-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-5);
+  padding: 14px 12px;
+}
+
+.former-people-card {
+  padding: 14px 12px;
+}
+
+.people-photo {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  background-color: var(--color-surface-muted);
+}
+
+.people-photo-pi {
+  width: 96px;
+  height: 96px;
+}
+
+.people-photo-placeholder {
+  border: 1px solid var(--color-border-soft);
+}
+
+.people-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: center;
+  text-align: center;
+}
+
+.people-info-pi {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.people-info .text-3,
+.people-info .text-4,
+.people-info .text-5 {
+  word-break: keep-all;
+}
+
+.people-card-member .text-3 {
+  font-size: var(--font-size-member-name);
+  line-height: var(--line-height-tight);
+}
+
+.people-card-member .text-5 {
+  font-size: var(--font-size-member-meta);
+  line-height: var(--line-height-base);
+}
+
+.member-detail-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.member-detail-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+}
+
+.member-detail-photo {
+  width: 140px;
+  height: 140px;
+}
+
+.member-detail-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-detail-header-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.former-member-detail-profile {
+  display: block;
+}
+
+.former-member-detail-main {
+  width: 100%;
+}
+
+.former-member-detail-header-text {
+  gap: var(--space-5);
+}
+
+.member-detail-inline-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.member-detail-name,
+.member-detail-role,
+.member-detail-affiliation,
+.member-detail-item {
+  word-break: keep-all;
+}
+
+.member-detail-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-9);
+  margin-top: var(--space-9);
+}
+
+.member-detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.member-detail-section-title {
+  margin-bottom: var(--space-1);
+}
+
+.member-detail-section-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.member-publications-section {
+  margin-top: var(--space-12);
+  display: block;
+  width: 100%;
+}
+
+.member-publications-title {
+  margin-bottom: var(--space-7);
+}
