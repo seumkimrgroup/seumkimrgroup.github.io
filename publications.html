@@ -6,7 +6,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/publications.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
 <body>
@@ -14,6 +19,7 @@
   <div class="navbar">
     <a href="index.html" class="brand">Se-Um Kim Research Group</a>
     <div class="nav-links">
+      <a href="index.html">Home</a>
       <a href="people.html">People</a>
       <a href="publications.html" class="active">Publications</a>
     </div>
@@ -70,7 +76,7 @@
   </div>
 
   <!-- JS -->
-  <script src="publications.js"></script>
+  <script src="assets/js/publications.js"></script>
 
   <script>
     const container = document.getElementById("publication-list");
@@ -148,11 +154,11 @@
             item.href = pub.link;
             item.target = "_blank";
             item.rel = "noopener noreferrer";
-            item.className = "publication-card clickable";
+            item.className = "card card--interactive publication-card clickable";
             item.innerHTML = cardInner;
           } else {
             item = document.createElement("div");
-            item.className = "publication-card";
+            item.className = "card publication-card";
             item.innerHTML = cardInner;
           }
 
