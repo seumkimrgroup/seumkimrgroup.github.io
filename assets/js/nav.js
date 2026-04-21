@@ -1,85 +1,40 @@
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--color-bg);
-  border-bottom: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 var(--space-11);
-  z-index: var(--navbar-z);
-  box-shadow: none;
+const navbar = document.querySelector(".navbar");
 
-  transition:
-    transform 0.28s ease,
-    background-color 0.28s ease,
-    box-shadow 0.28s ease,
-    backdrop-filter 0.28s ease,
-    -webkit-backdrop-filter 0.28s ease;
-}
+if (navbar) {
+  let lastScrollY = window.scrollY;
+  let navbarVisible = true;
+  const scrollThreshold = 12;
+  const topOffset = 20;
 
-.navbar.nav-hidden {
-  transform: translateY(-100%);
-}
+  function updateNavbarOnScroll() {
+    const currentScrollY = window.scrollY;
+    const diff = currentScrollY - lastScrollY;
 
-.brand {
-  font-size: var(--font-size-brand);
-  font-weight: 500;
-  line-height: var(--line-height-tight);
-  color: var(--color-text);
-  padding: 18px 0;
-  white-space: nowrap;
-}
+    if (currentScrollY <= topOffset) {
+      navbar.classList.remove("nav-hidden");
+      navbar.classList.remove("nav-scrolled");
+      navbarVisible = true;
+      lastScrollY = currentScrollY;
+      return;
+    }
 
-.brand:hover {
-  color: var(--color-hover-text);
-}
+    if (Math.abs(diff) < scrollThreshold) {
+      return;
+    }
 
-.nav-links {
-  display: flex;
-  gap: var(--space-11);
-}
+    navbar.classList.add("nav-scrolled");
 
-.nav-links a {
-  font-size: var(--font-size-nav);
-  font-weight: 400;
-  line-height: var(--line-height-tight);
-  color: var(--color-text);
-  padding: 18px 0;
-}
+    if (diff > 0 && navbarVisible) {
+      navbar.classList.add("nav-hidden");
+      navbarVisible = false;
+    } else if (diff < 0 && !navbarVisible) {
+      navbar.classList.remove("nav-hidden");
+      navbarVisible = true;
+    }
 
-.nav-links a:hover {
-  color: var(--color-hover-text);
-}
+    lastScrollY = currentScrollY;
+  }
 
-.nav-links a.active {
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.content {
-  width: min(100% - 32px, var(--container-width));
-  margin: 0 auto;
-  padding-top: 120px;
-  padding-bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-13);
-}
-
-.section {
-  margin-bottom: 0;
-}
-
-.section-heading {
-  margin-top: var(--space-14);
-}
-
-.footer {
-  background-color: var(--color-bg);
-  border-top: 1px solid var(--color-border-nav);
-  text-align: center;
-  padding: var(--space-11) var(--space-6);
+  window.addEventListener("scroll", updateNavbarOnScroll, { passive: true });
+  updateNavbarOnScroll();
 }
