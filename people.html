@@ -138,8 +138,8 @@
     function createPublicationCard(pub) {
       const metaLine = formatMetaLine(pub);
       const cardInner = `
-        <div class="type-title publication-title">${pub.title || ""}</div>
-        <div class="type-body publication-meta">${metaLine}</div>
+        <div class="type-body publication-title">${pub.title || ""}</div>
+        <div class="type-meta publication-meta">${metaLine}</div>
         <div class="type-meta publication-authors">${pub.authors || ""}</div>
       `;
 
