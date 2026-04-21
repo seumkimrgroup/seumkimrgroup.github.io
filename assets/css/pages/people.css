@@ -149,6 +149,21 @@
   color: var(--color-text-subtle);
 }
 
+.member-detail-joined {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.member-detail-joined-label {
+  color: var(--color-text-subtle);
+}
+
+.member-detail-joined-value {
+  color: var(--color-text-muted);
+}
+
 /* ===== links ===== */
 
 .icon-links {
