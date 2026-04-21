@@ -1,7 +1,7 @@
 const projects = [
   {
-    subtitle: "Exploring Future Photonics",
-    title: "Quantum Photonic Circuits",
+    subtitle: "We are currently participating in",
+    title: "Joint Quantum Lab",
     description:
       "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
     image: "assets/images/project1.jpg"
@@ -11,14 +11,14 @@ const projects = [
     title: "Ferronematic Liquid Crystals",
     description:
       "High-speed electro-optic response using ferroelectric liquid crystal systems.",
-    image: "assets/images/project1.jpg"
+    image: "assets/images/project2.jpg"
   },
   {
     subtitle: "Soft Photonics",
     title: "Liquid Crystal Elastomers",
     description:
       "Adaptive photonic structures using mechanically responsive LC materials.",
-    image: "assets/images/project1.jpg"
+    image: "assets/images/project3.jpg"
   }
 ];
 
