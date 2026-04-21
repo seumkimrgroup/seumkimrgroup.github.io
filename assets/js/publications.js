@@ -17,7 +17,7 @@ const publications = [
     detail: "433(1), 127952",
     year: 2025,
     authors: "Hui Jun Jang*, Young In Lee*, Hyeon Seong Hwang, Sunjae Lee, Kanghee Won+, Se-Um Kim+",
-    type: "non-sci",
+    type: "other",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S0167732225011298"
   },
   {
@@ -26,7 +26,7 @@ const publications = [
     detail: "15(7), 597",
     year: 2025,
     authors: "Hyeon Seong Hwang*, Jongsu Lee*, Byungsoo Kang, Minhye Kim, Doyo Kim, Se-Um Kim",
-    type: "sci",
+    type: "indexed",
     link: "https://www.mdpi.com/2073-4352/15/7/597"
   },
   {
@@ -35,7 +35,7 @@ const publications = [
     detail: "15(12), 6505",
     year: 2025,
     authors: "Yong Jin Hwang*, Bo-Yeon Lee*, Min Ji Kim, Seung-Chul Park, Kanghee Won+, Se-Um Kim+",
-    type: "sci",
+    type: "indexed",
     link: "https://www.mdpi.com/2076-3417/15/12/6505"
   },
   {
@@ -44,7 +44,7 @@ const publications = [
     detail: "513(1), 163040",
     year: 2025,
     authors: "Hye Joo Lee*, Se-Um Kim*, Hyo Seok Oh, Soon Mo Park, Jaeyub Hyun+, Young-Seok Kim+, Dae Seok Kim+",
-    type: "sci",
+    type: "indexed",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S1385894725038744"
   },
   {
@@ -53,7 +53,7 @@ const publications = [
     detail: "6(3), 2400103",
     year: 2025,
     authors: "Hyun Mok Cho*, Yong Jin Hwang, Hyo Seok Oh, Hyeon Seong Hwang, Kitae Kim, Se-Um Kim+, Jun-Hee Na+",
-    type: "non-sci",
+    type: "other",
     link: "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adpr.202400103"
   },
   {
@@ -62,7 +62,7 @@ const publications = [
     detail: "6(11), 8094-8103",
     year: 2024,
     authors: "Ji-Hoon Choi*, Hyeon Seong Hwang*, Hyo-Bin Jang, Se-Um Kim+, Hea-Lim Park+",
-    type: "sci",
+    type: "indexed",
     link: "https://pubs.acs.org/doi/abs/10.1021/acsaelm.4c01439"
   },
   {
@@ -71,7 +71,7 @@ const publications = [
     detail: "48(2), 165-170",
     year: 2024,
     authors: "Hongbin Jeong*, Suah Lee*, Heeyoung Bae*, Bosuk Choi*, Hyeon Seong Hwang, Se-Um Kim",
-    type: "sci",
+    type: "indexed",
     link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11744813"
   },
   {
@@ -80,7 +80,7 @@ const publications = [
     detail: "15(48), 56285-56292",
     year: 2023,
     authors: "Mohsin Hassan Saeed*, Moon-Young Choi*, Kitae Kim, Jin-Hyeong Lee, Keumbee Kim, Dowon Kim, Se-Um Kim, Hyun Kim, Suk-kyun Ahn, Ruochen Lan+, Jun-Hee Na+",
-    type: "sci",
+    type: "indexed",
     link: "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140"
   },
   {
@@ -89,7 +89,7 @@ const publications = [
     detail: "12(1), 245",
     year: 2023,
     authors: "Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na",
-    type: "sci",
+    type: "indexed",
     link: "https://www.nature.com/articles/s41377-023-01285-1"
   },
   {
@@ -98,7 +98,7 @@ const publications = [
     detail: "25(17), 2300267",
     year: 2023,
     authors: "Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na",
-    type: "sci",
+    type: "indexed",
     link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adem.202300267"
   },
   {
@@ -107,7 +107,7 @@ const publications = [
     detail: "2(1), 61-76",
     year: 2023,
     authors: "Hyeon Seong Hwang, Hyun Mok Cho, Se-Um Kim",
-    type: "non-sci",
+    type: "other",
     link: "https://www.e-jfpe.org/archive/view_article?pid=jfpe-2-1-61"
   },
   {
@@ -116,7 +116,7 @@ const publications = [
     detail: "16(1), 35",
     year: 2023,
     authors: "Min-Seok Park*, Kitae Kim*, Young-Joo Lee, Jun-Hee Na, Se-Um Kim",
-    type: "sci",
+    type: "indexed",
     link: "https://www.mdpi.com/1996-1944/16/1/35"
   },
   {
@@ -125,7 +125,7 @@ const publications = [
     detail: "19(7), 2206299",
     year: 2022,
     authors: "Woong Chan Han*, Young-Joo Lee*, Se-Um Kim*, Hye Joo Lee, Young-Seok Kim+, Dae Seok Kim+",
-    type: "sci",
+    type: "indexed",
     link: "https://onlinelibrary.wiley.com/doi/10.1002/smll.202206299"
   },
   {
@@ -134,7 +134,7 @@ const publications = [
     detail: "7(7), 2101364",
     year: 2022,
     authors: "Carolyn M. McGann*, Young-Joo Lee*, Se-Um Kim*, Danielle D. Weinberg*, Xincheng Zha, Matthew Huber, Michael W. Hast, Kayley Dear, Vinay Nadkarni, Elizabeth E. Foglia+, Shu Yang+",
-    type: "sci",
+    type: "indexed",
     link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/admt.202101364"
   },
   {
@@ -143,7 +143,7 @@ const publications = [
     detail: "21, 41-46",
     year: 2022,
     authors: "Se-Um Kim, Young-Joo Lee, Jiaqi Liu, Dae Seok Kim, Haihuan Wang, Shu Yang",
-    type: "sci",
+    type: "indexed",
     link: "https://www.nature.com/articles/s41563-021-01075-3"
   },
   {
@@ -152,7 +152,7 @@ const publications = [
     detail: "45(6), 934-939",
     year: 2021,
     authors: "Mira Shin*, Youngeun Lee*, Jinkyung Kim*, Gun Woo Sim*, Youngho Eom, Se-Um Kim+, Dae Seok Kim+",
-    type: "sci",
+    type: "indexed",
     link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10667018"
   },
   {
@@ -161,7 +161,7 @@ const publications = [
     detail: "15(1), 698-706",
     year: 2021,
     authors: "Gwanho Yoon*, Kwan Kim*, Se-Um Kim, Seunghoon Han, Heon Lee+, Junsuk Rho+",
-    type: "sci",
+    type: "indexed",
     link: "https://pubs.acs.org/doi/10.1021/acsnano.0c06968"
   },
   {
@@ -170,7 +170,7 @@ const publications = [
     detail: "8(2), 2001443",
     year: 2020,
     authors: "Se-Um Kim, Sang Hyun Lee, Kitae Kim, Jun-Hee Na",
-    type: "sci",
+    type: "indexed",
     link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/admi.202001443"
   },
   {
@@ -179,7 +179,7 @@ const publications = [
     detail: "7(24), 2002134",
     year: 2020,
     authors: "Kitae Kim*, Se-Um Kim*, Subi Choi, Kyuyoung Heo, Suk-kyun Ahn, Jun-Hee Na",
-    type: "sci",
+    type: "indexed",
     link: "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202002134"
   },
   {
@@ -188,7 +188,7 @@ const publications = [
     detail: "36, 100649",
     year: 2020,
     authors: "Sihwa Oh*, Se-Um Kim*, Sooyoung Yeom, Hogyeong Kim, Sunwoo Kim, Jun-Hee Na",
-    type: "sci",
+    type: "indexed",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S2352431620300249?via%3Dihub"
   },
   {
@@ -215,7 +215,7 @@ const publications = [
     detail: "10, 5104",
     year: 2019,
     authors: "Yu Xia*, Andrew A. DeBenedictis*, Dae Seok Kim, Shenglan Chen, Se-Um Kim, Douglas J. Cleaver+, Timothy J. Atherton+, Shu Yang+",
-    type: "sci",
+    type: "indexed",
     link: "https://www.nature.com/articles/s41467-019-13012-9"
   },
   {
@@ -224,7 +224,7 @@ const publications = [
     detail: "27(17), 24512-24523",
     year: 2019,
     authors: "In-Ho Lee, Gang Li, Bo-Yeon Lee, Se-Um Kim, Byoungho Lee, Sang-Hyun Oh, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-27-17-24512"
   },
   {
@@ -233,7 +233,7 @@ const publications = [
     detail: "27(8), 11661-11672",
     year: 2019,
     authors: "Sang Hyun Lee, Sin-Hyung Lee, Se-Um Kim, Sujie Kang, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-27-8-11661"
   },
   {
@@ -242,7 +242,7 @@ const publications = [
     detail: "33(23), 4092-4100",
     year: 2018,
     authors: "Jaehyun Sim, Sihwa Oh, Se-Um Kim, Kyuyoung Heo, Seung-Chul Park, Jun-Hee Na",
-    type: "sci",
+    type: "indexed",
     link: "https://link.springer.com/article/10.1557/jmr.2018.360"
   },
   {
@@ -251,7 +251,7 @@ const publications = [
     detail: "53, 152-159",
     year: 2018,
     authors: "Bo-Yeon Lee, Se-Um Kim, Sujie Kang, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S2211285518306116?via%3Dihub"
   },
   {
@@ -260,7 +260,7 @@ const publications = [
     detail: "19(4), 151-157",
     year: 2018,
     authors: "Se-Um Kim*, Sang Hyun Lee*, Jaehyun Sim, Sin-Doo Lee, Jun-Hee Na",
-    type: "non-sci",
+    type: "other",
     link: "https://www.tandfonline.com/doi/full/10.1080/15980316.2018.1520158"
   },
   {
@@ -269,7 +269,7 @@ const publications = [
     detail: "26(10), 13561-13572",
     year: 2018,
     authors: "Se-Um Kim, Sin-Hyung Lee, In-Ho Lee, Bo-Yeon Lee, Jun-Hee Na, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-26-10-13561"
   },
   {
@@ -278,7 +278,7 @@ const publications = [
     detail: "44(12-13), 2121-2132",
     year: 2017,
     authors: "Se-Um Kim, Jun-Hee Na, Chiwoo Kim, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://www.tandfonline.com/doi/full/10.1080/02678292.2017.1328748"
   },
   {
@@ -287,7 +287,7 @@ const publications = [
     detail: "44(2), 364-371",
     year: 2017,
     authors: "Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://www.tandfonline.com/doi/full/10.1080/02678292.2016.1205224"
   },
   {
@@ -296,7 +296,7 @@ const publications = [
     detail: "24(22), 25010-25018",
     year: 2016,
     authors: "Se-Um Kim, Jiyoon Kim, Jeng-Hun Suh, Jun-Hee Na, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-24-22-25010"
   },
   {
@@ -305,7 +305,7 @@ const publications = [
     detail: "17(3), 125-130",
     year: 2016,
     authors: "Eui-Sang Yu, Se-Um Kim, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee",
-    type: "non-sci",
+    type: "other",
     link: "https://www.tandfonline.com/doi/full/10.1080/15980316.2016.1208631"
   },
   {
@@ -314,7 +314,7 @@ const publications = [
     detail: "15(1), 13501",
     year: 2016,
     authors: "Hea-Lim Park, Bo-Yeon Lee, Se-Um Kim, Jeng-Hun Suh, Min-Hoi Kim, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://www.spiedigitallibrary.org/journals/journal-of-micro-nanolithography-mems-and-moems/volume-15/issue-1/013501/Importance-of-surface-modification-of-a-microcontact-stamp-for-pattern/10.1117/1.JMM.15.1.013501.short"
   },
   {
@@ -323,7 +323,7 @@ const publications = [
     detail: "23(10), 12619-12627",
     year: 2015,
     authors: "Jiyoon Kim, Jeng-Hun Suh, Bo-Yeon Lee, Se-Um Kim, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-23-10-12619"
   },
   {
@@ -332,7 +332,7 @@ const publications = [
     detail: "11(24), 4788-4792",
     year: 2015,
     authors: "Jun-Hee Na, Se-Um Kim, Youngjoo Sohn, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://pubs.rsc.org/en/content/articlelanding/2015/sm/c5sm00694e"
   },
   {
@@ -341,7 +341,7 @@ const publications = [
     detail: "610(1), 221-226",
     year: 2015,
     authors: "Se-Um Kim, Jiyoon Kim, Eui-Sang Yu, In-Ho Lee, Bo-Yeon Lee, Youngjoo Sohn, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://www.tandfonline.com/doi/full/10.1080/15421406.2015.1026749"
   },
   {
@@ -350,7 +350,7 @@ const publications = [
     detail: "16(1), 11-15",
     year: 2015,
     authors: "Jiyoon Kim, Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Sin-Doo Lee",
-    type: "non-sci",
+    type: "other",
     link: "https://www.tandfonline.com/doi/full/10.1080/15980316.2015.1010615"
   },
   {
@@ -359,7 +359,7 @@ const publications = [
     detail: "22(12), 15320-15327",
     year: 2014,
     authors: "In-Ho Lee, Sin-Hyung Lee, Chang-Min Keum, Se-Um Kim, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-12-15320"
   },
   {
@@ -368,7 +368,7 @@ const publications = [
     detail: "591(1), 50-54",
     year: 2014,
     authors: "Se-Um Kim, Jiyoon Kim, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://www.tandfonline.com/doi/abs/10.1080/15421406.2014.917781"
   },
   {
@@ -377,7 +377,7 @@ const publications = [
     detail: "313, 329-332",
     year: 2014,
     authors: "Se-Um Kim, Sanghun Lee, Jun-Hee Na, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://www.sciencedirect.com/science/article/abs/pii/S0030401813009814?via%3Dihub"
   },
   {
@@ -386,7 +386,7 @@ const publications = [
     detail: "8(1), 491",
     year: 2013,
     authors: "Seong-Min Cho, Hea-Lim Park, Min-Hoi Kim, Se-Um Kim, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://link.springer.com/article/10.1186/1556-276X-8-491"
   },
   {
@@ -395,7 +395,7 @@ const publications = [
     detail: "20(2), 864-869",
     year: 2012,
     authors: "Jun-Hee Na, Seung Chul Park, Se-Um Kim, Yoonseuk Choi, Sin-Doo Lee",
-    type: "sci",
+    type: "indexed",
     link: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-20-2-864"
   }
 ];
