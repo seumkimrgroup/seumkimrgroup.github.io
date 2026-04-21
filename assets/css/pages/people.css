@@ -107,7 +107,7 @@
 
 .member-detail-header {
   display: grid;
-  grid-template-columns: 176px minmax(320px, 520px);
+  grid-template-columns: 176px minmax(320px, 460px);
   gap: 32px;
   align-items: start;
   justify-content: center;
