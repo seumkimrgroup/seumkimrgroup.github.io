@@ -10,12 +10,14 @@
   align-items: center;
   padding: 0 var(--space-11);
   z-index: var(--navbar-z);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: none;
 
   transition:
     transform 0.28s ease,
     background-color 0.28s ease,
-    box-shadow 0.28s ease;
+    box-shadow 0.28s ease,
+    backdrop-filter 0.28s ease,
+    -webkit-backdrop-filter 0.28s ease;
 }
 
 .navbar.nav-hidden {
