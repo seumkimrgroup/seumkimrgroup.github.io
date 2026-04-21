@@ -1,21 +1,14 @@
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-
+  background-color: var(--color-bg);
+  border-bottom: none; /* 🔥 제거 */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--space-11);
   z-index: var(--navbar-z);
-
-  background: rgba(20, 20, 20, 0.32);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  border-bottom: none;
-  box-shadow: none;
 
   transition:
     transform 0.28s ease,
