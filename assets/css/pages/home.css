@@ -250,6 +250,16 @@ body.home .nav-links a.active {
 ========================= */
 
 .contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-heading {
+  text-align: left;
+}
+
+.contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
   gap: 32px;
@@ -260,12 +270,7 @@ body.home .nav-links a.active {
   min-width: 0;
 }
 
-.contact-heading {
-  text-align: left;
-}
-
 .contact-list {
-  margin-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -312,9 +317,8 @@ a.contact-value:hover {
   display: block;
 }
 
-/* responsive */
 @media (max-width: 900px) {
-  .contact-section {
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
