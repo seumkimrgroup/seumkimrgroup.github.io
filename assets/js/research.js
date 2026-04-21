@@ -35,7 +35,7 @@ if (topicContainer) {
         />
       </div>
       <div class="research-area-body">
-        <h3 class="type-subheading research-area-title">${topic.title}</h3>
+        <h3 class="type-title research-area-title">${topic.title}</h3>
         <p class="type-body research-area-text">${topic.description}</p>
       </div>
     `;
