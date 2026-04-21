@@ -178,19 +178,18 @@
       const item = document.createElement("div");
       item.className = "card card--interactive people-card people-card-member former-people-card";
       item.addEventListener("click", () => goToMember(member));
-
+    
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
       const statusLine = [degree, year].filter(Boolean).join(" · ");
-
+    
       item.innerHTML = `
         <div class="people-info">
-          <div class="type-meta people-badge">Alumni</div>
           <div class="type-title people-name">${member.name}</div>
           <div class="type-meta people-status">${statusLine}</div>
         </div>
       `;
-
+    
       return item;
     }
 
@@ -488,22 +487,85 @@
     function renderMemberDetail(member) {
       const educationSection = renderInfoSection("Education", getSectionItems(member, "EDUCATION"));
       const researchSection = renderInfoSection("Research Interest", getSectionItems(member, "RESEARCH INTERESTS"));
-
+    
+      let detailSections = "";
+      let roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role);
+      let roleHtml = roleText
+        ? `<div class="type-meta member-detail-role">${roleText}</div>`
+        : "";
+    
+      let affiliationHtml = "";
+      let joinedAtHtml = "";
+    
+      if (isFormer(member)) {
+        const joinedAt = member.nextAffiliation && String(member.nextAffiliation).trim() !== ""
+          ? member.nextAffiliation
+          : "";
+    
+        joinedAtHtml = joinedAt
+          ? `
+            <div class="member-detail-joined">
+              <div class="type-eyebrow member-detail-joined-label">Joined at</div>
+              <div class="type-body member-detail-joined-value">${joinedAt}</div>
+            </div>
+          `
+          : "";
+    
+        affiliationHtml = "";
+        detailSections = `
+          <div class="member-detail-sections">
+            ${educationSection}
+            ${renderDetailPublications(member)}
+          </div>
+        `;
+      } else {
+        const affiliation = getAffiliationText(member);
+        affiliationHtml = affiliation
+          ? `<div class="type-meta member-detail-affiliation">${affiliation}</div>`
+          : "";
+    
+        detailSections = `
+          <div class="member-detail-sections">
+            ${educationSection}
+            ${researchSection}
+            ${renderDetailPublications(member)}
+          </div>
+        `;
+      }
+    
+      const imageHtml = member.image
+        ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
+        : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
+    
+      const linksHtml = renderMemberLinks(member);
+    
       detailView.innerHTML = `
         <a href="people.html" class="back-link type-body">← Back to People</a>
-
-        ${renderProfileHeader(member, false)}
-
-        <div class="member-detail-sections">
-          ${educationSection}
-          ${researchSection}
-          ${renderDetailPublications(member)}
+    
+        <div class="member-detail-profile">
+          <div class="member-detail-header member-detail-header--inset">
+            <div class="member-detail-photo-wrap">
+              ${imageHtml}
+            </div>
+    
+            <div class="member-detail-main">
+              <div class="member-detail-header-text">
+                <div class="type-heading member-detail-name">${member.name}</div>
+                ${roleHtml}
+                ${affiliationHtml}
+                ${joinedAtHtml}
+              </div>
+              ${linksHtml}
+            </div>
+          </div>
         </div>
+    
+        ${detailSections}
       `;
-
+    
       const pubList = document.getElementById("member-publication-list");
       if (!pubList) return;
-
+    
       getMemberPublications(member).forEach((pub) => {
         pubList.appendChild(createPublicationCard(pub));
       });
