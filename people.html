@@ -529,20 +529,32 @@
         `;
       }
     
-      const imageHtml = member.image
-        ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
-        : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
-    
+      const imageHtml = isFormer(member)
+        ? ""
+        : (member.image
+            ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
+            : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`);
+
+      const photoBlock = isFormer(member)
+        ? ""
+        : `
+          <div class="member-detail-photo-wrap">
+            ${imageHtml}
+          </div>
+        `;
+            
       const linksHtml = renderMemberLinks(member);
-    
+      const headerClass = isFormer(member)
+        ? "member-detail-header member-detail-header--inset no-photo"
+        : "member-detail-header member-detail-header--inset";
+      
       detailView.innerHTML = `
         <a href="people.html" class="back-link type-body">← Back to People</a>
     
         <div class="member-detail-profile">
-          <div class="member-detail-header member-detail-header--inset">
-            <div class="member-detail-photo-wrap">
-              ${imageHtml}
-            </div>
+          <div class="${headerClass}">
+
+              ${photoBlock}
     
             <div class="member-detail-main">
               <div class="member-detail-header-text">
@@ -558,7 +570,7 @@
     
         ${detailSections}
       `;
-    
+
       const pubList = document.getElementById("member-publication-list");
       if (!pubList) return;
     
