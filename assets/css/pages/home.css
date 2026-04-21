@@ -251,7 +251,7 @@ body.home .nav-links a.active {
 
 .contact-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
   gap: 32px;
   align-items: start;
 }
@@ -260,33 +260,12 @@ body.home .nav-links a.active {
   min-width: 0;
 }
 
-.contact-eyebrow {
-  margin: 0 0 10px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.contact-title {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--color-text-strong);
-}
-
-.contact-description {
-  margin: 14px 0 0;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  max-width: 640px;
+.contact-heading {
+  text-align: left;
 }
 
 .contact-list {
-  margin-top: 28px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -328,7 +307,7 @@ a.contact-value:hover {
 
 .contact-map {
   width: 100%;
-  height: 320px;
+  height: 260px;
   border: 0;
   display: block;
 }
@@ -341,19 +320,11 @@ a.contact-value:hover {
   }
 
   .contact-map {
-    height: 280px;
+    height: 240px;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-title {
-    font-size: 26px;
-  }
-
-  .contact-description {
-    font-size: 15px;
-  }
-
   .contact-row {
     grid-template-columns: 84px minmax(0, 1fr);
     gap: 14px;
@@ -361,16 +332,12 @@ a.contact-value:hover {
 }
 
 @media (max-width: 520px) {
-  .contact-list {
-    gap: 16px;
-  }
-
   .contact-row {
     grid-template-columns: 1fr;
     gap: 4px;
   }
 
   .contact-map {
-    height: 240px;
+    height: 220px;
   }
 }
