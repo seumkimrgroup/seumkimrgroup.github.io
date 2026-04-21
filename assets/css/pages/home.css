@@ -72,25 +72,19 @@ body.home .nav-links a.active {
 }
 
 .project-subtitle {
-  font-size: 12px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  opacity: 0.82;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .project-title {
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  line-height: 1.2;
+  margin: 0 0 16px;
+  color: #ffffff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 .project-desc {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 
@@ -119,9 +113,7 @@ body.home .nav-links a.active {
   right: 20px;
 }
 
-/* =========================
-   ABOUT / RESEARCH SECTION
-========================= */
+/* ABOUT / RESEARCH SECTION */
 
 .about-section {
   display: flex;
@@ -138,11 +130,6 @@ body.home .nav-links a.active {
 
 .about-eyebrow {
   margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
 }
 
 .about-block {
@@ -153,25 +140,11 @@ body.home .nav-links a.active {
 
 .about-block-title {
   margin: 0;
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--color-text-strong);
 }
 
 .about-block-description {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--color-text-muted);
   max-width: 760px;
-}
-
-.about-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 4px;
 }
 
 .about-more-content {
@@ -186,9 +159,16 @@ body.home .nav-links a.active {
 
 .about-more-content p {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
   color: var(--color-text-muted);
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 /* RESEARCH AREA CARDS */
@@ -230,22 +210,13 @@ body.home .nav-links a.active {
 
 .research-area-title {
   margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--color-text-strong);
 }
 
 .research-area-text {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--color-text-muted);
 }
 
-/* =========================
-   CONTACT SECTION
-========================= */
+/* CONTACT SECTION */
 
 .contact-section {
   display: flex;
@@ -285,8 +256,8 @@ body.home .nav-links a.active {
 }
 
 .contact-value {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: var(--type-meta-size);
+  line-height: var(--type-body-line);
   color: var(--color-text-muted);
   text-decoration: none;
   word-break: keep-all;
@@ -333,12 +304,8 @@ a.contact-value:hover {
     gap: 14px;
   }
 
-  .research-area-body {
-    padding: 18px;
-  }
-
-  .research-area-title {
-    font-size: 18px;
+  .project-title {
+    font-size: 38px;
   }
 }
 
@@ -346,6 +313,10 @@ a.contact-value:hover {
   .contact-row {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .project-title {
+    font-size: 32px;
   }
 
   .contact-map {
