@@ -14,10 +14,28 @@
 .publications-search-box {
   width: min(100%, 760px);
   max-width: 760px;
-  min-height: 58px;
-  padding: 0 22px;
-  font-size: 17px;
+  height: 36px;
+  padding: 0 6px 6px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+  border-radius: 0;
+  outline: none;
   text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  color: var(--color-text-strong);
+  transition: border-color 0.2s ease;
+}
+
+.publications-search-box::placeholder {
+  text-align: center;
+  font-style: italic;
+  color: rgba(30, 42, 56, 0.42);
+}
+
+.publications-search-box:focus {
+  border-bottom-color: rgba(17, 17, 17, 0.45);
 }
 
 #publication-list {
