@@ -164,3 +164,33 @@
   background: transparent;
   color: var(--color-text);
 }
+
+.icon-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: #a9c2e8;
+  transition: var(--transition-fast);
+}
+
+.icon-link:hover {
+  color: #6f96c9;
+  background: rgba(111, 150, 201, 0.08);
+  transform: translateY(-1px);
+}
+
+.icon-link__icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
