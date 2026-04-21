@@ -266,10 +266,6 @@ body.home .nav-links a.active {
   align-items: start;
 }
 
-.contact-info {
-  min-width: 0;
-}
-
 .contact-list {
   display: flex;
   flex-direction: column;
