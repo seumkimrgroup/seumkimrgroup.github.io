@@ -117,7 +117,6 @@
 .member-detail-header--centered {
   width: min(100%, 780px);
   margin: 0 auto;
-  transform: translateX(-10px);
 }
 
 .member-detail-photo-wrap {
