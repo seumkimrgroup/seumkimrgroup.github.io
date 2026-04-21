@@ -107,10 +107,9 @@
 
 .member-detail-header {
   display: grid;
-  grid-template-columns: 176px minmax(320px, 460px);
+  grid-template-columns: 176px minmax(320px, 520px);
   gap: 32px;
   align-items: start;
-  justify-content: center;
 }
 
 .member-detail-header--inset,
@@ -138,7 +137,6 @@
   justify-content: flex-start;
   gap: 14px;
   min-height: 176px;
-  padding-top: 2px;
 }
 
 .member-detail-header-text {
