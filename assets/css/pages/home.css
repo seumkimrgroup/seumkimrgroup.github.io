@@ -1,12 +1,16 @@
+/* HOME NAVBAR: 처음에는 투명, blur 없음 */
 body.home .navbar {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow: none;
 }
 
+/* HOME에서 스크롤이 시작된 뒤 다시 보이는 navbar */
 body.home .navbar.nav-scrolled {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   box-shadow: none;
 }
 
