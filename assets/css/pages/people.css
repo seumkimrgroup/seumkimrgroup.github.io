@@ -62,10 +62,6 @@
   margin: 0 auto;
 }
 
-.people-band__inner .type-heading {
-  margin-bottom: 24px;
-}
-
 .people-band-label {
   margin-bottom: 18px;
   color: var(--color-text-subtle);
