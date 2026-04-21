@@ -30,15 +30,16 @@
           type="text"
           id="searchInput"
           class="search-box publications-search-box"
-          placeholder="Search by title, journal, author"
+          placeholder="Search by title, journal, author, and year"
         >
 
         <div class="filter-controls publications-filter-controls">
           <div class="filter-group publications-type-group">
             <button class="filter-btn type-btn active" data-type="all">All</button>
-            <button class="filter-btn type-btn" data-type="sci">SCI</button>
-            <button class="filter-btn type-btn" data-type="non-sci">Non-SCI</button>
-            <button class="filter-btn type-btn" data-type="patent">Patent</button>
+            <button class="filter-btn type-btn" data-type="indexed">INDEXED</button>
+            <button class="filter-btn type-btn" data-type="patent">PATENT</button>
+            <button class="filter-btn type-btn" data-type="other">OTHER</button>
+
           </div>
         </div>
       </div>
@@ -46,14 +47,6 @@
 
     <div class="section">
       <div id="publication-list"></div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="type-meta">
-      (01811) 서울특별시 노원구 공릉로 232 서울과학기술대학교 전기정보공학과<br>
-      Electrical and Information Engineering, Seoul National University of Science and Technology<br>
-      Gongneung-ro 232, Nowon-gu, 01811 Seoul, Republic of Korea
     </div>
   </div>
 
@@ -75,6 +68,27 @@
       return line;
     }
 
+    function getPublicationLabel(pub) {
+      if (pub.type === "patent") {
+        return {
+          text: "PATENT",
+          className: "publication-label publication-label--patent"
+        };
+      }
+
+      if (pub.type === "other") {
+        return {
+          text: "OTHER",
+          className: "publication-label publication-label--non-sci"
+        };
+      }
+
+      return {
+        text: "INDEXED",
+        className: "publication-label publication-label--sci"
+      };
+    }
+
     function renderPublications() {
       const keyword = searchInput.value.trim().toLowerCase();
       container.innerHTML = "";
@@ -94,7 +108,11 @@
       });
 
       if (filtered.length === 0) {
-        container.innerHTML = '<div class="type-meta">No publications found.</div>';
+        container.innerHTML = `
+          <div class="type-meta" style="text-align:center; padding: 32px 0;">
+            No publications found.
+          </div>
+        `;
         return;
       }
 
@@ -102,15 +120,16 @@
         .sort((a, b) => (b.year || 0) - (a.year || 0))
         .forEach((pub) => {
           const metaLine = formatMetaLine(pub);
+          const label = getPublicationLabel(pub);
 
           const cardInner = `
-            <div class="type-body publication-title">${pub.title}</div>
+            <div class="${label.className}">${label.text}</div>
+            <div class="type-body publication-title">${pub.title || ""}</div>
             <div class="type-meta publication-meta">${metaLine}</div>
             <div class="type-meta publication-authors">${pub.authors || ""}</div>
           `;
 
           let item;
-
           if (pub.link) {
             item = document.createElement("a");
             item.href = pub.link;
@@ -128,6 +147,8 @@
         });
     }
 
+    searchInput.addEventListener("input", renderPublications);
+
     typeButtons.forEach((button) => {
       button.addEventListener("click", () => {
         typeButtons.forEach((btn) => btn.classList.remove("active"));
@@ -137,7 +158,6 @@
       });
     });
 
-    searchInput.addEventListener("input", renderPublications);
     renderPublications();
   </script>
 </body>
