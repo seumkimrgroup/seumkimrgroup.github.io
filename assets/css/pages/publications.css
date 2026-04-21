@@ -120,12 +120,12 @@
   text-transform: uppercase;
 }
 
-.publication-label--sci {
+.publication-label--indexed {
   background: rgba(30, 42, 56, 0.08);
   color: #1e2a38;
 }
 
-.publication-label--non-sci {
+.publication-label--other {
   background: rgba(90, 107, 124, 0.11);
   color: #4a5a6a;
 }
