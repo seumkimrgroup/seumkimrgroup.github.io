@@ -115,7 +115,7 @@
 .member-detail-header--inset,
 .member-detail-header--centered {
   width: min(100%, 780px);
-  margin: 0 auto;
+  margin: 0;
 }
 
 .member-detail-photo-wrap {
