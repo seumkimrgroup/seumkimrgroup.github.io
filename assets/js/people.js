@@ -11,7 +11,7 @@ const members = [
     joinYear: 2022, leaveYear: null,
     image: "",
     links: [
-      { type: "email", value: "seumkim@seoultech.ac.kr" }
+      { type: "email", value: "seumkim@seoultech.ac.kr" },
       { type: "scholar", value: "https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en" }
     ],
     description: [
