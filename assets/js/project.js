@@ -1,6 +1,6 @@
 const projects = [
   {
-    subtitle: "We are currently participating in",
+    subtitle: "Participating in",
     title: "Joint Quantum Lab",
     description:
       "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
