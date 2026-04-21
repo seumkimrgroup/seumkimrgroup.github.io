@@ -4,10 +4,6 @@
   gap: var(--space-13);
 }
 
-.people-group {
-  margin-bottom: var(--space-13);
-}
-
 .people-pi-list {
   display: block;
 }
@@ -19,10 +15,6 @@
 
 .people-members-list {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.people-alumni-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .people-card {
@@ -145,15 +137,6 @@
   gap: var(--space-2);
 }
 
-.member-detail-name {
-  margin: 0;
-}
-
-.member-detail-role,
-.member-detail-affiliation {
-  margin: 0;
-}
-
 .member-detail-sections {
   display: flex;
   flex-direction: column;
@@ -167,7 +150,8 @@
   gap: var(--space-3);
 }
 
-.member-detail-section-title {
+.member-detail-section-title,
+.member-publications-title {
   margin: 0;
 }
 
@@ -177,10 +161,6 @@
   gap: var(--space-2);
 }
 
-.member-detail-item {
-  margin: 0;
-}
-
 .member-publications-section {
   margin-top: var(--space-12);
   display: block;
@@ -188,5 +168,5 @@
 }
 
 .member-publications-title {
-  margin: 0 0 var(--space-7);
+  margin-bottom: var(--space-7);
 }
