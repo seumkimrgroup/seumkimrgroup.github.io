@@ -59,8 +59,8 @@
   }
 
   .publications-search-card {
-    align-items: stretch;
-    padding: 20px;
+    align-items: center;
+    padding: 18px 20px 20px;
     gap: 14px;
   }
 
@@ -70,10 +70,11 @@
   }
 
   .publications-search-box {
-    min-height: 52px;
-    font-size: 16px;
-    text-align: left;
-    padding: 0 16px;
+    min-height: 40px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    padding: 0 8px 8px;
   }
 
   .filter-controls {
@@ -83,15 +84,28 @@
   }
 
   .publications-filter-controls {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .publications-type-group {
-    justify-content: flex-start;
+    width: 100%;
+    max-width: none;
+    justify-content: initial;
+    gap: 8px;
   }
 
+  .publications-type-group .filter-btn {
+    min-height: 38px;
+    font-size: 11px;
+    padding: 0 8px;
+  }
+  
   .publication-card {
-    padding: var(--space-6);
+    padding: 18px 18px 20px;
+  }
+
+  .publication-label {
+    margin-bottom: 10px;
   }
 
   .former-people-card {
