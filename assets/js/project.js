@@ -36,9 +36,9 @@ if (slider && prevBtn && nextBtn) {
 
     slide.innerHTML = `
       <div class="project-content">
-        <div class="project-subtitle">${project.subtitle}</div>
-        <div class="project-title">${project.title}</div>
-        <div class="project-desc">${project.description}</div>
+        <div class="type-eyebrow project-subtitle">${project.subtitle}</div>
+        <div class="type-display project-title">${project.title}</div>
+        <div class="type-body project-desc">${project.description}</div>
         <a href="#" class="site-btn site-btn--primary project-readmore">Read More</a>
       </div>
     `;
