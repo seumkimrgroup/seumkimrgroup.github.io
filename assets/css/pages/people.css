@@ -118,6 +118,10 @@
   margin: 0;
 }
 
+.member-detail-header.no-photo {
+  grid-template-columns: minmax(320px, 520px);
+}
+
 .member-detail-photo-wrap {
   width: 176px;
   display: flex;
