@@ -84,11 +84,15 @@
   margin-bottom: var(--space-6);
 }
 
-.publication-card .text-4 {
+.publication-title {
+  margin: 0;
+}
+
+.publication-meta {
   margin-top: var(--space-3);
 }
 
-.publication-card .text-5 {
+.publication-authors {
   margin-top: var(--space-2);
 }
 
