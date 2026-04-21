@@ -244,3 +244,133 @@ body.home .nav-links a.active {
 .project-next {
   right: 20px;
 }
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+  gap: 32px;
+  align-items: start;
+}
+
+.contact-info {
+  min-width: 0;
+}
+
+.contact-eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.contact-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text-strong);
+}
+
+.contact-description {
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 640px;
+}
+
+.contact-list {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.contact-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-text-strong);
+}
+
+.contact-value {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  word-break: keep-all;
+}
+
+a.contact-value:hover {
+  color: var(--color-text-strong);
+}
+
+.contact-map-wrap {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: #f4f6f8;
+}
+
+.contact-map {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  display: block;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-map {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 26px;
+  }
+
+  .contact-description {
+    font-size: 15px;
+  }
+
+  .contact-row {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-list {
+    gap: 16px;
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .contact-map {
+    height: 240px;
+  }
+}
