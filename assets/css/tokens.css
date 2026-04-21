@@ -18,17 +18,36 @@
 
   --font-family-base: 'Roboto', sans-serif;
 
-  --font-size-1: 26px;
-  --font-size-2: 20px;
-  --font-size-3: 18px;
-  --font-size-4: 14px;
-  --font-size-5: 14px;
+  /* Global typography hierarchy */
+  --type-display-size: 48px;
+  --type-display-weight: 600;
+  --type-display-line: 1.2;
+
+  --type-heading-size: 30px;
+  --type-heading-weight: 600;
+  --type-heading-line: 1.25;
+
+  --type-subheading-size: 18px;
+  --type-subheading-weight: 500;
+  --type-subheading-line: 1.5;
+
+  --type-body-size: 16px;
+  --type-body-weight: 400;
+  --type-body-line: 1.7;
+
+  --type-meta-size: 14px;
+  --type-meta-weight: 400;
+  --type-meta-line: 1.6;
+
+  --type-eyebrow-size: 12px;
+  --type-eyebrow-weight: 500;
+  --type-eyebrow-line: 1.4;
+  --type-eyebrow-letter-spacing: 1.4px;
+
   --font-size-nav: 16px;
   --font-size-brand: 20px;
   --font-size-input: 15px;
   --font-size-filter: 12px;
-  --font-size-member-name: 16px;
-  --font-size-member-meta: 13px;
 
   --line-height-tight: 1.4;
   --line-height-base: 1.5;
