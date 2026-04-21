@@ -1,4 +1,3 @@
-/* HOME NAVBAR: 처음에는 투명, blur 없음 */
 body.home .navbar {
   background: transparent;
   backdrop-filter: none;
@@ -6,7 +5,6 @@ body.home .navbar {
   box-shadow: none;
 }
 
-/* HOME에서 스크롤이 시작된 뒤 다시 보이는 navbar */
 body.home .navbar.nav-scrolled {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px) saturate(110%);
@@ -28,7 +26,8 @@ body.home .nav-links a.active {
   color: #ffffff;
 }
 
-/* PROJECT SECTION */
+/* project */
+
 .project {
   position: relative;
   width: 100%;
@@ -72,19 +71,19 @@ body.home .nav-links a.active {
 }
 
 .project-subtitle {
-  margin: 0 0 10px;
+  margin-bottom: 10px;
   color: rgba(255, 255, 255, 0.82);
 }
 
 .project-title {
-  margin: 0 0 16px;
+  margin-bottom: 16px;
   color: #ffffff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 .project-desc {
-  margin: 0 0 20px;
-  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 
@@ -113,7 +112,7 @@ body.home .nav-links a.active {
   right: 20px;
 }
 
-/* ABOUT / RESEARCH SECTION */
+/* about / research */
 
 .about-section {
   display: flex;
@@ -143,7 +142,6 @@ body.home .nav-links a.active {
 }
 
 .about-block-description {
-  margin: 0;
   max-width: 760px;
 }
 
@@ -158,8 +156,8 @@ body.home .nav-links a.active {
 }
 
 .about-more-content p {
-  margin: 0;
   font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
   line-height: var(--type-body-line);
   color: var(--color-text-muted);
 }
@@ -170,8 +168,6 @@ body.home .nav-links a.active {
   gap: 10px;
   margin-top: 4px;
 }
-
-/* RESEARCH AREA CARDS */
 
 .research-area-list {
   display: grid;
@@ -208,15 +204,12 @@ body.home .nav-links a.active {
   padding: 20px 20px 22px;
 }
 
-.research-area-title {
-  margin: 0;
-}
-
+.research-area-title,
 .research-area-text {
   margin: 0;
 }
 
-/* CONTACT SECTION */
+/* contact */
 
 .contact-section {
   display: flex;
@@ -249,15 +242,10 @@ body.home .nav-links a.active {
 }
 
 .contact-label {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.6;
   color: var(--color-text-strong);
 }
 
 .contact-value {
-  font-size: var(--type-meta-size);
-  line-height: var(--type-body-line);
   color: var(--color-text-muted);
   text-decoration: none;
   word-break: keep-all;
