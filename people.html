@@ -504,7 +504,12 @@
           : "";
     
         joinedAtHtml = joinedAt
-          ? `<div class="type-meta member-detail-joined">Joined at ${joinedAt}</div>`
+          ? `
+            <div class="member-detail-joined">
+              <span class="member-detail-joined-label">Joined at</span>
+              <span class="member-detail-joined-value">${joinedAt}</span>
+            </div>
+          `
           : "";
     
         affiliationHtml = "";
