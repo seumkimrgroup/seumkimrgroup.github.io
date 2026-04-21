@@ -422,18 +422,10 @@
         ${renderProfileHeader(member, true)}
         <div class="member-detail-sections member-detail-sections--pi">
           ${renderAllSections(member)}
-          ${renderDetailPublications(member, true)}
         </div>
       `;
-
+    
       piContainer.innerHTML = html;
-
-      const pubList = document.getElementById("pi-publication-list");
-      if (!pubList) return;
-
-      getMemberPublications(member).forEach((pub) => {
-        pubList.appendChild(createPublicationCard(pub));
-      });
     }
 
     function renderPI(members) {
