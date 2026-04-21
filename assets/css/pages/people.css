@@ -12,6 +12,8 @@
   gap: 0;
 }
 
+/* ===== section background ===== */
+
 .people-band {
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -35,26 +37,19 @@
   margin: 0 auto;
 }
 
-.people-pi-list {
-  display: block;
-}
+/* ===== list ===== */
 
 .people-list {
   display: grid;
   gap: var(--space-8);
 }
 
-.people-members-list {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
+.people-members-list,
 .people-alumni-list {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.people-card {
-  border-radius: var(--radius-md);
-}
+/* ===== card ===== */
 
 .people-card-member {
   display: flex;
@@ -75,7 +70,6 @@
   height: 72px;
   object-fit: cover;
   border-radius: var(--radius-sm);
-  flex-shrink: 0;
   background-color: var(--color-surface-muted);
 }
 
@@ -84,7 +78,6 @@
 }
 
 .people-info {
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -92,43 +85,24 @@
   text-align: center;
 }
 
-.people-name,
-.people-role,
-.people-status,
-.member-detail-name,
-.member-detail-role,
-.member-detail-affiliation,
-.member-detail-item {
-  word-break: keep-all;
-}
+/* ===== alumni badge ===== */
 
 .people-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 3px 8px;
   border-radius: 999px;
   background: #eef2f6;
   color: var(--color-text-subtle);
-  margin-bottom: 4px;
+  font-size: 12px;
 }
+
+/* ===== detail ===== */
 
 .member-detail-view {
   display: flex;
   flex-direction: column;
-  gap: 0;
   width: min(100% - 32px, var(--container-width));
   margin: 0 auto;
-  padding: 0 0 60px;
-}
-
-.member-detail-profile {
-  display: flex;
-  flex-direction: column;
-}
-
-.member-detail-profile--centered {
-  width: 100%;
+  padding-bottom: 60px;
 }
 
 .member-detail-header {
@@ -138,15 +112,10 @@
   align-items: center;
 }
 
-.member-detail-header--inset {
-  width: min(100%, 900px);
-  margin: 0 auto;
-}
-
+.member-detail-header--inset,
 .member-detail-header--centered {
   width: min(100%, 900px);
   margin: 0 auto;
-  justify-content: center;
 }
 
 .member-detail-photo-wrap {
@@ -162,8 +131,6 @@
 }
 
 .member-detail-main {
-  min-width: 0;
-  min-height: 176px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,29 +138,20 @@
 }
 
 .member-detail-header-text {
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-
-.member-detail-name {
-  margin: 0;
 }
 
 .member-detail-role {
   color: var(--color-text-subtle);
 }
 
-.member-detail-affiliation {
-  max-width: 560px;
-}
+/* ===== links ===== */
 
 .icon-links {
   display: flex;
-  align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 .icon-link {
@@ -210,7 +168,6 @@
 .icon-link:hover {
   color: #6f96c9;
   background: rgba(111, 150, 201, 0.08);
-  transform: translateY(-1px);
 }
 
 .icon-link__icon {
@@ -219,160 +176,19 @@
   fill: currentColor;
 }
 
-.member-links {
-  margin-top: 2px;
-}
+/* ===== sections ===== */
 
 .member-detail-sections {
   display: flex;
   flex-direction: column;
   gap: 28px;
   margin-top: 40px;
-  width: 100%;
 }
 
-.member-detail-sections--pi {
-  margin-top: 36px;
-}
-
-.member-detail-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.member-detail-section-title,
-.member-publications-title {
-  margin: 0;
+.member-detail-section-title {
   color: var(--color-text-strong);
-}
-
-.member-detail-section-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
 .member-detail-item {
   color: var(--color-text-muted);
-}
-
-.member-publications-section {
-  margin-top: 0;
-  display: block;
-  width: 100%;
-}
-
-.member-publications-title {
-  margin-bottom: var(--space-7);
-}
-
-@media (max-width: 900px) {
-  .people-members-list,
-  .people-alumni-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .member-detail-header,
-  .member-detail-header--centered {
-    grid-template-columns: 152px minmax(0, 1fr);
-    gap: 24px;
-  }
-
-  .member-detail-photo-wrap {
-    width: 152px;
-  }
-
-  .member-detail-photo {
-    width: 152px;
-    height: 152px;
-  }
-
-  .member-detail-main {
-    min-height: 152px;
-  }
-}
-
-@media (max-width: 768px) {
-  .people-page {
-    padding-top: 132px;
-  }
-
-  .people-band {
-    padding: 36px 0;
-  }
-
-  .people-band__inner,
-  .member-detail-view {
-    width: calc(100% - 40px);
-  }
-
-  .member-detail-header,
-  .member-detail-header--centered {
-    grid-template-columns: 132px minmax(0, 1fr);
-    gap: 20px;
-  }
-
-  .member-detail-header--inset,
-  .member-detail-header--centered {
-    width: 100%;
-  }
-
-  .member-detail-photo-wrap {
-    width: 132px;
-  }
-
-  .member-detail-photo {
-    width: 132px;
-    height: 132px;
-  }
-
-  .member-detail-main {
-    min-height: 132px;
-    gap: 12px;
-  }
-
-  .member-detail-sections {
-    margin-top: 30px;
-    gap: 24px;
-  }
-}
-
-@media (max-width: 520px) {
-  .people-members-list,
-  .people-alumni-list {
-    grid-template-columns: 1fr;
-  }
-
-  .member-detail-header,
-  .member-detail-header--centered {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    justify-items: center;
-    text-align: center;
-  }
-
-  .member-detail-photo-wrap {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .member-detail-main {
-    min-height: 0;
-    align-items: center;
-    text-align: center;
-  }
-
-  .member-detail-header-text {
-    align-items: center;
-    text-align: center;
-  }
-
-  .member-detail-affiliation {
-    max-width: 100%;
-  }
-
-  .member-links {
-    justify-content: center;
-  }
 }
