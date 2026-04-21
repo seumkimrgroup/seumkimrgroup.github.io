@@ -39,7 +39,7 @@ if (slider && prevBtn && nextBtn) {
         <div class="project-subtitle">${project.subtitle}</div>
         <div class="project-title">${project.title}</div>
         <div class="project-desc">${project.description}</div>
-        <button class="project-readmore">Read More</button>
+        <a href="#" class="site-btn site-btn--primary project-readmore">Read More</a>
       </div>
     `;
 
