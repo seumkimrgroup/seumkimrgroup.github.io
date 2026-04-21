@@ -122,6 +122,10 @@
   grid-template-columns: minmax(320px, 520px);
 }
 
+.member-detail-header.no-photo .member-detail-main {
+  min-height: 0;
+}
+
 .member-detail-photo-wrap {
   width: 176px;
   display: flex;
