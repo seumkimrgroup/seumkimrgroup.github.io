@@ -1,3 +1,26 @@
+body.home .navbar {
+  background: rgba(20, 20, 20, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: none;
+}
+
+body.home .navbar.nav-scrolled {
+  background: rgba(20, 20, 20, 0.5);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+body.home .brand,
+body.home .nav-links a {
+  color: white;
+}
+
+body.home .nav-links a:hover,
+body.home .brand:hover {
+  color: rgba(255,255,255,0.8);
+}
+
 /* PROJECT SECTION */
 .project {
   position: relative;
