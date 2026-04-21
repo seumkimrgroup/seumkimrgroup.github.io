@@ -1,28 +1,85 @@
-const navbar = document.querySelector(".navbar");
-let lastScrollY = window.scrollY;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg);
+  border-bottom: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-11);
+  z-index: var(--navbar-z);
+  box-shadow: none;
 
-function updateNavbarOnScroll() {
-  if (!navbar) return;
-
-  const currentScrollY = window.scrollY;
-  const scrollingDown = currentScrollY > lastScrollY;
-  const nearTop = currentScrollY < 20;
-
-  if (nearTop) {
-    navbar.classList.remove("nav-hidden");
-    navbar.classList.remove("nav-scrolled");
-  } else {
-    navbar.classList.add("nav-scrolled");
-
-    if (scrollingDown) {
-      navbar.classList.add("nav-hidden");
-    } else {
-      navbar.classList.remove("nav-hidden");
-    }
-  }
-
-  lastScrollY = currentScrollY;
+  transition:
+    transform 0.28s ease,
+    background-color 0.28s ease,
+    box-shadow 0.28s ease,
+    backdrop-filter 0.28s ease,
+    -webkit-backdrop-filter 0.28s ease;
 }
 
-window.addEventListener("scroll", updateNavbarOnScroll, { passive: true });
-updateNavbarOnScroll();
+.navbar.nav-hidden {
+  transform: translateY(-100%);
+}
+
+.brand {
+  font-size: var(--font-size-brand);
+  font-weight: 500;
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  padding: 18px 0;
+  white-space: nowrap;
+}
+
+.brand:hover {
+  color: var(--color-hover-text);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-11);
+}
+
+.nav-links a {
+  font-size: var(--font-size-nav);
+  font-weight: 400;
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  padding: 18px 0;
+}
+
+.nav-links a:hover {
+  color: var(--color-hover-text);
+}
+
+.nav-links a.active {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.content {
+  width: min(100% - 32px, var(--container-width));
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-13);
+}
+
+.section {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  margin-top: var(--space-14);
+}
+
+.footer {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border-nav);
+  text-align: center;
+  padding: var(--space-11) var(--space-6);
+}
