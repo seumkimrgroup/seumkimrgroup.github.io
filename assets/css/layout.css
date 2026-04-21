@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-bg);
+  background-color: #ffffff;
   border-bottom: none;
   display: flex;
   justify-content: space-between;
@@ -15,13 +15,22 @@
   transition:
     transform 0.28s ease,
     background-color 0.28s ease,
-    box-shadow 0.28s ease,
     backdrop-filter 0.28s ease,
-    -webkit-backdrop-filter 0.28s ease;
+    -webkit-backdrop-filter 0.28s ease,
+    box-shadow 0.28s ease;
 }
 
 .navbar.nav-hidden {
   transform: translateY(-100%);
+}
+
+/* people / publications 등 일반 페이지에서
+   스크롤 후 다시 나타난 navbar */
+.navbar.nav-scrolled {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: none;
 }
 
 .brand {
