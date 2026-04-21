@@ -77,7 +77,6 @@
 .people-role,
 .people-status,
 .member-detail-name,
-.member-detail-role,
 .member-detail-affiliation,
 .member-detail-item {
   word-break: keep-all;
@@ -87,6 +86,12 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  width: 100%;
+}
+
+.member-detail-shell {
+  width: min(100%, 860px);
+  margin: 0 auto;
 }
 
 .member-detail-profile {
@@ -95,74 +100,107 @@
 }
 
 .member-detail-header {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-12);
+  display: grid;
+  grid-template-columns: 176px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.member-detail-photo-wrap {
+  width: 176px;
 }
 
 .member-detail-photo {
-  width: 140px;
-  height: 140px;
+  width: 176px;
+  height: 176px;
+  border-radius: 18px;
 }
 
 .member-detail-main {
-  flex: 1;
   min-width: 0;
+  min-height: 176px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-8);
 }
 
 .member-detail-header-text {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 8px;
+  padding-top: 4px;
 }
 
-.former-member-detail-profile {
-  display: block;
+.member-detail-name {
+  margin: 0;
 }
 
-.former-member-detail-main {
-  width: 100%;
+.member-detail-affiliation {
+  max-width: 560px;
 }
 
-.former-member-detail-header-text {
-  gap: var(--space-6);
-}
-
-.member-detail-inline-block {
+.member-detail-actions {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  align-items: flex-end;
+}
+
+.member-email-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-nav);
+  border-radius: 12px;
+  background: var(--color-bg);
+  transition: var(--transition-fast);
+}
+
+.member-email-btn:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-button-hover);
+  transform: translateY(-1px);
+}
+
+.member-email-icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-text-strong);
 }
 
 .member-detail-sections {
   display: flex;
   flex-direction: column;
-  gap: var(--space-9);
-  margin-top: var(--space-9);
+  gap: 28px;
+  margin-top: 36px;
 }
 
 .member-detail-section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 10px;
 }
 
 .member-detail-section-title,
 .member-publications-title {
   margin: 0;
+  color: var(--color-text-strong);
 }
 
 .member-detail-section-body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 6px;
+}
+
+.member-detail-item {
+  color: var(--color-text-muted);
 }
 
 .member-publications-section {
-  margin-top: var(--space-12);
+  margin-top: 0;
   display: block;
   width: 100%;
 }
