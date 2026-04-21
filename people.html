@@ -277,43 +277,30 @@
       renderFormerMembers(formerMembers);
     }
 
-    function getRenderableSections(member) {
+    function getSectionItems(member, targetTitle) {
       if (!Array.isArray(member.description)) return [];
-      return member.description.filter((section) => {
-        if (!section || !section.title || !Array.isArray(section.content)) return false;
-        return section.content.filter((item) => String(item || "").trim() !== "").length > 0;
+      const section = member.description.find((item) => {
+        return String(item?.title || "").trim().toUpperCase() === targetTitle.toUpperCase();
       });
+
+      if (!section || !Array.isArray(section.content)) return [];
+      return section.content.filter((item) => String(item || "").trim() !== "");
     }
 
-    function getFormerEducationSections(member) {
-      if (!Array.isArray(member.description)) return [];
-      return member.description.filter((section) => {
-        const title = String(section?.title || "").toUpperCase();
-        if (title !== "EDUCATION") return false;
-        if (!Array.isArray(section.content)) return false;
-        return section.content.filter((item) => String(item || "").trim() !== "").length > 0;
-      });
-    }
+    function renderInfoSection(title, items) {
+      if (!items.length) return "";
+      const itemsHtml = items
+        .map((item) => `<div class="type-body member-detail-item">${item}</div>`)
+        .join("");
 
-    function renderDetailSections(member) {
-      const sections = isFormer(member) ? getFormerEducationSections(member) : getRenderableSections(member);
-      if (!sections.length) return "";
-
-      return sections.map((section) => {
-        const itemsHtml = section.content
-          .filter((item) => String(item || "").trim() !== "")
-          .map((item) => `<div class="type-body member-detail-item">${item}</div>`)
-          .join("");
-
-        return `
-          <div class="member-detail-section">
-            <div class="type-eyebrow member-detail-section-title">${section.title}</div>
-            <div class="member-detail-section-body">
-              ${itemsHtml}
-            </div>
+      return `
+        <section class="member-detail-section">
+          <div class="type-title member-detail-section-title">${title}</div>
+          <div class="member-detail-section-body">
+            ${itemsHtml}
           </div>
-        `;
-      }).join("");
+        </section>
+      `;
     }
 
     function renderDetailPublications(member) {
@@ -322,83 +309,80 @@
       if (!pubs.length) return "";
 
       return `
-        <div class="member-publications-section">
+        <section class="member-detail-section member-publications-section">
           <div class="type-title member-publications-title">Publications</div>
           <div id="member-publication-list"></div>
-        </div>
+        </section>
       `;
     }
 
-    function renderCurrentMemberDetail(member) {
+    function getAffiliationText(member) {
+      if (member.currentAffiliation && String(member.currentAffiliation).trim() !== "") {
+        return member.currentAffiliation;
+      }
+      if (isFormer(member) && member.nextAffiliation && String(member.nextAffiliation).trim() !== "") {
+        return member.nextAffiliation;
+      }
+      return "";
+    }
+
+    function renderMemberDetail(member) {
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
         : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
 
-      const currentAffiliationHtml = member.currentAffiliation
-        ? `<div class="type-meta member-detail-affiliation">${member.currentAffiliation}</div>`
+      const affiliation = getAffiliationText(member);
+      const affiliationHtml = affiliation
+        ? `<div class="type-meta member-detail-affiliation">${affiliation}</div>`
         : "";
 
-      detailView.innerHTML = `
-        <a href="people.html" class="back-link type-body">← Back to People</a>
-
-        <div class="member-detail-profile">
-          <div class="member-detail-header">
-            ${imageHtml}
-
-            <div class="member-detail-main">
-              <div class="member-detail-header-text">
-                <div class="type-heading member-detail-name">${member.name}</div>
-                <div class="type-meta member-detail-role">${formatRole(member.role)}</div>
-                ${currentAffiliationHtml}
-              </div>
-
-              <div class="member-detail-sections">
-                ${renderDetailSections(member)}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        ${renderDetailPublications(member)}
-      `;
-    }
-
-    function renderFormerMemberDetail(member) {
-      const joinedAtHtml = member.nextAffiliation
+      const emailHtml = member.email
         ? `
-          <div class="member-detail-inline-block">
-            <div class="type-eyebrow member-detail-section-title">Joined at</div>
-            <div class="type-body member-detail-item">${member.nextAffiliation}</div>
+          <div class="member-detail-actions">
+            <a
+              href="mailto:${member.email}"
+              class="member-email-btn"
+              aria-label="Email ${member.name}"
+              title="${member.email}"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="member-email-icon">
+                <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 2v.2l8 5.2 8-5.2V8l-8 5-8-5z"/>
+              </svg>
+            </a>
           </div>
         `
         : "";
 
+      const educationSection = renderInfoSection("Education", getSectionItems(member, "EDUCATION"));
+      const researchSection = renderInfoSection("Research Interest", getSectionItems(member, "RESEARCH INTERESTS"));
+
       detailView.innerHTML = `
         <a href="people.html" class="back-link type-body">← Back to People</a>
 
-        <div class="member-detail-profile former-member-detail-profile">
-          <div class="member-detail-main former-member-detail-main">
-            <div class="member-detail-header-text former-member-detail-header-text">
-              <div class="type-heading member-detail-name">${member.name}</div>
-              ${joinedAtHtml}
-            </div>
+        <div class="member-detail-shell">
+          <div class="member-detail-profile">
+            <div class="member-detail-header">
+              <div class="member-detail-photo-wrap">
+                ${imageHtml}
+              </div>
 
-            <div class="member-detail-sections">
-              ${renderDetailSections(member)}
+              <div class="member-detail-main">
+                <div class="member-detail-header-text">
+                  <div class="type-heading member-detail-name">${member.name}</div>
+                  ${affiliationHtml}
+                </div>
+                ${emailHtml}
+              </div>
             </div>
           </div>
+
+          <div class="member-detail-sections">
+            ${educationSection}
+            ${researchSection}
+            ${renderDetailPublications(member)}
+          </div>
         </div>
-
-        ${renderDetailPublications(member)}
       `;
-    }
-
-    function renderMemberDetail(member) {
-      if (isFormer(member)) {
-        renderFormerMemberDetail(member);
-      } else {
-        renderCurrentMemberDetail(member);
-      }
 
       const pubList = document.getElementById("member-publication-list");
       if (!pubList) return;
