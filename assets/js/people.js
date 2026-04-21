@@ -10,6 +10,10 @@ const members = [
     phone: "+82-2-970-6425", office: "Mirae-Hall Unit 523",
     joinYear: 2022, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "seumkim@seoultech.ac.kr" }
+      { type: "scholar", value: "https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en" }
+    ],
     description: [
       {
         title: "RESEARCH CAREER",
@@ -43,6 +47,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2026, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "yihyeonchoi11@gmail.com" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -61,10 +68,13 @@ const members = [
     name: "Ji Won Choi",
     status: "current",
     role: "Undergraduate",
-    email: "lxhana@seoultech.ac.kr",
+    email: "wlxhana@seoultech.ac.kr",
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "wlxhana@seoultech.ac.kr" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -91,6 +101,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "minhyeral14@seoultech.ac.kr" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -119,6 +132,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "khs1273@naver.com" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -144,6 +160,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "doyoo0413@seoultech.ac.kr" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -169,6 +188,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "nab5191@naver.com" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -193,6 +215,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2025, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "hynnk77@seoultech.ac.kr" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -217,6 +242,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "kimminji0624@seoultech.ac.kr" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -242,6 +270,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "sangbaek62@gmail.com" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -267,6 +298,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: 2025,
     image: "",
+    links: [
+      { type: "email", value: "ddwd1473@naver.com" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -294,6 +328,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "dyne0822@gmail.com" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -319,6 +356,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "ohs07@naver.com" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -346,6 +386,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2024, leaveYear: 2025,
     image: "",
+    links: [
+      { type: "email", value: "" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -373,6 +416,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2025,
     image: "",
+    links: [
+      { type: "email", value: "" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -399,6 +445,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: null,
     image: "",
+    links: [
+      { type: "email", value: "he9312@seoultech.ac.kr" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -426,6 +475,9 @@ const members = [
     email: "",
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2025,
+    links: [
+      { type: "email", value: "" }
+    ],
     image: "",
     description: [
       {
@@ -453,6 +505,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2024,
     image: "",
+    links: [
+      { type: "email", value: "" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -477,6 +532,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2023, leaveYear: 2024,
     image: "",
+    links: [
+      { type: "email", value: "" }
+    ],
     description: [
       {
         title: "EDUCATION",
@@ -501,6 +559,9 @@ const members = [
     phone: "", office: "",
     joinYear: 2022, leaveYear: 2023,
     image: "",
+    links: [
+      { type: "email", value: "" }
+    ],
     description: [
       {
         title: "EDUCATION",
