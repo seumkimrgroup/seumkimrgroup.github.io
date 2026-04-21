@@ -24,32 +24,21 @@
   </div>
 
   <div class="content publications-page">
-    <div class="section section-heading">
-      <h2 class="type-heading">Publications</h2>
-    </div>
-
-    <div class="section">
-      <div class="search-card">
+    <div class="section publications-search-section">
+      <div class="search-card publications-search-card">
         <input
           type="text"
           id="searchInput"
-          class="search-box"
+          class="search-box publications-search-box"
           placeholder="Search by title, journal, author"
         >
 
-        <div class="filter-controls">
-          <div class="filter-group">
+        <div class="filter-controls publications-filter-controls">
+          <div class="filter-group publications-type-group">
             <button class="filter-btn type-btn active" data-type="all">All</button>
             <button class="filter-btn type-btn" data-type="sci">SCI</button>
             <button class="filter-btn type-btn" data-type="non-sci">Non-SCI</button>
             <button class="filter-btn type-btn" data-type="patent">Patent</button>
-          </div>
-
-          <div class="filter-group">
-            <button class="filter-btn year-btn active" data-year="all">All</button>
-            <button class="filter-btn year-btn" data-year="2026">2026</button>
-            <button class="filter-btn year-btn" data-year="2025">2025</button>
-            <button class="filter-btn year-btn" data-year="2024-earlier">2024 earlier</button>
           </div>
         </div>
       </div>
@@ -75,10 +64,8 @@
     const container = document.getElementById("publication-list");
     const searchInput = document.getElementById("searchInput");
     const typeButtons = document.querySelectorAll(".type-btn");
-    const yearButtons = document.querySelectorAll(".year-btn");
 
     let currentType = "all";
-    let currentYear = "all";
 
     function formatMetaLine(pub) {
       let line = "";
@@ -88,19 +75,12 @@
       return line;
     }
 
-    function matchesYear(pubYear, selectedYear) {
-      if (selectedYear === "all") return true;
-      if (selectedYear === "2024-earlier") return pubYear <= 2024;
-      return pubYear === Number(selectedYear);
-    }
-
     function renderPublications() {
       const keyword = searchInput.value.trim().toLowerCase();
       container.innerHTML = "";
 
       const filtered = publications.filter((pub) => {
         const matchesType = currentType === "all" || pub.type === currentType;
-        const matchesYearFilter = matchesYear(pub.year, currentYear);
 
         const searchTarget = [
           pub.title || "",
@@ -110,7 +90,7 @@
           String(pub.year || "")
         ].join(" ").toLowerCase();
 
-        return matchesType && matchesYearFilter && searchTarget.includes(keyword);
+        return matchesType && searchTarget.includes(keyword);
       });
 
       if (filtered.length === 0) {
@@ -124,8 +104,8 @@
           const metaLine = formatMetaLine(pub);
 
           const cardInner = `
-            <div class="type-title publication-title">${pub.title}</div>
-            <div class="type-body publication-meta">${metaLine}</div>
+            <div class="type-body publication-title">${pub.title}</div>
+            <div class="type-meta publication-meta">${metaLine}</div>
             <div class="type-meta publication-authors">${pub.authors || ""}</div>
           `;
 
@@ -153,15 +133,6 @@
         typeButtons.forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
         currentType = button.dataset.type;
-        renderPublications();
-      });
-    });
-
-    yearButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        yearButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-        currentYear = button.dataset.year;
         renderPublications();
       });
     });
