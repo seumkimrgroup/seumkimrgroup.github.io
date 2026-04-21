@@ -1,7 +1,38 @@
-#people-list-view {
+.people-page {
+  width: 100%;
+  max-width: none;
+  padding-top: 120px;
+  padding-bottom: 0;
+  gap: 0;
+}
+
+.people-list-view {
   display: flex;
   flex-direction: column;
-  gap: var(--space-13);
+  gap: 0;
+}
+
+.people-band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 48px 0;
+}
+
+.people-band--pi {
+  background: #ffffff;
+}
+
+.people-band--members {
+  background: #f7f8fa;
+}
+
+.people-band--alumni {
+  background: #ffffff;
+}
+
+.people-band__inner {
+  width: min(100% - 32px, var(--container-width));
+  margin: 0 auto;
 }
 
 .people-pi-list {
@@ -17,15 +48,12 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.people-card {
-  border-radius: var(--radius-md);
+.people-alumni-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.people-card-pi {
-  display: flex;
-  align-items: center;
-  gap: var(--space-10);
-  padding: 18px 22px;
+.people-card {
+  border-radius: var(--radius-md);
 }
 
 .people-card-member {
@@ -34,11 +62,12 @@
   align-items: center;
   text-align: center;
   gap: var(--space-5);
-  padding: 14px 12px;
+  padding: 18px 14px;
+  background: #ffffff;
 }
 
 .former-people-card {
-  padding: 14px 12px;
+  padding: 18px 14px;
 }
 
 .people-photo {
@@ -50,11 +79,6 @@
   background-color: var(--color-surface-muted);
 }
 
-.people-photo-pi {
-  width: 96px;
-  height: 96px;
-}
-
 .people-photo-placeholder {
   border: 1px solid var(--color-border-soft);
 }
@@ -63,30 +87,39 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 4px;
   align-items: center;
   text-align: center;
-}
-
-.people-info-pi {
-  align-items: flex-start;
-  text-align: left;
 }
 
 .people-name,
 .people-role,
 .people-status,
 .member-detail-name,
+.member-detail-role,
 .member-detail-affiliation,
 .member-detail-item {
   word-break: keep-all;
+}
+
+.people-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #eef2f6;
+  color: var(--color-text-subtle);
+  margin-bottom: 4px;
 }
 
 .member-detail-view {
   display: flex;
   flex-direction: column;
   gap: 0;
-  width: 100%;
+  width: min(100% - 32px, var(--container-width));
+  margin: 0 auto;
+  padding: 0 0 60px;
 }
 
 .member-detail-profile {
@@ -94,20 +127,32 @@
   flex-direction: column;
 }
 
+.member-detail-profile--centered {
+  width: 100%;
+}
+
 .member-detail-header {
   display: grid;
   grid-template-columns: 176px minmax(0, 1fr);
-  gap: 28px;
-  align-items: start;
+  gap: 32px;
+  align-items: center;
 }
 
 .member-detail-header--inset {
-  width: min(100%, 860px);
+  width: min(100%, 900px);
   margin: 0 auto;
+}
+
+.member-detail-header--centered {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .member-detail-photo-wrap {
   width: 176px;
+  display: flex;
+  justify-content: center;
 }
 
 .member-detail-photo {
@@ -121,8 +166,8 @@
   min-height: 176px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: var(--space-8);
+  justify-content: center;
+  gap: 14px;
 }
 
 .member-detail-header-text {
@@ -130,14 +175,6 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding-top: 4px;
-}
-
-.member-detail-name,
-.member-detail-role,
-.member-detail-affiliation,
-.member-detail-item {
-  word-break: keep-all;
 }
 
 .member-detail-name {
@@ -152,9 +189,34 @@
   max-width: 560px;
 }
 
-.member-detail-actions {
+.icon-links {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: #a9c2e8;
+  transition: var(--transition-fast);
+}
+
+.icon-link:hover {
+  color: #6f96c9;
+  background: rgba(111, 150, 201, 0.08);
+  transform: translateY(-1px);
+}
+
+.icon-link__icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }
 
 .member-links {
@@ -165,8 +227,12 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
-  margin-top: 36px;
+  margin-top: 40px;
   width: 100%;
+}
+
+.member-detail-sections--pi {
+  margin-top: 36px;
 }
 
 .member-detail-section {
@@ -199,4 +265,114 @@
 
 .member-publications-title {
   margin-bottom: var(--space-7);
+}
+
+@media (max-width: 900px) {
+  .people-members-list,
+  .people-alumni-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .member-detail-header,
+  .member-detail-header--centered {
+    grid-template-columns: 152px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .member-detail-photo-wrap {
+    width: 152px;
+  }
+
+  .member-detail-photo {
+    width: 152px;
+    height: 152px;
+  }
+
+  .member-detail-main {
+    min-height: 152px;
+  }
+}
+
+@media (max-width: 768px) {
+  .people-page {
+    padding-top: 132px;
+  }
+
+  .people-band {
+    padding: 36px 0;
+  }
+
+  .people-band__inner,
+  .member-detail-view {
+    width: calc(100% - 40px);
+  }
+
+  .member-detail-header,
+  .member-detail-header--centered {
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .member-detail-header--inset,
+  .member-detail-header--centered {
+    width: 100%;
+  }
+
+  .member-detail-photo-wrap {
+    width: 132px;
+  }
+
+  .member-detail-photo {
+    width: 132px;
+    height: 132px;
+  }
+
+  .member-detail-main {
+    min-height: 132px;
+    gap: 12px;
+  }
+
+  .member-detail-sections {
+    margin-top: 30px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .people-members-list,
+  .people-alumni-list {
+    grid-template-columns: 1fr;
+  }
+
+  .member-detail-header,
+  .member-detail-header--centered {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .member-detail-photo-wrap {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .member-detail-main {
+    min-height: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-detail-header-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-detail-affiliation {
+    max-width: 100%;
+  }
+
+  .member-links {
+    justify-content: center;
+  }
 }
