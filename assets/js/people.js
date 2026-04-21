@@ -35,7 +35,7 @@ const members = [
         ]
       }
     ],
-    currentAffiliation: "",
+    currentAffiliation: "Department of Electrical and Information Engineering",
     nextAffiliation: "",
     slug: "s-ukim",
   },
