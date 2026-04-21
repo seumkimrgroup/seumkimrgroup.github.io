@@ -9,9 +9,17 @@
     gap: 24px;
   }
 
+  .member-detail-photo-wrap {
+    width: 152px;
+  }
+
   .member-detail-photo {
     width: 152px;
     height: 152px;
+  }
+
+  .member-detail-main {
+    min-height: 152px;
   }
 }
 
@@ -86,11 +94,6 @@
     padding: var(--space-6);
   }
 
-  .people-card-pi {
-    padding: var(--space-8);
-    gap: var(--space-8);
-  }
-
   .former-people-card {
     padding: 14px 12px;
   }
@@ -100,18 +103,25 @@
     height: 64px;
   }
 
-  .people-photo-pi {
-    width: 80px;
-    height: 80px;
+  .people-page {
+    padding-top: 132px;
   }
 
-@media (max-width: 768px) {
+  .people-band {
+    padding: 36px 0;
+  }
+
+  .member-detail-view {
+    width: calc(100% - 40px);
+  }
+
   .member-detail-header {
     grid-template-columns: 132px minmax(0, 1fr);
     gap: 20px;
   }
 
-  .member-detail-header--inset {
+  .member-detail-header--inset,
+  .member-detail-header--centered {
     width: 100%;
     margin: 0;
   }
@@ -141,58 +151,21 @@
 }
 
 @media (max-width: 520px) {
-  .member-detail-header {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .member-detail-photo-wrap {
-    width: 100%;
-  }
-
-  .member-detail-photo {
-    width: 132px;
-    height: 132px;
-  }
-
-  .member-detail-main {
-    min-height: 0;
-  }
-
-  .member-detail-header-text {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .member-detail-actions {
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 520px) {
   .people-members-list,
   .people-alumni-list {
     grid-template-columns: 1fr;
   }
 
-  .people-card-pi {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .people-info-pi {
-    align-items: center;
-    text-align: center;
-  }
-
   .member-detail-header {
     grid-template-columns: 1fr;
     gap: 18px;
+    justify-items: center;
+    text-align: center;
   }
 
   .member-detail-photo-wrap {
     width: 100%;
+    justify-content: center;
   }
 
   .member-detail-photo {
@@ -202,91 +175,21 @@
 
   .member-detail-main {
     min-height: 0;
+    align-items: center;
+    text-align: center;
   }
 
   .member-detail-header-text {
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
   }
 
-  .member-detail-actions {
-    align-items: flex-start;
+  .icon-links,
+  .member-links {
+    justify-content: center;
   }
 
   .back-link {
     margin-bottom: var(--space-8);
   }
 }
-@media (max-width: 900px) {
-  .people-members-list,
-  .people-alumni-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .member-detail-header {
-    grid-template-columns: 152px minmax(0, 1fr);
-    gap: 24px;
-  }
-
-  .member-detail-photo {
-    width: 152px;
-    height: 152px;
-  }
-}
-
-@media (max-width: 768px) {
-  .people-page {
-    padding-top: 132px;
-  }
-
-  .people-band {
-    padding: 36px 0;
-  }
-
-  .member-detail-view {
-    width: calc(100% - 40px);
-  }
-
-  .member-detail-header {
-    grid-template-columns: 132px minmax(0, 1fr);
-    gap: 20px;
-  }
-
-  .member-detail-photo {
-    width: 132px;
-    height: 132px;
-  }
-}
-
-@media (max-width: 520px) {
-  .people-members-list,
-  .people-alumni-list {
-    grid-template-columns: 1fr;
-  }
-
-  /* 🔥 핵심: 모바일 중앙 정렬 */
-  .member-detail-header {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-  }
-
-  .member-detail-photo-wrap {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .member-detail-main {
-    align-items: center;
-    text-align: center;
-  }
-
-  .member-detail-header-text {
-    align-items: center;
-  }
-
-  .icon-links {
-    justify-content: center;
-  }
-}
-  
