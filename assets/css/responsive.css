@@ -159,12 +159,10 @@
   .member-detail-header {
     grid-template-columns: 1fr;
     gap: 18px;
-    justify-items: center;
-    text-align: center;
   }
 
   .member-detail-photo-wrap {
-    width: 100%;
+    display: flex;
     justify-content: center;
   }
 
@@ -174,19 +172,18 @@
   }
 
   .member-detail-main {
-    min-height: 0;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .member-detail-header-text {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .icon-links,
   .member-links {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .back-link {
