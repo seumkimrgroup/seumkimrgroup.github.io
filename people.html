@@ -15,19 +15,18 @@
 </head>
 
 <body>
-
   <div class="navbar">
-    <a href="index.html" class="brand">Se-Um Kim Research Group</a>
+    <a href="index.html" class="brand type-brand">Se-Um Kim Research Group</a>
     <div class="nav-links">
-      <a href="people.html" class="active">People</a>
-      <a href="publications.html">Publications</a>
+      <a href="people.html" class="active type-nav">People</a>
+      <a href="publications.html" class="type-nav">Publications</a>
     </div>
   </div>
 
   <div class="content people-page">
     <div id="people-list-view">
       <div class="section section-heading">
-        <div class="type-heading">Principal Investigator</div>
+        <h2 class="type-heading">Principal Investigator</h2>
       </div>
 
       <div class="section">
@@ -35,7 +34,7 @@
       </div>
 
       <div class="section section-heading">
-        <div class="type-heading">Members</div>
+        <h2 class="type-heading">Members</h2>
       </div>
 
       <div class="section">
@@ -43,7 +42,7 @@
       </div>
 
       <div class="section section-heading">
-        <div class="type-heading">Alumni</div>
+        <h2 class="type-heading">Alumni</h2>
       </div>
 
       <div class="section">
@@ -67,17 +66,11 @@
     const formerContainer = document.getElementById("former-members");
 
     function normalizeRole(role) {
-      const r = (role || "")
-        .toLowerCase()
-        .replace(/\./g, "")
-        .replace(/-/g, " ")
-        .trim();
-
+      const r = (role || "").toLowerCase().replace(/\./g, "").replace(/-/g, " ").trim();
       if (r.includes("professor")) return "professor";
       if (r.includes("phd")) return "phd";
       if (r.includes("ms")) return "ms";
       if (r.includes("undergraduate")) return "undergraduate";
-
       return "";
     }
 
@@ -91,41 +84,33 @@
 
     function currentPriority(member) {
       const role = normalizeRole(member.role);
-
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-
       return 9;
     }
 
     function formerPriority(member) {
       const role = normalizeRole(member.role);
-
       if (role === "phd") return 1;
       if (role === "ms") return 2;
       if (role === "undergraduate") return 3;
-
       return 9;
     }
 
     function getDegreeLabel(role) {
       const r = normalizeRole(role);
-
       if (r === "phd") return "Ph.D.";
       if (r === "ms") return "M.S.";
       if (r === "undergraduate") return "B.S.";
-
       return role || "";
     }
 
     function formatRole(role) {
       const r = normalizeRole(role);
-
       if (r === "phd") return "Ph.D. Student";
       if (r === "ms") return "M.S. Student";
       if (r === "undergraduate") return "Undergraduate";
-
       return role || "";
     }
 
@@ -135,38 +120,30 @@
 
     function formatMetaLine(pub) {
       let line = "";
-
       if (pub.source) line += pub.source;
       if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail;
       if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
-
       return line;
     }
 
     function getMemberPublications(member) {
       if (!Array.isArray(publications)) return [];
-
       const memberName = (member.name || "").toLowerCase();
 
       return publications
-        .filter((pub) => {
-          const authors = (pub.authors || "").toLowerCase();
-          return authors.includes(memberName);
-        })
+        .filter((pub) => (pub.authors || "").toLowerCase().includes(memberName))
         .sort((a, b) => (b.year || 0) - (a.year || 0));
     }
 
     function createPublicationCard(pub) {
       const metaLine = formatMetaLine(pub);
-
       const cardInner = `
-        <div class="type-subheading publication-title">${pub.title || ""}</div>
+        <div class="type-title publication-title">${pub.title || ""}</div>
         <div class="type-body publication-meta">${metaLine}</div>
         <div class="type-meta publication-authors">${pub.authors || ""}</div>
       `;
 
       let item;
-
       if (pub.link) {
         item = document.createElement("a");
         item.href = pub.link;
@@ -195,7 +172,7 @@
       item.innerHTML = `
         ${imageHtml}
         <div class="people-info people-info-pi">
-          <div class="type-subheading people-name">${member.name}</div>
+          <div class="type-title people-name">${member.name}</div>
           <div class="type-meta people-role">${member.role || ""}</div>
         </div>
       `;
@@ -215,7 +192,7 @@
       item.innerHTML = `
         ${imageHtml}
         <div class="people-info">
-          <div class="type-subheading people-name">${member.name}</div>
+          <div class="type-title people-name">${member.name}</div>
           <div class="type-meta people-role">${formatRole(member.role)}</div>
         </div>
       `;
@@ -234,7 +211,7 @@
 
       item.innerHTML = `
         <div class="people-info">
-          <div class="type-subheading people-name">${member.name}</div>
+          <div class="type-title people-name">${member.name}</div>
           <div class="type-meta people-status">${statusLine}</div>
         </div>
       `;
@@ -244,7 +221,6 @@
 
     function renderPI(members) {
       piContainer.innerHTML = "";
-
       const pi = members.find((member) => isProfessor(member));
       if (!pi) return;
 
@@ -256,7 +232,6 @@
 
     function renderCurrentMembers(members) {
       currentContainer.innerHTML = "";
-
       const listDiv = document.createElement("div");
       listDiv.className = "people-list people-members-list";
 
@@ -264,22 +239,17 @@
         .sort((a, b) => {
           const p = currentPriority(a) - currentPriority(b);
           if (p !== 0) return p;
-
           const y = (a.joinYear || 9999) - (b.joinYear || 9999);
           if (y !== 0) return y;
-
           return a.name.localeCompare(b.name);
         })
-        .forEach((member) => {
-          listDiv.appendChild(createCurrentCard(member));
-        });
+        .forEach((member) => listDiv.appendChild(createCurrentCard(member)));
 
       currentContainer.appendChild(listDiv);
     }
 
     function renderFormerMembers(members) {
       formerContainer.innerHTML = "";
-
       const listDiv = document.createElement("div");
       listDiv.className = "people-list people-members-list";
 
@@ -287,15 +257,11 @@
         .sort((a, b) => {
           const p = formerPriority(a) - formerPriority(b);
           if (p !== 0) return p;
-
           const y = (b.leaveYear || 0) - (a.leaveYear || 0);
           if (y !== 0) return y;
-
           return a.name.localeCompare(b.name);
         })
-        .forEach((member) => {
-          listDiv.appendChild(createFormerCard(member));
-        });
+        .forEach((member) => listDiv.appendChild(createFormerCard(member)));
 
       formerContainer.appendChild(listDiv);
     }
@@ -313,35 +279,24 @@
 
     function getRenderableSections(member) {
       if (!Array.isArray(member.description)) return [];
-
       return member.description.filter((section) => {
-        if (!section) return false;
-        if (!section.title) return false;
-        if (!Array.isArray(section.content)) return false;
-
-        const validItems = section.content.filter((item) => String(item || "").trim() !== "");
-        return validItems.length > 0;
+        if (!section || !section.title || !Array.isArray(section.content)) return false;
+        return section.content.filter((item) => String(item || "").trim() !== "").length > 0;
       });
     }
 
     function getFormerEducationSections(member) {
       if (!Array.isArray(member.description)) return [];
-
       return member.description.filter((section) => {
         const title = String(section?.title || "").toUpperCase();
         if (title !== "EDUCATION") return false;
         if (!Array.isArray(section.content)) return false;
-
-        const validItems = section.content.filter((item) => String(item || "").trim() !== "");
-        return validItems.length > 0;
+        return section.content.filter((item) => String(item || "").trim() !== "").length > 0;
       });
     }
 
     function renderDetailSections(member) {
-      const sections = isFormer(member)
-        ? getFormerEducationSections(member)
-        : getRenderableSections(member);
-
+      const sections = isFormer(member) ? getFormerEducationSections(member) : getRenderableSections(member);
       if (!sections.length) return "";
 
       return sections.map((section) => {
@@ -363,13 +318,12 @@
 
     function renderDetailPublications(member) {
       if (isProfessor(member)) return "";
-
       const pubs = getMemberPublications(member);
       if (!pubs.length) return "";
 
       return `
         <div class="member-publications-section">
-          <div class="type-subheading member-publications-title">Publications</div>
+          <div class="type-title member-publications-title">Publications</div>
           <div id="member-publication-list"></div>
         </div>
       `;
@@ -449,8 +403,7 @@
       const pubList = document.getElementById("member-publication-list");
       if (!pubList) return;
 
-      const pubs = getMemberPublications(member);
-      pubs.forEach((pub) => {
+      getMemberPublications(member).forEach((pub) => {
         pubList.appendChild(createPublicationCard(pub));
       });
     }
@@ -470,7 +423,7 @@
     if (typeof members === "undefined" || !Array.isArray(members)) {
       listView.style.display = "none";
       detailView.style.display = "flex";
-      detailView.innerHTML = `<div class="type-subheading">Member data could not be loaded.</div>`;
+      detailView.innerHTML = `<div class="type-title">Member data could not be loaded.</div>`;
     } else {
       const params = new URLSearchParams(window.location.search);
       const id = params.get("id");
@@ -485,7 +438,7 @@
           detailView.style.display = "flex";
           detailView.innerHTML = `
             <a href="people.html" class="back-link type-body">← Back to People</a>
-            <div class="type-subheading">Member not found.</div>
+            <div class="type-title">Member not found.</div>
           `;
         } else {
           showDetailView(member);
@@ -493,6 +446,5 @@
       }
     }
   </script>
-
 </body>
 </html>
