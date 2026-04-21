@@ -15,40 +15,36 @@
 </head>
 
 <body>
-
   <div class="navbar">
-    <a href="index.html" class="brand">Se-Um Kim Research Group</a>
+    <a href="index.html" class="brand type-brand">Se-Um Kim Research Group</a>
     <div class="nav-links">
-      <a href="people.html">People</a>
-      <a href="publications.html" class="active">Publications</a>
+      <a href="people.html" class="type-nav">People</a>
+      <a href="publications.html" class="active type-nav">Publications</a>
     </div>
   </div>
 
   <div class="content publications-page">
-
     <div class="section section-heading">
-      <div class="text-1">Publications</div>
+      <h2 class="type-heading">Publications</h2>
     </div>
 
     <div class="section">
       <div class="search-card">
-      
         <input
           type="text"
           id="searchInput"
           class="search-box"
           placeholder="Search by title, journal, author"
         >
-      
+
         <div class="filter-controls">
-      
           <div class="filter-group">
             <button class="filter-btn type-btn active" data-type="all">All</button>
             <button class="filter-btn type-btn" data-type="sci">SCI</button>
             <button class="filter-btn type-btn" data-type="non-sci">Non-SCI</button>
             <button class="filter-btn type-btn" data-type="patent">Patent</button>
           </div>
-      
+
           <div class="filter-group">
             <button class="filter-btn year-btn active" data-year="all">All</button>
             <button class="filter-btn year-btn" data-year="2026">2026</button>
@@ -62,12 +58,10 @@
     <div class="section">
       <div id="publication-list"></div>
     </div>
-    
   </div>
 
-  <!-- Footer -->
   <div class="footer">
-    <div class="text-5">
+    <div class="type-meta">
       (01811) 서울특별시 노원구 공릉로 232 서울과학기술대학교 전기정보공학과<br>
       Electrical and Information Engineering, Seoul National University of Science and Technology<br>
       Gongneung-ro 232, Nowon-gu, 01811 Seoul, Republic of Korea
@@ -80,7 +74,6 @@
   <script>
     const container = document.getElementById("publication-list");
     const searchInput = document.getElementById("searchInput");
-
     const typeButtons = document.querySelectorAll(".type-btn");
     const yearButtons = document.querySelectorAll(".year-btn");
 
@@ -89,21 +82,15 @@
 
     function formatMetaLine(pub) {
       let line = "";
-
       if (pub.source) line += pub.source;
       if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail;
       if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
-
       return line;
     }
 
     function matchesYear(pubYear, selectedYear) {
       if (selectedYear === "all") return true;
-
-      if (selectedYear === "2024-earlier") {
-        return pubYear <= 2024;
-      }
-
+      if (selectedYear === "2024-earlier") return pubYear <= 2024;
       return pubYear === Number(selectedYear);
     }
 
@@ -123,27 +110,23 @@
           String(pub.year || "")
         ].join(" ").toLowerCase();
 
-        const matchesSearch = searchTarget.includes(keyword);
-
-        return matchesType && matchesYearFilter && matchesSearch;
+        return matchesType && matchesYearFilter && searchTarget.includes(keyword);
       });
 
       if (filtered.length === 0) {
-        container.innerHTML =
-          '<div class="text-5">No publications found.</div>';
+        container.innerHTML = '<div class="type-meta">No publications found.</div>';
         return;
       }
 
       filtered
         .sort((a, b) => (b.year || 0) - (a.year || 0))
         .forEach((pub) => {
-
           const metaLine = formatMetaLine(pub);
 
           const cardInner = `
-            <div class="text-3">${pub.title}</div>
-            <div class="text-4">${metaLine}</div>
-            <div class="text-5">${pub.authors || ""}</div>
+            <div class="type-title publication-title">${pub.title}</div>
+            <div class="type-body publication-meta">${metaLine}</div>
+            <div class="type-meta publication-authors">${pub.authors || ""}</div>
           `;
 
           let item;
@@ -184,9 +167,7 @@
     });
 
     searchInput.addEventListener("input", renderPublications);
-
     renderPublications();
   </script>
-
 </body>
 </html>
