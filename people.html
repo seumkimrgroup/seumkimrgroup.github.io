@@ -330,18 +330,23 @@
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
         : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
-
+  
+      const roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role);
+      const roleHtml = roleText
+        ? `<div class="type-meta member-detail-role">${roleText}</div>`
+        : "";
+  
       const affiliation = getAffiliationText(member);
       const affiliationHtml = affiliation
         ? `<div class="type-meta member-detail-affiliation">${affiliation}</div>`
         : "";
-
+  
       const emailHtml = member.email
         ? `
           <div class="member-detail-actions">
             <a
               href="mailto:${member.email}"
-              class="member-email-btn"
+              class="member-email-link"
               aria-label="Email ${member.name}"
               title="${member.email}"
             >
@@ -352,46 +357,45 @@
           </div>
         `
         : "";
-
+  
       const educationSection = renderInfoSection("Education", getSectionItems(member, "EDUCATION"));
       const researchSection = renderInfoSection("Research Interest", getSectionItems(member, "RESEARCH INTERESTS"));
-
+  
       detailView.innerHTML = `
         <a href="people.html" class="back-link type-body">← Back to People</a>
-
-        <div class="member-detail-shell">
-          <div class="member-detail-profile">
-            <div class="member-detail-header">
-              <div class="member-detail-photo-wrap">
-                ${imageHtml}
+  
+        <div class="member-detail-profile">
+          <div class="member-detail-header member-detail-header--inset">
+            <div class="member-detail-photo-wrap">
+              ${imageHtml}
+            </div>
+  
+            <div class="member-detail-main">
+              <div class="member-detail-header-text">
+                <div class="type-heading member-detail-name">${member.name}</div>
+                ${roleHtml}
+                ${affiliationHtml}
               </div>
-
-              <div class="member-detail-main">
-                <div class="member-detail-header-text">
-                  <div class="type-heading member-detail-name">${member.name}</div>
-                  ${affiliationHtml}
-                </div>
-                ${emailHtml}
-              </div>
+              ${emailHtml}
             </div>
           </div>
-
-          <div class="member-detail-sections">
-            ${educationSection}
-            ${researchSection}
-            ${renderDetailPublications(member)}
-          </div>
+        </div>
+  
+        <div class="member-detail-sections">
+          ${educationSection}
+          ${researchSection}
+          ${renderDetailPublications(member)}
         </div>
       `;
-
+  
       const pubList = document.getElementById("member-publication-list");
       if (!pubList) return;
-
+  
       getMemberPublications(member).forEach((pub) => {
         pubList.appendChild(createPublicationCard(pub));
       });
     }
-
+      
     function showListView() {
       listView.style.removeProperty("display");
       detailView.style.display = "none";
