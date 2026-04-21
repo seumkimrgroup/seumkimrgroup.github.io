@@ -24,7 +24,7 @@ const topicContainer = document.getElementById("research-area-list");
 if (topicContainer) {
   topics.forEach((topic) => {
     const item = document.createElement("article");
-    item.className = "research-area-card";
+    item.className = "card research-area-card";
 
     item.innerHTML = `
       <div class="research-area-image-wrap">
