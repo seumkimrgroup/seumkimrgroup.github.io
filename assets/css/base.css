@@ -14,6 +14,12 @@ a {
   text-decoration: none;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* content hierarchy */
+
 .type-display {
   font-size: var(--type-display-size);
   font-weight: var(--type-display-weight);
@@ -28,10 +34,10 @@ a {
   color: var(--color-text-strong);
 }
 
-.type-subheading {
-  font-size: var(--type-subheading-size);
-  font-weight: var(--type-subheading-weight);
-  line-height: var(--type-subheading-line);
+.type-title {
+  font-size: var(--type-title-size);
+  font-weight: var(--type-title-weight);
+  line-height: var(--type-title-line);
   color: var(--color-text-strong);
 }
 
@@ -58,39 +64,22 @@ a {
   color: var(--color-text-muted);
 }
 
-/* backward compatibility */
-.text-1 {
-  font-size: var(--type-heading-size);
-  font-weight: var(--type-heading-weight);
-  line-height: var(--type-heading-line);
-  color: var(--color-text-strong);
-  text-align: center;
+/* ui typography */
+
+.type-brand {
+  font-size: var(--type-brand-size);
+  font-weight: var(--type-brand-weight);
+  line-height: var(--type-brand-line);
 }
 
-.text-2 {
-  font-size: var(--type-subheading-size);
-  font-weight: var(--type-subheading-weight);
-  line-height: var(--type-subheading-line);
-  color: var(--color-text-strong);
+.type-nav {
+  font-size: var(--type-nav-size);
+  font-weight: var(--type-nav-weight);
+  line-height: var(--type-nav-line);
 }
 
-.text-3 {
-  font-size: var(--type-subheading-size);
-  font-weight: var(--type-subheading-weight);
-  line-height: var(--type-subheading-line);
-  color: var(--color-text-strong);
-}
-
-.text-4 {
-  font-size: var(--type-body-size);
-  font-weight: var(--type-body-weight);
-  line-height: var(--type-body-line);
-  color: var(--color-text-muted);
-}
-
-.text-5 {
-  font-size: var(--type-meta-size);
-  font-weight: var(--type-meta-weight);
-  line-height: var(--type-meta-line);
-  color: var(--color-text-subtle);
+.type-ui {
+  font-size: var(--type-ui-size);
+  font-weight: var(--type-ui-weight);
+  line-height: var(--type-ui-line);
 }
