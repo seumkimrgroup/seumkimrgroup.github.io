@@ -50,7 +50,7 @@
 }
 
 .people-band--members {
-  background: #f7f8fa;
+  background: #ffffff;
 }
 
 .people-band--alumni {
@@ -60,6 +60,10 @@
 .people-band__inner {
   width: min(100% - 32px, var(--container-width));
   margin: 0 auto;
+}
+
+.people-band__inner .type-heading {
+  margin-bottom: 24px;
 }
 
 .people-band-label {
