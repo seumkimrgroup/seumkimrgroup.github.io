@@ -1,18 +1,20 @@
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: var(--color-bg);
-  border-bottom: none; /* 🔥 제거 */
+  border-bottom: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--space-11);
   z-index: var(--navbar-z);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
 
   transition:
     transform 0.28s ease,
-    background 0.28s ease,
+    background-color 0.28s ease,
     box-shadow 0.28s ease;
 }
 
@@ -20,22 +22,17 @@
   transform: translateY(-100%);
 }
 
-.navbar.nav-scrolled {
-  background: rgba(20, 20, 20, 0.48);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-}
-
 .brand {
   font-size: var(--font-size-brand);
   font-weight: 500;
   line-height: var(--line-height-tight);
-  color: #ffffff;
+  color: var(--color-text);
   padding: 18px 0;
   white-space: nowrap;
 }
 
 .brand:hover {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--color-hover-text);
 }
 
 .nav-links {
@@ -47,17 +44,17 @@
   font-size: var(--font-size-nav);
   font-weight: 400;
   line-height: var(--line-height-tight);
-  color: #ffffff;
+  color: var(--color-text);
   padding: 18px 0;
 }
 
 .nav-links a:hover {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--color-hover-text);
 }
 
 .nav-links a.active {
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .content {
