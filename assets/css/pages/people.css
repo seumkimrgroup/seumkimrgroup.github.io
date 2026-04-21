@@ -123,6 +123,7 @@
   width: 176px;
   display: flex;
   justify-content: center;
+  align-self: start;
 }
 
 .member-detail-photo {
@@ -134,8 +135,10 @@
 .member-detail-main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 14px;
+  min-height: 176px;
+  padding-top: 2px;
 }
 
 .member-detail-header-text {
