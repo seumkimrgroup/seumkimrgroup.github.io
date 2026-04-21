@@ -489,10 +489,11 @@
       const researchSection = renderInfoSection("Research Interest", getSectionItems(member, "RESEARCH INTERESTS"));
     
       let detailSections = "";
-      let roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role);
-      let roleHtml = roleText
-        ? `<div class="type-meta member-detail-role">${roleText}</div>`
-        : "";
+      let roleHtml = isFormer(member)
+        ? ""
+        : (formatRole(member.role)
+            ? `<div class="type-meta member-detail-role">${formatRole(member.role)}</div>`
+            : "");
     
       let affiliationHtml = "";
       let joinedAtHtml = "";
@@ -503,12 +504,7 @@
           : "";
     
         joinedAtHtml = joinedAt
-          ? `
-            <div class="member-detail-joined">
-              <div class="type-eyebrow member-detail-joined-label">Joined at</div>
-              <div class="type-body member-detail-joined-value">${joinedAt}</div>
-            </div>
-          `
+          ? `<div class="type-meta member-detail-joined">Joined at ${joinedAt}</div>`
           : "";
     
         affiliationHtml = "";
