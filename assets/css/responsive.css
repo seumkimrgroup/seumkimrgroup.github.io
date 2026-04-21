@@ -40,15 +40,31 @@
     gap: var(--space-6);
   }
 
+  .publications-search-card {
+    align-items: stretch;
+  }
+
   .search-box {
     width: 100%;
     max-width: 100%;
+  }
+
+  .publications-search-box {
+    text-align: left;
   }
 
   .filter-controls {
     width: 100%;
     align-items: flex-start;
     gap: var(--space-5);
+  }
+
+  .publications-filter-controls {
+    align-items: flex-start;
+  }
+
+  .publications-type-group {
+    justify-content: flex-start;
   }
 
   .publication-card {
