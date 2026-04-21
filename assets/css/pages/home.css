@@ -40,6 +40,13 @@ body.home .nav-links a.active {
   overflow: hidden;
 }
 
+.project-subtitle {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
 /* 슬라이드 컨테이너 */
 .project-slider {
   display: flex;
