@@ -100,3 +100,40 @@
 .back-link:hover {
   color: var(--color-text-strong);
 }
+
+.site-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-nav);
+  background: transparent;
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.site-btn:hover {
+  background: var(--color-button-hover);
+}
+
+.site-btn--primary {
+  background: var(--color-button-active);
+  border-color: var(--color-button-active);
+  color: var(--color-bg);
+}
+
+.site-btn--primary:hover {
+  opacity: 0.92;
+}
+
+.site-btn--secondary {
+  background: transparent;
+  color: var(--color-text);
+}
