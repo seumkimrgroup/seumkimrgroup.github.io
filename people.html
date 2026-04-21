@@ -24,30 +24,24 @@
   </div>
 
   <div class="content people-page">
-    <div id="people-list-view">
-      <div class="section section-heading">
-        <h2 class="type-heading">Principal Investigator</h2>
-      </div>
+    <div id="people-list-view" class="people-list-view">
+      <section class="people-band people-band--pi">
+        <div class="people-band__inner">
+          <div id="pi-members"></div>
+        </div>
+      </section>
 
-      <div class="section">
-        <div id="pi-members"></div>
-      </div>
+      <section class="people-band people-band--members">
+        <div class="people-band__inner">
+          <div id="current-members"></div>
+        </div>
+      </section>
 
-      <div class="section section-heading">
-        <h2 class="type-heading">Members</h2>
-      </div>
-
-      <div class="section">
-        <div id="current-members"></div>
-      </div>
-
-      <div class="section section-heading">
-        <h2 class="type-heading">Alumni</h2>
-      </div>
-
-      <div class="section">
-        <div id="former-members"></div>
-      </div>
+      <section class="people-band people-band--alumni">
+        <div class="people-band__inner">
+          <div id="former-members"></div>
+        </div>
+      </section>
     </div>
 
     <div id="member-detail-view" class="member-detail-view"></div>
@@ -60,11 +54,11 @@
   <script>
     const listView = document.getElementById("people-list-view");
     const detailView = document.getElementById("member-detail-view");
-  
+
     const piContainer = document.getElementById("pi-members");
     const currentContainer = document.getElementById("current-members");
     const formerContainer = document.getElementById("former-members");
-  
+
     function normalizeRole(role) {
       const r = (role || "").toLowerCase().replace(/\./g, "").replace(/-/g, " ").trim();
       if (r.includes("professor")) return "professor";
@@ -73,15 +67,15 @@
       if (r.includes("undergraduate")) return "undergraduate";
       return "";
     }
-  
+
     function isProfessor(member) {
       return normalizeRole(member.role) === "professor";
     }
-  
+
     function isFormer(member) {
       return member.status === "former";
     }
-  
+
     function currentPriority(member) {
       const role = normalizeRole(member.role);
       if (role === "phd") return 1;
@@ -89,7 +83,7 @@
       if (role === "undergraduate") return 3;
       return 9;
     }
-  
+
     function formerPriority(member) {
       const role = normalizeRole(member.role);
       if (role === "phd") return 1;
@@ -97,7 +91,7 @@
       if (role === "undergraduate") return 3;
       return 9;
     }
-  
+
     function getDegreeLabel(role) {
       const r = normalizeRole(role);
       if (r === "phd") return "Ph.D.";
@@ -105,7 +99,7 @@
       if (r === "undergraduate") return "B.S.";
       return role || "";
     }
-  
+
     function formatRole(role) {
       const r = normalizeRole(role);
       if (r === "phd") return "Ph.D. Student";
@@ -113,11 +107,11 @@
       if (r === "undergraduate") return "Undergraduate";
       return role || "";
     }
-  
+
     function goToMember(member) {
       window.location.href = `people.html?id=${member.slug}`;
     }
-  
+
     function formatMetaLine(pub) {
       let line = "";
       if (pub.source) line += pub.source;
@@ -125,16 +119,16 @@
       if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
       return line;
     }
-  
+
     function getMemberPublications(member) {
       if (!Array.isArray(publications)) return [];
       const memberName = (member.name || "").toLowerCase();
-  
+
       return publications
         .filter((pub) => (pub.authors || "").toLowerCase().includes(memberName))
         .sort((a, b) => (b.year || 0) - (a.year || 0));
     }
-  
+
     function createPublicationCard(pub) {
       const metaLine = formatMetaLine(pub);
       const cardInner = `
@@ -142,7 +136,7 @@
         <div class="type-meta publication-meta">${metaLine}</div>
         <div class="type-meta publication-authors">${pub.authors || ""}</div>
       `;
-  
+
       let item;
       if (pub.link) {
         item = document.createElement("a");
@@ -156,39 +150,19 @@
         item.className = "card publication-card";
         item.innerHTML = cardInner;
       }
-  
+
       return item;
     }
-  
-    function createPiCard(member) {
-      const item = document.createElement("div");
-      item.className = "card card--interactive people-card people-card-pi";
-      item.addEventListener("click", () => goToMember(member));
-  
-      const imageHtml = member.image
-        ? `<img src="${member.image}" alt="${member.name}" class="people-photo people-photo-pi">`
-        : `<div class="people-photo people-photo-pi people-photo-placeholder"></div>`;
-  
-      item.innerHTML = `
-        ${imageHtml}
-        <div class="people-info people-info-pi">
-          <div class="type-title people-name">${member.name}</div>
-          <div class="type-meta people-role">${member.role || ""}</div>
-        </div>
-      `;
-  
-      return item;
-    }
-  
+
     function createCurrentCard(member) {
       const item = document.createElement("div");
       item.className = "card card--interactive people-card people-card-member";
       item.addEventListener("click", () => goToMember(member));
-  
+
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo">`
         : `<div class="people-photo people-photo-placeholder"></div>`;
-  
+
       item.innerHTML = `
         ${imageHtml}
         <div class="people-info">
@@ -196,103 +170,54 @@
           <div class="type-meta people-role">${formatRole(member.role)}</div>
         </div>
       `;
-  
+
       return item;
     }
-  
+
     function createFormerCard(member) {
       const item = document.createElement("div");
       item.className = "card card--interactive people-card people-card-member former-people-card";
       item.addEventListener("click", () => goToMember(member));
-  
+
       const degree = getDegreeLabel(member.role);
       const year = member.leaveYear || "";
       const statusLine = [degree, year].filter(Boolean).join(" · ");
-  
+
       item.innerHTML = `
         <div class="people-info">
+          <div class="type-meta people-badge">Alumni</div>
           <div class="type-title people-name">${member.name}</div>
           <div class="type-meta people-status">${statusLine}</div>
         </div>
       `;
-  
+
       return item;
     }
-  
-    function renderPI(members) {
-      piContainer.innerHTML = "";
-      const pi = members.find((member) => isProfessor(member));
-      if (!pi) return;
-  
-      const wrap = document.createElement("div");
-      wrap.className = "people-pi-list";
-      wrap.appendChild(createPiCard(pi));
-      piContainer.appendChild(wrap);
-    }
-  
-    function renderCurrentMembers(members) {
-      currentContainer.innerHTML = "";
-      const listDiv = document.createElement("div");
-      listDiv.className = "people-list people-members-list";
-  
-      members
-        .sort((a, b) => {
-          const p = currentPriority(a) - currentPriority(b);
-          if (p !== 0) return p;
-          const y = (a.joinYear || 9999) - (b.joinYear || 9999);
-          if (y !== 0) return y;
-          return a.name.localeCompare(b.name);
-        })
-        .forEach((member) => listDiv.appendChild(createCurrentCard(member)));
-  
-      currentContainer.appendChild(listDiv);
-    }
-  
-    function renderFormerMembers(members) {
-      formerContainer.innerHTML = "";
-      const listDiv = document.createElement("div");
-      listDiv.className = "people-list people-members-list";
-  
-      members
-        .sort((a, b) => {
-          const p = formerPriority(a) - formerPriority(b);
-          if (p !== 0) return p;
-          const y = (b.leaveYear || 0) - (a.leaveYear || 0);
-          if (y !== 0) return y;
-          return a.name.localeCompare(b.name);
-        })
-        .forEach((member) => listDiv.appendChild(createFormerCard(member)));
-  
-      formerContainer.appendChild(listDiv);
-    }
-  
-    function renderMembers() {
-      const currentMembers = members.filter((m) => m.status === "current");
-      const professorMembers = currentMembers.filter((m) => isProfessor(m));
-      const studentMembers = currentMembers.filter((m) => !isProfessor(m));
-      const formerMembers = members.filter((m) => m.status === "former");
-  
-      renderPI(professorMembers);
-      renderCurrentMembers(studentMembers);
-      renderFormerMembers(formerMembers);
-    }
-  
+
     function getSectionItems(member, targetTitle) {
       if (!Array.isArray(member.description)) return [];
       const section = member.description.find((item) => {
         return String(item?.title || "").trim().toUpperCase() === targetTitle.toUpperCase();
       });
-  
+
       if (!section || !Array.isArray(section.content)) return [];
       return section.content.filter((item) => String(item || "").trim() !== "");
     }
-  
+
+    function getRenderableSections(member) {
+      if (!Array.isArray(member.description)) return [];
+      return member.description.filter((section) => {
+        if (!section || !section.title || !Array.isArray(section.content)) return false;
+        return section.content.filter((item) => String(item || "").trim() !== "").length > 0;
+      });
+    }
+
     function renderInfoSection(title, items) {
       if (!items.length) return "";
       const itemsHtml = items
         .map((item) => `<div class="type-body member-detail-item">${item}</div>`)
         .join("");
-  
+
       return `
         <section class="member-detail-section">
           <div class="type-title member-detail-section-title">${title}</div>
@@ -302,20 +227,30 @@
         </section>
       `;
     }
-  
-    function renderDetailPublications(member) {
-      if (isProfessor(member)) return "";
+
+    function renderAllSections(member) {
+      const sections = getRenderableSections(member);
+      if (!sections.length) return "";
+
+      return sections.map((section) => {
+        const items = section.content.filter((item) => String(item || "").trim() !== "");
+        return renderInfoSection(toTitleCase(section.title), items);
+      }).join("");
+    }
+
+    function renderDetailPublications(member, showForProfessor = false) {
+      if (!showForProfessor && isProfessor(member)) return "";
       const pubs = getMemberPublications(member);
       if (!pubs.length) return "";
-  
+
       return `
         <section class="member-detail-section member-publications-section">
           <div class="type-title member-publications-title">Publications</div>
-          <div id="member-publication-list"></div>
+          <div id="${showForProfessor ? "pi-publication-list" : "member-publication-list"}"></div>
         </section>
       `;
     }
-  
+
     function getAffiliationText(member) {
       if (member.currentAffiliation && String(member.currentAffiliation).trim() !== "") {
         return member.currentAffiliation;
@@ -325,26 +260,32 @@
       }
       return "";
     }
-  
+
+    function toTitleCase(text) {
+      const value = String(text || "").toLowerCase();
+      if (value === "research interests") return "Research Interest";
+      return value.replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
     function getLinkHref(link) {
       if (!link || !link.type || !link.value) return "";
       if (link.type === "email") return `mailto:${link.value}`;
       return link.value;
     }
-  
+
     function getLinkLabel(link) {
       if (!link || !link.type) return "External link";
-  
+
       if (link.type === "email") return "Email";
       if (link.type === "linkedin") return "LinkedIn";
       if (link.type === "scholar") return "Google Scholar";
       if (link.type === "website") return "Website";
       if (link.type === "github") return "GitHub";
       if (link.type === "orcid") return "ORCID";
-  
+
       return "External link";
     }
-  
+
     function getLinkIcon(type) {
       if (type === "email") {
         return `
@@ -353,7 +294,7 @@
           </svg>
         `;
       }
-  
+
       if (type === "linkedin") {
         return `
           <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
@@ -361,7 +302,7 @@
           </svg>
         `;
       }
-  
+
       if (type === "scholar") {
         return `
           <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
@@ -369,7 +310,7 @@
           </svg>
         `;
       }
-  
+
       if (type === "website") {
         return `
           <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
@@ -377,7 +318,7 @@
           </svg>
         `;
       }
-  
+
       if (type === "github") {
         return `
           <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
@@ -385,7 +326,7 @@
           </svg>
         `;
       }
-  
+
       if (type === "orcid") {
         return `
           <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
@@ -393,7 +334,7 @@
           </svg>
         `;
       }
-  
+
       return `
         <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
           <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
@@ -401,28 +342,28 @@
         </svg>
       `;
     }
-  
+
     function getMemberLinks(member) {
       if (Array.isArray(member.links) && member.links.length > 0) {
         return member.links.filter((link) => link && link.type && link.value);
       }
-  
+
       if (member.email) {
         return [{ type: "email", value: member.email }];
       }
-  
+
       return [];
     }
-  
+
     function renderMemberLinks(member) {
       const links = getMemberLinks(member);
       if (!links.length) return "";
-  
+
       const items = links.map((link) => {
         const href = getLinkHref(link);
         const label = getLinkLabel(link);
         const isEmail = link.type === "email";
-  
+
         return `
           <a
             href="${href}"
@@ -435,39 +376,34 @@
           </a>
         `;
       }).join("");
-  
+
       return `<div class="icon-links member-links">${items}</div>`;
     }
-  
-    function renderMemberDetail(member) {
+
+    function renderProfileHeader(member, centered = false) {
       const imageHtml = member.image
         ? `<img src="${member.image}" alt="${member.name}" class="people-photo member-detail-photo">`
         : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
-  
+
       const roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role);
       const roleHtml = roleText
         ? `<div class="type-meta member-detail-role">${roleText}</div>`
         : "";
-  
+
       const affiliation = getAffiliationText(member);
       const affiliationHtml = affiliation
         ? `<div class="type-meta member-detail-affiliation">${affiliation}</div>`
         : "";
-  
+
       const linksHtml = renderMemberLinks(member);
-  
-      const educationSection = renderInfoSection("Education", getSectionItems(member, "EDUCATION"));
-      const researchSection = renderInfoSection("Research Interest", getSectionItems(member, "RESEARCH INTERESTS"));
-  
-      detailView.innerHTML = `
-        <a href="people.html" class="back-link type-body">← Back to People</a>
-  
-        <div class="member-detail-profile">
-          <div class="member-detail-header member-detail-header--inset">
+
+      return `
+        <div class="member-detail-profile ${centered ? "member-detail-profile--centered" : ""}">
+          <div class="member-detail-header ${centered ? "member-detail-header--centered" : "member-detail-header--inset"}">
             <div class="member-detail-photo-wrap">
               ${imageHtml}
             </div>
-  
+
             <div class="member-detail-main">
               <div class="member-detail-header-text">
                 <div class="type-heading member-detail-name">${member.name}</div>
@@ -478,34 +414,121 @@
             </div>
           </div>
         </div>
-  
+      `;
+    }
+
+    function renderProfessorInline(member) {
+      const html = `
+        ${renderProfileHeader(member, true)}
+        <div class="member-detail-sections member-detail-sections--pi">
+          ${renderAllSections(member)}
+          ${renderDetailPublications(member, true)}
+        </div>
+      `;
+
+      piContainer.innerHTML = html;
+
+      const pubList = document.getElementById("pi-publication-list");
+      if (!pubList) return;
+
+      getMemberPublications(member).forEach((pub) => {
+        pubList.appendChild(createPublicationCard(pub));
+      });
+    }
+
+    function renderPI(members) {
+      const pi = members.find((member) => isProfessor(member));
+      if (!pi) {
+        piContainer.innerHTML = "";
+        return;
+      }
+
+      renderProfessorInline(pi);
+    }
+
+    function renderCurrentMembers(members) {
+      currentContainer.innerHTML = "";
+      const listDiv = document.createElement("div");
+      listDiv.className = "people-list people-members-list";
+
+      members
+        .sort((a, b) => {
+          const p = currentPriority(a) - currentPriority(b);
+          if (p !== 0) return p;
+          const y = (a.joinYear || 9999) - (b.joinYear || 9999);
+          if (y !== 0) return y;
+          return a.name.localeCompare(b.name);
+        })
+        .forEach((member) => listDiv.appendChild(createCurrentCard(member)));
+
+      currentContainer.appendChild(listDiv);
+    }
+
+    function renderFormerMembers(members) {
+      formerContainer.innerHTML = "";
+      const listDiv = document.createElement("div");
+      listDiv.className = "people-list people-members-list people-alumni-list";
+
+      members
+        .sort((a, b) => {
+          const p = formerPriority(a) - formerPriority(b);
+          if (p !== 0) return p;
+          const y = (b.leaveYear || 0) - (a.leaveYear || 0);
+          if (y !== 0) return y;
+          return a.name.localeCompare(b.name);
+        })
+        .forEach((member) => listDiv.appendChild(createFormerCard(member)));
+
+      formerContainer.appendChild(listDiv);
+    }
+
+    function renderMembers() {
+      const currentMembers = members.filter((m) => m.status === "current");
+      const professorMembers = currentMembers.filter((m) => isProfessor(m));
+      const studentMembers = currentMembers.filter((m) => !isProfessor(m));
+      const formerMembers = members.filter((m) => m.status === "former");
+
+      renderPI(professorMembers);
+      renderCurrentMembers(studentMembers);
+      renderFormerMembers(formerMembers);
+    }
+
+    function renderMemberDetail(member) {
+      const educationSection = renderInfoSection("Education", getSectionItems(member, "EDUCATION"));
+      const researchSection = renderInfoSection("Research Interest", getSectionItems(member, "RESEARCH INTERESTS"));
+
+      detailView.innerHTML = `
+        <a href="people.html" class="back-link type-body">← Back to People</a>
+
+        ${renderProfileHeader(member, false)}
+
         <div class="member-detail-sections">
           ${educationSection}
           ${researchSection}
           ${renderDetailPublications(member)}
         </div>
       `;
-  
+
       const pubList = document.getElementById("member-publication-list");
       if (!pubList) return;
-  
+
       getMemberPublications(member).forEach((pub) => {
         pubList.appendChild(createPublicationCard(pub));
       });
     }
-  
+
     function showListView() {
       listView.style.removeProperty("display");
       detailView.style.display = "none";
       renderMembers();
     }
-  
+
     function showDetailView(member) {
       listView.style.display = "none";
       detailView.style.display = "flex";
       renderMemberDetail(member);
     }
-  
+
     if (typeof members === "undefined" || !Array.isArray(members)) {
       listView.style.display = "none";
       detailView.style.display = "flex";
@@ -513,12 +536,12 @@
     } else {
       const params = new URLSearchParams(window.location.search);
       const id = params.get("id");
-  
+
       if (!id) {
         showListView();
       } else {
         const member = members.find((m) => m.slug === id);
-  
+
         if (!member) {
           listView.style.display = "none";
           detailView.style.display = "flex";
@@ -532,6 +555,5 @@
       }
     }
   </script>
-
 </body>
 </html>
