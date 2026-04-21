@@ -107,14 +107,16 @@
 
 .member-detail-header {
   display: grid;
-  grid-template-columns: 176px minmax(0, 1fr);
+  grid-template-columns: 176px auto;
   gap: 32px;
   align-items: center;
+  justify-content: center;
 }
 
 .member-detail-header--inset,
 .member-detail-header--centered {
-  width: min(100%, 900px);
+  width: fit-content;
+  max-width: 100%;
   margin: 0 auto;
 }
 
