@@ -94,6 +94,11 @@
   background: #ffffff;
 }
 
+.card--person-alumni {
+  min-height: unset;
+  height: auto;
+}
+
 .card--person .people-photo {
   width: 72px;
   height: 72px;
@@ -152,7 +157,6 @@
 
 .people-joined-at {
   display: flex;
-  align-items: baseline;
   justify-content: flex-start;
   gap: 6px;
   width: 100%;
