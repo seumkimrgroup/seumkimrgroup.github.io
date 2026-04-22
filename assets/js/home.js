@@ -6,7 +6,6 @@ const projectNext = document.getElementById("project-next");
 const researchAreaList = document.getElementById("research-area-list");
 const aboutMore = document.getElementById("about-more");
 const aboutMoreBtn = document.getElementById("about-more-btn");
-const contactGrid = document.getElementById("contact-grid");
 
 function renderProjects(projects) {
   if (!projectSlider || !Array.isArray(projects) || projects.length === 0) return;
@@ -45,81 +44,34 @@ function renderProjects(projects) {
   updateSlide();
 }
 
+function createContentCard(topic) {
+  const item = document.createElement("article");
+  item.className = "card card--content";
+
+  item.innerHTML = `
+    <div class="card-media">
+      <img
+        src="${topic.image || ""}"
+        alt="${escapeHtml(topic.title || "")}"
+        class="card-media-image"
+      />
+    </div>
+    <div class="card-body">
+      <h3 class="type-title card-title">${escapeHtml(topic.title || "")}</h3>
+      <p class="type-body card-description">${escapeHtml(topic.description || "")}</p>
+    </div>
+  `;
+
+  return item;
+}
+
 function renderTopics(topics) {
   if (!researchAreaList || !Array.isArray(topics)) return;
   researchAreaList.innerHTML = "";
 
   topics.forEach((topic) => {
-    const item = document.createElement("article");
-    item.className = "card research-area-card";
-    item.innerHTML = `
-      <div class="research-area-image-wrap">
-        <img src="${topic.image || ""}" alt="${escapeHtml(topic.title || "")}" class="research-area-image" />
-      </div>
-      <div class="research-area-body">
-        <h3 class="type-title research-area-title">${escapeHtml(topic.title || "")}</h3>
-        <p class="type-body research-area-text">${escapeHtml(topic.description || "")}</p>
-      </div>
-    `;
-    researchAreaList.appendChild(item);
+    researchAreaList.appendChild(createContentCard(topic));
   });
-}
-
-function renderContactRow(label, value, isEmail = false) {
-  if (!value) return "";
-
-  const valueHtml = isEmail
-    ? `<a href="mailto:${escapeHtml(value)}" class="type-meta contact-value">${escapeHtml(value)}</a>`
-    : `<span class="type-meta contact-value">${escapeHtml(value)}</span>`;
-
-  return `
-    <div class="contact-row">
-      <span class="type-ui contact-label">${escapeHtml(label)}</span>
-      ${valueHtml}
-    </div>
-  `;
-}
-
-function renderContact(contact) {
-  if (!contactGrid || !contact) return;
-
-  const addressHtml = Array.isArray(contact.addressLines) && contact.addressLines.length
-    ? contact.addressLines.map((line) => escapeHtml(line)).join("<br>")
-    : "";
-
-  contactGrid.innerHTML = `
-    <div class="contact-list">
-      ${renderContactRow("Email", contact.email, true)}
-      ${renderContactRow("Phone", contact.phone)}
-      ${renderContactRow("Office", contact.office)}
-      ${
-        addressHtml
-          ? `
-        <div class="contact-row">
-          <span class="type-ui contact-label">Address</span>
-          <span class="type-meta contact-value">${addressHtml}</span>
-        </div>
-      `
-          : ""
-      }
-    </div>
-
-    ${
-      contact.mapEmbedUrl
-        ? `
-      <div class="contact-map-wrap">
-        <iframe
-          class="contact-map"
-          src="${contact.mapEmbedUrl}"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    `
-        : ""
-    }
-  `;
 }
 
 function setupAboutToggle() {
@@ -133,15 +85,13 @@ function setupAboutToggle() {
 
 async function initHomePage() {
   try {
-    const [projects, topics, contact] = await Promise.all([
+    const [projects, topics] = await Promise.all([
       fetchJson("assets/data/projects.json"),
-      fetchJson("assets/data/topics.json"),
-      fetchJson("assets/data/contact.json")
+      fetchJson("assets/data/topics.json")
     ]);
 
     renderProjects(projects);
     renderTopics(topics);
-    renderContact(contact);
     setupAboutToggle();
   } catch (error) {
     console.error(error);
