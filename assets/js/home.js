@@ -1,4 +1,4 @@
-import { fetchJson, escapeHtml } from "./data-api.js";
+import { fetchJson, escapeHtml } from "./data.js";
 
 const projectSlider = document.getElementById("project-slider");
 const projectPrev = document.getElementById("project-prev");
