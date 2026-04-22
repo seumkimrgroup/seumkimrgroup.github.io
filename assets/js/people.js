@@ -48,6 +48,7 @@ function normalizeRole(role) {
 
 function getRoleMeta(role) {
   const key = normalizeRole(role);
+
   return (
     ROLE_META[key] || {
       degree: role || "",
@@ -83,9 +84,11 @@ function goToMember(member) {
 
 function formatMetaLine(pub) {
   let line = "";
+
   if (pub.source) line += pub.source;
   if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail;
   if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
+
   return line;
 }
 
@@ -106,16 +109,17 @@ function createPublicationCard(pub) {
   `;
 
   let item;
+
   if (pub.link) {
     item = document.createElement("a");
     item.href = pub.link;
     item.target = "_blank";
     item.rel = "noopener noreferrer";
-    item.className = "card card--interactive publication-card clickable";
+    item.className = "card card--interactive card--publication clickable";
     item.innerHTML = cardInner;
   } else {
     item = document.createElement("div");
-    item.className = "card publication-card";
+    item.className = "card card--publication";
     item.innerHTML = cardInner;
   }
 
@@ -124,7 +128,7 @@ function createPublicationCard(pub) {
 
 function createCurrentMemberCard(member) {
   const item = document.createElement("div");
-  item.className = "card card--interactive people-card people-card-member";
+  item.className = "card card--interactive card--person";
   item.addEventListener("click", () => goToMember(member));
 
   const imageHtml = member.image
@@ -144,8 +148,7 @@ function createCurrentMemberCard(member) {
 
 function createAlumniMemberCard(member) {
   const item = document.createElement("div");
-  item.className =
-    "card card--interactive people-card people-card-member former-people-card";
+  item.className = "card card--interactive card--person card--person-alumni";
   item.addEventListener("click", () => goToMember(member));
 
   const degree = getDegreeLabel(member.role);
@@ -157,7 +160,7 @@ function createAlumniMemberCard(member) {
       : "";
 
   item.innerHTML = `
-    <div class="people-info people-info--alumni">
+    <div class="people-info">
       <div class="type-title people-name">${escapeHtml(member.name)}</div>
       <div class="type-meta people-status">${escapeHtml(statusLine)}</div>
       ${
@@ -194,10 +197,7 @@ function renderInfoSection(title, items) {
   if (!items.length) return "";
 
   const itemsHtml = items
-    .map(
-      (item) =>
-        `<div class="type-body member-detail-item">${escapeHtml(item)}</div>`
-    )
+    .map((item) => `<div class="type-body member-detail-item">${escapeHtml(item)}</div>`)
     .join("");
 
   return `
@@ -210,7 +210,9 @@ function renderInfoSection(title, items) {
 
 function toTitleCase(text) {
   const value = String(text || "").toLowerCase();
+
   if (value === "research interests") return "Research Interest";
+
   return value.replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
@@ -249,10 +251,7 @@ function renderDetailPublications(member) {
 }
 
 function getAffiliationText(member) {
-  if (
-    member.currentAffiliation &&
-    String(member.currentAffiliation).trim() !== ""
-  ) {
+  if (member.currentAffiliation && String(member.currentAffiliation).trim() !== "") {
     return member.currentAffiliation;
   }
 
@@ -347,10 +346,7 @@ function renderProfileHeader(member, centered = false) {
     ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo member-detail-photo">`
     : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
 
-  const roleText = isFormer(member)
-    ? getDegreeLabel(member.role)
-    : formatRole(member.role);
-
+  const roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role);
   const roleHtml = roleText
     ? `<div class="type-meta member-detail-role">${escapeHtml(roleText)}</div>`
     : "";
@@ -552,11 +548,7 @@ function showError(message, backLink = false) {
   listView.style.display = "none";
   detailView.style.display = "flex";
   detailView.innerHTML = `
-    ${
-      backLink
-        ? '<a href="people.html" class="back-link type-body">← Back to People</a>'
-        : ""
-    }
+    ${backLink ? '<a href="people.html" class="back-link type-body">← Back to People</a>' : ""}
     <div class="type-title">${escapeHtml(message)}</div>
   `;
 }
