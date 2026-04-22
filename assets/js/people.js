@@ -122,27 +122,10 @@ function createPublicationCard(pub) {
   return item;
 }
 
-function createMemberCard(member, former = false) {
+function createCurrentMemberCard(member) {
   const item = document.createElement("div");
-  item.className = former
-    ? "card card--interactive people-card people-card-member former-people-card"
-    : "card card--interactive people-card people-card-member";
-
+  item.className = "card card--interactive people-card people-card-member";
   item.addEventListener("click", () => goToMember(member));
-
-  if (former) {
-    const statusLine = [getDegreeLabel(member.role), member.leaveYear || ""]
-      .filter(Boolean)
-      .join(" · ");
-
-    item.innerHTML = `
-      <div class="people-info">
-        <div class="type-title people-name">${escapeHtml(member.name)}</div>
-        <div class="type-meta people-status">${escapeHtml(statusLine)}</div>
-      </div>
-    `;
-    return item;
-  }
 
   const imageHtml = member.image
     ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo">`
@@ -153,6 +136,40 @@ function createMemberCard(member, former = false) {
     <div class="people-info">
       <div class="type-title people-name">${escapeHtml(member.name)}</div>
       <div class="type-meta people-role">${escapeHtml(formatRole(member.role))}</div>
+    </div>
+  `;
+
+  return item;
+}
+
+function createAlumniMemberCard(member) {
+  const item = document.createElement("div");
+  item.className =
+    "card card--interactive people-card people-card-member former-people-card";
+  item.addEventListener("click", () => goToMember(member));
+
+  const degree = getDegreeLabel(member.role);
+  const leaveYear = member.leaveYear || "";
+  const statusLine = [degree, leaveYear].filter(Boolean).join(" · ");
+  const joinedAt =
+    member.nextAffiliation && String(member.nextAffiliation).trim() !== ""
+      ? member.nextAffiliation
+      : "";
+
+  item.innerHTML = `
+    <div class="people-info people-info--alumni">
+      <div class="type-title people-name">${escapeHtml(member.name)}</div>
+      <div class="type-meta people-status">${escapeHtml(statusLine)}</div>
+      ${
+        joinedAt
+          ? `
+        <div class="people-joined-at">
+          <span class="people-joined-at__label">JOINED AT</span>
+          <span class="people-joined-at__value">${escapeHtml(joinedAt)}</span>
+        </div>
+      `
+          : ""
+      }
     </div>
   `;
 
@@ -177,7 +194,10 @@ function renderInfoSection(title, items) {
   if (!items.length) return "";
 
   const itemsHtml = items
-    .map((item) => `<div class="type-body member-detail-item">${escapeHtml(item)}</div>`)
+    .map(
+      (item) =>
+        `<div class="type-body member-detail-item">${escapeHtml(item)}</div>`
+    )
     .join("");
 
   return `
@@ -229,11 +249,18 @@ function renderDetailPublications(member) {
 }
 
 function getAffiliationText(member) {
-  if (member.currentAffiliation && String(member.currentAffiliation).trim() !== "") {
+  if (
+    member.currentAffiliation &&
+    String(member.currentAffiliation).trim() !== ""
+  ) {
     return member.currentAffiliation;
   }
 
-  if (isFormer(member) && member.nextAffiliation && String(member.nextAffiliation).trim() !== "") {
+  if (
+    isFormer(member) &&
+    member.nextAffiliation &&
+    String(member.nextAffiliation).trim() !== ""
+  ) {
     return member.nextAffiliation;
   }
 
@@ -320,7 +347,10 @@ function renderProfileHeader(member, centered = false) {
     ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo member-detail-photo">`
     : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
 
-  const roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role);
+  const roleText = isFormer(member)
+    ? getDegreeLabel(member.role)
+    : formatRole(member.role);
+
   const roleHtml = roleText
     ? `<div class="type-meta member-detail-role">${escapeHtml(roleText)}</div>`
     : "";
@@ -362,32 +392,46 @@ function renderPI(allMembers) {
   if (pi) renderProfessorInline(pi);
 }
 
-function renderMemberList(container, memberList, former = false) {
-  container.innerHTML = "";
+function renderCurrentMembers(memberList) {
+  currentContainer.innerHTML = "";
 
   const listDiv = document.createElement("div");
-  listDiv.className = former
-    ? "people-list people-members-list people-alumni-list"
-    : "people-list people-members-list";
+  listDiv.className = "people-list people-members-list";
 
   memberList
     .sort((a, b) => {
       const priorityDiff = getRolePriority(a) - getRolePriority(b);
       if (priorityDiff !== 0) return priorityDiff;
 
-      if (former) {
-        const yearDiff = (b.leaveYear || 0) - (a.leaveYear || 0);
-        if (yearDiff !== 0) return yearDiff;
-      } else {
-        const yearDiff = (a.joinYear || 9999) - (b.joinYear || 9999);
-        if (yearDiff !== 0) return yearDiff;
-      }
+      const yearDiff = (a.joinYear || 9999) - (b.joinYear || 9999);
+      if (yearDiff !== 0) return yearDiff;
 
       return a.name.localeCompare(b.name);
     })
-    .forEach((member) => listDiv.appendChild(createMemberCard(member, former)));
+    .forEach((member) => listDiv.appendChild(createCurrentMemberCard(member)));
 
-  container.appendChild(listDiv);
+  currentContainer.appendChild(listDiv);
+}
+
+function renderFormerMembers(memberList) {
+  formerContainer.innerHTML = "";
+
+  const listDiv = document.createElement("div");
+  listDiv.className = "people-list people-members-list people-alumni-list";
+
+  memberList
+    .sort((a, b) => {
+      const priorityDiff = getRolePriority(a) - getRolePriority(b);
+      if (priorityDiff !== 0) return priorityDiff;
+
+      const yearDiff = (b.leaveYear || 0) - (a.leaveYear || 0);
+      if (yearDiff !== 0) return yearDiff;
+
+      return a.name.localeCompare(b.name);
+    })
+    .forEach((member) => listDiv.appendChild(createAlumniMemberCard(member)));
+
+  formerContainer.appendChild(listDiv);
 }
 
 function renderMembers() {
@@ -397,12 +441,16 @@ function renderMembers() {
   const formerMembers = members.filter((member) => member.status === "former");
 
   renderPI(professors);
-  renderMemberList(currentContainer, nonProfessors, false);
-  renderMemberList(formerContainer, formerMembers, true);
+  renderCurrentMembers(nonProfessors);
+  renderFormerMembers(formerMembers);
 }
 
 function renderMemberDetail(member) {
-  const educationSection = renderInfoSection("Education", getSectionItems(member, "EDUCATION"));
+  const educationSection = renderInfoSection(
+    "Education",
+    getSectionItems(member, "EDUCATION")
+  );
+
   const researchSection = renderInfoSection(
     "Research Interest",
     getSectionItems(member, "RESEARCH INTERESTS")
@@ -504,7 +552,11 @@ function showError(message, backLink = false) {
   listView.style.display = "none";
   detailView.style.display = "flex";
   detailView.innerHTML = `
-    ${backLink ? '<a href="people.html" class="back-link type-body">← Back to People</a>' : ""}
+    ${
+      backLink
+        ? '<a href="people.html" class="back-link type-body">← Back to People</a>'
+        : ""
+    }
     <div class="type-title">${escapeHtml(message)}</div>
   `;
 }
