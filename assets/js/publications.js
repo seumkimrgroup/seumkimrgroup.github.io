@@ -1,4 +1,4 @@
-import { fetchJson, escapeHtml } from "./data-api.js";
+import { fetchJson, escapeHtml } from "./data.js";
 
 const container = document.getElementById("publication-list");
 const searchInput = document.getElementById("searchInput");
