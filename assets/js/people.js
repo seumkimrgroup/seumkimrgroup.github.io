@@ -1,581 +1,132 @@
-/* format
-*/
+import { fetchJson, escapeHtml } from "./data-api.js";
 
-const members = [
-  {
-    name: "Se-Um Kim",
-    status: "current",
-    role: "Associate Professor",
-    email: "seumkim@seoultech.ac.kr",
-    phone: "+82-2-970-6425", office: "Mirae-Hall Unit 523",
-    joinYear: 2022, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "seumkim@seoultech.ac.kr" },
-      { type: "scholar", value: "https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en" }
-    ],
-    description: [
-      {
-        title: "RESEARCH CAREER",
-        content: [
-          "2026–Present: 겸직연구원, KIST 양자기술연구단",
-          "2026–Present: Associate Professor, SeoulTech",
-          "2022–2026: Assistant Professor, SeoulTech",
-          "Staff researcher, Samsung Advanced Institute of Technology",
-          "Post-doctoral fellow, Materials Science and Engineering, University of Pennsylvania",
-          "Post-doctoral fellow, BK21 Creative Research Engineer Development for IT, Seoul National University",
-          "Post-doctoral fellow, Inter-University Semiconductor Research Center, Seoul National University",
-        ]
-      },
-      {
-        title: "EDUCATION",
-        content: [
-          "Ph.D. in Electrical and Computer Engineering, Seoul National University",
-          "B.S. in Electrical Engineering, Seoul National University"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "s-ukim",
-  },
-  {
-    name: "I Hyeon Choi",
-    status: "current",
-    role: "Undergraduate",
-    email: "yihyeonchoi11@gmail.com",
-    phone: "", office: "",
-    joinYear: 2026, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "yihyeonchoi11@gmail.com" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: []
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "ihchoi",
-  },
-  {
-    name: "Ji Won Choi",
-    status: "current",
-    role: "Undergraduate",
-    email: "wlxhana@seoultech.ac.kr",
-    phone: "", office: "",
-    joinYear: 2025, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "wlxhana@seoultech.ac.kr" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC-based electro-optical systems",
-          "ferronematic LCs",
-          "LC synthesis"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Materials Science & Engineering",
-    nextAffiliation: "",
-    slug: "jwchoi",
-  },
-  {
-    name: "Minhye Kim",
-    status: "current",
-    role: "M.S. student",
-    email: "minhyeral14@seoultech.ac.kr",
-    phone: "", office: "",
-    joinYear: 2025, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "minhyeral14@seoultech.ac.kr" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology" 
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC composite materials and systems",
-          "LC elastomers",
-          "LC synthesis"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "mkim",
-  },
-  {
-    name: "Hyeon Su Kim",
-    status: "current",
-    role: "Undergraduate",
-    email: "khs1273@naver.com",
-    phone: "", office: "",
-    joinYear: 2025, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "khs1273@naver.com" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "FEM-based thermal managenemts",
-          "ML-assisted FEM optimization"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "hskim",
-  },
-  {
-    name: "Doyo Kim",
-    status: "current",
-    role: "Undergraduate",
-    email: "doyoo0413@seoultech.ac.kr",
-    phone: "", office: "",
-    joinYear: 2025, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "doyoo0413@seoultech.ac.kr" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "",
-          "LC composite materials and systems"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "dkim",
-  },
-  {
-    name: "Ae Bin Na",
-    status: "current",
-    role: "Undergraduate",
-    email: "nab5191@naver.com",
-    phone: "", office: "",
-    joinYear: 2025, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "nab5191@naver.com" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC composite materials and systems"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "abna",
-  },
-  {
-    name: "Hyun Jin Ko",
-    status: "current",
-    role: "Undergraduate",
-    email: "hynnk77@seoultech.ac.kr",
-    phone: "", office: "",
-    joinYear: 2025, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "hynnk77@seoultech.ac.kr" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC-based electro-optical systems"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "hjko",
-  },
-  {
-    name: "Min Ji Kim",
-    status: "current",
-    role: "Undergraduate",
-    email: "kimminji0624@seoultech.ac.kr",
-    phone: "", office: "",
-    joinYear: 2024, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "kimminji0624@seoultech.ac.kr" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "FEM-based thermal managenemts",
-          "LC composite materials and systems"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "mjkim",
-  },
-  {
-    name: "Sangbaek Lee",
-    status: "current",
-    role: "Undergraduate",
-    email: "sangbaek62@gmail.com",
-    phone: "", office: "",
-    joinYear: 2024, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "sangbaek62@gmail.com" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "FEM based thermal managenemts",
-          "PINN-assisted optimization of FEM"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "slee",
-  },
-  {
-    name: "Sunjae Lee",
-    status: "former",
-    role: "Undergraduate",
-    email: "ddwd1473@naver.com",
-    phone: "", office: "",
-    joinYear: 2024, leaveYear: 2025,
-    image: "",
-    links: [
-      { type: "email", value: "ddwd1473@naver.com" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC composite materials and systems",
-          "Polymer stabilized liquid crystals"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "Wuxi Hengxin",
-    slug: "slee2",
-  },
-  {
-    name: "Ji Hwan Kim",
-    status: "current",
-    role: "Undergraduate",
-    email: "dyne0822@gmail.com",
-    phone: "", office: "",
-    joinYear: 2024, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "dyne0822@gmail.com" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: []
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC composite materials and systems",
-          "Polymer stabilized liquid crystals"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "jhkim",
-  },
-  {
-    name: "Hyo Seok Oh",
-    status: "current",
-    role: "M.S. student",
-    email: "ohs07@naver.com",
-    phone: "", office: "",
-    joinYear: 2024, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "ohs07@naver.com" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "Electrochromic devices",
-          "Reflective displays"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "hsoh",
-  },
-  {
-    name: "Hui Jun Jang",
-    status: "former",
-    role: "Undergraduate",
-    email: "",
-    phone: "", office: "",
-    joinYear: 2024, leaveYear: 2025,
-    image: "",
-    links: [
-      { type: "email", value: "" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC composite materials and systems",
-          "Polymer stabilized liquid crystals"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "LG Energy Solution",
-    slug: "hjjang",
-  },
-  {
-    name: "Yong Jin Hwang",
-    status: "former",
-    role: "Undergraduate",
-    email: "",
-    phone: "", office: "",
-    joinYear: 2023, leaveYear: 2025,
-    image: "",
-    links: [
-      { type: "email", value: "" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "FEM based thermal managenemts"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "Autonics",
-    slug: "yjhwang",
-  },
-  {
-    name: "Hyeon Seong Hwang",
-    status: "current",
-    role: "M.S. student",
-    email: "he9312@seoultech.ac.kr",
-    phone: "", office: "",
-    joinYear: 2023, leaveYear: null,
-    image: "",
-    links: [
-      { type: "email", value: "he9312@seoultech.ac.kr" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "LC composite materials and systems",
-          "CLC-based optical filters",
-          "Polymer stabilized liquid crystals"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "",
-    slug: "hshwang",
-  },
-  {
-    name: "Hyun Mok Cho",
-    status: "former",
-    role: "Undergraduate",
-    email: "",
-    phone: "", office: "",
-    joinYear: 2023, leaveYear: 2025,
-    links: [
-      { type: "email", value: "" }
-    ],
-    image: "",
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: [
-          "electrochromic devices"
-        ]
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "MTS",
-    slug: "hmcho",
-  },
-  {
-    name: "Jun Ho Lee",
-    status: "former",
-    role: "Undergraduate",
-    email: "",
-    phone: "", office: "",
-    joinYear: 2023, leaveYear: 2024,
-    image: "",
-    links: [
-      { type: "email", value: "" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: []
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "Hyundai Motors",
-    slug: "jhlee",
-  },
-  {
-    name: "Jung Eun Lee",
-    status: "former",
-    role: "Undergraduate",
-    email: "",
-    phone: "", office: "",
-    joinYear: 2023, leaveYear: 2024,
-    image: "",
-    links: [
-      { type: "email", value: "" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: []
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "LIG Nex1",
-    slug: "jelee",
-  },
-  {
-    name: "Min-Seok Park",
-    status: "former",
-    role: "Undergraduate",
-    email: "",
-    phone: "", office: "",
-    joinYear: 2022, leaveYear: 2023,
-    image: "",
-    links: [
-      { type: "email", value: "" }
-    ],
-    description: [
-      {
-        title: "EDUCATION",
-        content: [
-          "B.S. in Electrical and Informationg Engineering, Seoul National University of Science and Technology"
-        ]
-      },
-      {
-        title: "RESEARCH INTERESTS",
-        content: []
-      }
-    ],
-    currentAffiliation: "Department of Electrical and Information Engineering",
-    nextAffiliation: "Hitachi High-Tech in Korea",
-    slug: "m-spark",
+const listView = document.getElementById("people-list-view");
+const detailView = document.getElementById("member-detail-view");
+const piContainer = document.getElementById("pi-members");
+const currentContainer = document.getElementById("current-members");
+const formerContainer = document.getElementById("former-members");
+
+let members = [];
+let publications = [];
+
+function normalizeRole(role) {
+  const r = (role || "").toLowerCase().replace(/\./g, "").replace(/-/g, " ").trim();
+  if (r.includes("professor")) return "professor";
+  if (r.includes("phd")) return "phd";
+  if (r.includes("ms")) return "ms";
+  if (r.includes("undergraduate")) return "undergraduate";
+  return "";
+}
+function isProfessor(member) { return normalizeRole(member.role) === "professor"; }
+function isFormer(member) { return member.status === "former"; }
+function currentPriority(member) { const role = normalizeRole(member.role); if (role === "phd") return 1; if (role === "ms") return 2; if (role === "undergraduate") return 3; return 9; }
+function formerPriority(member) { const role = normalizeRole(member.role); if (role === "phd") return 1; if (role === "ms") return 2; if (role === "undergraduate") return 3; return 9; }
+function getDegreeLabel(role) { const r = normalizeRole(role); if (r === "phd") return "Ph.D."; if (r === "ms") return "M.S."; if (r === "undergraduate") return "B.S."; return role || ""; }
+function formatRole(role) { const r = normalizeRole(role); if (r === "phd") return "Ph.D. Student"; if (r === "ms") return "M.S. Student"; if (r === "undergraduate") return "Undergraduate"; return role || ""; }
+function goToMember(member) { window.location.href = `people.html?id=${encodeURIComponent(member.slug)}`; }
+function formatMetaLine(pub) { let line = ""; if (pub.source) line += pub.source; if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail; if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`; return line; }
+function getMemberPublications(member) { const memberName = (member.name || "").toLowerCase(); return publications.filter((pub) => (pub.authors || "").toLowerCase().includes(memberName)).sort((a, b) => (b.year || 0) - (a.year || 0)); }
+
+function createPublicationCard(pub) {
+  const metaLine = formatMetaLine(pub);
+  const cardInner = `
+    <div class="type-body publication-title">${escapeHtml(pub.title || "")}</div>
+    <div class="type-meta publication-meta">${escapeHtml(metaLine)}</div>
+    <div class="type-meta publication-authors">${escapeHtml(pub.authors || "")}</div>
+  `;
+  let item;
+  if (pub.link) {
+    item = document.createElement("a");
+    item.href = pub.link;
+    item.target = "_blank";
+    item.rel = "noopener noreferrer";
+    item.className = "card card--interactive publication-card clickable";
+    item.innerHTML = cardInner;
+  } else {
+    item = document.createElement("div");
+    item.className = "card publication-card";
+    item.innerHTML = cardInner;
   }
-];
+  return item;
+}
+function createCurrentCard(member) {
+  const item = document.createElement("div");
+  item.className = "card card--interactive people-card people-card-member";
+  item.addEventListener("click", () => goToMember(member));
+  const imageHtml = member.image ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo">` : `<div class="people-photo people-photo-placeholder"></div>`;
+  item.innerHTML = `${imageHtml}<div class="people-info"><div class="type-title people-name">${escapeHtml(member.name)}</div><div class="type-meta people-role">${escapeHtml(formatRole(member.role))}</div></div>`;
+  return item;
+}
+function createFormerCard(member) {
+  const item = document.createElement("div");
+  item.className = "card card--interactive people-card people-card-member former-people-card";
+  item.addEventListener("click", () => goToMember(member));
+  const statusLine = [getDegreeLabel(member.role), member.leaveYear || ""].filter(Boolean).join(" · ");
+  item.innerHTML = `<div class="people-info"><div class="type-title people-name">${escapeHtml(member.name)}</div><div class="type-meta people-status">${escapeHtml(statusLine)}</div></div>`;
+  return item;
+}
+function getSectionItems(member, targetTitle) { if (!Array.isArray(member.description)) return []; const section = member.description.find((item) => String(item?.title || "").trim().toUpperCase() === targetTitle.toUpperCase()); if (!section || !Array.isArray(section.content)) return []; return section.content.filter((item) => String(item || "").trim() !== ""); }
+function getRenderableSections(member) { if (!Array.isArray(member.description)) return []; return member.description.filter((section) => section && section.title && Array.isArray(section.content) && section.content.filter((item) => String(item || "").trim() !== "").length > 0); }
+function renderInfoSection(title, items) { if (!items.length) return ""; const itemsHtml = items.map((item) => `<div class="type-body member-detail-item">${escapeHtml(item)}</div>`).join(""); return `<section class="member-detail-section"><div class="type-title member-detail-section-title">${escapeHtml(title)}</div><div class="member-detail-section-body">${itemsHtml}</div></section>`; }
+function toTitleCase(text) { const value = String(text || "").toLowerCase(); if (value === "research interests") return "Research Interest"; return value.replace(/\b\w/g, (char) => char.toUpperCase()); }
+function renderAllSections(member) { const sections = getRenderableSections(member); return sections.map((section) => renderInfoSection(toTitleCase(section.title), section.content.filter((item) => String(item || "").trim() !== ""))).join(""); }
+function renderDetailPublications(member, showForProfessor = false) { if (!showForProfessor && isProfessor(member)) return ""; const pubs = getMemberPublications(member); if (!pubs.length) return ""; return `<section class="member-detail-section member-publications-section"><div class="type-title member-publications-title">Publications</div><div id="${showForProfessor ? "pi-publication-list" : "member-publication-list"}"></div></section>`; }
+function getAffiliationText(member) { if (member.currentAffiliation && String(member.currentAffiliation).trim() !== "") return member.currentAffiliation; if (isFormer(member) && member.nextAffiliation && String(member.nextAffiliation).trim() !== "") return member.nextAffiliation; return ""; }
+function getLinkHref(link) { if (!link || !link.type || !link.value) return ""; if (link.type === "email") return `mailto:${link.value}`; return link.value; }
+function getLinkLabel(link) { if (!link || !link.type) return "External link"; if (link.type === "email") return "Email"; if (link.type === "linkedin") return "LinkedIn"; if (link.type === "scholar") return "Google Scholar"; if (link.type === "website") return "Website"; if (link.type === "github") return "GitHub"; if (link.type === "orcid") return "ORCID"; return "External link"; }
+function getLinkIcon(type) {
+  if (type === "email") return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 2v.2l8 5.2 8-5.2V8l-8 5-8-5z"/></svg>`;
+  if (type === "linkedin") return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12zM5.5 9.75h2.88V18.5H5.5V9.75zm4.56 0h2.76v1.2h.04c.38-.73 1.32-1.5 2.72-1.5 2.9 0 3.42 1.9 3.42 4.37v4.68h-2.88v-4.15c0-.99-.02-2.27-1.38-2.27-1.39 0-1.6 1.08-1.6 2.2v4.22h-2.88V9.75z"/></svg>`;
+  if (type === "scholar") return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 13L5.5 12.45V17c0 2.49 3 4.5 6.5 4.5S18.5 19.49 18.5 17v-4.55L12 16z"/></svg>`;
+  if (type === "website") return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.93 9h-3.08a15.7 15.7 0 0 0-1.38-5.02A8.03 8.03 0 0 1 18.93 11zM12 4.04c.98 1.19 1.78 3.1 2.1 5.46H9.9C10.22 7.14 11.02 5.23 12 4.04zM4.99 13h3.08c.14 1.78.57 3.47 1.39 5.02A8.03 8.03 0 0 1 4.99 13zm3.08-2H4.99a8.03 8.03 0 0 1 4.47-5.02A15.6 15.6 0 0 0 8.07 11zm3.93 8.96c-.98-1.19-1.78-3.1-2.1-5.46h4.2c-.32 2.36-1.12 4.27-2.1 5.46zM14.1 13H9.9a13.7 13.7 0 0 1 0-2h4.2a13.7 13.7 0 0 1 0 2zm.37 5.02A15.7 15.7 0 0 0 15.85 13h3.08a8.03 8.03 0 0 1-4.46 5.02z"/></svg>`;
+  if (type === "github") return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.41-4.04-1.41-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.72.08-.72 1.2.08 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.31-5.47-1.34-5.47-5.94 0-1.31.46-2.38 1.23-3.22-.13-.31-.54-1.56.12-3.24 0 0 1-.32 3.3 1.23a11.3 11.3 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.68.25 2.93.12 3.24.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.63-5.48 5.93.43.37.82 1.11.82 2.24v3.31c0 .32.21.69.83.57A12 12 0 0 0 12 .5z"/></svg>`;
+  if (type === "orcid") return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4.25 4.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM9 17H6.5v-6H9v6zm8.2 0h-2.46l-1.88-3.2H12.5V17H10v-6h3.53c1.92 0 3.17 1.07 3.17 2.72 0 1.2-.66 2.12-1.76 2.49L17.2 17zm-3.61-4.03H12.5v-1.94h1.09c.72 0 1.18.37 1.18.97s-.46.97-1.18.97z"/></svg>`;
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/><path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"/></svg>`;
+}
+function getMemberLinks(member) { if (Array.isArray(member.links) && member.links.length > 0) return member.links.filter((link) => link && link.type && link.value); if (member.email) return [{ type: "email", value: member.email }]; return []; }
+function renderMemberLinks(member) { const links = getMemberLinks(member); if (!links.length) return ""; const items = links.map((link) => `<a href="${getLinkHref(link)}" class="icon-link" aria-label="${escapeHtml(getLinkLabel(link))}" title="${escapeHtml(getLinkLabel(link))}" ${link.type === "email" ? "" : 'target="_blank" rel="noopener noreferrer"'}>${getLinkIcon(link.type)}</a>`).join(""); return `<div class="icon-links member-links">${items}</div>`; }
+function renderProfileHeader(member, centered = false) { const imageHtml = member.image ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo member-detail-photo">` : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`; const roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role); const roleHtml = roleText ? `<div class="type-meta member-detail-role">${escapeHtml(roleText)}</div>` : ""; const affiliation = getAffiliationText(member); const affiliationHtml = affiliation ? `<div class="type-meta member-detail-affiliation">${escapeHtml(affiliation)}</div>` : ""; return `<div class="member-detail-profile ${centered ? "member-detail-profile--centered" : ""}"><div class="member-detail-header ${centered ? "member-detail-header--centered" : "member-detail-header--inset"}"><div class="member-detail-photo-wrap">${imageHtml}</div><div class="member-detail-main"><div class="member-detail-header-text"><div class="type-heading member-detail-name">${escapeHtml(member.name)}</div>${roleHtml}${affiliationHtml}</div>${renderMemberLinks(member)}</div></div></div>`; }
+function renderProfessorInline(member) { piContainer.innerHTML = `${renderProfileHeader(member, true)}<div class="member-detail-sections member-detail-sections--pi">${renderAllSections(member)}${renderDetailPublications(member, true)}</div>`; const pubList = document.getElementById("pi-publication-list"); if (pubList) getMemberPublications(member).forEach((pub) => pubList.appendChild(createPublicationCard(pub))); }
+function renderPI(allMembers) { const pi = allMembers.find((member) => isProfessor(member)); piContainer.innerHTML = pi ? "" : ""; if (pi) renderProfessorInline(pi); }
+function renderCurrentMembers(allMembers) { currentContainer.innerHTML = ""; const listDiv = document.createElement("div"); listDiv.className = "people-list people-members-list"; allMembers.sort((a, b) => { const p = currentPriority(a) - currentPriority(b); if (p !== 0) return p; const y = (a.joinYear || 9999) - (b.joinYear || 9999); if (y !== 0) return y; return a.name.localeCompare(b.name); }).forEach((member) => listDiv.appendChild(createCurrentCard(member))); currentContainer.appendChild(listDiv); }
+function renderFormerMembers(allMembers) { formerContainer.innerHTML = ""; const listDiv = document.createElement("div"); listDiv.className = "people-list people-members-list people-alumni-list"; allMembers.sort((a, b) => { const p = formerPriority(a) - formerPriority(b); if (p !== 0) return p; const y = (b.leaveYear || 0) - (a.leaveYear || 0); if (y !== 0) return y; return a.name.localeCompare(b.name); }).forEach((member) => listDiv.appendChild(createFormerCard(member))); formerContainer.appendChild(listDiv); }
+function renderMembers() { const currentMembers = members.filter((m) => m.status === "current"); renderPI(currentMembers.filter((m) => isProfessor(m))); renderCurrentMembers(currentMembers.filter((m) => !isProfessor(m))); renderFormerMembers(members.filter((m) => m.status === "former")); }
+function renderMemberDetail(member) {
+  const educationSection = renderInfoSection("Education", getSectionItems(member, "EDUCATION"));
+  const researchSection = renderInfoSection("Research Interest", getSectionItems(member, "RESEARCH INTERESTS"));
+  let detailSections = "";
+  let roleHtml = isFormer(member) ? "" : (formatRole(member.role) ? `<div class="type-meta member-detail-role">${escapeHtml(formatRole(member.role))}</div>` : "");
+  let affiliationHtml = "";
+  let joinedAtHtml = "";
+  if (isFormer(member)) {
+    const joinedAt = member.nextAffiliation && String(member.nextAffiliation).trim() !== "" ? member.nextAffiliation : "";
+    joinedAtHtml = joinedAt ? `<div class="member-detail-joined"><span class="member-detail-joined-label">Joined at</span><span class="member-detail-joined-value">${escapeHtml(joinedAt)}</span></div>` : "";
+    detailSections = `<div class="member-detail-sections">${educationSection}${renderDetailPublications(member)}</div>`;
+  } else {
+    const affiliation = getAffiliationText(member);
+    affiliationHtml = affiliation ? `<div class="type-meta member-detail-affiliation">${escapeHtml(affiliation)}</div>` : "";
+    detailSections = `<div class="member-detail-sections">${educationSection}${researchSection}${renderDetailPublications(member)}</div>`;
+  }
+  const photoBlock = isFormer(member) ? "" : `<div class="member-detail-photo-wrap">${member.image ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo member-detail-photo">` : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`}</div>`;
+  const headerClass = isFormer(member) ? "member-detail-header member-detail-header--inset no-photo" : "member-detail-header member-detail-header--inset";
+  detailView.innerHTML = `<a href="people.html" class="back-link">&lt; Back</a><div class="member-detail-profile"><div class="${headerClass}">${photoBlock}<div class="member-detail-main"><div class="member-detail-header-text"><div class="type-heading member-detail-name">${escapeHtml(member.name)}</div>${roleHtml}${affiliationHtml}${joinedAtHtml}</div>${renderMemberLinks(member)}</div></div></div>${detailSections}`;
+  const pubList = document.getElementById("member-publication-list");
+  if (pubList) getMemberPublications(member).forEach((pub) => pubList.appendChild(createPublicationCard(pub)));
+}
+function showListView() { listView.style.removeProperty("display"); detailView.style.display = "none"; renderMembers(); }
+function showDetailView(member) { listView.style.display = "none"; detailView.style.display = "flex"; renderMemberDetail(member); }
+function showError(message, backLink = false) { listView.style.display = "none"; detailView.style.display = "flex"; detailView.innerHTML = `${backLink ? '<a href="people.html" class="back-link type-body">← Back to People</a>' : ""}<div class="type-title">${escapeHtml(message)}</div>`; }
+async function initPeoplePage() {
+  try {
+    [members, publications] = await Promise.all([fetchJson("assets/data/members.json"), fetchJson("assets/data/publications.json")]);
+    const id = new URLSearchParams(window.location.search).get("id");
+    if (!id) return showListView();
+    const member = members.find((m) => m.slug === id);
+    if (!member) return showError("Member not found.", true);
+    showDetailView(member);
+  } catch (error) {
+    console.error(error);
+    showError("Member data could not be loaded.");
+  }
+}
+initPeoplePage();
