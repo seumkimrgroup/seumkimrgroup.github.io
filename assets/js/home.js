@@ -9,12 +9,14 @@ const aboutMoreBtn = document.getElementById("about-more-btn");
 
 function renderProjects(projects) {
   if (!projectSlider || !Array.isArray(projects) || projects.length === 0) return;
+
   projectSlider.innerHTML = "";
 
   projects.forEach((project) => {
     const slide = document.createElement("div");
     slide.className = "project-slide";
     slide.style.backgroundImage = `url(${project.image || ""})`;
+
     slide.innerHTML = `
       <div class="project-content">
         <div class="type-eyebrow project-subtitle">${escapeHtml(project.subtitle || "")}</div>
@@ -22,6 +24,7 @@ function renderProjects(projects) {
         <div class="type-body project-desc">${escapeHtml(project.description || "")}</div>
       </div>
     `;
+
     projectSlider.appendChild(slide);
   });
 
@@ -44,29 +47,30 @@ function renderProjects(projects) {
   updateSlide();
 }
 
-function createContentCard(topic) {
-  const item = document.createElement("article");
-  item.className = "card card--content";
+function createContentCard(item) {
+  const card = document.createElement("article");
+  card.className = "card card--content";
 
-  item.innerHTML = `
+  card.innerHTML = `
     <div class="card-media">
       <img
-        src="${topic.image || ""}"
-        alt="${escapeHtml(topic.title || "")}"
+        src="${item.image || ""}"
+        alt="${escapeHtml(item.title || "")}"
         class="card-media-image"
       />
     </div>
     <div class="card-body">
-      <h3 class="type-title card-title">${escapeHtml(topic.title || "")}</h3>
-      <p class="type-body card-description">${escapeHtml(topic.description || "")}</p>
+      <h3 class="type-title card-title">${escapeHtml(item.title || "")}</h3>
+      <p class="type-body card-description">${escapeHtml(item.description || "")}</p>
     </div>
   `;
 
-  return item;
+  return card;
 }
 
 function renderTopics(topics) {
   if (!researchAreaList || !Array.isArray(topics)) return;
+
   researchAreaList.innerHTML = "";
 
   topics.forEach((topic) => {
@@ -78,8 +82,8 @@ function setupAboutToggle() {
   if (!aboutMore || !aboutMoreBtn) return;
 
   aboutMoreBtn.addEventListener("click", () => {
-    const open = aboutMore.classList.toggle("is-open");
-    aboutMoreBtn.textContent = open ? "Less" : "More";
+    const isOpen = aboutMore.classList.toggle("is-open");
+    aboutMoreBtn.textContent = isOpen ? "Less" : "More";
   });
 }
 
@@ -87,7 +91,7 @@ async function initHomePage() {
   try {
     const [projects, topics] = await Promise.all([
       fetchJson("assets/data/projects.json"),
-      fetchJson("assets/data/topics.json")
+      fetchJson("assets/data/topics.json"),
     ]);
 
     renderProjects(projects);
