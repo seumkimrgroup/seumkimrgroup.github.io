@@ -343,9 +343,14 @@ function renderMemberLinks(member) {
 
 function renderProfileHeader(member, centered = false) {
   const imageHtml = member.image
-    ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo member-detail-photo">`
+    ? `<img
+         src="${member.image}"
+         alt="${escapeHtml(member.name)}"
+         class="people-photo member-detail-photo"
+         onerror="this.outerHTML='<div class=&quot;people-photo people-photo-placeholder member-detail-photo&quot;></div>'"
+       >`
     : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
-
+  
   const roleText = isFormer(member) ? getDegreeLabel(member.role) : formatRole(member.role);
   const roleHtml = roleText
     ? `<div class="type-meta member-detail-role">${escapeHtml(roleText)}</div>`
