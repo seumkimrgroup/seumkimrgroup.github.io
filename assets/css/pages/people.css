@@ -37,7 +37,7 @@
   transform: translateX(-2px);
 }
 
-/* ===== section background ===== */
+/* section background */
 
 .people-band {
   width: 100vw;
@@ -67,7 +67,7 @@
   color: var(--color-text-subtle);
 }
 
-/* ===== list ===== */
+/* list */
 
 .people-list {
   display: grid;
@@ -79,53 +79,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* ===== card ===== */
-
-.people-card-member {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-5);
-  padding: 18px 14px;
-  background: #ffffff;
-}
-
-.former-people-card {
-  padding: 18px 14px;
-}
-
-.people-photo {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-surface-muted);
-}
-
-.people-photo-placeholder {
-  border: 1px solid var(--color-border-soft);
-}
-
-.people-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-  text-align: center;
-}
-
-/* ===== alumni badge ===== */
-
-.people-badge {
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: #eef2f6;
-  color: var(--color-text-subtle);
-  font-size: 12px;
-}
-
-/* ===== detail ===== */
+/* detail */
 
 .member-detail-view {
   display: flex;
@@ -133,6 +87,15 @@
   width: min(100% - 32px, var(--container-width));
   margin: 0 auto;
   padding-bottom: 60px;
+}
+
+.member-detail-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-detail-profile--centered {
+  width: 100%;
 }
 
 .member-detail-header {
@@ -172,9 +135,9 @@
 .member-detail-main {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 14px;
+  gap: 16px;
   min-height: 176px;
+  justify-content: center;
 }
 
 .member-detail-header-text {
@@ -183,67 +146,113 @@
   gap: 6px;
 }
 
+.member-detail-name {
+  margin: 0;
+}
+
 .member-detail-role {
-  color: var(--color-text-subtle);
-}
-
-.member-detail-joined {
-  margin-top: 6px;
-}
-
-.member-detail-joined-label {
-  text-transform: uppercase;
-  font-size: 11px;
-  color: var(--color-text-subtle);
-  margin-right: 6px;
-}
-
-.member-detail-joined-value {
   color: var(--color-text-muted);
 }
 
-/* ===== links ===== */
+.member-detail-affiliation {
+  color: var(--color-text-subtle);
+}
+
+.member-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
 .icon-links {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
 .icon-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  color: #a9c2e8;
   transition: var(--transition-fast);
+  background: #ffffff;
 }
 
 .icon-link:hover {
-  color: #6f96c9;
-  background: rgba(111, 150, 201, 0.08);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
 }
 
 .icon-link__icon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
+  color: var(--color-text-muted);
 }
-
-/* ===== sections ===== */
 
 .member-detail-sections {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  margin-top: 40px;
+  gap: 20px;
+  margin-top: 28px;
+  width: min(100%, 780px);
+}
+
+.member-detail-sections--pi {
+  margin-top: 24px;
+}
+
+.member-detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .member-detail-section-title {
-  color: var(--color-text-strong);
+  margin: 0;
+}
+
+.member-detail-section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .member-detail-item {
+  color: var(--color-text-muted);
+}
+
+.member-publications-section {
+  margin-top: 6px;
+}
+
+.member-publications-title {
+  margin: 0;
+}
+
+.member-detail-joined {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
+}
+
+.member-detail-joined-label {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+}
+
+.member-detail-joined-value {
+  font-size: 14px;
+  line-height: 1.6;
   color: var(--color-text-muted);
 }
