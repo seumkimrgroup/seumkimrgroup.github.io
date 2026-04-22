@@ -1,105 +1,232 @@
-import { fetchJson, escapeHtml } from "./data.js";
-
-const projectSlider = document.getElementById("project-slider");
-const projectPrev = document.getElementById("project-prev");
-const projectNext = document.getElementById("project-next");
-const researchAreaList = document.getElementById("research-area-list");
-const aboutMore = document.getElementById("about-more");
-const aboutMoreBtn = document.getElementById("about-more-btn");
-
-function renderProjects(projects) {
-  if (!projectSlider || !Array.isArray(projects) || projects.length === 0) return;
-
-  projectSlider.innerHTML = "";
-
-  projects.forEach((project) => {
-    const slide = document.createElement("div");
-    slide.className = "project-slide";
-    slide.style.backgroundImage = `url(${project.image || ""})`;
-
-    slide.innerHTML = `
-      <div class="project-content">
-        <div class="type-eyebrow project-subtitle">${escapeHtml(project.subtitle || "")}</div>
-        <div class="type-display project-title">${escapeHtml(project.title || "")}</div>
-        <div class="type-body project-desc">${escapeHtml(project.description || "")}</div>
-      </div>
-    `;
-
-    projectSlider.appendChild(slide);
-  });
-
-  let currentIndex = 0;
-
-  function updateSlide() {
-    projectSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-
-  projectNext?.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % projects.length;
-    updateSlide();
-  });
-
-  projectPrev?.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-    updateSlide();
-  });
-
-  updateSlide();
+body.home .navbar {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
 }
 
-function createContentCard(item) {
-  const card = document.createElement("article");
-  card.className = "card card--content";
-
-  card.innerHTML = `
-    <div class="card-media">
-      <img
-        src="${item.image || ""}"
-        alt="${escapeHtml(item.title || "")}"
-        class="card-media-image"
-      />
-    </div>
-    <div class="card-body">
-      <h3 class="type-title card-title">${escapeHtml(item.title || "")}</h3>
-      <p class="type-body card-description">${escapeHtml(item.description || "")}</p>
-    </div>
-  `;
-
-  return card;
+body.home .navbar.nav-scrolled {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+  box-shadow: none;
 }
 
-function renderTopics(topics) {
-  if (!researchAreaList || !Array.isArray(topics)) return;
-
-  researchAreaList.innerHTML = "";
-
-  topics.forEach((topic) => {
-    researchAreaList.appendChild(createContentCard(topic));
-  });
+body.home .brand,
+body.home .nav-links a {
+  color: #ffffff;
 }
 
-function setupAboutToggle() {
-  if (!aboutMore || !aboutMoreBtn) return;
-
-  aboutMoreBtn.addEventListener("click", () => {
-    const isOpen = aboutMore.classList.toggle("is-open");
-    aboutMoreBtn.textContent = isOpen ? "Less" : "More";
-  });
+body.home .brand:hover,
+body.home .nav-links a:hover {
+  color: rgba(255, 255, 255, 0.82);
 }
 
-async function initHomePage() {
-  try {
-    const [projects, topics] = await Promise.all([
-      fetchJson("assets/data/projects.json"),
-      fetchJson("assets/data/topics.json"),
-    ]);
-
-    renderProjects(projects);
-    renderTopics(topics);
-    setupAboutToggle();
-  } catch (error) {
-    console.error(error);
-  }
+body.home .nav-links a.active {
+  color: #ffffff;
 }
 
-initHomePage();
+/* project */
+
+.project {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.project-slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.project-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.52),
+    rgba(0, 0, 0, 0.28)
+  );
+}
+
+.project-content {
+  position: absolute;
+  z-index: 2;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  max-width: 600px;
+}
+
+.project-subtitle {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.project-title {
+  margin-bottom: 16px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.project-desc {
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+.project-readmore {
+  margin-top: 4px;
+}
+
+.project-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.28);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.project-prev {
+  left: 20px;
+}
+
+.project-next {
+  right: 20px;
+}
+
+/* about / research */
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 860px;
+}
+
+.about-eyebrow {
+  margin: 0;
+}
+
+.about-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-block-title {
+  margin: 0;
+}
+
+.about-block-description {
+  max-width: 760px;
+}
+
+.about-more-content {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-more-content.is-open {
+  display: flex;
+}
+
+.about-more-content p {
+  font-size: var(--type-body-size);
+  font-weight: var(--type-body-weight);
+  line-height: var(--type-body-line);
+  color: var(--color-text-muted);
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.research-area-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* contact */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-heading {
+  margin: 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(320px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.contact-label {
+  color: var(--color-text-strong);
+}
+
+.contact-value {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.contact-map-wrap {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f6f7f8;
+}
+
+.contact-map {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  display: block;
+}
