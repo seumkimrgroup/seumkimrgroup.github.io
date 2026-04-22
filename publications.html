@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="assets/css/pages/publications.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-
 <body>
   <div class="navbar">
     <a href="index.html" class="brand type-brand">Se-Um Kim Research Group</a>
@@ -22,115 +21,16 @@
       <a href="publications.html" class="active type-nav">Publications</a>
     </div>
   </div>
-
   <div class="content publications-page">
     <div class="section publications-search-section">
       <div class="search-card publications-search-card">
-        <input
-          type="text"
-          id="searchInput"
-          class="search-box publications-search-box"
-          placeholder="Search by title, journal, author, and year"
-        >
-
-        <div class="filter-controls publications-filter-controls">
-          <div class="filter-group publications-type-group">
-            <button class="filter-btn type-btn active" data-type="all">ALL</button>
-            <button class="filter-btn type-btn" data-type="indexed">INDEXED</button>
-            <button class="filter-btn type-btn" data-type="patent">PATENT</button>
-            <button class="filter-btn type-btn" data-type="other">OTHER</button>
-          </div>
-        </div>
+        <input type="text" id="searchInput" class="search-box publications-search-box" placeholder="Search by title, journal, author, and year">
+        <div class="filter-controls publications-filter-controls"><div class="filter-group publications-type-group"><button class="filter-btn type-btn active" data-type="all">ALL</button><button class="filter-btn type-btn" data-type="indexed">INDEXED</button><button class="filter-btn type-btn" data-type="patent">PATENT</button><button class="filter-btn type-btn" data-type="other">OTHER</button></div></div>
       </div>
     </div>
-
-    <div class="section">
-      <div id="publication-list"></div>
-    </div>
+    <div class="section"><div id="publication-list"></div></div>
   </div>
-
-  <script src="assets/js/nav.js"></script>
-  <script src="assets/js/publications.js"></script>
-
-  <script>
-    const container = document.getElementById("publication-list");
-    const searchInput = document.getElementById("searchInput");
-    const typeButtons = document.querySelectorAll(".type-btn");
-
-    let currentType = "all";
-
-    function formatMetaLine(pub) {
-      let line = "";
-      if (pub.source) line += pub.source;
-      if (pub.detail) line += line ? ` ${pub.detail}` : pub.detail;
-      if (pub.type !== "patent" && pub.year) line += ` (${pub.year})`;
-      return line;
-    }
-
-    function renderPublications() {
-      const keyword = searchInput.value.trim().toLowerCase();
-      container.innerHTML = "";
-
-      const filtered = publications.filter((pub) => {
-        const matchesType = currentType === "all" || pub.type === currentType;
-
-        const searchTarget = [
-          pub.title || "",
-          pub.authors || "",
-          pub.source || "",
-          pub.detail || "",
-          String(pub.year || "")
-        ].join(" ").toLowerCase();
-
-        return matchesType && searchTarget.includes(keyword);
-      });
-
-      if (filtered.length === 0) {
-        container.innerHTML = '<div class="type-meta">No publications found.</div>';
-        return;
-      }
-
-      filtered
-        .sort((a, b) => (b.year || 0) - (a.year || 0))
-        .forEach((pub) => {
-          const metaLine = formatMetaLine(pub);
-
-          const cardInner = `
-            <div class="type-body publication-title">${pub.title}</div>
-            <div class="type-meta publication-meta">${metaLine}</div>
-            <div class="type-meta publication-authors">${pub.authors || ""}</div>
-          `;
-
-          let item;
-
-          if (pub.link) {
-            item = document.createElement("a");
-            item.href = pub.link;
-            item.target = "_blank";
-            item.rel = "noopener noreferrer";
-            item.className = "card card--interactive publication-card clickable";
-            item.innerHTML = cardInner;
-          } else {
-            item = document.createElement("div");
-            item.className = "card publication-card";
-            item.innerHTML = cardInner;
-          }
-
-          container.appendChild(item);
-        });
-    }
-
-    typeButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        typeButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-        currentType = button.dataset.type;
-        renderPublications();
-      });
-    });
-
-    searchInput.addEventListener("input", renderPublications);
-    renderPublications();
-  </script>
+  <script type="module" src="assets/js/nav.js"></script>
+  <script type="module" src="assets/js/publications.js"></script>
 </body>
 </html>
