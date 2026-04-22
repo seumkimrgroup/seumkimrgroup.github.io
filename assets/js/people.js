@@ -1,4 +1,4 @@
-import { fetchJson, escapeHtml } from "./data-api.js";
+import { fetchJson, escapeHtml } from "./data.js";
 
 const listView = document.getElementById("people-list-view");
 const detailView = document.getElementById("member-detail-view");
