@@ -162,6 +162,15 @@
   .member-publications-section {
     margin-top: 0;
   }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .contact-map {
+    height: 220px;
+  }
 }
 
 @media (max-width: 520px) {
