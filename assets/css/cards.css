@@ -198,6 +198,8 @@
   overflow: hidden;
   background: #ffffff;
   border-radius: 18px;
+  max-width: 320px;
+  width: 100%;
 }
 
 .card--content .card-media {
