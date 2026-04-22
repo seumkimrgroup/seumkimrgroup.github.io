@@ -6,6 +6,7 @@ const projectNext = document.getElementById("project-next");
 const researchAreaList = document.getElementById("research-area-list");
 const aboutMore = document.getElementById("about-more");
 const aboutMoreBtn = document.getElementById("about-more-btn");
+const contactGrid = document.getElementById("contact-grid");
 
 function renderProjects(projects) {
   if (!projectSlider || !Array.isArray(projects) || projects.length === 0) return;
@@ -26,6 +27,7 @@ function renderProjects(projects) {
   });
 
   let currentIndex = 0;
+
   function updateSlide() {
     projectSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
@@ -63,8 +65,66 @@ function renderTopics(topics) {
   });
 }
 
+function renderContactRow(label, value, isEmail = false) {
+  if (!value) return "";
+
+  const valueHtml = isEmail
+    ? `<a href="mailto:${escapeHtml(value)}" class="type-meta contact-value">${escapeHtml(value)}</a>`
+    : `<span class="type-meta contact-value">${escapeHtml(value)}</span>`;
+
+  return `
+    <div class="contact-row">
+      <span class="type-ui contact-label">${escapeHtml(label)}</span>
+      ${valueHtml}
+    </div>
+  `;
+}
+
+function renderContact(contact) {
+  if (!contactGrid || !contact) return;
+
+  const addressHtml = Array.isArray(contact.addressLines) && contact.addressLines.length
+    ? contact.addressLines.map((line) => escapeHtml(line)).join("<br>")
+    : "";
+
+  contactGrid.innerHTML = `
+    <div class="contact-list">
+      ${renderContactRow("Email", contact.email, true)}
+      ${renderContactRow("Phone", contact.phone)}
+      ${renderContactRow("Office", contact.office)}
+      ${
+        addressHtml
+          ? `
+        <div class="contact-row">
+          <span class="type-ui contact-label">Address</span>
+          <span class="type-meta contact-value">${addressHtml}</span>
+        </div>
+      `
+          : ""
+      }
+    </div>
+
+    ${
+      contact.mapEmbedUrl
+        ? `
+      <div class="contact-map-wrap">
+        <iframe
+          class="contact-map"
+          src="${contact.mapEmbedUrl}"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    `
+        : ""
+    }
+  `;
+}
+
 function setupAboutToggle() {
   if (!aboutMore || !aboutMoreBtn) return;
+
   aboutMoreBtn.addEventListener("click", () => {
     const open = aboutMore.classList.toggle("is-open");
     aboutMoreBtn.textContent = open ? "Less" : "More";
@@ -73,12 +133,15 @@ function setupAboutToggle() {
 
 async function initHomePage() {
   try {
-    const [projects, topics] = await Promise.all([
+    const [projects, topics, contact] = await Promise.all([
       fetchJson("assets/data/projects.json"),
-      fetchJson("assets/data/topics.json")
+      fetchJson("assets/data/topics.json"),
+      fetchJson("assets/data/contact.json")
     ]);
+
     renderProjects(projects);
     renderTopics(topics);
+    renderContact(contact);
     setupAboutToggle();
   } catch (error) {
     console.error(error);
