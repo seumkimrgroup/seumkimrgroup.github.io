@@ -137,6 +137,8 @@
   align-items: stretch;
   justify-content: flex-start;
   text-align: center;
+  min-height: unset;
+  height: auto;
 }
 
 .card--person-alumni .people-info {
@@ -157,15 +159,18 @@
 
 .people-joined-at {
   display: flex;
-  justify-content: flex-start;
-  gap: 6px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  margin-top: 6px;
   width: 100%;
 }
 
 .people-joined-at__label {
   font-size: 11px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.2;
   letter-spacing: 0.08em;
   color: var(--color-text-subtle);
   text-transform: uppercase;
@@ -174,9 +179,9 @@
 
 .people-joined-at__value {
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.35;
   color: var(--color-text-muted);
-  text-align: left;
+  text-align: center;
   white-space: nowrap;
 }
 
