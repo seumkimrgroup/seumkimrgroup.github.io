@@ -364,7 +364,7 @@ function renderProfileHeader(member, centered = false) {
   return `
     <div class="member-detail-profile ${centered ? "member-detail-profile--centered" : ""}">
       <div class="member-detail-header ${centered ? "member-detail-header--centered" : "member-detail-header--inset"}">
-        <div class="member-detail-photo-wrap">${imageHtml}</div>
+        <div class="card card--person member-detail-photo-wrap">${imageHtml}</div>
         <div class="member-detail-main">
           <div class="member-detail-header-text">
             <div class="type-heading member-detail-name">${escapeHtml(member.name)}</div>
