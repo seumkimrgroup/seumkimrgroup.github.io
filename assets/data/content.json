@@ -1,12 +1,3 @@
-//{
-//  "type": "topic", /* project, topic, news, notice */
-//  "subtitle": "",
-//  "title": "",
-//  "image": "",
-//  "description": "",
-//  "tag": ""
-//},
-
 [
   {
     "type": "topic", /* project, topic, news, notice */
@@ -14,7 +5,7 @@
     "title": "LC composite materials & systems",
     "image": "assets/images/research/topic1.jpg",
     "description": "Design and application of liquid crystal composites for responsive optical materials and functional device platforms.",
-    "tag": "",
+    "tag": ""
   },
   {
     "type": "topic",
