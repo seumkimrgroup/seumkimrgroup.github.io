@@ -26,30 +26,27 @@
     </div>
   </div>
 
-  <div class="content publications-page">
-    <div class="section publications-search-section">
-      <div class="publications-search-card">
-        <input
-          type="text"
-          id="searchInput"
-          class="search-box publications-search-box"
-          placeholder="Search by title, journal, author, and year"
-        >
-    
-        <div class="filter-controls publications-filter-controls">
-          <div class="filter-group publications-type-group">
-            <button class="filter-btn type-btn active" data-type="all">ALL</button>
-            <button class="filter-btn type-btn" data-type="indexed">INDEXED</button>
-            <button class="filter-btn type-btn" data-type="patent">PATENT</button>
-            <button class="filter-btn type-btn" data-type="other">OTHER</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="content">
+      <div class="section">
+          <div class="publications-search-card">
+              <input type="text"
+                     id="searchInput"
+                     class="search-box publications-search-box"
+                     placeholder="Search by title, journal, author, and year">
 
-    <div class="section">
-      <div id="publication-list"></div>
-    </div>
+              <div class="filter-controls publications-filter-controls">
+                  <div class="filter-group publications-type-group">
+                      <button class="filter-btn type-btn active" data-type="all">ALL</button>
+                      <button class="filter-btn type-btn" data-type="indexed">INDEXED</button>
+                      <button class="filter-btn type-btn" data-type="patent">PATENT</button>
+                      <button class="filter-btn type-btn" data-type="other">OTHER</button>
+                  </div>
+              </div>
+          </div>
+          <div class="section">
+              <div id="publication-list"></div>
+          </div>
+      </div>
   </div>
 
   <script src="assets/js/nav.js"></script>

@@ -2,10 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\assets",
+    "\\assets\\css",
+    "\\assets\\css\\pages",
     "\\assets\\data",
     "\\assets\\images",
+    "\\assets\\images\\people",
     "\\assets\\js"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\assets\\data\\members.json",
   "PreviewInSolutionExplorer": false
 }

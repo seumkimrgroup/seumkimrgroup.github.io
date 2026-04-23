@@ -3,36 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\members.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\data\\members.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\content.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\data\\content.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\people.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:people.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\content.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\data\\content.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\pages\\people.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\pages\\people.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\cards.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\cards.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\base.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\base.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\people.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\people.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\projects.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\data\\projects.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\nav.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\nav.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\publications.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:publications.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\publications.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\publications.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\base.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\base.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\tokens.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -51,10 +71,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\layout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\publications.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:publications.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\pages\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\pages\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
@@ -66,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,32 +98,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "projects.json",
-              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\projects.json",
-              "RelativeDocumentMoniker": "assets\\data\\projects.json",
-              "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\projects.json",
-              "RelativeToolTip": "assets\\data\\projects.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-23T03:08:11.928Z"
+              "DocumentIndex": 4,
+              "Title": "people.css",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\pages\\people.css",
+              "RelativeDocumentMoniker": "assets\\css\\pages\\people.css",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\pages\\people.css",
+              "RelativeToolTip": "assets\\css\\pages\\people.css",
+              "ViewState": "AgIAAFUAAAAAAAAAAADwv4QAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-23T04:42:56.662Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
+              "Title": "nav.js",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\nav.js",
+              "RelativeDocumentMoniker": "assets\\js\\nav.js",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\nav.js",
+              "RelativeToolTip": "assets\\js\\nav.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-04-23T04:29:29.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "people.js",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\people.js",
+              "RelativeDocumentMoniker": "assets\\js\\people.js",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\people.js",
+              "RelativeToolTip": "assets\\js\\people.js",
+              "ViewState": "AgIAABkCAAAAAAAAAAAcwE0CAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-04-23T04:29:22.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "members.json",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\members.json",
+              "RelativeDocumentMoniker": "assets\\data\\members.json",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\members.json",
+              "RelativeToolTip": "assets\\data\\members.json",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAAJkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-23T04:29:08.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "publications.js",
+              "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\publications.js",
+              "RelativeDocumentMoniker": "assets\\js\\publications.js",
+              "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\publications.js",
+              "RelativeToolTip": "assets\\js\\publications.js",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-04-23T03:48:48.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "content.json",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\content.json",
               "RelativeDocumentMoniker": "assets\\data\\content.json",
               "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\content.json",
               "RelativeToolTip": "assets\\data\\content.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-23T02:42:13.995Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "publications.json",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\data\\publications.json",
               "RelativeDocumentMoniker": "assets\\data\\publications.json",
@@ -115,11 +184,12 @@
               "RelativeToolTip": "assets\\data\\publications.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-23T02:42:10.291Z"
+              "WhenOpened": "2026-04-23T02:42:10.291Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "components.css",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\components.css",
               "RelativeDocumentMoniker": "assets\\css\\components.css",
@@ -127,7 +197,8 @@
               "RelativeToolTip": "assets\\css\\components.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-23T02:40:42.888Z"
+              "WhenOpened": "2026-04-23T02:40:42.888Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -137,26 +208,27 @@
               "RelativeDocumentMoniker": "assets\\css\\cards.css",
               "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\cards.css",
               "RelativeToolTip": "assets\\css\\cards.css",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-23T02:39:55.245Z"
+              "WhenOpened": "2026-04-23T02:39:55.245Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "people.html",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\people.html",
               "RelativeDocumentMoniker": "people.html",
               "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\people.html",
               "RelativeToolTip": "people.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAwDIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-04-23T02:36:57.142Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "data.js",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\data.js",
               "RelativeDocumentMoniker": "assets\\js\\data.js",
@@ -169,19 +241,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "publications.html",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\publications.html",
               "RelativeDocumentMoniker": "publications.html",
               "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\publications.html",
               "RelativeToolTip": "publications.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-04-23T02:29:58.72Z"
+              "WhenOpened": "2026-04-23T02:29:58.72Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "home.js",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\js\\home.js",
               "RelativeDocumentMoniker": "assets\\js\\home.js",
@@ -194,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "tokens.css",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\tokens.css",
               "RelativeDocumentMoniker": "assets\\css\\tokens.css",
@@ -202,11 +275,12 @@
               "RelativeToolTip": "assets\\css\\tokens.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-23T01:04:20.852Z"
+              "WhenOpened": "2026-04-23T01:04:20.852Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "layout.css",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\layout.css",
               "RelativeDocumentMoniker": "assets\\css\\layout.css",
@@ -214,11 +288,12 @@
               "RelativeToolTip": "assets\\css\\layout.css",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-23T01:04:00.628Z"
+              "WhenOpened": "2026-04-23T01:04:00.628Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "base.css",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\base.css",
               "RelativeDocumentMoniker": "assets\\css\\base.css",
@@ -226,17 +301,18 @@
               "RelativeToolTip": "assets\\css\\base.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-23T00:55:46.858Z"
+              "WhenOpened": "2026-04-23T00:55:46.858Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\index.html",
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-04-23T00:46:48.891Z",
               "EditorCaption": ""
@@ -264,7 +340,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "home.css",
               "DocumentMoniker": "C:\\Users\\Home\\source\\repos\\seumkimrgroup.github.io\\assets\\css\\pages\\home.css",
               "RelativeDocumentMoniker": "assets\\css\\pages\\home.css",
