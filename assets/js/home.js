@@ -8,16 +8,16 @@ const aboutMore = document.getElementById("about-more");
 const aboutMoreBtn = document.getElementById("about-more-btn");
 
 function renderProjects(projects) {
-  if (!projectSlider || !Array.isArray(projects) || projects.length === 0) return;
+    if (!projectSlider || !Array.isArray(projects) || projects.length === 0) return;
 
-  projectSlider.innerHTML = "";
+    projectSlider.innerHTML = "";
 
-  projects.forEach((project) => {
-    const slide = document.createElement("div");
-    slide.className = "project-slide";
-    slide.style.backgroundImage = `url(${project.image || ""})`;
+    projects.forEach((project) => {
+        const slide = document.createElement("div");
+        slide.className = "project-slide";
+        slide.style.backgroundImage = `url(${project.image || ""})`;
 
-    slide.innerHTML = `
+        slide.innerHTML = `
       <div class="project-content">
         <div class="type-eyebrow project-subtitle">${escapeHtml(project.subtitle || "")}</div>
         <div class="type-display project-title">${escapeHtml(project.title || "")}</div>
@@ -25,33 +25,33 @@ function renderProjects(projects) {
       </div>
     `;
 
-    projectSlider.appendChild(slide);
-  });
+        projectSlider.appendChild(slide);
+    });
 
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  function updateSlide() {
-    projectSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
+    function updateSlide() {
+        projectSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
-  projectNext?.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % projects.length;
+    projectNext?.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % projects.length;
+        updateSlide();
+    });
+
+    projectPrev?.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+        updateSlide();
+    });
+
     updateSlide();
-  });
-
-  projectPrev?.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-    updateSlide();
-  });
-
-  updateSlide();
 }
 
 function createContentCard(item) {
-  const card = document.createElement("article");
-  card.className = "card card--content";
+    const card = document.createElement("article");
+    card.className = `card card--content card--${item.type || "default"}`;
 
-  card.innerHTML = `
+    card.innerHTML = `
     <div class="card-media">
       <img
         src="${item.image || ""}"
@@ -65,41 +65,44 @@ function createContentCard(item) {
     </div>
   `;
 
-  return card;
+    return card;
 }
 
 function renderTopics(topics) {
-  if (!researchAreaList || !Array.isArray(topics)) return;
+    if (!researchAreaList || !Array.isArray(topics)) return;
 
-  researchAreaList.innerHTML = "";
+    researchAreaList.innerHTML = "";
 
-  topics.forEach((topic) => {
-    researchAreaList.appendChild(createContentCard(topic));
-  });
+    topics.forEach((topic) => {
+        researchAreaList.appendChild(createContentCard(topic));
+    });
 }
 
 function setupAboutToggle() {
-  if (!aboutMore || !aboutMoreBtn) return;
+    if (!aboutMore || !aboutMoreBtn) return;
 
-  aboutMoreBtn.addEventListener("click", () => {
-    const isOpen = aboutMore.classList.toggle("is-open");
-    aboutMoreBtn.textContent = isOpen ? "Less" : "More";
-  });
+    aboutMoreBtn.addEventListener("click", () => {
+        const isOpen = aboutMore.classList.toggle("is-open");
+        aboutMoreBtn.textContent = isOpen ? "Less" : "More";
+    });
 }
 
 async function initHomePage() {
-  try {
-    const [projects, topics] = await Promise.all([
-      fetchJson("assets/data/projects.json"),
-      fetchJson("assets/data/topics.json"),
-    ]);
+    try {
+        const items = await fetchJson("assets/data/content.json");
 
-    renderProjects(projects);
-    renderTopics(topics);
-    setupAboutToggle();
-  } catch (error) {
-    console.error(error);
-  }
+        if (!Array.isArray(items)) return;
+
+        const projects = items.filter((item) => item.type === "project");
+        const topics = items.filter((item) => item.type === "topic");
+        // const notices = items.filter((item) => item.type === "notice");
+
+        renderProjects(projects);
+        renderTopics(topics);
+        setupAboutToggle();
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 initHomePage();
