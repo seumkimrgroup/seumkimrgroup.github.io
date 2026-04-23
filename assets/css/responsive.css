@@ -74,7 +74,7 @@
     height: 40px;
     font-size: 15px;
     text-align: center;
-    padding: 0 8px 8px;
+    padding: 0 12px;
   }
 
   .filter-controls {
@@ -90,7 +90,7 @@
   .publications-type-group {
     width: 100%;
     max-width: none;
-    justify-content: initial;
+    justify-content: center;
     gap: 8px;
   }
 
