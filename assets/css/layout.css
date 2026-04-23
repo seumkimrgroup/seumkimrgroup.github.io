@@ -62,19 +62,13 @@
 .content {
   width: min(100% - 32px, var(--container-width));
   margin: 0 auto;
-  padding-top: 120px;
-  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
   gap: var(--space-13);
 }
 
 .section {
-  margin-bottom: 0;
-}
-
-.section-heading {
-  margin-top: var(--space-14);
+    padding-top: 100px;
 }
 
 .footer {
