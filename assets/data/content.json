@@ -3,25 +3,28 @@
     "type": "topic",
     "subtitle": "",
     "title": "LC composite materials & systems",
-    "image": "assets/images/research/topic1.jpg",
+    "image": "assets/images/content/topic1.jpg",
     "description": "Design and application of liquid crystal composites for responsive optical materials and functional device platforms.",
-    "tag": ""
+    "tag": "",
+    "links": []
   },
   {
     "type": "topic",
     "title": "LC-based electro-optical systems",
     "subtitle": "",
-    "image": "assets/images/research/topic2.jpg",
+    "image": "assets/images/content/topic2.jpg",
     "description": "Electro-optical phase control, tunable optical filtering, and hybrid photonic devices based on liquid crystal anisotropy.",
-    "tag": ""
+    "tag": "",
+    "links": []
   },
   {
     "type": "topic",
     "title": "ML-assisted optimization of FEA",
     "subtitle": "",
-    "image": "assets/images/research/topic3.jpg",
+    "image": "assets/images/content/topic3.jpg",
     "description": "Machine learning-assisted simulation workflows for thermal, electrical, and optical FEA and accelerated design optimization.",
-    "tag": ""
+    "tag": "",
+    "links": []
   },
   {
     "type": "project",
@@ -29,22 +32,73 @@
     "title": "Joint Quantum Lab",
     "description": "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
     "image": "assets/images/project1.jpg",
-    "tag": ""
+    "tag": "",
+    "links": []
   },
   {
     "type": "project",
     "subtitle": "Advanced Materials",
     "title": "Ferronematic Liquid Crystals",
     "description": "High-speed electro-optic response using ferroelectric liquid crystal systems.",
-    "image": "assets/images/project2.jpg",
-    "tag": ""
+    "image": "assets/images/content/project2.jpg",
+    "tag": "",
+    "links": []
   },
   {
     "type": "project",
-    "subtitle": "Soft Photonics",
-    "title": "Liquid Crystal Elastomers",
+    "subtitle": "",
+    "title": "",
     "description": "Adaptive photonic structures using mechanically responsive LC materials.",
-    "image": "assets/images/project3.jpg",
-    "tag": ""
+    "image": "assets/images/content/project3.jpg",
+    "tag": "",
+    "links": []
+  },
+  {
+    "type": "highlight",
+    "subtitle": "",
+    "title": "",
+    "description": "Some living organisms are cryptically coloured with a wide range of hues and patterns for camouflage. Using thin, flexible membranes made from a polymer network of liquid crystals that are arranged in helical shapes, we have developed a kind of artificial chromatophore that can change colors instantly—from near-infrared to visible to ultraviolet—on demand. These soft materials may find uses in distinct applications such as cryptography, adaptive optics, and soft robotics.",
+    "image": "assets/images/content/highlight2.jpg",
+    "tag": "",
+    "links": [
+      {
+        "text": "Penn Today",
+        "url": "https://penntoday.upenn.edu/news/engineering-polymer-network-act-active-camouflage-demand"
+      },
+      {
+        "text": "Penn Engineering Today",
+        "url": "https://www.seas.upenn.edu/stories/penn-engineerings-artificial-chromatophores-enable-surfaces-with-squid-like-active-camouflage/"
+      },
+      {
+        "text": "Nature Research Highlight",
+        "url": "https://www.nature.com/articles/d41586-021-02458-x"
+      },
+      {
+        "text": "physicsworld",
+        "url": "https://physicsworld.com/a/inflatable-liquid-crystalline-elastomers-create-complex-colour-changing-displays/"
+      }
+    ]
+  },
+  {
+    "type": "highlight",
+    "subtitle": "",
+    "title": "",
+    "description": "We have designed a platform that programs the orientation of mechanically anisotropic molecules; thus, the surface wrinkles, promoted by such instabilities, can be patterned in the desired manner. The optics based on a spatial light modulator assembles wrinkle pixels of a notably small dimension over a large area at fast fabrication speed. This result enables new applications in optics such as image storage, informative labeling, and anti-counterfeiting.",
+    "image": "assets/images/highlight3.jpg",
+    "tag": "",
+    "links": [
+      {
+        "text": "NRF",
+        "url": "https://www.nrf.re.kr/cms/board/subject/view?menu_no=95&page=&nts_no=144157&search_type=NTS_TITLE&search_keyword=&nts_type="
+      },
+      {
+        "text": "Korea Lecture News",
+        "url": "https://www.lecturernews.com/news/articleView.html?idxno=54590"
+      },
+      {
+        "text": "CNU News",
+        "url": "https://plus.cnu.ac.kr/_prog/_board/?mode=V&no=2471386&code=sub07_0703&site_dvs_cd=kr&menu_dvs_cd=0703&skey=&sval=&site_dvs=&ntt_tag=&GotoPage=44"
+      }
+    ]
   }
 ]
