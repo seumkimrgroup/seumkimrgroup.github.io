@@ -29,20 +29,20 @@
 
   --type-title-size: 18px;
   --type-title-weight: 500;
-  --type-title-line: 1.4;
+  --type-title-line: 1.5;
 
   --type-body-size: 16px;
   --type-body-weight: 400;
-  --type-body-line: 1.2;
+  --type-body-line: 1.5;
 
   --type-meta-size: 14px;
   --type-meta-weight: 400;
-  --type-meta-line: 1.2;
+  --type-meta-line: 1.5;
 
   --type-eyebrow-size: 12px;
   --type-eyebrow-weight: 500;
-  --type-eyebrow-line: 1.4;
-  --type-eyebrow-letter-spacing: 1.4px;
+  --type-eyebrow-line: 1.5;
+  --type-eyebrow-letter-spacing: 1.5px;
 
   /* UI typography */
   --type-brand-size: 20px;

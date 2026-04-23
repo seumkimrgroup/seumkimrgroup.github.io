@@ -127,8 +127,8 @@
 }
 
 .member-detail-photo {
-    width: 220px;
-    height: 176px;
+    width: 176px;
+    height: 220px;
     object-fit: cover;
     object-position: center top;
     border-radius: 18px;
