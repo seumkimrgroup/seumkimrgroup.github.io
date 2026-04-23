@@ -101,11 +101,12 @@
 }
 
 .card--person .people-photo {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-surface-muted);
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface-muted);
 }
 
 .card--person .people-photo-placeholder,

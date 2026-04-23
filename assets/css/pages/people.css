@@ -127,9 +127,11 @@
 }
 
 .member-detail-photo {
-  width: 176px;
-  height: 176px;
-  border-radius: 18px;
+    width: 176px;
+    height: 176px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 18px;
 }
 
 .member-detail-main {
