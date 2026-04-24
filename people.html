@@ -4,9 +4,11 @@
     <title>Se-Um Kim Research Group</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
     <link rel="stylesheet" href="assets/css/base.css">
@@ -20,40 +22,126 @@
 <body>
     <div class="navbar">
         <a href="index.html" class="brand type-brand">Se-Um Kim Research Group</a>
-    <div class="nav-links">
-        <a href="people.html" class="active type-nav">People</a>
-        <a href="publications.html" class="type-nav">Publications</a>
-    </div>
-    </div>
 
-  <div class="content people-page">
-      <div id="people-list-view" class="people-list-view">
-          <section class="people-band people-band--pi">
-              <div class="people-band__inner">
-                  <div class="type-eyebrow people-band-label">Principal Investigator</div>
-                  <div id="pi-members"></div>
-              </div>
-          </section>
-
-      <section class="people-band people-band--members">
-        <div class="people-band__inner">
-          <div class="type-eyebrow people-band-label">Members</div>
-          <div id="current-members"></div>
+        <div class="nav-links">
+            <a href="people.html" class="active type-nav">People</a>
+            <a href="publications.html" class="type-nav">Publications</a>
         </div>
-      </section>
-
-      <section class="people-band people-band--alumni">
-        <div class="people-band__inner">
-          <div class="type-eyebrow people-band-label">Alumni</div>
-          <div id="former-members"></div>
-        </div>
-      </section>
     </div>
 
-    <div id="member-detail-view" class="member-detail-view"></div>
-  </div>
+    <div class="content people-page">
+        <div id="people-list-view" class="people-list-view">
 
-  <script src="assets/js/nav.js"></script>
-  <script type="module" src="assets/js/people.js"></script>
+            <section class="people-band people-band--pi">
+                <div class="people-band__inner">
+                    <div class="type-eyebrow people-band-label">Principal Investigator</div>
+
+                    <div class="member-detail-profile member-detail-profile--centered">
+                        <div class="member-detail-header member-detail-header--centered">
+                            <div class="member-detail-photo-wrap">
+                                <img src="assets/images/people/s-ukim.jpg"
+                                     alt="Se-Um Kim"
+                                     class="people-photo member-detail-photo">
+                            </div>
+
+                            <div class="member-detail-main">
+                                <div class="member-detail-header-text">
+                                    <div class="type-heading member-detail-name">Se-Um Kim</div>
+                                    <div class="type-meta member-detail-role">Associate Professor</div>
+                                    <div class="type-meta member-detail-affiliation">
+                                        Department of Electrical and Information Engineering
+                                    </div>
+                                </div>
+
+                                <div class="icon-links member-links">
+                                    <a href="mailto:seumkim@seoultech.ac.kr"
+                                       class="icon-link"
+                                       aria-label="Email"
+                                       title="Email">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
+                                            <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 2v.2l8 5.2 8-5.2V8l-8 5-8-5z" />
+                                        </svg>
+                                    </a>
+
+                                    <a href="https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en"
+                                       class="icon-link"
+                                       aria-label="Google Scholar"
+                                       title="Google Scholar"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon">
+                                            <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 13L5.5 12.45V17c0 2.49 3 4.5 6.5 4.5S18.5 19.49 18.5 17v-4.55L12 16z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-detail-sections member-detail-sections--pi">
+                        <section class="member-detail-section">
+                            <div class="type-title member-detail-section-title">Research Career</div>
+
+                            <div class="member-detail-section-body">
+                                <div class="type-body member-detail-item">
+                                    2026–Present: 겸직연구원, KIST 양자기술연구단
+                                </div>
+                                <div class="type-body member-detail-item">
+                                    2026–Present: Associate Professor, SeoulTech
+                                </div>
+                                <div class="type-body member-detail-item">
+                                    2022–2026: Assistant Professor, SeoulTech
+                                </div>
+                                <div class="type-body member-detail-item">
+                                    Staff researcher, Samsung Advanced Institute of Technology
+                                </div>
+                                <div class="type-body member-detail-item">
+                                    Post-doctoral fellow, Materials Science and Engineering, University of Pennsylvania
+                                </div>
+                                <div class="type-body member-detail-item">
+                                    Post-doctoral fellow, BK21 Creative Research Engineer Development for IT, Seoul National University
+                                </div>
+                                <div class="type-body member-detail-item">
+                                    Post-doctoral fellow, Inter-University Semiconductor Research Center, Seoul National University
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="member-detail-section">
+                            <div class="type-title member-detail-section-title">Education</div>
+
+                            <div class="member-detail-section-body">
+                                <div class="type-body member-detail-item">
+                                    Ph.D. in Electrical and Computer Engineering, Seoul National University
+                                </div>
+                                <div class="type-body member-detail-item">
+                                    B.S. in Electrical Engineering, Seoul National University
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+
+            <section class="people-band people-band--members">
+                <div class="people-band__inner">
+                    <div class="type-eyebrow people-band-label">Members</div>
+                    <div id="current-members"></div>
+                </div>
+            </section>
+
+            <section class="people-band people-band--alumni">
+                <div class="people-band__inner">
+                    <div class="type-eyebrow people-band-label">Alumni</div>
+                    <div id="former-members"></div>
+                </div>
+            </section>
+        </div>
+
+        <div id="member-detail-view" class="member-detail-view"></div>
+    </div>
+
+    <script src="assets/js/nav.js"></script>
+    <script type="module" src="assets/js/people.js"></script>
 </body>
 </html>

@@ -72,7 +72,10 @@ function renderDetailPublications(member) {
 }
 
 function getAffiliationText(member) {
-    if (member.currentAffiliation && String(member.currentAffiliation).trim() !== "") {
+    if (
+        member.currentAffiliation &&
+        String(member.currentAffiliation).trim() !== ""
+    ) {
         return member.currentAffiliation;
     }
 
@@ -168,6 +171,8 @@ function renderMemberLinks(member) {
 }
 
 function renderCurrentMembers(memberList) {
+    if (!currentContainer) return;
+
     currentContainer.innerHTML = "";
 
     const listDiv = document.createElement("div");
@@ -181,14 +186,18 @@ function renderCurrentMembers(memberList) {
             const yearDiff = (a.joinYear || 9999) - (b.joinYear || 9999);
             if (yearDiff !== 0) return yearDiff;
 
-            return a.name.localeCompare(b.name);
+            return String(a.name || "").localeCompare(String(b.name || ""));
         })
-        .forEach((member) => listDiv.appendChild(createCurrentMemberCard(member)));
+        .forEach((member) => {
+            listDiv.appendChild(createCurrentMemberCard(member));
+        });
 
     currentContainer.appendChild(listDiv);
 }
 
 function renderFormerMembers(memberList) {
+    if (!formerContainer) return;
+
     formerContainer.innerHTML = "";
 
     const listDiv = document.createElement("div");
@@ -202,20 +211,18 @@ function renderFormerMembers(memberList) {
             const yearDiff = (b.leaveYear || 0) - (a.leaveYear || 0);
             if (yearDiff !== 0) return yearDiff;
 
-            return a.name.localeCompare(b.name);
+            return String(a.name || "").localeCompare(String(b.name || ""));
         })
-        .forEach((member) => listDiv.appendChild(createAlumniMemberCard(member)));
+        .forEach((member) => {
+            listDiv.appendChild(createAlumniMemberCard(member));
+        });
 
     formerContainer.appendChild(listDiv);
 }
 
 function renderMembers() {
-    const visibleMembers = members.filter(
-        (member) => String(member.role || "").toLowerCase() !== "associate professor"
-    );
-
-    const currentMembers = visibleMembers.filter((member) => member.status === "current");
-    const formerMembers = visibleMembers.filter((member) => member.status === "former");
+    const currentMembers = members.filter((member) => member.status === "current");
+    const formerMembers = members.filter((member) => member.status === "former");
 
     renderCurrentMembers(currentMembers);
     renderFormerMembers(formerMembers);
@@ -312,18 +319,24 @@ function renderMemberDetail(member) {
 }
 
 function showListView() {
+    if (!listView || !detailView) return;
+
     listView.style.removeProperty("display");
     detailView.style.display = "none";
     renderMembers();
 }
 
 function showDetailView(member) {
+    if (!listView || !detailView) return;
+
     listView.style.display = "none";
     detailView.style.display = "flex";
     renderMemberDetail(member);
 }
 
 function showError(message, backLink = false) {
+    if (!listView || !detailView) return;
+
     listView.style.display = "none";
     detailView.style.display = "flex";
 

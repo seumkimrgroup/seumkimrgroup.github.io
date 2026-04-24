@@ -1,50 +1,5 @@
 [
   {
-    "name": "Se-Um Kim",
-    "status": "current",
-    "role": "Associate Professor",
-    "email": "seumkim@seoultech.ac.kr",
-    "phone": "+82-2-970-6425",
-    "office": "Mirae-Hall Unit 523",
-    "joinYear": 2022,
-    "leaveYear": null,
-    "image": "assets/images/people/s-ukim.jpg",
-    "links": [
-      {
-        "type": "email",
-        "value": "seumkim@seoultech.ac.kr"
-      },
-      {
-        "type": "scholar",
-        "value": "https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en"
-      }
-    ],
-    "description": [
-      {
-        "title": "RESEARCH CAREER",
-        "content": [
-          "2026–Present: 겸직연구원, KIST 양자기술연구단",
-          "2026–Present: Associate Professor, SeoulTech",
-          "2022–2026: Assistant Professor, SeoulTech",
-          "Staff researcher, Samsung Advanced Institute of Technology",
-          "Post-doctoral fellow, Materials Science and Engineering, University of Pennsylvania",
-          "Post-doctoral fellow, BK21 Creative Research Engineer Development for IT, Seoul National University",
-          "Post-doctoral fellow, Inter-University Semiconductor Research Center, Seoul National University"
-        ]
-      },
-      {
-        "title": "EDUCATION",
-        "content": [
-          "Ph.D. in Electrical and Computer Engineering, Seoul National University",
-          "B.S. in Electrical Engineering, Seoul National University"
-        ]
-      }
-    ],
-    "currentAffiliation": "Department of Electrical and Information Engineering",
-    "nextAffiliation": "",
-    "slug": "s-ukim"
-  },
-  {
     "name": "I Hyeon Choi",
     "status": "current",
     "role": "Undergraduate",
