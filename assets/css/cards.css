@@ -3,14 +3,14 @@
    ========================= */
 
 .card {
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
 }
 
 .card--interactive {
   cursor: pointer;
-  transition: var(--transition-fast);
+  transition: var(--transition);
 }
 
 .card--interactive:hover {
@@ -60,8 +60,8 @@
 .card--publication {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-6) var(--space-11);
+  gap: 4px;
+  padding: 12px 24px;
 }
 
 .card--publication .publication-title {
@@ -79,11 +79,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-5);
+  gap: 10px;
   padding: 18px 14px;
   min-height: 172px;
   text-align: center;
-  background: #ffffff;
+  background: var(--color-bg);
 }
 
 .card--person .people-photo {
@@ -92,13 +92,13 @@
   object-fit: cover;
   object-position: center top;
   border-radius: var(--radius-sm);
-  background-color: var(--color-surface-muted);
+  background: var(--color-surface);
 }
 
 .card--person .people-photo-placeholder,
 .member-detail-photo.people-photo-placeholder {
-  background-color: var(--color-surface-muted);
-  border: 1px solid var(--color-border-soft);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
 }
 
 .card--person .people-info {
@@ -186,8 +186,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: #ffffff;
-  border-radius: 18px;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
   max-width: 320px;
   width: 100%;
 }

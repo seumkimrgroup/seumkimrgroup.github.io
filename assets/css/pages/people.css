@@ -15,18 +15,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-7);
-  margin-bottom: var(--space-11);
-  border: 1px solid var(--color-border-nav);
-  border-radius: 999px;
+  gap: 6px;
+  padding: 6px 14px;
+  margin-bottom: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--color-text-muted);
   text-decoration: none;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
-  transition: var(--transition-fast);
+  transition: var(--transition);
 }
 
 .back-link:hover {
@@ -50,7 +50,7 @@
 }
 
 .people-band__label {
-  margin-bottom: var(--space-9);
+  margin-bottom: 18px;
   color: var(--color-text-subtle);
 }
 
@@ -58,7 +58,7 @@
 
 .people-list {
   display: grid;
-  gap: var(--space-8);
+  gap: 16px;
 }
 
 .people-members-list,
@@ -132,7 +132,7 @@
 .member-detail-header-text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 6px;
 }
 
 .member-detail-role {
@@ -153,13 +153,13 @@
 .icon-link {
   width: 36px;
   height: 36px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-fast);
-  background: #ffffff;
+  transition: var(--transition);
+  background: var(--color-bg);
 }
 
 .icon-link:hover {
@@ -184,7 +184,7 @@
 }
 
 .member-detail-sections--pi {
-  margin-top: var(--space-11);
+  margin-top: 24px;
 }
 
 .member-detail-section {
@@ -196,7 +196,7 @@
 .member-detail-section-body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 8px;
 }
 
 .member-detail-item {
@@ -204,14 +204,14 @@
 }
 
 .member-publications-section {
-  margin-top: var(--space-3);
+  margin-top: 6px;
 }
 
 .member-detail-joined {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-top: var(--space-3);
+  margin-top: 6px;
 }
 
 .member-detail-joined__label {

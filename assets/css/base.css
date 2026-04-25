@@ -4,8 +4,8 @@
 
 body {
   margin: 0;
-  font-family: var(--font-family-base);
-  background-color: var(--color-bg);
+  font-family: var(--font-family);
+  background: var(--color-bg);
   color: var(--color-text);
 }
 
@@ -18,66 +18,14 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
-h1 {
-  font-size: var(--type-display-size);
-  font-weight: var(--type-display-weight);
-  line-height: var(--type-display-line);
-  color: var(--color-text-strong);
-}
+h1 { font-size: 48px; font-weight: 600; line-height: 1.2;  color: var(--color-text-strong); }
+h2 { font-size: 30px; font-weight: 600; line-height: 1.25; color: var(--color-text-strong); }
+h3 { font-size: 18px; font-weight: 500; line-height: 1.5;  color: var(--color-text-strong); }
+p  { font-size: 16px; font-weight: 400; line-height: 1.55; color: var(--color-text-muted);  }
+h5 { font-size: 14px; font-weight: 400; line-height: 1.5;  color: var(--color-text-subtle); }
+h6 { font-size: 11px; font-weight: 600; line-height: 1.5;  letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-text-muted); }
 
-h2 {
-  font-size: var(--type-heading-size);
-  font-weight: var(--type-heading-weight);
-  line-height: var(--type-heading-line);
-  color: var(--color-text-strong);
-}
-
-h3 {
-  font-size: var(--type-title-size);
-  font-weight: var(--type-title-weight);
-  line-height: var(--type-title-line);
-  color: var(--color-text-strong);
-}
-
-p {
-  font-size: var(--type-body-size);
-  font-weight: var(--type-body-weight);
-  line-height: var(--type-body-line);
-  color: var(--color-text-muted);
-}
-
-h5 {
-  font-size: var(--type-meta-size);
-  font-weight: var(--type-meta-weight);
-  line-height: var(--type-meta-line);
-  color: var(--color-text-subtle);
-}
-
-h6 {
-  font-size: var(--type-eyebrow-size);
-  font-weight: var(--type-eyebrow-weight);
-  line-height: var(--type-eyebrow-line);
-  letter-spacing: var(--type-eyebrow-letter-spacing);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-/* text-* classes for inline/anchor UI elements that can't use element selectors */
-
-.text-brand {
-  font-size: var(--type-brand-size);   /* 20px — navbar brand, between h2 and h3 */
-  font-weight: var(--type-brand-weight);
-  line-height: var(--type-brand-line);
-}
-
-.text-nav {
-  font-size: var(--type-nav-size);     /* 16px/1.4 — nav links (same size as p, tighter line-height) */
-  font-weight: var(--type-nav-weight);
-  line-height: var(--type-nav-line);
-}
-
-.text-ui {
-  font-size: var(--type-ui-size);      /* 14px/500 — UI labels (same size as h5, medium weight) */
-  font-weight: var(--type-ui-weight);
-  line-height: var(--type-ui-line);
-}
+/* inline/anchor UI elements where element selectors can't be used */
+.text-brand { font-size: 20px; font-weight: 500; line-height: 1.4; }
+.text-nav   { font-size: 16px; font-weight: 400; line-height: 1.4; }
+.text-ui    { font-size: 14px; font-weight: 500; line-height: 1.4; }

@@ -189,6 +189,6 @@
   }
 
   .back-link {
-    margin-bottom: var(--space-8);
+    margin-bottom: 16px;
   }
 }

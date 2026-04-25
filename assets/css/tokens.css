@@ -4,85 +4,18 @@
   --color-text-strong: #1e2a38;
   --color-text-muted: #5a6b7c;
   --color-text-subtle: #8a98a8;
-  --color-border: #e5e5e5;
-  --color-border-soft: #eeeeee;
-  --color-border-strong: #cfcfcf;
-  --color-border-nav: #dddddd;
-  --color-hover-text: #555555;
-  --color-input: #777777;
-  --color-input-placeholder: #aaaaaa;
-  --color-input-focus: #999999;
-  --color-button-active: #111111;
-  --color-button-hover: #f3f3f3;
-  --color-surface-muted: #f2f2f2;
+  --color-border: #e4e4e4;
+  --color-border-strong: #c8c8c8;
+  --color-surface: #f2f2f2;
+  --color-accent: #111111;
+  --color-accent-hover: #f3f3f3;
 
-  --font-family-base: 'Roboto', sans-serif;
-
-  /* content hierarchy */
-  --type-display-size: 48px;
-  --type-display-weight: 600;
-  --type-display-line: 1.2;
-
-  --type-heading-size: 30px;
-  --type-heading-weight: 600;
-  --type-heading-line: 1.25;
-
-  --type-title-size: 18px;
-  --type-title-weight: 500;
-  --type-title-line: 1.5;
-
-  --type-body-size: 16px;
-  --type-body-weight: 400;
-  --type-body-line: 1.5;
-
-  --type-meta-size: 14px;
-  --type-meta-weight: 400;
-  --type-meta-line: 1.5;
-
-  --type-eyebrow-size: 12px;
-  --type-eyebrow-weight: 500;
-  --type-eyebrow-line: 1.5;
-  --type-eyebrow-letter-spacing: 1.5px;
-
-  /* UI typography */
-  --type-brand-size: 20px;
-  --type-brand-weight: 500;
-  --type-brand-line: 1.4;
-
-  --type-nav-size: 16px;
-  --type-nav-weight: 400;
-  --type-nav-line: 1.4;
-
-  --type-ui-size: 14px;
-  --type-ui-weight: 500;
-  --type-ui-line: 1.4;
-
-  --font-size-input: 15px;
-  --font-size-filter: 12px;
-
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-pill: 15px;
-
-  --shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.06);
-
-  --space-1: 2px;
-  --space-2: 4px;
-  --space-3: 6px;
-  --space-4: 8px;
-  --space-5: 10px;
-  --space-6: 12px;
-  --space-7: 14px;
-  --space-8: 16px;
-  --space-9: 18px;
-  --space-10: 20px;
-  --space-11: 24px;
-  --space-12: 28px;
-  --space-13: 32px;
-  --space-14: 40px;
-
+  --font-family: 'Roboto', sans-serif;
   --container-width: 1080px;
   --navbar-z: 1000;
-
-  --transition-fast: 0.2s;
+  --transition: 0.2s;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-pill: 999px;
+  --shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
