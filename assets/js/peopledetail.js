@@ -4,7 +4,6 @@ import { formatRole } from "./peoplecard.js";
 
 const detailView = document.getElementById("member-detail-view");
 
-let members = [];
 let publications = [];
 
 function isFormer(member) {
@@ -39,13 +38,13 @@ function renderInfoSection(title, items) {
     const itemsHtml = items
         .map(
             (item) =>
-                `<div class="type-body member-detail-item">${escapeHtml(item)}</div>`
+                `<p class="member-detail-item">${escapeHtml(item)}</p>`
         )
         .join("");
 
     return `
     <section class="member-detail-section">
-      <div class="type-title member-detail-section-title">${escapeHtml(title)}</div>
+      <h3 class="member-detail-section-title">${escapeHtml(title)}</h3>
       <div class="member-detail-section-body">${itemsHtml}</div>
     </section>
   `;
@@ -57,7 +56,7 @@ function renderDetailPublications(member) {
 
     return `
     <section class="member-detail-section member-publications-section">
-      <div class="type-title member-publications-title">Publications</div>
+      <h3 class="member-publications-title">Publications</h3>
       <div id="member-publication-list"></div>
     </section>
   `;
@@ -159,7 +158,7 @@ function renderMemberLinks(member) {
         )
         .join("");
 
-    return `<div class="icon-links member-links">${items}</div>`;
+    return `<div class="icon-links">${items}</div>`;
 }
 
 function renderMemberDetail(member) {
@@ -175,12 +174,12 @@ function renderMemberDetail(member) {
 
     const affiliation = getAffiliationText(member);
     const affiliationHtml = affiliation
-        ? `<div class="type-meta member-detail-affiliation">${escapeHtml(affiliation)}</div>`
+        ? `<h5 class="member-detail-affiliation">${escapeHtml(affiliation)}</h5>`
         : "";
 
     const roleHtml =
         !isFormer(member) && formatRole(member.role)
-            ? `<div class="type-meta member-detail-role">${escapeHtml(formatRole(member.role))}</div>`
+            ? `<h5 class="member-detail-role">${escapeHtml(formatRole(member.role))}</h5>`
             : "";
 
     const joinedAt =
@@ -191,7 +190,7 @@ function renderMemberDetail(member) {
             : "";
 
     const joinedAtHtml = joinedAt
-        ? `<div class="member-detail-joined"><span class="member-detail-joined-label">Joined at</span><span class="member-detail-joined-value">${escapeHtml(joinedAt)}</span></div>`
+        ? `<div class="member-detail-joined"><span class="member-detail-joined__label">Joined at</span><span class="member-detail-joined__value">${escapeHtml(joinedAt)}</span></div>`
         : "";
 
     const photoBlock = isFormer(member)
@@ -229,7 +228,7 @@ function renderMemberDetail(member) {
 
         <div class="member-detail-main">
           <div class="member-detail-header-text">
-            <div class="type-heading member-detail-name">${escapeHtml(member.name)}</div>
+            <h2 class="member-detail-name">${escapeHtml(member.name)}</h2>
             ${roleHtml}
             ${affiliationHtml}
             ${joinedAtHtml}
@@ -256,8 +255,8 @@ function showError(message, backLink = true) {
     if (!detailView) return;
 
     detailView.innerHTML = `
-    ${backLink ? '<a href="people.html" class="back-link type-body">← Back to People</a>' : ""}
-    <div class="type-title">${escapeHtml(message)}</div>
+    ${backLink ? '<a href="people.html" class="back-link">← Back to People</a>' : ""}
+    <h3>${escapeHtml(message)}</h3>
   `;
 }
 
@@ -270,8 +269,9 @@ async function initPeopleDetailPage() {
             return;
         }
 
+        let members;
         [members, publications] = await Promise.all([
-            fetchJson("assets/data/members.json"),
+            fetchJson("assets/data/people.json"),
             fetchJson("assets/data/publications.json"),
         ]);
 

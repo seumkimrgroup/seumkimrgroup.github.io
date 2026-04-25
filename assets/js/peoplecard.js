@@ -18,7 +18,7 @@ const ROLE_META = {
     },
 };
 
-export function normalizeRole(role) {
+function normalizeRole(role) {
     const value = String(role || "")
         .toLowerCase()
         .replace(/\./g, "")
@@ -32,7 +32,7 @@ export function normalizeRole(role) {
     return "";
 }
 
-export function getRoleMeta(role) {
+function getRoleMeta(role) {
     const key = normalizeRole(role);
 
     return (
@@ -52,12 +52,12 @@ export function formatRole(role) {
     return getRoleMeta(role).display;
 }
 
-export function getDegreeLabel(role) {
+function getDegreeLabel(role) {
     return getRoleMeta(role).degree;
 }
 
 function goToMember(member) {
-    window.location.href = `people.html?id=${encodeURIComponent(member.slug)}`;
+    window.location.href = `peopledetail.html?id=${encodeURIComponent(member.slug)}`;
 }
 
 export function createCurrentMemberCard(member) {
@@ -72,8 +72,8 @@ export function createCurrentMemberCard(member) {
     item.innerHTML = `
     ${imageHtml}
     <div class="people-info">
-      <div class="type-title people-name">${escapeHtml(member.name)}</div>
-      <div class="type-meta people-role">${escapeHtml(formatRole(member.role))}</div>
+      <h3 class="people-name">${escapeHtml(member.name)}</h3>
+      <h5 class="people-role">${escapeHtml(formatRole(member.role))}</h5>
     </div>
   `;
 
@@ -96,8 +96,8 @@ export function createAlumniMemberCard(member) {
 
     item.innerHTML = `
     <div class="people-info">
-      <div class="type-title people-name">${escapeHtml(member.name)}</div>
-      <div class="type-meta people-status">${escapeHtml(statusLine)}</div>
+      <h3 class="people-name">${escapeHtml(member.name)}</h3>
+      <h5 class="people-status">${escapeHtml(statusLine)}</h5>
       ${joinedAt
             ? `
         <div class="people-joined-at">

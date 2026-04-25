@@ -155,12 +155,6 @@ body.home .nav-links a.active {
   display: flex;
 }
 
-.about-more-content p {
-  font-size: var(--type-body-size);
-  font-weight: var(--type-body-weight);
-  line-height: var(--type-body-line);
-  color: var(--color-text-muted);
-}
 
 .about-actions {
   display: flex;
@@ -213,6 +207,8 @@ body.home .nav-links a.active {
 }
 
 .contact-value {
+  font-size: var(--type-meta-size);
+  font-weight: var(--type-meta-weight);
   color: var(--color-text-muted);
   line-height: 1.7;
 }

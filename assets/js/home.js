@@ -19,9 +19,9 @@ function renderProjects(projects) {
 
         slide.innerHTML = `
       <div class="project-content">
-        <div class="type-eyebrow project-subtitle">${escapeHtml(project.subtitle || "")}</div>
-        <div class="type-display project-title">${escapeHtml(project.title || "")}</div>
-        <div class="type-body project-desc">${escapeHtml(project.description || "")}</div>
+        <h6 class="project-subtitle">${escapeHtml(project.subtitle || "")}</h6>
+        <h1 class="project-title">${escapeHtml(project.title || "")}</h1>
+        <p class="project-desc">${escapeHtml(project.description || "")}</p>
       </div>
     `;
 
@@ -60,8 +60,8 @@ function createContentCard(item) {
       />
     </div>
     <div class="card-body">
-      <h3 class="type-title card-title">${escapeHtml(item.title || "")}</h3>
-      <p class="type-body card-description">${escapeHtml(item.description || "")}</p>
+      <h3 class="card-title">${escapeHtml(item.title || "")}</h3>
+      <p class="card-description">${escapeHtml(item.description || "")}</p>
     </div>
   `;
 

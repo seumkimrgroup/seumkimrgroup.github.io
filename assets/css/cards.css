@@ -2,7 +2,6 @@
    Card system
    ========================= */
 
-/* 카드 기본 형태 */
 .card {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -59,22 +58,14 @@
    ========================= */
 
 .card--publication {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
   padding: var(--space-6) var(--space-11);
-  margin-bottom: var(--space-6);
 }
 
 .card--publication .publication-title {
-  margin: 0;
   color: var(--color-text-strong);
-}
-
-.card--publication .publication-meta {
-  margin-top: var(--space-3);
-}
-
-.card--publication .publication-authors {
-  margin-top: var(--space-2);
 }
 
 /* =========================
@@ -95,18 +86,13 @@
   background: #ffffff;
 }
 
-.card--person-alumni {
-  min-height: unset;
-  height: auto;
-}
-
 .card--person .people-photo {
-    width: 100px;
-    height: 120px;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: var(--radius-sm);
-    background-color: var(--color-surface-muted);
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-muted);
 }
 
 .card--person .people-photo-placeholder,
@@ -215,62 +201,17 @@
   padding: 18px 18px 20px;
 }
 
-.card--content .card-title {
-  margin: 0;
-}
-
-.card--content .card-description {
-  margin: 0;
-}
-
-/* =========================
-   Search / filter block cards
-   ========================= */
-
-.search-card {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  padding: var(--space-6) var(--space-11);
-}
-
-.publications-search-card {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  padding: 28px 32px;
-}
-
 /* =========================
    Responsive
    ========================= */
 
 @media (max-width: 768px) {
-  .search-card {
-    flex-direction: column;
-    align-items: stretch;
-    padding: var(--space-6);
-    gap: var(--space-6);
-  }
-
-  .publications-search-card {
-    align-items: center;
-    padding: 18px 20px 20px;
-    gap: 14px;
-  }
-
   .card--publication {
     padding: 18px 18px 20px;
   }
 
   .card--person {
     min-height: 150px;
-  }
-
-  .card--person .people-photo {
-    width: 64px;
-    height: 64px;
   }
 
   .card--person-alumni .people-info {

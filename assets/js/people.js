@@ -70,18 +70,14 @@ function renderMembers() {
 
 async function initPeoplePage() {
     try {
-        members = await fetchJson("assets/data/members.json");
+        members = await fetchJson("assets/data/people.json");
         renderMembers();
     } catch (error) {
         console.error(error);
 
         if (currentContainer) {
             currentContainer.innerHTML =
-                '<div class="type-meta">Member data could not be loaded.</div>';
-        }
-
-        if (formerContainer) {
-            formerContainer.innerHTML = "";
+                '<h5>Member data could not be loaded.</h5>';
         }
     }
 }

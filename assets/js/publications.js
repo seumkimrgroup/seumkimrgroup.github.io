@@ -41,7 +41,7 @@ function renderPublications() {
     const filtered = getFilteredPublications();
 
     if (filtered.length === 0) {
-        container.innerHTML = '<div class="type-meta">No publications found.</div>';
+        container.innerHTML = '<h5>No publications found.</h5>';
         return;
     }
 
@@ -77,7 +77,7 @@ async function initPublicationsPage() {
 
         if (container) {
             container.innerHTML =
-                '<div class="type-meta">Publication data could not be loaded.</div>';
+                '<h5>Publication data could not be loaded.</h5>';
         }
     }
 }

@@ -2,9 +2,9 @@ import { escapeHtml } from "./data.js";
 
 export function createPublicationCard(pub) {
     const cardInner = `
-    <div class="type-body publication-title">${escapeHtml(pub.title || "")}</div>
-    <div class="type-meta publication-meta">${escapeHtml(pub.source || "")}</div>
-    <div class="type-meta publication-authors">${escapeHtml(pub.authors || "")}</div>
+    <p class="publication-title">${escapeHtml(pub.title || "")}</p>
+    <h5 class="publication-meta">${escapeHtml(pub.source || "")}</h5>
+    <h5 class="publication-authors">${escapeHtml(pub.authors || "")}</h5>
   `;
 
     if (pub.link) {
