@@ -57,7 +57,7 @@ function renderDetailPublications(member) {
     return `
     <section class="member-detail-section member-publications-section">
       <h3 class="member-publications-title">Publications</h3>
-      <div id="member-publication-list"></div>
+      <div id="member-publication-list" class="publication-list"></div>
     </section>
   `;
 }
@@ -195,47 +195,30 @@ function renderMemberDetail(member) {
 
     const photoBlock = isFormer(member)
         ? ""
-        : `<div class="member-detail-photo-wrap">${member.image
+        : member.image
             ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo member-detail-photo">`
-            : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`
-        }</div>`;
+            : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
 
     const headerClass = isFormer(member)
-        ? "member-detail-header member-detail-header--inset no-photo"
-        : "member-detail-header member-detail-header--inset";
+        ? "two-col two-col--profile no-photo"
+        : "two-col two-col--profile";
 
     const detailSections = isFormer(member)
-        ? `
-      <div class="member-detail-sections">
-        ${educationSection}
-        ${renderDetailPublications(member)}
-      </div>
-    `
-        : `
-      <div class="member-detail-sections">
-        ${educationSection}
-        ${researchSection}
-        ${renderDetailPublications(member)}
-      </div>
-    `;
+        ? `${educationSection}${renderDetailPublications(member)}`
+        : `${educationSection}${researchSection}${renderDetailPublications(member)}`;
 
     detailView.innerHTML = `
     <a href="people.html" class="back-link">&lt; Back</a>
 
-    <div class="member-detail-profile">
-      <div class="${headerClass}">
-        ${photoBlock}
+    <div class="${headerClass}">
+      ${photoBlock}
 
-        <div class="member-detail-main">
-          <div class="member-detail-header-text">
-            <h2 class="member-detail-name">${escapeHtml(member.name)}</h2>
-            ${roleHtml}
-            ${affiliationHtml}
-            ${joinedAtHtml}
-          </div>
-
-          ${renderMemberLinks(member)}
-        </div>
+      <div class="member-detail-main">
+        <h2 class="member-detail-name">${escapeHtml(member.name)}</h2>
+        ${roleHtml}
+        ${affiliationHtml}
+        ${joinedAtHtml}
+        ${renderMemberLinks(member)}
       </div>
     </div>
 

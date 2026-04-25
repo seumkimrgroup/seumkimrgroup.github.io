@@ -53,8 +53,3 @@
 .site-btn--primary:hover {
   opacity: 0.92;
 }
-
-.site-btn--secondary {
-  background: transparent;
-  color: var(--color-text);
-}

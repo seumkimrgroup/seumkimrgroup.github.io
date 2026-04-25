@@ -64,6 +64,11 @@
   gap: 32px;
 }
 
+.two-col {
+  display: grid;
+  align-items: start;
+}
+
 .section {
   display: flex;
   flex-direction: column;

@@ -95,7 +95,6 @@ async function initHomePage() {
 
         const projects = items.filter((item) => item.type === "project");
         const topics = items.filter((item) => item.type === "topic");
-        // const notices = items.filter((item) => item.type === "notice");
 
         renderProjects(projects);
         renderTopics(topics);

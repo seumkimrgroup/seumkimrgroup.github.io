@@ -1,7 +1,3 @@
-/* =========================
-   Card system
-   ========================= */
-
 .card {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -19,8 +15,6 @@
   transform: translateY(-2px);
 }
 
-/* shared inner structure */
-
 .card-body {
   display: flex;
   flex-direction: column;
@@ -32,10 +26,6 @@
 
 .card-description {
   color: var(--color-text-muted);
-}
-
-.card-meta {
-  color: var(--color-text-subtle);
 }
 
 .card-media {
@@ -52,10 +42,13 @@
   display: block;
 }
 
-/* =========================
-   PublicationCard
-   full width + external link
-   ========================= */
+/* PublicationCard */
+
+.publication-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .card--publication {
   display: flex;
@@ -68,11 +61,7 @@
   color: var(--color-text-strong);
 }
 
-/* =========================
-   PeopleCard current
-   fixed size
-   photo + name + role
-   ========================= */
+/* PeopleCard (current) */
 
 .card--person {
   display: flex;
@@ -117,11 +106,7 @@
   color: var(--color-text-subtle);
 }
 
-/* =========================
-   PeopleCard alumni
-   fixed width same family
-   name + degree + leave year + joined at
-   ========================= */
+/* PeopleCard (alumni) */
 
 .card--person-alumni {
   align-items: stretch;
@@ -175,12 +160,7 @@
   white-space: nowrap;
 }
 
-/* =========================
-   ContentCard
-   image + small title + description
-   no click
-   max 2-column layout handled by page css
-   ========================= */
+/* ContentCard */
 
 .card--content {
   display: flex;
@@ -200,10 +180,6 @@
   gap: 10px;
   padding: 18px 18px 20px;
 }
-
-/* =========================
-   Responsive
-   ========================= */
 
 @media (max-width: 768px) {
   .card--publication {

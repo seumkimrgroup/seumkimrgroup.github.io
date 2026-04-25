@@ -4,26 +4,27 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .member-detail-header {
+  .two-col--profile {
     grid-template-columns: 152px minmax(0, 1fr);
     gap: 24px;
-  }
-
-  .member-detail-photo-wrap {
-    width: 152px;
   }
 
   .member-detail-photo {
     width: 152px;
     height: 152px;
   }
-
-  .member-detail-main {
-    min-height: 152px;
-  }
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding-top: 0;
+    scroll-margin-top: 132px;
+  }
+
+  body.home .content {
+    padding-top: 24px;
+  }
+
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -91,32 +92,18 @@
     padding-top: 132px;
   }
 
-  .people-band {
-    padding: 36px 0;
-  }
-
-  .people-photo {
-    width: 64px;
-    height: 64px;
+  .people-page .section {
+    padding: 32px 0;
   }
 
   .member-detail-view {
     width: calc(100% - 40px);
   }
 
-  .member-detail-header {
+  .two-col--profile {
     grid-template-columns: 132px minmax(0, 1fr);
     gap: 20px;
-  }
-
-  .member-detail-header--inset,
-  .member-detail-header--centered {
     width: 100%;
-    margin: 0;
-  }
-
-  .member-detail-photo-wrap {
-    width: 132px;
   }
 
   .member-detail-photo {
@@ -124,21 +111,11 @@
     height: 132px;
   }
 
-  .member-detail-main {
-    min-height: 132px;
-    gap: 14px;
+  .member-detail-section + .member-detail-section {
+    margin-top: 24px;
   }
 
-  .member-detail-sections {
-    margin-top: 28px;
-    gap: 24px;
-  }
-
-  .member-publications-section {
-    margin-top: 0;
-  }
-
-  .contact-grid {
+  .two-col--contact {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -154,17 +131,10 @@
     grid-template-columns: 1fr;
   }
 
-  .member-detail-header {
+  .two-col--profile {
     grid-template-columns: 1fr;
     gap: 18px;
     justify-items: center;
-  }
-
-  .member-detail-photo-wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .member-detail-photo {
@@ -173,13 +143,7 @@
   }
 
   .member-detail-main {
-    min-height: 0;
     width: 100%;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .member-detail-header-text {
     align-items: flex-start;
     text-align: left;
   }
