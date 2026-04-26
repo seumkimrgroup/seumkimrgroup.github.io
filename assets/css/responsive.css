@@ -111,10 +111,6 @@
     height: 132px;
   }
 
-  .member-detail-section + .member-detail-section {
-    margin-top: 24px;
-  }
-
   .two-col--contact {
     grid-template-columns: 1fr;
     gap: 20px;

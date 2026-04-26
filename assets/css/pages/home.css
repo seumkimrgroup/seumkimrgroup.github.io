@@ -134,8 +134,6 @@ body.home .navbar.nav-over-project .nav-links a.active {
 
 .about-more-content {
   display: none;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .about-more-content.is-open {
