@@ -4,14 +4,14 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .two-col--profile {
-    grid-template-columns: 168px minmax(0, 1fr);
+  .container--profile {
+    grid-template-columns: 143px minmax(0, 1fr);
     gap: 24px;
   }
 
   .member-detail-photo {
-    width: 168px;
-    height: 168px;
+    width: 143px;
+    height: 143px;
   }
 }
 
@@ -51,11 +51,6 @@
     padding: 132px 20px 50px;
   }
 
-  .search-box {
-    width: 100%;
-    max-width: 100%;
-  }
-
   .publications-search-box {
     min-height: 40px;
     height: 40px;
@@ -93,22 +88,22 @@
     padding-top: 132px;
   }
 
-.member-detail-view {
+  .member-detail-view {
     width: calc(100% - 40px);
   }
 
-  .two-col--profile {
-    grid-template-columns: 148px minmax(0, 1fr);
+  .container--profile {
+    grid-template-columns: 126px minmax(0, 1fr);
     gap: 20px;
     width: 100%;
   }
 
   .member-detail-photo {
-    width: 148px;
-    height: 148px;
+    width: 126px;
+    height: 126px;
   }
 
-  .two-col--contact {
+  .container--contact {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -124,7 +119,7 @@
     grid-template-columns: 1fr;
   }
 
-  .two-col--profile {
+  .container--profile {
     grid-template-columns: 1fr;
     gap: 18px;
     justify-items: center;

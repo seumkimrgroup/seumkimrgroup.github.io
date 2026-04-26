@@ -58,7 +58,7 @@ function goToMember(member) {
 
 export function createCurrentMemberCard(member) {
     const item = document.createElement("div");
-    item.className = "card card--interactive card--person";
+    item.className = "card card--interactive card--people";
     item.addEventListener("click", () => goToMember(member));
 
     const imageHtml = member.image
@@ -78,7 +78,7 @@ export function createCurrentMemberCard(member) {
 
 export function createAlumniMemberCard(member) {
     const item = document.createElement("div");
-    item.className = "card card--interactive card--person card--person-alumni";
+    item.className = "card card--interactive card--people card--people-alumni";
     item.addEventListener("click", () => goToMember(member));
 
     const degree = getRoleMeta(member.role).degree;

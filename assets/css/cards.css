@@ -57,7 +57,7 @@
 
 /* PeopleCard (current) */
 
-.card--person {
+.card--people {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +69,7 @@
   background: var(--color-bg);
 }
 
-.card--person .people-photo {
+.card--people .people-photo {
   width: 112px;
   height: 134px;
   object-fit: cover;
@@ -78,13 +78,13 @@
   background: var(--color-surface);
 }
 
-.card--person .people-photo-placeholder,
+.card--people .people-photo-placeholder,
 .member-detail-photo.people-photo-placeholder {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
 }
 
-.card--person .people-info {
+.card--people .people-info {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -92,17 +92,17 @@
   text-align: center;
 }
 
-.card--person .people-name {
+.card--people .people-name {
   color: var(--color-text-strong);
 }
 
-.card--person .people-role {
+.card--people .people-role {
   color: var(--color-text-subtle);
 }
 
 /* PeopleCard (alumni) */
 
-.card--person-alumni {
+.card--people-alumni {
   align-items: stretch;
   justify-content: flex-start;
   text-align: center;
@@ -110,19 +110,19 @@
   height: auto;
 }
 
-.card--person-alumni .people-info {
+.card--people-alumni .people-info {
   width: 100%;
   align-items: center;
   text-align: center;
   gap: 6px;
 }
 
-.card--person-alumni .people-name,
-.card--person-alumni .people-status {
+.card--people-alumni .people-name,
+.card--people-alumni .people-status {
   text-align: center;
 }
 
-.card--person-alumni .people-status {
+.card--people-alumni .people-status {
   color: var(--color-text-subtle);
 }
 
@@ -180,11 +180,11 @@
     padding: 18px 18px 20px;
   }
 
-  .card--person {
+  .card--people {
     min-height: 150px;
   }
 
-  .card--person-alumni .people-info {
+  .card--people-alumni .people-info {
     gap: 5px;
   }
 

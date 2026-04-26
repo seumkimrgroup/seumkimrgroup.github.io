@@ -155,7 +155,8 @@ body.home .navbar.nav-over-project .nav-links a.active {
 
 /* contact */
 
-.two-col--contact {
+.container--contact {
+  align-items: start;
   grid-template-columns: minmax(280px, 420px) minmax(320px, 1fr);
 }
 

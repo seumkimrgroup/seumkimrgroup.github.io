@@ -60,10 +60,10 @@ function renderDetailPublications(pubs) {
     if (!pubs.length) return "";
 
     return `
-    <section class="container member-publications-section">
+    <div class="container">
       <h3>Publications</h3>
-      <div id="member-publication-list" class="publication-list"></div>
-    </section>
+      <div id="member-publication-list" class="container"></div>
+    </div>
   `;
 }
 
@@ -137,8 +137,8 @@ function renderMemberDetail(member) {
             : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
 
     const headerClass = isFormer(member)
-        ? "container container--grid two-col two-col--profile no-photo"
-        : "container container--grid two-col two-col--profile";
+        ? "container"
+        : "container container--grid container--profile";
 
     const detailSections = isFormer(member)
         ? `${educationSection}${renderDetailPublications(pubs)}`
