@@ -121,11 +121,10 @@
 
 .member-detail-view .container {
   width: min(100%, 780px);
-  margin-top: 28px;
 }
 
 .member-detail-view .container + .container {
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 .member-detail-section-body {

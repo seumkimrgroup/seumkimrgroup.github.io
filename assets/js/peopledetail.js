@@ -43,10 +43,10 @@ function renderInfoSection(title, items) {
         .join("");
 
     return `
-    <section class="container">
-      <h3 class="member-detail-section-title">${escapeHtml(title)}</h3>
+    <div class="container">
+      <h3>${escapeHtml(title)}</h3>
       <div class="member-detail-section-body">${itemsHtml}</div>
-    </section>
+    </div>
   `;
 }
 
@@ -200,8 +200,8 @@ function renderMemberDetail(member) {
             : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
 
     const headerClass = isFormer(member)
-        ? "two-col two-col--profile no-photo"
-        : "two-col two-col--profile";
+        ? "container container--grid two-col two-col--profile no-photo"
+        : "container container--grid two-col two-col--profile";
 
     const detailSections = isFormer(member)
         ? `${educationSection}${renderDetailPublications(member)}`
