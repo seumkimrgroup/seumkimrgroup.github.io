@@ -52,10 +52,6 @@ export function formatRole(role) {
     return getRoleMeta(role).display;
 }
 
-function getDegreeLabel(role) {
-    return getRoleMeta(role).degree;
-}
-
 function goToMember(member) {
     window.location.href = `peopledetail.html?id=${encodeURIComponent(member.slug)}`;
 }
@@ -85,7 +81,7 @@ export function createAlumniMemberCard(member) {
     item.className = "card card--interactive card--person card--person-alumni";
     item.addEventListener("click", () => goToMember(member));
 
-    const degree = getDegreeLabel(member.role);
+    const degree = getRoleMeta(member.role).degree;
     const leaveYear = member.leaveYear || "";
     const statusLine = [degree, leaveYear].filter(Boolean).join(" · ");
 
