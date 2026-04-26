@@ -49,13 +49,47 @@ function renderProjects(projects) {
 }
 
 function renderTopics(topics) {
-    if (!researchAreaList || !Array.isArray(topics)) return;
+    if (!researchAreaList || !Array.isArray(topics) || topics.length === 0) return;
 
     researchAreaList.innerHTML = "";
+    topics.forEach((topic) => researchAreaList.appendChild(createContentCard(topic)));
 
-    topics.forEach((topic) => {
-        researchAreaList.appendChild(createContentCard(topic));
+    const CARD_WIDTH = 320;
+    const GAP = 16;
+    let currentIndex = 0;
+
+    const prevBtn = document.getElementById("research-area-prev");
+    const nextBtn = document.getElementById("research-area-next");
+
+    function getMaxIndex() {
+        const clipWidth = researchAreaList.parentElement.offsetWidth;
+        const visible = Math.floor((clipWidth + GAP) / (CARD_WIDTH + GAP));
+        return Math.max(0, topics.length - visible);
+    }
+
+    function update() {
+        researchAreaList.style.transform = `translateX(-${currentIndex * (CARD_WIDTH + GAP)}px)`;
+        const max = getMaxIndex();
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex >= max;
+    }
+
+    nextBtn?.addEventListener("click", () => {
+        currentIndex = Math.min(currentIndex + 1, getMaxIndex());
+        update();
     });
+
+    prevBtn?.addEventListener("click", () => {
+        currentIndex = Math.max(currentIndex - 1, 0);
+        update();
+    });
+
+    window.addEventListener("resize", () => {
+        currentIndex = Math.min(currentIndex, getMaxIndex());
+        update();
+    });
+
+    update();
 }
 
 function setupAboutToggle() {

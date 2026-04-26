@@ -148,9 +148,51 @@ body.home .navbar.nav-over-project .nav-links a.active {
 
 /* research areas */
 
+.research-area-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.research-area-clip {
+  flex: 1;
+  overflow: hidden;
+}
+
 .research-area-list {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  justify-items: center;
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s ease;
+}
+
+.research-area-list > * {
+  flex: 0 0 320px;
+}
+
+.research-area-btn {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: 22px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.research-area-btn:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-hover);
+}
+
+.research-area-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* contact */
