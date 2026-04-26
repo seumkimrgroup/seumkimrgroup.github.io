@@ -46,9 +46,7 @@ function getSectionItems(member, targetTitle) {
 function renderInfoSection(title, items) {
     if (!items.length) return "";
 
-    const itemsHtml = items
-        .map((item) => `<p class="member-detail-item">${escapeHtml(item)}</p>`)
-        .join("");
+    const itemsHtml = `<p>${items.map(escapeHtml).join(" <br>\n            ")}</p>`;
 
     return `
     <div class="container">
@@ -120,15 +118,12 @@ function renderMemberDetail(member) {
         getSectionItems(member, "RESEARCH INTERESTS")
     );
 
+    const role = !isFormer(member) ? formatRole(member.role) : "";
     const affiliation = String(member.currentAffiliation || "").trim();
-    const affiliationHtml = affiliation
-        ? `<h5 class="member-detail-affiliation">${escapeHtml(affiliation)}</h5>`
+    const subtitleParts = [role, affiliation].filter(Boolean);
+    const subtitleHtml = subtitleParts.length
+        ? `<h5>${subtitleParts.map(escapeHtml).join(" <br>\n          ")}</h5>`
         : "";
-
-    const roleHtml =
-        !isFormer(member) && formatRole(member.role)
-            ? `<h5 class="member-detail-role">${escapeHtml(formatRole(member.role))}</h5>`
-            : "";
 
     const nextAffiliation = String(member.nextAffiliation || "").trim();
     const joinedAtHtml = isFormer(member) && nextAffiliation
@@ -157,8 +152,7 @@ function renderMemberDetail(member) {
 
       <div class="member-detail-main">
         <h2 class="member-detail-name">${escapeHtml(member.name)}</h2>
-        ${roleHtml}
-        ${affiliationHtml}
+        ${subtitleHtml}
         ${joinedAtHtml}
         ${renderMemberLinks(member)}
       </div>
