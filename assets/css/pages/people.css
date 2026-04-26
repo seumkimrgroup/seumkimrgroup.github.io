@@ -48,7 +48,6 @@
 
 .two-col--profile {
   grid-template-columns: 176px minmax(320px, 520px);
-  gap: 32px;
   width: min(100%, 780px);
 }
 

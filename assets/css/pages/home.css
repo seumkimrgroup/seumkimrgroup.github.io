@@ -149,9 +149,7 @@ body.home .navbar.nav-over-project .nav-links a.active {
 /* research areas */
 
 .research-area-list {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
   justify-items: center;
 }
 
@@ -159,13 +157,6 @@ body.home .navbar.nav-over-project .nav-links a.active {
 
 .two-col--contact {
   grid-template-columns: minmax(280px, 420px) minmax(320px, 1fr);
-  gap: 28px;
-}
-
-.contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
 .contact-row {

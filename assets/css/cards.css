@@ -44,12 +44,6 @@
 
 /* PublicationCard */
 
-.publication-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .card--publication {
   display: flex;
   flex-direction: column;
