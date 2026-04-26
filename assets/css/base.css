@@ -31,4 +31,3 @@ p  { font-size: 16px; font-weight: 400; line-height: 1.55; color: var(--color-te
 .text-brand { font-size: 20px; font-weight: 500; line-height: 1.4; }
 .text-nav   { font-size: 16px; font-weight: 400; line-height: 1.4; }
 .text-ui    { font-size: 14px; font-weight: 500; line-height: 1.4; }
-.text-h4    { font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--color-text-muted); }
