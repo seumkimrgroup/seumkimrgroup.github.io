@@ -4,6 +4,7 @@
 
 .publications-search-box {
   width: 100%;
+  max-width: none;
   min-height: 46px;
   padding: 0 18px;
   background: var(--color-bg);

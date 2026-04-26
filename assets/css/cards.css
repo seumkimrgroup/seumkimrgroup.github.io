@@ -70,8 +70,8 @@
 }
 
 .card--person .people-photo {
-  width: 100px;
-  height: 120px;
+  width: 112px;
+  height: 134px;
   object-fit: cover;
   object-position: center top;
   border-radius: var(--radius-sm);

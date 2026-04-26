@@ -5,13 +5,13 @@
   }
 
   .two-col--profile {
-    grid-template-columns: 152px minmax(0, 1fr);
+    grid-template-columns: 168px minmax(0, 1fr);
     gap: 24px;
   }
 
   .member-detail-photo {
-    width: 152px;
-    height: 152px;
+    width: 168px;
+    height: 168px;
   }
 }
 
@@ -98,14 +98,14 @@
   }
 
   .two-col--profile {
-    grid-template-columns: 132px minmax(0, 1fr);
+    grid-template-columns: 148px minmax(0, 1fr);
     gap: 20px;
     width: 100%;
   }
 
   .member-detail-photo {
-    width: 132px;
-    height: 132px;
+    width: 148px;
+    height: 148px;
   }
 
   .two-col--contact {

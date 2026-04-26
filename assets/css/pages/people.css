@@ -47,8 +47,8 @@
 }
 
 .two-col--profile {
-  grid-template-columns: 176px minmax(320px, 520px);
-  width: min(100%, 780px);
+  grid-template-columns: 196px minmax(320px, 520px);
+  width: min(100%, 800px);
 }
 
 .two-col--profile.no-photo {
@@ -60,8 +60,8 @@
 }
 
 .member-detail-photo {
-  width: 176px;
-  height: 220px;
+  width: 196px;
+  height: 245px;
   object-fit: cover;
   object-position: center top;
   border-radius: 18px;
