@@ -64,6 +64,10 @@
     padding: 0 12px;
   }
 
+  .publications-search-box::placeholder {
+    font-size: 13px;
+  }
+
   .publications-search-card {
     padding: 18px 20px 20px;
   }

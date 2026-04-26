@@ -3,8 +3,7 @@
 }
 
 .publications-search-box {
-  width: min(100%, 760px);
-  max-width: 760px;
+  width: 100%;
   min-height: 46px;
   padding: 0 18px;
   background: var(--color-bg);
