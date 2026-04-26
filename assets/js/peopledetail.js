@@ -43,7 +43,7 @@ function renderInfoSection(title, items) {
         .join("");
 
     return `
-    <section class="member-detail-section">
+    <section class="container">
       <h3 class="member-detail-section-title">${escapeHtml(title)}</h3>
       <div class="member-detail-section-body">${itemsHtml}</div>
     </section>
@@ -55,7 +55,7 @@ function renderDetailPublications(member) {
     if (!pubs.length) return "";
 
     return `
-    <section class="member-detail-section member-publications-section">
+    <section class="container member-publications-section">
       <h3 class="member-publications-title">Publications</h3>
       <div id="member-publication-list" class="publication-list"></div>
     </section>

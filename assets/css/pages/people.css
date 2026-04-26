@@ -120,15 +120,12 @@
   color: var(--color-text-muted);
 }
 
-.member-detail-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.member-detail-view .container {
   width: min(100%, 780px);
   margin-top: 28px;
 }
 
-.member-detail-section + .member-detail-section {
+.member-detail-view .container + .container {
   margin-top: 20px;
 }
 

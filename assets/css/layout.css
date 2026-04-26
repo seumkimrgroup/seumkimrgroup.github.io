@@ -76,6 +76,12 @@
   padding-top: 80px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .footer {
   border-top: 1px solid var(--color-border);
   text-align: center;
