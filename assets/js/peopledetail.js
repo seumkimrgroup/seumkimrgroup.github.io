@@ -56,16 +56,6 @@ function renderInfoSection(title, items) {
   `;
 }
 
-function renderDetailPublications(pubs) {
-    if (!pubs.length) return "";
-
-    return `
-    <div class="container">
-      <h4>Publications</h4>
-      <div id="member-publication-list" class="container"></div>
-    </div>
-  `;
-}
 
 function getMemberLinks(member) {
     if (Array.isArray(member.links) && member.links.length > 0) {
@@ -141,14 +131,10 @@ function renderMemberDetail(member) {
         : "container container--grid container--profile";
 
     const detailSections = isFormer(member)
-        ? `${educationSection}${renderDetailPublications(pubs)}`
-        : `${educationSection}${researchSection}${renderDetailPublications(pubs)}`;
+        ? `${educationSection}`
+        : `${educationSection}${researchSection}`;
 
     detailView.innerHTML = `
-    <div class="container">
-        <a href="people.html" class="back-link">&lt; Back</a>
-    </div>
-
     <div class="${headerClass}">
       ${photoBlock}
 
@@ -163,20 +149,17 @@ function renderMemberDetail(member) {
     ${detailSections}
   `;
 
-    const pubList = document.getElementById("member-publication-list");
-
-    if (pubList) {
+    if (pubs.length) {
+        const pubSection = document.getElementById("member-publications-section");
+        const pubList = document.getElementById("member-publication-list");
         pubs.forEach((pub) => pubList.appendChild(createPublicationCard(pub)));
+        pubSection.style.display = "";
     }
 }
 
-function showError(message, backLink = true) {
+function showError(message) {
     if (!detailView) return;
-
-    detailView.innerHTML = `
-    ${backLink ? '<a href="people.html" class="back-link">&lt; Back</a>' : ""}
-    <h3>${escapeHtml(message)}</h3>
-  `;
+    detailView.innerHTML = `<h3>${escapeHtml(message)}</h3>`;
 }
 
 async function initPeopleDetailPage() {

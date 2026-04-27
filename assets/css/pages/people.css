@@ -40,12 +40,8 @@
 
 /* detail */
 
-.member-detail-view {
-  display: flex;
-  flex-direction: column;
-  width: min(100% - 32px, var(--container-width));
-  margin: 0 auto;
-  padding-bottom: 60px;
+#member-detail-view {
+  display: contents;
 }
 
 .container--profile {
@@ -94,7 +90,7 @@
 }
 
 .icon-link__icon {
-  width: 24px;
+  width: auto;
   height: 24px;
   fill: currentColor;
 }
@@ -107,13 +103,6 @@
   filter: brightness(1.15);
 }
 
-.member-detail-view .container {
-  width: min(100%, 780px);
-}
-
-.member-detail-view .container + .container {
-  margin-top: 28px;
-}
 
 /* .member-detail-section-body {
   display: flex;
