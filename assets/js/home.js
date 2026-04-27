@@ -218,7 +218,7 @@ function renderTopics(topics) {
             pageIndex = 1;
             rebuild();
             applyTranslate(true);
-        }, 150);
+        }, 50);
     });
 
     rebuild();

@@ -46,6 +46,12 @@ body.home .navbar.nav-over-project .nav-links a.active {
   color: #ffffff;
 }
 
+body.home .navbar.nav-scrolled {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+}
+
 body.home .navbar.nav-open.nav-over-project {
   background: rgba(255, 255, 255, 0.62);
   backdrop-filter: blur(10px) saturate(110%);
@@ -250,7 +256,7 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 
 .container--contact {
   align-items: start;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: repeat(2, minmax(0, 420px));
 }
 
 .contact-row {
@@ -273,8 +279,13 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   line-height: 1.7;
 }
 
+.contact-list,
 .contact-map-wrap {
   width: 100%;
+  max-width: 420px;
+}
+
+.contact-map-wrap {
   aspect-ratio: 4 / 3;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
