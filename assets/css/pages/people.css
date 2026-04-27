@@ -71,39 +71,32 @@
 }
 
 .member-detail-main .icon-links {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .icon-links {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .icon-link {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--color-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition);
-  background: var(--color-bg);
+  color: var(--color-text-gs);
 }
 
 .icon-link:hover {
-  border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-hover);
+  color: var(--color-text-gd);
   transform: translateY(-1px);
 }
 
 .icon-link__icon {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
-  color: var(--color-text-muted);
 }
 
 .member-detail-view .container {
