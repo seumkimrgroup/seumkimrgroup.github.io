@@ -68,13 +68,8 @@
   .publications-search-box {
     min-height: 40px;
     height: 40px;
-    font-size: 15px;
     text-align: center;
     padding: 0 12px;
-  }
-
-  .publications-search-box::placeholder {
-    font-size: 13px;
   }
 
   .publications-search-card {
@@ -94,7 +89,6 @@
 
   .publications-type-group .filter-btn {
     min-height: 38px;
-    font-size: 11px;
     padding: 0 8px;
   }
 
