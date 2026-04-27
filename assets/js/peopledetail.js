@@ -51,7 +51,7 @@ function renderInfoSection(title, items) {
     return `
     <div class="container">
       <h4>${escapeHtml(title)}</h4>
-      <p>${itemsHtml}</p>
+      ${itemsHtml}
     </div>
   `;
 }
