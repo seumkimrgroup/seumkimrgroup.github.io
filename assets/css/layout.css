@@ -76,8 +76,8 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding-top: clamp(72px, 8vw, 160px);
-  padding-bottom: clamp(72px, 8vw, 160px);
+  padding-top: 160px;
+  padding-bottom: 160px;
   gap: clamp(48px, 8vw, 80px);
 }
 
