@@ -49,6 +49,23 @@ body.home .navbar.nav-over-project .nav-links a.active {
   color: #ffffff;
 }
 
+body.home .navbar.nav-open.nav-over-project {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+}
+
+body.home .navbar.nav-open.nav-over-project .brand,
+body.home .navbar.nav-open.nav-over-project .nav-links a,
+body.home .navbar.nav-open.nav-over-project .nav-hamburger {
+  color: var(--color-text);
+}
+
+body.home .navbar.nav-open.nav-over-project .brand:hover,
+body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
+  color: #555;
+}
+
 /* project slider */
 
 .project {
