@@ -58,18 +58,19 @@ function renderTopics(topics) {
     const GAP = 16;
     const TRANSITION_MS = 400;
 
-    let pageIndex = 1;
+    let currentIndex = 0;
+    let cloneCount = 0;
+    let step = 0;
     let isDragging = false;
     let startX = 0;
     let autoTimer = null;
-    let pages = [];
-    let totalRealPages = 0;
-    let carouselWidth = 0;
     let isChanging = false;
 
     const prevBtn = document.getElementById("research-area-prev");
     const nextBtn = document.getElementById("research-area-next");
     const dotsEl = document.getElementById("research-area-dots");
+
+    if (dotsEl) dotsEl.style.display = "none";
 
     function getItemsPerPage(width) {
         if (width > 1200) return 4;
@@ -79,75 +80,51 @@ function renderTopics(topics) {
     }
 
     function rebuild() {
-        carouselWidth = clipEl.offsetWidth;
+        const carouselWidth = clipEl.offsetWidth;
         const n = getItemsPerPage(carouselWidth);
+        cloneCount = n;
+        const cardWidth = (carouselWidth - (n - 1) * GAP) / n;
+        step = cardWidth + GAP;
 
-        const realPages = [];
-        for (let i = 0; i < topics.length; i += n) {
-            realPages.push(topics.slice(i, i + n));
-        }
-        totalRealPages = realPages.length;
-
-        pages = [realPages[totalRealPages - 1], ...realPages, realPages[0]];
+        // prefix: last n topics, real: all topics, suffix: first n topics
+        const allTopics = [
+            ...topics.slice(-cloneCount),
+            ...topics,
+            ...topics.slice(0, cloneCount),
+        ];
 
         researchAreaList.innerHTML = "";
-        pages.forEach((page) => {
-            const pageEl = document.createElement("div");
-            pageEl.className = "research-area-page";
-            pageEl.style.width = `${carouselWidth}px`;
-            pageEl.style.minWidth = `${carouselWidth}px`;
-            pageEl.style.gap = `${GAP}px`;
-            page.forEach((topic) => pageEl.appendChild(createContentCard(topic)));
-            for (let j = page.length; j < n; j++) {
-                const spacer = document.createElement("div");
-                spacer.style.flex = "1";
-                spacer.style.minWidth = "0";
-                pageEl.appendChild(spacer);
-            }
-            researchAreaList.appendChild(pageEl);
+        researchAreaList.style.gap = `${GAP}px`;
+        allTopics.forEach((topic) => {
+            const card = createContentCard(topic);
+            card.style.width = `${cardWidth}px`;
+            card.style.minWidth = `${cardWidth}px`;
+            card.style.flexShrink = "0";
+            researchAreaList.appendChild(card);
         });
 
-        if (dotsEl) {
-            dotsEl.innerHTML = "";
-            for (let i = 0; i < totalRealPages; i++) {
-                const dot = document.createElement("button");
-                dot.className = "research-area-dot";
-                dot.setAttribute("aria-label", `Page ${i + 1}`);
-                const capturedI = i;
-                dot.addEventListener("click", () => changePage(capturedI + 1));
-                dotsEl.appendChild(dot);
-            }
-        }
-
-        updateDots();
-    }
-
-    function updateDots() {
-        if (!dotsEl) return;
-        const dots = dotsEl.querySelectorAll(".research-area-dot");
-        let realIdx = pageIndex - 1;
-        if (realIdx < 0) realIdx = totalRealPages - 1;
-        if (realIdx >= totalRealPages) realIdx = 0;
-        dots.forEach((dot, i) => dot.classList.toggle("is-active", i === realIdx));
+        currentIndex = cloneCount;
     }
 
     function applyTranslate(instant) {
         researchAreaList.style.transition = instant ? "none" : `transform ${TRANSITION_MS}ms ease`;
-        researchAreaList.style.transform = `translateX(${-pageIndex * carouselWidth}px)`;
+        researchAreaList.style.transform = `translateX(${-currentIndex * step}px)`;
     }
 
-    function changePage(newIdx) {
+    function changePage(direction) {
         if (isChanging) return;
         isChanging = true;
-        pageIndex = newIdx;
+        currentIndex += direction;
         applyTranslate(false);
-        updateDots();
 
         setTimeout(() => {
-            let jumped = false;
-            if (pageIndex === pages.length - 1) { pageIndex = 1; jumped = true; }
-            else if (pageIndex === 0) { pageIndex = totalRealPages; jumped = true; }
-            if (jumped) { applyTranslate(true); updateDots(); }
+            if (currentIndex >= cloneCount + topics.length) {
+                currentIndex -= topics.length;
+                applyTranslate(true);
+            } else if (currentIndex < cloneCount) {
+                currentIndex += topics.length;
+                applyTranslate(true);
+            }
             isChanging = false;
         }, TRANSITION_MS);
     }
@@ -155,14 +132,13 @@ function renderTopics(topics) {
     function startAuto() {
         clearInterval(autoTimer);
         autoTimer = setInterval(() => {
-            if (!isDragging) changePage(pageIndex + 1);
+            if (!isDragging) changePage(1);
         }, AUTO_INTERVAL);
     }
 
-    prevBtn?.addEventListener("click", () => changePage(pageIndex - 1));
-    nextBtn?.addEventListener("click", () => changePage(pageIndex + 1));
+    prevBtn?.addEventListener("click", () => { startAuto(); changePage(-1); });
+    nextBtn?.addEventListener("click", () => { startAuto(); changePage(1); });
 
-    // Mouse drag
     researchAreaList.addEventListener("mousedown", (e) => {
         isDragging = true;
         startX = e.clientX;
@@ -173,7 +149,7 @@ function renderTopics(topics) {
     window.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
         researchAreaList.style.transition = "none";
-        researchAreaList.style.transform = `translateX(${-pageIndex * carouselWidth + e.clientX - startX}px)`;
+        researchAreaList.style.transform = `translateX(${-currentIndex * step + e.clientX - startX}px)`;
     });
 
     window.addEventListener("mouseup", (e) => {
@@ -181,14 +157,13 @@ function renderTopics(topics) {
         isDragging = false;
         researchAreaList.style.cursor = "grab";
         const delta = e.clientX - startX;
-        if (Math.abs(delta) > 50) changePage(delta < 0 ? pageIndex + 1 : pageIndex - 1);
+        if (Math.abs(delta) > 50) changePage(delta < 0 ? 1 : -1);
         else applyTranslate(false);
         startAuto();
     });
 
     researchAreaList.addEventListener("dragstart", (e) => e.preventDefault());
 
-    // Touch drag
     researchAreaList.addEventListener("touchstart", (e) => {
         isDragging = true;
         startX = e.touches[0].clientX;
@@ -198,24 +173,22 @@ function renderTopics(topics) {
     researchAreaList.addEventListener("touchmove", (e) => {
         if (!isDragging) return;
         researchAreaList.style.transition = "none";
-        researchAreaList.style.transform = `translateX(${-pageIndex * carouselWidth + e.touches[0].clientX - startX}px)`;
+        researchAreaList.style.transform = `translateX(${-currentIndex * step + e.touches[0].clientX - startX}px)`;
     }, { passive: true });
 
     researchAreaList.addEventListener("touchend", (e) => {
         if (!isDragging) return;
         isDragging = false;
         const delta = e.changedTouches[0].clientX - startX;
-        if (Math.abs(delta) > 50) changePage(delta < 0 ? pageIndex + 1 : pageIndex - 1);
+        if (Math.abs(delta) > 50) changePage(delta < 0 ? 1 : -1);
         else applyTranslate(false);
         startAuto();
     });
 
-    // Resize
     let resizeTimer = null;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            pageIndex = 1;
             rebuild();
             applyTranslate(true);
         }, 50);
