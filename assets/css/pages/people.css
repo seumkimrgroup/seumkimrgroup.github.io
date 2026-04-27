@@ -99,6 +99,14 @@
   fill: currentColor;
 }
 
+.icon-link__icon--color {
+  transition: filter var(--transition);
+}
+
+.icon-link:hover .icon-link__icon--color {
+  filter: brightness(1.15);
+}
+
 .member-detail-view .container {
   width: min(100%, 780px);
 }
