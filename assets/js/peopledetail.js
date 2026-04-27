@@ -7,7 +7,7 @@ const detailView = document.getElementById("member-detail-view");
 let publications = [];
 
 const LINK_CONFIG = {
-    email:    { label: "Email",         href: (v) => `mailto:${v}`, external: false, svg: `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 2v.2l8 5.2 8-5.2V8l-8 5-8-5z"/></svg>` },
+    email:    { label: "Email",         href: (v) => `mailto:${v}`, external: false, svg: `<img src="assets/icons/email.png" alt="" aria-hidden="true" class="icon-link__icon icon-link__icon--color">` },
     linkedin: { label: "LinkedIn",      href: (v) => v,              external: true,  svg: `<img src="assets/icons/linkedin.png" alt="" aria-hidden="true" class="icon-link__icon icon-link__icon--color">` },
     scholar:  { label: "Google Scholar",href: (v) => v,              external: true,  svg: `<svg viewBox="0 0 512 512" aria-hidden="true" class="icon-link__icon icon-link__icon--color"><rect width="512" height="512" rx="15%" fill="#4285f4"/><path fill="#fff" d="M213 111l-107 94h69c5 45 41 64 78 67-7 18-4 27 7 39-43 1-103 26-103 67 4 45 63 54 92 54 38 1 81-19 90-54 4-35-10-54-31-71-23-18-28-28-21-40 15-17 35-27 39-51 2-17-2-28-6-43l45-38-1 16c-3 2-5 6-5 9v103c2 13 22 11 23 0V160c0-3-2-7-5-8v-25l16-16zm58 141c-61 10-87-87-38-99 56-11 83 86 38 99zm-5 73c60 13 61 63 10 78-44 9-82-4-81-30 0-25 35-48 71-48z"/></svg>` },
     website:  { label: "Website",       href: (v) => v,              external: true,  svg: `<svg viewBox="0 0 24 24" aria-hidden="true" class="icon-link__icon"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.93 9h-3.08a15.7 15.7 0 0 0-1.38-5.02A8.03 8.03 0 0 1 18.93 11zM12 4.04c.98 1.19 1.78 3.1 2.1 5.46H9.9C10.22 7.14 11.02 5.23 12 4.04zM4.99 13h3.08c.14 1.78.57 3.47 1.39 5.02A8.03 8.03 0 0 1 4.99 13zm3.08-2H4.99a8.03 8.03 0 0 1 4.47-5.02A15.6 15.6 0 0 0 8.07 11zm3.93 8.96c-.98-1.19-1.78-3.1-2.1-5.46h4.2c-.32 2.36-1.12 4.27-2.1 5.46zM14.1 13H9.9a13.7 13.7 0 0 1 0-2h4.2a13.7 13.7 0 0 1 0 2zm.37 5.02A15.7 15.7 0 0 0 15.85 13h3.08a8.03 8.03 0 0 1-4.46 5.02z"/></svg>` },
@@ -49,7 +49,7 @@ function renderInfoSection(title, items) {
     const itemsHtml = `<p>${items.map(escapeHtml).join(" <br>\n            ")}</p>`;
 
     return `
-    <div class="container">
+    <div class="container container--gap-sm">
       <h4>${escapeHtml(title)}</h4>
       ${itemsHtml}
     </div>

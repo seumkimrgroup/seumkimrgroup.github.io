@@ -3,7 +3,6 @@
   --color-text: #111111;
   --color-text-n: #374151;
   --color-text-nd: #1B1F34;
-  --color-text-gs: #171A1F;
   --color-text-gd: #343A40;
   --color-text-gm: #6B7280;
   --color-text-gs: #9CA3AF;
@@ -21,6 +20,9 @@
   --transition: 0.2s;
   --radius-sm: 12px;
   --radius-md: 16px;
+  --space-sm: 6px;
+  --space-md: 16px;
+  --space-lg: 24px;
   --radius-pill: 999px;
   --shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.06);
 }

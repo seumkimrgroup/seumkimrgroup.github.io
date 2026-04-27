@@ -91,11 +91,20 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-md);
+}
+
+.container--gap-sm {
+  gap: var(--space-sm);
+}
+
+.container--gap-lg {
+  gap: var(--space-lg);
 }
 
 .container--grid {
   display: grid;
+  gap: var(--space-lg);
 }
 
 .container--centered {
