@@ -68,8 +68,8 @@ export function createCurrentMemberCard(member) {
     item.innerHTML = `
     ${imageHtml}
     <div class="people-info">
-      <h3 class="people-name">${escapeHtml(member.name)}</h3>
-      <h5 class="people-role">${escapeHtml(formatRole(member.role))}</h5>
+      <h4>${escapeHtml(member.name)}</h4>
+      <p>${escapeHtml(formatRole(member.role))}</p>
     </div>
   `;
 
@@ -92,8 +92,8 @@ export function createAlumniMemberCard(member) {
 
     item.innerHTML = `
     <div class="people-info">
-      <h3 class="people-name">${escapeHtml(member.name)}</h3>
-      <h5 class="people-status">${escapeHtml(statusLine)}</h5>
+      <h4>${escapeHtml(member.name)}</h4>
+      <p>${escapeHtml(statusLine)}</p>
       ${joinedAt
             ? `
         <div class="people-joined-at">

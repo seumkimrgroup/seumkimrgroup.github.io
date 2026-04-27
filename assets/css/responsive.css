@@ -107,10 +107,6 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
-
-  .contact-map {
-    height: 220px;
-  }
 }
 
 @media (max-width: 520px) {

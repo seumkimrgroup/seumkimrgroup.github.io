@@ -1,16 +1,20 @@
 :root {
   --color-bg: #ffffff;
   --color-text: #111111;
-  --color-text-strong: #1e2a38;
-  --color-text-muted: #5a6b7c;
-  --color-text-subtle: #8a98a8;
+  --color-text-n: #252847;
+  --color-text-nd: #1B1F34;
+  --color-text-gs: #171A1F;
+  --color-text-gd: #343A40;
+  --color-text-gm: #6B7280;
+  --color-text-gs: #9CA3AF;
+  --color-text-bs: #F7F8FA;
   --color-border: #e4e4e4;
   --color-border-strong: #c8c8c8;
   --color-surface: #f2f2f2;
   --color-accent: #111111;
   --color-accent-hover: #f3f3f3;
 
-  --font-family: 'Roboto', sans-serif;
+  --font-family: 'Inter', 'Pretendard', 'Roboto', sans-serif;;
   --container-width: 1080px;
   --navbar-z: 1000;
   --transition: 0.2s;

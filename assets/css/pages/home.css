@@ -161,12 +161,20 @@ body.home .navbar.nav-over-project .nav-links a.active {
 
 .research-area-list {
   display: flex;
-  gap: 16px;
-  transition: transform 0.4s ease;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
 }
 
-.research-area-list > * {
-  flex: 0 0 320px;
+.research-area-page {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.research-area-page .card--content {
+  flex: 1;
+  max-width: none;
+  min-width: 0;
 }
 
 .research-area-btn {
@@ -185,21 +193,39 @@ body.home .navbar.nav-over-project .nav-links a.active {
   transition: var(--transition);
 }
 
-.research-area-btn:hover:not(:disabled) {
+.research-area-btn:hover {
   border-color: var(--color-border-strong);
   box-shadow: var(--shadow-hover);
 }
 
-.research-area-btn:disabled {
-  opacity: 0.3;
-  cursor: default;
+.research-area-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.research-area-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.research-area-dot.is-active {
+  background: var(--color-text);
+  transform: scale(1.3);
 }
 
 /* contact */
 
 .container--contact {
   align-items: start;
-  grid-template-columns: minmax(280px, 420px) minmax(320px, 1fr);
+  grid-template-columns: 3fr 2fr;
 }
 
 .contact-row {
@@ -222,6 +248,7 @@ body.home .navbar.nav-over-project .nav-links a.active {
 
 .contact-map-wrap {
   width: 100%;
+  aspect-ratio: 16 / 9;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -230,7 +257,7 @@ body.home .navbar.nav-over-project .nav-links a.active {
 
 .contact-map {
   width: 100%;
-  height: 320px;
+  height: 100%;
   border: 0;
   display: block;
 }

@@ -51,9 +51,6 @@
   padding: 12px 24px;
 }
 
-.card--publication .publication-title {
-  color: var(--color-text-strong);
-}
 
 /* PeopleCard (current) */
 
@@ -90,14 +87,6 @@
   gap: 4px;
   align-items: center;
   text-align: center;
-}
-
-.card--people .people-name {
-  color: var(--color-text-strong);
-}
-
-.card--people .people-role {
-  color: var(--color-text-subtle);
 }
 
 /* PeopleCard (alumni) */
