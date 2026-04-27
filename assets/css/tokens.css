@@ -1,7 +1,7 @@
 :root {
   --color-bg: #ffffff;
   --color-text: #111111;
-  --color-text-n: #252847;
+  --color-text-n: #374151;
   --color-text-nd: #1B1F34;
   --color-text-gs: #171A1F;
   --color-text-gd: #343A40;
@@ -16,6 +16,7 @@
 
   --font-family: 'Inter', 'Pretendard', 'Roboto', sans-serif;;
   --container-width: 1080px;
+  --navbar-width: 1240px;
   --navbar-z: 1000;
   --transition: 0.2s;
   --radius-sm: 12px;

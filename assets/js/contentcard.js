@@ -13,7 +13,7 @@ export function createContentCard(item) {
       />
     </div>
     <div class="card-body">
-      <h3 class="card-title">${escapeHtml(item.title || "")}</h3>
+      <h4 class="card-title">${escapeHtml(item.title || "")}</h4>
       <p class="card-description">${escapeHtml(item.description || "")}</p>
     </div>
   `;

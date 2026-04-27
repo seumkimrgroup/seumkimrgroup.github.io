@@ -1,5 +1,22 @@
 const navbar = document.querySelector(".navbar");
 const project = document.querySelector(".project");
+const hamburger = document.getElementById("nav-hamburger");
+
+if (hamburger && navbar) {
+  hamburger.addEventListener("click", () => {
+    const isOpen = navbar.classList.toggle("nav-open");
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    hamburger.textContent = isOpen ? "✕" : "☰";
+  });
+
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navbar.classList.remove("nav-open");
+      hamburger.setAttribute("aria-expanded", "false");
+      hamburger.textContent = "☰";
+    });
+  });
+}
 
 if (navbar) {
   let lastScrollY = window.scrollY;
@@ -80,6 +97,16 @@ if (navbar) {
 
     lastScrollY = currentScrollY;
   }
+
+  window.addEventListener("scroll", () => {
+    if (navbar.classList.contains("nav-open")) {
+      navbar.classList.remove("nav-open");
+      if (hamburger) {
+        hamburger.setAttribute("aria-expanded", "false");
+        hamburger.textContent = "☰";
+      }
+    }
+  }, { passive: true });
 
   window.addEventListener("scroll", updateNavbarOnScroll, { passive: true });
   window.addEventListener("resize", updateNavbarColor);

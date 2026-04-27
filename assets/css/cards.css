@@ -20,13 +20,6 @@
   flex-direction: column;
 }
 
-.card-title {
-  color: var(--color-text-strong);
-}
-
-.card-description {
-  color: var(--color-text-muted);
-}
 
 .card-media {
   width: 100%;

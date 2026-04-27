@@ -19,10 +19,12 @@ function renderProjects(projects) {
         slide.style.backgroundImage = `url(${project.image || ""})`;
 
         slide.innerHTML = `
-      <div class="project-content">
-        <h6 class="project-subtitle">${escapeHtml(project.subtitle || "")}</h6>
-        <h1 class="project-title">${escapeHtml(project.title || "")}</h1>
-        <p class="project-desc">${escapeHtml(project.description || "")}</p>
+      <div class="project-slide-inner">
+        <div class="project-content">
+          <h6 class="project-subtitle">${escapeHtml(project.subtitle || "")}</h6>
+          <h1 class="project-title">${escapeHtml(project.title || "")}</h1>
+          <p class="project-desc">${escapeHtml(project.description || "")}</p>
+        </div>
       </div>
     `;
 

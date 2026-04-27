@@ -19,10 +19,13 @@
 
 <body class="home">
   <div class="navbar">
-    <a href="index.html" class="brand text-brand">Se-Um Kim Research Group</a>
-    <div class="nav-links">
-      <a href="people.html" class="text-nav">People</a>
-      <a href="publications.html" class="text-nav">Publications</a>
+    <div class="navbar-inner">
+      <a href="index.html" class="brand text-brand">Se-Um Kim Research Group</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="people.html" class="text-nav">People</a>
+        <a href="publications.html" class="text-nav">Publications</a>
+      </div>
     </div>
   </div>
 
@@ -89,7 +92,7 @@
       <div class="research-area-dots" id="research-area-dots"></div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section">
       <h2>Contact</h2>
       <div class="container container--grid container--contact">
         <div class="container contact-list">
@@ -126,6 +129,12 @@
       </div>
     </section>
   </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2025 Se-Um Kim Research Group · Seoul National University of Science and Technology · All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="assets/js/nav.js"></script>
   <script type="module" src="assets/js/home.js"></script>

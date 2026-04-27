@@ -50,8 +50,8 @@ function renderInfoSection(title, items) {
 
     return `
     <div class="container">
-      <h3>${escapeHtml(title)}</h3>
-      <div class="member-detail-section-body">${itemsHtml}</div>
+      <h4>${escapeHtml(title)}</h4>
+      <p>${itemsHtml}</p>
     </div>
   `;
 }
@@ -61,7 +61,7 @@ function renderDetailPublications(pubs) {
 
     return `
     <div class="container">
-      <h3>Publications</h3>
+      <h4>Publications</h4>
       <div id="member-publication-list" class="container"></div>
     </div>
   `;
@@ -145,7 +145,9 @@ function renderMemberDetail(member) {
         : `${educationSection}${researchSection}${renderDetailPublications(pubs)}`;
 
     detailView.innerHTML = `
-    <a href="people.html" class="back-link">&lt; Back</a>
+    <div class="container">
+        <a href="people.html" class="back-link">&lt; Back</a>
+    </div>
 
     <div class="${headerClass}">
       ${photoBlock}
@@ -172,7 +174,7 @@ function showError(message, backLink = true) {
     if (!detailView) return;
 
     detailView.innerHTML = `
-    ${backLink ? '<a href="people.html" class="back-link">← Back to People</a>' : ""}
+    ${backLink ? '<a href="people.html" class="back-link">&lt; Back</a>' : ""}
     <h3>${escapeHtml(message)}</h3>
   `;
 }

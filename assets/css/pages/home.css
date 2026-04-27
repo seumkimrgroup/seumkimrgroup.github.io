@@ -35,7 +35,8 @@ body.home .navbar.nav-over-project {
 }
 
 body.home .navbar.nav-over-project .brand,
-body.home .navbar.nav-over-project .nav-links a {
+body.home .navbar.nav-over-project .nav-links a,
+body.home .navbar.nav-over-project .nav-hamburger {
   color: #ffffff;
 }
 
@@ -83,11 +84,20 @@ body.home .navbar.nav-over-project .nav-links a.active {
   );
 }
 
+.project-slide-inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - 48px), var(--navbar-width));
+  z-index: 2;
+}
+
 .project-content {
   position: absolute;
-  z-index: 2;
   bottom: 20%;
-  left: 10%;
+  left: 0;
   color: white;
   max-width: 600px;
   display: flex;
@@ -157,6 +167,7 @@ body.home .navbar.nav-over-project .nav-links a.active {
 .research-area-clip {
   flex: 1;
   overflow: hidden;
+  padding-bottom: 4px;
 }
 
 .research-area-list {
@@ -236,19 +247,21 @@ body.home .navbar.nav-over-project .nav-links a.active {
 }
 
 .contact-label {
-  color: var(--color-text-strong);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-gd);
+  line-height: 1.7;
 }
-
 .contact-value {
   font-size: 14px;
   font-weight: 400;
-  color: var(--color-text-muted);
+  color: var(--color-text-gs);
   line-height: 1.7;
 }
 
 .contact-map-wrap {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
