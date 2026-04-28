@@ -49,7 +49,7 @@
 
 .container--profile {
   align-items: start;
-  gap: var(--space--lg);
+  gap: var(--space-lg);
   grid-template-columns: 160px minmax(320px, 520px);
   width: min(100%, 800px);
 }
