@@ -84,7 +84,7 @@ export function createCurrentMemberCard(member) {
     <div class="people-info">
       <h4>${escapeHtml(member.name)}</h4>
       <p>${escapeHtml(formatRole(member.role))}</p>
-      ${researchEntry ? `<h5 class="people-info__section-title">${escapeHtml(researchEntry.title)}</h5>` : ""}
+      ${researchContent ? `<h5 class="people-info__section-title">${escapeHtml(researchEntry.title)}</h5>` : ""}
       ${researchContent ? `<p class="people-info__research">${researchContent}</p>` : ""}
     </div>
   `;
@@ -100,7 +100,7 @@ export function createAlumniMemberCard(member) {
 
     const degree = getRoleMeta(member.role).degree;
     const leaveYear = member.leaveYear || "";
-    const statusLine = [degree, leaveYear].filter(Boolean).join(" · ");
+    const statusLine = [degree, leaveYear].filter(Boolean).join(" ");
 
     const joinedAt =
         member.nextAffiliation && String(member.nextAffiliation).trim() !== ""
@@ -111,15 +111,7 @@ export function createAlumniMemberCard(member) {
     <div class="people-info">
       <h4>${escapeHtml(member.name)}</h4>
       <p>${escapeHtml(statusLine)}</p>
-      ${joinedAt
-            ? `
-        <div class="people-joined-at">
-          <span class="people-joined-at__label">JOINED AT</span>
-          <span class="people-joined-at__value">${escapeHtml(joinedAt)}</span>
-        </div>
-      `
-            : ""
-        }
+      ${joinedAt ? `<h6>JOINED AT</h6><h5>${escapeHtml(joinedAt)}</h5>` : ""}
     </div>
   `;
 

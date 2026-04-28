@@ -128,7 +128,7 @@ function renderMemberDetail(member) {
 
     const headerClass = isFormer(member)
         ? "container"
-        : "container container--grid container--profile";
+        : "container--grid container--profile";
 
     const detailSections = isFormer(member)
         ? `${educationSection}`

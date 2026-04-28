@@ -41,18 +41,27 @@
   .nav-hamburger {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .nav-links {
-    display: none;
+    display: flex;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
     width: 100%;
     flex-direction: column;
     gap: 0;
-    padding-bottom: 10px;
+    padding-bottom: 0;
+    transition: max-height 0.28s ease, opacity 0.2s ease, padding-bottom 0.28s ease;
   }
 
   .navbar.nav-open .nav-links {
-    display: flex;
+    max-height: 200px;
+    opacity: 1;
+    pointer-events: auto;
+    padding-bottom: 10px;
   }
 
   .nav-links a {
@@ -119,7 +128,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 480px) {
   .people-members-list,
   .people-alumni-list {
     grid-template-columns: 1fr;

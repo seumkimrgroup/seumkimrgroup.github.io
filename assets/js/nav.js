@@ -82,7 +82,6 @@ if (navbar) {
     hamburger.addEventListener("click", () => {
       const isOpen = navbar.classList.toggle("nav-open");
       hamburger.setAttribute("aria-expanded", String(isOpen));
-      hamburger.textContent = isOpen ? "✕" : "☰";
       if (isOpen) {
         clearHideTimer();
         showNavbar();
@@ -93,7 +92,6 @@ if (navbar) {
       link.addEventListener("click", () => {
         navbar.classList.remove("nav-open");
         hamburger.setAttribute("aria-expanded", "false");
-        hamburger.textContent = "☰";
       });
     });
   }
@@ -103,7 +101,6 @@ if (navbar) {
       navbar.classList.remove("nav-open");
       if (hamburger) {
         hamburger.setAttribute("aria-expanded", "false");
-        hamburger.textContent = "☰";
       }
       scheduleAutoHide(autoHideDelayAfterMenu);
     }
