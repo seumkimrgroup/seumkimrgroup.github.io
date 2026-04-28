@@ -50,14 +50,15 @@
 }
 
 .filter-btn {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--color-text);
+  color: var(--color-text-gs);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  padding: 6px 12px;
+  min-height: 32px;
+  padding: 0px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -71,10 +72,4 @@
   background: var(--color-accent);
   color: var(--color-bg);
   border-color: var(--color-accent);
-}
-
-.publications-type-group .filter-btn {
-  min-height: 36px;
-  font-size: 11px;
-  padding: 0 14px;
 }
