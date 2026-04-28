@@ -3,7 +3,7 @@
     "type": "topic",
     "subtitle": "",
     "title": "LC composite materials & systems",
-    "image": "assets/images/content/topic1.jpg",
+    "image": "assets/images/contents/topic1.jpg",
     "description": "Design and application of liquid crystal composites for responsive optical materials and functional device platforms.",
     "tag": "",
     "links": []
@@ -12,7 +12,7 @@
     "type": "topic",
     "title": "LC-based electro-optical systems",
     "subtitle": "",
-    "image": "assets/images/content/topic2.jpg",
+    "image": "assets/images/contents/topic2.jpg",
     "description": "Electro-optical phase control, tunable optical filtering, and hybrid photonic devices based on liquid crystal anisotropy.",
     "tag": "",
     "links": []
@@ -21,7 +21,7 @@
     "type": "topic",
     "title": "ML-assisted optimization of FEA",
     "subtitle": "",
-    "image": "assets/images/content/topic3.jpg",
+    "image": "assets/images/contents/topic3.tif",
     "description": "Machine learning-assisted simulation workflows for thermal, electrical, and optical FEA and accelerated design optimization.",
     "tag": "",
     "links": []
@@ -31,7 +31,7 @@
     "subtitle": "Participating in",
     "title": "Joint Quantum Lab",
     "description": "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
-    "image": "assets/images/project1.jpg",
+    "image": "assets/images/contents/project1.jpg",
     "tag": "",
     "links": []
   },
@@ -40,7 +40,7 @@
     "subtitle": "Advanced Materials",
     "title": "Ferronematic Liquid Crystals",
     "description": "High-speed electro-optic response using ferroelectric liquid crystal systems.",
-    "image": "assets/images/content/project2.jpg",
+    "image": "assets/images/contents/project2.jpg",
     "tag": "",
     "links": []
   },
@@ -49,7 +49,7 @@
     "subtitle": "",
     "title": "",
     "description": "Adaptive photonic structures using mechanically responsive LC materials.",
-    "image": "assets/images/content/project3.jpg",
+    "image": "assets/images/contents/project3.jpg",
     "tag": "",
     "links": []
   },
@@ -58,7 +58,7 @@
     "subtitle": "",
     "title": "",
     "description": "Some living organisms are cryptically coloured with a wide range of hues and patterns for camouflage. Using thin, flexible membranes made from a polymer network of liquid crystals that are arranged in helical shapes, we have developed a kind of artificial chromatophore that can change colors instantly—from near-infrared to visible to ultraviolet—on demand. These soft materials may find uses in distinct applications such as cryptography, adaptive optics, and soft robotics.",
-    "image": "assets/images/content/highlight2.jpg",
+    "image": "assets/images/contents/highlight1.jpg",
     "tag": "",
     "links": [
       {
@@ -84,7 +84,7 @@
     "subtitle": "",
     "title": "",
     "description": "We have designed a platform that programs the orientation of mechanically anisotropic molecules; thus, the surface wrinkles, promoted by such instabilities, can be patterned in the desired manner. The optics based on a spatial light modulator assembles wrinkle pixels of a notably small dimension over a large area at fast fabrication speed. This result enables new applications in optics such as image storage, informative labeling, and anti-counterfeiting.",
-    "image": "assets/images/highlight3.jpg",
+    "image": "assets/images/contents/highlight2.jpg",
     "tag": "",
     "links": [
       {

@@ -210,7 +210,7 @@ function setupAboutToggle() {
 
 async function initHomePage() {
     try {
-        const items = await fetchJson("assets/data/content.json");
+        const items = await fetchJson("assets/data/contents.json");
 
         if (!Array.isArray(items)) return;
 
