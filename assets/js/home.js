@@ -62,6 +62,7 @@ function renderTopics(topics) {
     let cloneCount = 0;
     let step = 0;
     let isDragging = false;
+    let didDrag = false;
     let startX = 0;
     let autoTimer = null;
     let isChanging = false;
@@ -184,6 +185,7 @@ function renderTopics(topics) {
         startY = e.touches[0].clientY;
         touchAxis = null;
         isDragging = false;
+        didDrag = false;
         clearInterval(autoTimer);
     }, { passive: true });
 
@@ -204,6 +206,7 @@ function renderTopics(topics) {
             clearTimeout(transitionTimer);
         }
         isDragging = true;
+        didDrag = true;
         researchAreaList.style.transition = "none";
         researchAreaList.style.transform = `translateX(${-currentIndex * step + dx}px)`;
     }, { passive: false });
@@ -219,6 +222,12 @@ function renderTopics(topics) {
         else applyTranslate(false);
         startAuto();
     });
+
+    researchAreaList.addEventListener("click", (e) => {
+        if (!didDrag) return;
+        e.preventDefault();
+        e.stopPropagation();
+    }, true);
 
     researchAreaList.addEventListener("touchcancel", () => {
         if (!isDragging) return;
