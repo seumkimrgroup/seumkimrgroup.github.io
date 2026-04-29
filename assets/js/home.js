@@ -80,6 +80,7 @@ function renderTopics(topics) {
     }
 
     function rebuild() {
+        isChanging = false;
         const carouselWidth = clipEl.offsetWidth;
         const n = getItemsPerPage(carouselWidth);
         cloneCount = n;
@@ -116,18 +117,19 @@ function renderTopics(topics) {
         isChanging = true;
         currentIndex += direction;
         applyTranslate(false);
-
-        setTimeout(() => {
-            if (currentIndex >= cloneCount + topics.length) {
-                currentIndex -= topics.length;
-                applyTranslate(true);
-            } else if (currentIndex < cloneCount) {
-                currentIndex += topics.length;
-                applyTranslate(true);
-            }
-            isChanging = false;
-        }, TRANSITION_MS);
     }
+
+    researchAreaList.addEventListener("transitionend", (e) => {
+        if (e.propertyName !== "transform") return;
+        if (currentIndex >= cloneCount + topics.length) {
+            currentIndex -= topics.length;
+            applyTranslate(true);
+        } else if (currentIndex < cloneCount) {
+            currentIndex += topics.length;
+            applyTranslate(true);
+        }
+        isChanging = false;
+    });
 
     function startAuto() {
         clearInterval(autoTimer);
@@ -181,12 +183,13 @@ function renderTopics(topics) {
 
         if (!touchAxis) {
             if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
-            touchAxis = Math.abs(dx) >= Math.abs(dy) ? "h" : "v";
+            touchAxis = Math.abs(dy) > Math.abs(dx) * 1.5 ? "v" : "h";
         }
 
         if (touchAxis === "v") return;
 
         e.preventDefault();
+        if (!isDragging) isChanging = false;
         isDragging = true;
         researchAreaList.style.transition = "none";
         researchAreaList.style.transform = `translateX(${-currentIndex * step + dx}px)`;
@@ -199,8 +202,15 @@ function renderTopics(topics) {
         }
         isDragging = false;
         const delta = e.changedTouches[0].clientX - startX;
-        if (Math.abs(delta) > 50) changePage(delta < 0 ? 1 : -1);
+        if (Math.abs(delta) > 40) changePage(delta < 0 ? 1 : -1);
         else applyTranslate(false);
+        startAuto();
+    });
+
+    researchAreaList.addEventListener("touchcancel", () => {
+        if (!isDragging) return;
+        isDragging = false;
+        applyTranslate(false);
         startAuto();
     });
 
