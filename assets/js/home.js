@@ -55,16 +55,14 @@ function renderTopics(topics) {
 
     const clipEl = researchAreaList.parentElement;
     const GAP = 16;
-    const AUTO_INTERVAL = 10000;
+    const AUTO_INTERVAL = 3500;
 
     let itemsPerPage = 1;
     let cardWidth = 0;
     let step = 0;
-    let cloneCount = 0;
-    let isJumping = false;
     let autoTimer = null;
-    let snapTimer = null;
     let resizeTimer = null;
+    let scrollTimer = null;
 
     const prevBtn = document.getElementById("research-area-prev");
     const nextBtn = document.getElementById("research-area-next");
@@ -75,117 +73,118 @@ function renderTopics(topics) {
     function getItemsPerPage(width, total) {
         let n;
 
-        if (width > 1200) n = 4;
-        else if (width > 800) n = 3;
-        else if (width > 500) n = 2;
+        if (width > 1200) n = 3;
+        else if (width > 600) n = 2;
         else n = 1;
 
         return Math.min(n, total);
     }
 
-    function rebuild() {
+    function stopAuto() {
+        clearInterval(autoTimer);
+        autoTimer = null;
+    }
+
+    function startAuto() {
+        stopAuto();
+
+        if (itemsPerPage >= 3) return;
+
+        if (topics.length <= 1) return;
+
+        autoTimer = setInterval(() => {
+            scrollOne(1);
+        }, AUTO_INTERVAL);
+    }
+
+    function updateButtons() {
+        // 화면에 1개 보이면 버튼 숨김
+        const showButtons = itemsPerPage > 1 && topics.length > itemsPerPage;
+
+        if (prevBtn) prevBtn.style.display = showButtons ? "flex" : "none";
+        if (nextBtn) nextBtn.style.display = showButtons ? "flex" : "none";
+    }
+
+    function render() {
         const width = clipEl.clientWidth;
 
         itemsPerPage = getItemsPerPage(width, topics.length);
-        cloneCount = itemsPerPage;
         cardWidth = (width - (itemsPerPage - 1) * GAP) / itemsPerPage;
         step = cardWidth + GAP;
-
-        const allTopics = [
-            ...topics.slice(-cloneCount),
-            ...topics,
-            ...topics.slice(0, cloneCount),
-        ];
 
         researchAreaList.innerHTML = "";
         researchAreaList.style.gap = `${GAP}px`;
 
-        allTopics.forEach((topic) => {
+        topics.forEach((topic) => {
             const card = createContentCard(topic);
             card.style.flex = `0 0 ${cardWidth}px`;
             card.style.minWidth = `${cardWidth}px`;
             researchAreaList.appendChild(card);
         });
 
-        jumpTo(cloneCount * step);
+        clipEl.scrollLeft = 0;
+
+        updateButtons();
+        startAuto();
     }
 
-    function getNearestIndex() {
-        return Math.round(clipEl.scrollLeft / step);
-    }
+    function scrollOne(direction) {
+        if (!step) return;
 
-    function snapToNearest() {
-        if (isJumping || !step) return;
+        const maxScrollLeft = clipEl.scrollWidth - clipEl.clientWidth;
+        const nextLeft = clipEl.scrollLeft + direction * step;
 
-        const nearest = getNearestIndex();
+        if (direction > 0 && nextLeft >= maxScrollLeft - 1) {
+            clipEl.scrollTo({
+                left: 0,
+                behavior: "auto",
+            });
+            return;
+        }
 
-        clipEl.scrollTo({
-            left: nearest * step,
+        if (direction < 0 && nextLeft <= 0) {
+            clipEl.scrollTo({
+                left: maxScrollLeft,
+                behavior: "auto",
+            });
+            return;
+        }
+
+        clipEl.scrollBy({
+            left: direction * step,
             behavior: "smooth",
         });
     }
 
-    function jumpTo(left) {
-        isJumping = true;
+    function resetIfAtEnd() {
+        const maxScrollLeft = clipEl.scrollWidth - clipEl.clientWidth;
 
-        clipEl.classList.add("is-jumping");
-        clipEl.scrollLeft = left;
-
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                clipEl.classList.remove("is-jumping");
-                isJumping = false;
+        if (clipEl.scrollLeft >= maxScrollLeft - 2) {
+            clipEl.scrollTo({
+                left: 0,
+                behavior: "smooth",
             });
-        });
-    }
-
-    function normalizeScroll() {
-        if (isJumping || !step) return;
-
-        const start = cloneCount * step;
-        const end = (cloneCount + topics.length) * step;
-        const buffer = step / 2;
-
-        if (clipEl.scrollLeft >= end - buffer) {
-            jumpTo(clipEl.scrollLeft - topics.length * step);
-        } else if (clipEl.scrollLeft <= start - buffer) {
-            jumpTo(clipEl.scrollLeft + topics.length * step);
         }
     }
 
-    function scrollStep(direction) {
-        if (!step) return;
+    prevBtn?.addEventListener("click", () => {
+        stopAuto();
+        scrollOne(-1);
+        startAuto();
+    });
 
-        const current = getNearestIndex();
-        const next = current + direction;
-
-        clipEl.scrollTo({
-            left: next * step,
-            behavior: "smooth",
-        });
-    }
-
-    function startAuto() {
-        clearInterval(autoTimer);
-        autoTimer = setInterval(() => scrollStep(1), AUTO_INTERVAL);
-    }
-
-    function stopAuto() {
-        clearInterval(autoTimer);
-    }
+    nextBtn?.addEventListener("click", () => {
+        stopAuto();
+        scrollOne(1);
+        startAuto();
+    });
 
     clipEl.addEventListener("scroll", () => {
-        if (isJumping) return;
+        clearTimeout(scrollTimer);
 
-        clearTimeout(snapTimer);
-
-        snapTimer = setTimeout(() => {
-            snapToNearest();
-
-            setTimeout(() => {
-                normalizeScroll();
-            }, 160);
-        }, 120);
+        scrollTimer = setTimeout(() => {
+            resetIfAtEnd();
+        }, 250);
     });
 
     clipEl.addEventListener("touchstart", stopAuto, { passive: true });
@@ -194,26 +193,15 @@ function renderTopics(topics) {
     clipEl.addEventListener("mouseenter", stopAuto);
     clipEl.addEventListener("mouseleave", startAuto);
 
-    prevBtn?.addEventListener("click", () => {
-        startAuto();
-        scrollStep(-1);
-    });
-
-    nextBtn?.addEventListener("click", () => {
-        startAuto();
-        scrollStep(1);
-    });
-
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(() => {
-            rebuild();
+            render();
         }, 100);
     });
 
-    rebuild();
-    startAuto();
+    render();
 }
 
 function setupAboutToggle() {

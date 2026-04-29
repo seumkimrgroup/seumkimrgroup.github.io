@@ -196,11 +196,6 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   padding-bottom: 4px;
 }
 
-.research-area-clip.is-jumping {
-  scroll-snap-type: none;
-  scroll-behavior: auto;
-}
-
 .research-area-clip::-webkit-scrollbar {
   display: none;
 }
