@@ -187,24 +187,25 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 
 .research-area-clip {
   flex: 1;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
   padding-bottom: 4px;
+}
+
+.research-area-clip::-webkit-scrollbar {
+  display: none;
 }
 
 .research-area-list {
   display: flex;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-  will-change: transform;
-  touch-action: pan-y;
 }
 
-.research-area-list img,
-.research-area-list a {
-  -webkit-user-drag: none;
-  user-select: none;
-  -webkit-user-select: none;
+.research-area-list > .card {
+  scroll-snap-align: start;
 }
 
 .research-area-page {
