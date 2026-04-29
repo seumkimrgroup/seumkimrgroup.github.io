@@ -128,6 +128,12 @@
   }
 }
 
+@media (max-width: 640px) {
+  .people-members-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 480px) {
   .people-members-list,
   .people-alumni-list {

@@ -114,17 +114,17 @@ export function createAlumniMemberCard(member) {
 
     item.innerHTML = `
     <div class="people-info">
-      <div class="people-head">
-        <h4>${escapeHtml(member.name)}</h4>
-        <p class="people-status">${escapeHtml(statusLine)}</p>
-      </div>
-      ${joinedAt ? `
-      <div class="people-section">
-        <h6>JOINED AT</h6>
-        <h5>${escapeHtml(joinedAt)}</h5>
-      </div>` : ""}
+        <div class="people-head">
+            <h4>${escapeHtml(member.name)}</h4>
+            <p>${escapeHtml(statusLine)}</p>
+        </div>
+        ${joinedAt ? `
+        <div class="people-section">
+            <h5>JOINED AT</h5>
+            <p>${escapeHtml(joinedAt)}</p>
+        </div>` : ""}
     </div>
-  `;
+    `;
 
     return item;
 }
