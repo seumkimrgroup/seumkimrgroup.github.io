@@ -65,6 +65,7 @@ function renderTopics(topics) {
     let startX = 0;
     let autoTimer = null;
     let isChanging = false;
+    let transitionTimer = null;
 
     const prevBtn = document.getElementById("research-area-prev");
     const nextBtn = document.getElementById("research-area-next");
@@ -81,6 +82,7 @@ function renderTopics(topics) {
 
     function rebuild() {
         isChanging = false;
+        clearTimeout(transitionTimer);
         const carouselWidth = clipEl.offsetWidth;
         const n = getItemsPerPage(carouselWidth);
         cloneCount = n;
@@ -112,15 +114,8 @@ function renderTopics(topics) {
         researchAreaList.style.transform = `translateX(${-currentIndex * step}px)`;
     }
 
-    function changePage(direction) {
-        if (isChanging) return;
-        isChanging = true;
-        currentIndex += direction;
-        applyTranslate(false);
-    }
-
-    researchAreaList.addEventListener("transitionend", (e) => {
-        if (e.propertyName !== "transform") return;
+    function afterTransition() {
+        clearTimeout(transitionTimer);
         if (currentIndex >= cloneCount + topics.length) {
             currentIndex -= topics.length;
             applyTranslate(true);
@@ -129,6 +124,21 @@ function renderTopics(topics) {
             applyTranslate(true);
         }
         isChanging = false;
+    }
+
+    function changePage(direction) {
+        if (isChanging) return;
+        clearTimeout(transitionTimer);
+        isChanging = true;
+        currentIndex += direction;
+        applyTranslate(false);
+        // Safari fallback: transitionend is unreliable on iOS Safari
+        transitionTimer = setTimeout(afterTransition, TRANSITION_MS + 50);
+    }
+
+    researchAreaList.addEventListener("transitionend", (e) => {
+        if (e.propertyName !== "transform") return;
+        afterTransition();
     });
 
     function startAuto() {
@@ -189,7 +199,10 @@ function renderTopics(topics) {
         if (touchAxis === "v") return;
 
         e.preventDefault();
-        if (!isDragging) isChanging = false;
+        if (!isDragging) {
+            isChanging = false;
+            clearTimeout(transitionTimer);
+        }
         isDragging = true;
         researchAreaList.style.transition = "none";
         researchAreaList.style.transform = `translateX(${-currentIndex * step + dx}px)`;
