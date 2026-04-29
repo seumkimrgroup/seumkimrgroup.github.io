@@ -54,15 +54,10 @@ function renderTopics(topics) {
     if (!researchAreaList || !Array.isArray(topics) || topics.length === 0) return;
 
     const clipEl = researchAreaList.parentElement;
-    const GAP = 16;
     const AUTO_INTERVAL = 3500;
 
-    let itemsPerPage = 1;
-    let cardWidth = 0;
-    let step = 0;
     let autoTimer = null;
     let resizeTimer = null;
-    let scrollTimer = null;
 
     const prevBtn = document.getElementById("research-area-prev");
     const nextBtn = document.getElementById("research-area-next");
@@ -70,14 +65,36 @@ function renderTopics(topics) {
 
     if (dotsEl) dotsEl.style.display = "none";
 
-    function getItemsPerPage(width, total) {
-        let n;
+    function getGap() {
+        const style = getComputedStyle(researchAreaList);
+        return parseFloat(style.gap) || 0;
+    }
 
-        if (width > 1200) n = 3;
-        else if (width > 600) n = 2;
-        else n = 1;
+    function getCardWidth() {
+        const firstCard = researchAreaList.querySelector(".card");
+        if (!firstCard) return 0;
 
-        return Math.min(n, total);
+        return firstCard.offsetWidth;
+    }
+
+    function getStep() {
+        const cardWidth = getCardWidth();
+        if (!cardWidth) return 0;
+
+        return cardWidth + getGap();
+    }
+
+    function getVisibleCount() {
+        const cardWidth = getCardWidth();
+        const gap = getGap();
+
+        if (!cardWidth) return 1;
+
+        return Math.floor((clipEl.clientWidth + gap) / (cardWidth + gap));
+    }
+
+    function isScrollable() {
+        return clipEl.scrollWidth > clipEl.clientWidth + 5;
     }
 
     function stopAuto() {
@@ -88,81 +105,76 @@ function renderTopics(topics) {
     function startAuto() {
         stopAuto();
 
-        // 화면에 3개 보이면 자동 스크롤 안 함
-        if (itemsPerPage >= 3) return;
+        const visibleCount = getVisibleCount();
 
-        // 카드가 1개뿐이면 자동 스크롤 안 함
-        if (topics.length <= 1) return;
+        // 3개가 다 보이면 자동 스크롤 안 함
+        if (visibleCount >= 3) return;
 
+        // 스크롤할 내용이 없으면 자동 스크롤 안 함
+        if (!isScrollable()) return;
+
+        // 2개 또는 1개만 보이는 경우 자동 스크롤
         autoTimer = setInterval(() => {
             scrollOne(1);
         }, AUTO_INTERVAL);
     }
 
     function updateButtons() {
-        // 화면에 1개 보이면 버튼 숨김
-        const showButtons = itemsPerPage > 1 && topics.length > itemsPerPage;
+        const visibleCount = getVisibleCount();
+
+        // 2개 보이는 화면에서만 버튼 표시
+        const showButtons = visibleCount === 2 && isScrollable();
 
         if (prevBtn) prevBtn.style.display = showButtons ? "flex" : "none";
         if (nextBtn) nextBtn.style.display = showButtons ? "flex" : "none";
     }
 
+    function scrollOne(direction) {
+        const step = getStep();
+        if (!step) return;
+
+        const max = clipEl.scrollWidth - clipEl.clientWidth;
+        const current = clipEl.scrollLeft;
+        const next = current + direction * step;
+
+        // 오른쪽으로 넘기다가 끝에 도달하면 처음으로
+        if (direction > 0 && next >= max - 5) {
+            clipEl.scrollTo({
+                left: 0,
+                behavior: "smooth",
+            });
+            return;
+        }
+
+        // 왼쪽으로 넘기다가 처음보다 앞이면 끝으로
+        if (direction < 0 && current <= 5) {
+            clipEl.scrollTo({
+                left: max,
+                behavior: "smooth",
+            });
+            return;
+        }
+
+        clipEl.scrollBy({
+            left: direction * step,
+            behavior: "smooth",
+        });
+    }
+
     function render() {
-        const width = clipEl.clientWidth;
-
-        itemsPerPage = getItemsPerPage(width, topics.length);
-        cardWidth = (width - (itemsPerPage - 1) * GAP) / itemsPerPage;
-        step = cardWidth + GAP;
-
         researchAreaList.innerHTML = "";
-        researchAreaList.style.gap = `${GAP}px`;
 
         topics.forEach((topic) => {
             const card = createContentCard(topic);
-            card.style.flex = `0 0 ${cardWidth}px`;
-            card.style.minWidth = `${cardWidth}px`;
             researchAreaList.appendChild(card);
         });
 
         clipEl.scrollLeft = 0;
 
-        updateButtons();
-        startAuto();
-    }
-
-    function scrollOne(direction) {
-        if (!step) return;
-
-        const max = clipEl.scrollWidth - clipEl.clientWidth;
-        const next = clipEl.scrollLeft + direction * step;
-
-        if (direction > 0 && next >= max) {
-            clipEl.scrollTo({
-                left: 0,
-                behavior: "smooth",
-            });
-        } else if (direction < 0 && next <= 0) {
-            clipEl.scrollTo({
-                left: max,
-                behavior: "smooth",
-            });
-        } else {
-            clipEl.scrollBy({
-                left: direction * step,
-                behavior: "smooth",
-            });
-        }
-    }
-
-    function resetIfAtEnd() {
-        const max = clipEl.scrollWidth - clipEl.clientWidth;
-
-        if (clipEl.scrollLeft >= max - 5) {
-            clipEl.scrollTo({
-                left: 0,
-                behavior: "smooth",
-            });
-        }
+        requestAnimationFrame(() => {
+            updateButtons();
+            startAuto();
+        });
     }
 
     prevBtn?.addEventListener("click", () => {
@@ -177,14 +189,6 @@ function renderTopics(topics) {
         startAuto();
     });
 
-    clipEl.addEventListener("scroll", () => {
-        clearTimeout(scrollTimer);
-
-        scrollTimer = setTimeout(() => {
-            resetIfAtEnd();
-        }, 250);
-    });
-
     clipEl.addEventListener("touchstart", stopAuto, { passive: true });
     clipEl.addEventListener("touchend", startAuto, { passive: true });
 
@@ -195,7 +199,11 @@ function renderTopics(topics) {
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(() => {
-            render();
+            stopAuto();
+            clipEl.scrollLeft = 0;
+
+            updateButtons();
+            startAuto();
         }, 100);
     });
 
