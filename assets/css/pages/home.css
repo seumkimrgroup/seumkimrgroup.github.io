@@ -183,17 +183,17 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 100%;
 }
 
 .research-area-clip {
   flex: 1;
+  min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
-  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
   scrollbar-width: none;
-  padding-bottom: 4px;
 }
 
 .research-area-clip::-webkit-scrollbar {
@@ -202,11 +202,35 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 
 .research-area-list {
   display: flex;
+  gap: 16px;
 }
 
-.research-area-list > .card {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+/* 기본: 3개 */
+.research-area-list > .card--content {
+  flex: 0 0 calc((100% - 32px) / 3);
+  width: auto;
+  max-width: none;
+}
+
+/* 중간 화면: 2개 */
+@media (max-width: 900px) {
+  .research-area-list > .card--content {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+}
+
+/* 작은 화면: 1개 */
+@media (max-width: 600px) {
+  .research-area-list > .card--content {
+    flex-basis: 100%;
+  }
+}
+
+/* 더 작은 모바일: 버튼 숨김 */
+@media (max-width: 420px) {
+  .research-area-btn {
+    display: none !important;
+  }
 }
 
 .research-area-btn {
@@ -231,25 +255,7 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 }
 
 .research-area-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.research-area-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  background: var(--color-border);
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.research-area-dot.is-active {
-  background: var(--color-text);
-  transform: scale(1.3);
+  display: none;
 }
 
 /* contact */
