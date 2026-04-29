@@ -164,20 +164,39 @@ function renderTopics(topics) {
 
     researchAreaList.addEventListener("dragstart", (e) => e.preventDefault());
 
+    let startY = 0;
+    let touchAxis = null; // "h" | "v" | null
+
     researchAreaList.addEventListener("touchstart", (e) => {
-        isDragging = true;
         startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        touchAxis = null;
+        isDragging = false;
         clearInterval(autoTimer);
     }, { passive: true });
 
     researchAreaList.addEventListener("touchmove", (e) => {
-        if (!isDragging) return;
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+
+        if (!touchAxis) {
+            if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+            touchAxis = Math.abs(dx) >= Math.abs(dy) ? "h" : "v";
+        }
+
+        if (touchAxis === "v") return;
+
+        e.preventDefault();
+        isDragging = true;
         researchAreaList.style.transition = "none";
-        researchAreaList.style.transform = `translateX(${-currentIndex * step + e.touches[0].clientX - startX}px)`;
-    }, { passive: true });
+        researchAreaList.style.transform = `translateX(${-currentIndex * step + dx}px)`;
+    }, { passive: false });
 
     researchAreaList.addEventListener("touchend", (e) => {
-        if (!isDragging) return;
+        if (!isDragging) {
+            startAuto();
+            return;
+        }
         isDragging = false;
         const delta = e.changedTouches[0].clientX - startX;
         if (Math.abs(delta) > 50) changePage(delta < 0 ? 1 : -1);
