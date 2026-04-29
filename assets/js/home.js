@@ -124,7 +124,13 @@ function renderTopics(topics) {
     }
 
     function scrollStep(direction) {
-        clipEl.scrollBy({ left: direction * step, behavior: "smooth" });
+        const current = Math.round(clipEl.scrollLeft / step);
+        const next = current + direction;
+
+        clipEl.scrollTo({
+            left: next * step,
+            behavior: "smooth",
+        });
     }
 
     function startAuto() {
