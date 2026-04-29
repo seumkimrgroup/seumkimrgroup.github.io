@@ -190,7 +190,7 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
   padding-bottom: 4px;

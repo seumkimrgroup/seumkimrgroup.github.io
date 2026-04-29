@@ -70,16 +70,20 @@ function renderTopics(topics) {
 
     if (dotsEl) dotsEl.style.display = "none";
 
-    function getItemsPerPage(width) {
-        if (width > 1200) return 4;
-        if (width > 800) return 3;
-        if (width > 500) return 2;
-        return 1;
+    function getItemsPerPage(width, total) {
+        let n;
+
+        if (width > 1200) n = 4;
+        else if (width > 800) n = 3;
+        else if (width > 500) n = 2;
+        else n = 1;
+
+        return Math.min(n, total);
     }
 
     function rebuild() {
         const width = clipEl.clientWidth;
-        itemsPerPage = getItemsPerPage(width);
+        itemsPerPage = getItemsPerPage(width, topics.length);
         cloneCount = itemsPerPage;
         cardWidth = (width - (itemsPerPage - 1) * GAP) / itemsPerPage;
         step = cardWidth + GAP;
