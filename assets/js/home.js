@@ -88,8 +88,10 @@ function renderTopics(topics) {
     function startAuto() {
         stopAuto();
 
+        // 화면에 3개 보이면 자동 스크롤 안 함
         if (itemsPerPage >= 3) return;
 
+        // 카드가 1개뿐이면 자동 스크롤 안 함
         if (topics.length <= 1) return;
 
         autoTimer = setInterval(() => {
@@ -131,35 +133,31 @@ function renderTopics(topics) {
     function scrollOne(direction) {
         if (!step) return;
 
-        const maxScrollLeft = clipEl.scrollWidth - clipEl.clientWidth;
-        const nextLeft = clipEl.scrollLeft + direction * step;
+        const max = clipEl.scrollWidth - clipEl.clientWidth;
+        const next = clipEl.scrollLeft + direction * step;
 
-        if (direction > 0 && nextLeft >= maxScrollLeft - 1) {
+        if (direction > 0 && next >= max) {
             clipEl.scrollTo({
                 left: 0,
-                behavior: "auto",
+                behavior: "smooth",
             });
-            return;
-        }
-
-        if (direction < 0 && nextLeft <= 0) {
+        } else if (direction < 0 && next <= 0) {
             clipEl.scrollTo({
-                left: maxScrollLeft,
-                behavior: "auto",
+                left: max,
+                behavior: "smooth",
             });
-            return;
+        } else {
+            clipEl.scrollBy({
+                left: direction * step,
+                behavior: "smooth",
+            });
         }
-
-        clipEl.scrollBy({
-            left: direction * step,
-            behavior: "smooth",
-        });
     }
 
     function resetIfAtEnd() {
-        const maxScrollLeft = clipEl.scrollWidth - clipEl.clientWidth;
+        const max = clipEl.scrollWidth - clipEl.clientWidth;
 
-        if (clipEl.scrollLeft >= maxScrollLeft - 2) {
+        if (clipEl.scrollLeft >= max - 5) {
             clipEl.scrollTo({
                 left: 0,
                 behavior: "smooth",
