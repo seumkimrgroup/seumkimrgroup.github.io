@@ -63,6 +63,8 @@ function renderTopics(topics) {
     let cloneCount = 0;
     let isJumping = false;
     let autoTimer = null;
+    let snapTimer = null;
+    let resizeTimer = null;
 
     const prevBtn = document.getElementById("research-area-prev");
     const nextBtn = document.getElementById("research-area-next");
@@ -83,6 +85,7 @@ function renderTopics(topics) {
 
     function rebuild() {
         const width = clipEl.clientWidth;
+
         itemsPerPage = getItemsPerPage(width, topics.length);
         cloneCount = itemsPerPage;
         cardWidth = (width - (itemsPerPage - 1) * GAP) / itemsPerPage;
@@ -104,27 +107,55 @@ function renderTopics(topics) {
             researchAreaList.appendChild(card);
         });
 
+        jumpTo(cloneCount * step);
+    }
+
+    function getNearestIndex() {
+        return Math.round(clipEl.scrollLeft / step);
+    }
+
+    function snapToNearest() {
+        if (isJumping || !step) return;
+
+        const nearest = getNearestIndex();
+
+        clipEl.scrollTo({
+            left: nearest * step,
+            behavior: "smooth",
+        });
+    }
+
+    function jumpTo(left) {
         isJumping = true;
-        clipEl.scrollLeft = cloneCount * step;
-        requestAnimationFrame(() => { isJumping = false; });
+
+        clipEl.classList.add("is-jumping");
+        clipEl.scrollLeft = left;
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                clipEl.classList.remove("is-jumping");
+                isJumping = false;
+            });
+        });
     }
 
     function normalizeScroll() {
-        if (isJumping) return;
-        const rangeEnd = (cloneCount + topics.length) * step;
-        if (clipEl.scrollLeft >= rangeEnd) {
-            isJumping = true;
-            clipEl.scrollLeft -= topics.length * step;
-            requestAnimationFrame(() => { isJumping = false; });
-        } else if (clipEl.scrollLeft < cloneCount * step) {
-            isJumping = true;
-            clipEl.scrollLeft += topics.length * step;
-            requestAnimationFrame(() => { isJumping = false; });
+        if (isJumping || !step) return;
+
+        const start = cloneCount * step;
+        const end = (cloneCount + topics.length) * step;
+
+        if (clipEl.scrollLeft >= end) {
+            jumpTo(clipEl.scrollLeft - topics.length * step);
+        } else if (clipEl.scrollLeft < start) {
+            jumpTo(clipEl.scrollLeft + topics.length * step);
         }
     }
 
     function scrollStep(direction) {
-        const current = Math.round(clipEl.scrollLeft / step);
+        if (!step) return;
+
+        const current = getNearestIndex();
         const next = current + direction;
 
         clipEl.scrollTo({
@@ -138,17 +169,46 @@ function renderTopics(topics) {
         autoTimer = setInterval(() => scrollStep(1), AUTO_INTERVAL);
     }
 
-    clipEl.addEventListener("scroll", normalizeScroll);
-    clipEl.addEventListener("touchstart", () => clearInterval(autoTimer), { passive: true });
-    clipEl.addEventListener("touchend", () => startAuto(), { passive: true });
+    function stopAuto() {
+        clearInterval(autoTimer);
+    }
 
-    prevBtn?.addEventListener("click", () => { startAuto(); scrollStep(-1); });
-    nextBtn?.addEventListener("click", () => { startAuto(); scrollStep(1); });
+    clipEl.addEventListener("scroll", () => {
+        if (isJumping) return;
 
-    let resizeTimer = null;
+        clearTimeout(snapTimer);
+
+        snapTimer = setTimeout(() => {
+            snapToNearest();
+
+            setTimeout(() => {
+                normalizeScroll();
+            }, 160);
+        }, 120);
+    });
+
+    clipEl.addEventListener("touchstart", stopAuto, { passive: true });
+    clipEl.addEventListener("touchend", startAuto, { passive: true });
+
+    clipEl.addEventListener("mouseenter", stopAuto);
+    clipEl.addEventListener("mouseleave", startAuto);
+
+    prevBtn?.addEventListener("click", () => {
+        startAuto();
+        scrollStep(-1);
+    });
+
+    nextBtn?.addEventListener("click", () => {
+        startAuto();
+        scrollStep(1);
+    });
+
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(rebuild, 100);
+
+        resizeTimer = setTimeout(() => {
+            rebuild();
+        }, 100);
     });
 
     rebuild();
