@@ -144,10 +144,11 @@ function renderTopics(topics) {
 
         const start = cloneCount * step;
         const end = (cloneCount + topics.length) * step;
+        const buffer = step / 2;
 
-        if (clipEl.scrollLeft >= end) {
+        if (clipEl.scrollLeft >= end - buffer) {
             jumpTo(clipEl.scrollLeft - topics.length * step);
-        } else if (clipEl.scrollLeft < start) {
+        } else if (clipEl.scrollLeft <= start - buffer) {
             jumpTo(clipEl.scrollLeft + topics.length * step);
         }
     }
