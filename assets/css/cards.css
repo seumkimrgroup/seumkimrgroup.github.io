@@ -116,7 +116,6 @@
   overflow: hidden;
   background: var(--color-bg);
   border-radius: var(--radius-md);
-  max-width: 320px;
   width: 100%;
 }
 

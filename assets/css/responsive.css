@@ -16,11 +16,6 @@
 }
 
 @media (max-width: 768px) {
-  .research-area-btn {
-    display: none;
-  }
-
-
   .section {
     scroll-margin-top: 72px;
   }

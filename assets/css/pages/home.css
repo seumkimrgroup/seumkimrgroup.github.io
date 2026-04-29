@@ -30,7 +30,6 @@ body.home .nav-links a.active {
 }
 
 /* project 위에 있을 때만 흰색 */
-
 body.home .navbar.nav-over-project .brand,
 body.home .navbar.nav-over-project .nav-links a,
 body.home .navbar.nav-over-project .nav-hamburger {
@@ -180,73 +179,96 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 /* research areas */
 
 .research-area-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  --research-gap: var(--space-md);
+  --research-button-size: 36px;
+  --research-button-space: 52px;
+
+  position: relative;
   width: 100%;
+  padding-inline: var(--research-button-space);
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .research-area-clip {
-  flex: 1;
-  min-width: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-
-.research-area-clip::-webkit-scrollbar {
-  display: none;
+  width: 100%;
+  overflow: hidden;
+  padding-block: 1px;
+  box-sizing: border-box;
 }
 
 .research-area-list {
   display: flex;
-  gap: 16px;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: var(--research-gap);
+
+  width: 100%;
+  min-width: 100%;
+
+  will-change: transform;
 }
 
-/* 기본: 3개 */
-.research-area-list > .card--content {
-  flex: 0 0 calc((100% - 32px) / 3);
-  width: auto;
-  max-width: none;
+.research-area-list .card--content {
+  position: relative;
+  box-sizing: border-box;
+
+  flex: 0 0 calc((100% - (var(--research-gap) * 2)) / 3);
+  max-width: calc((100% - (var(--research-gap) * 2)) / 3);
+
+  border-color: transparent;
+  overflow: hidden;
 }
 
-/* 중간 화면: 2개 */
-@media (max-width: 900px) {
-  .research-area-list > .card--content {
-    flex-basis: calc((100% - 16px) / 2);
-  }
+/*
+  카드 실제 내용 위에 border 전용 layer를 올림.
+  이미지가 있어도 경계선이 가려지지 않음.
+*/
+.research-area-list .card--content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  border: 1px solid var(--color-border);
+  border-radius: inherit;
 }
 
-/* 작은 화면: 1개 */
-@media (max-width: 600px) {
-  .research-area-list > .card--content {
-    flex-basis: 100%;
-  }
-}
-
-/* 더 작은 모바일: 버튼 숨김 */
-@media (max-width: 420px) {
-  .research-area-btn {
-    display: none !important;
-  }
+.research-area-list .card--content:hover::after {
+  border-color: var(--color-border-strong);
 }
 
 .research-area-btn {
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+
+  width: var(--research-button-size);
+  height: var(--research-button-size);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   color: var(--color-text);
+
   font-size: 22px;
   cursor: pointer;
   transition: var(--transition);
+
+  transform: translateY(-50%);
+}
+
+#research-area-prev {
+  left: 0;
+}
+
+#research-area-next {
+  right: 0;
 }
 
 .research-area-btn:hover {
@@ -256,6 +278,45 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 
 .research-area-dots {
   display: none;
+}
+
+/* 화면이 좁아지면 카드 2개 */
+@media (max-width: 800px) {
+  .research-area-wrap {
+    --research-button-space: 44px;
+  }
+
+  .research-area-list .card--content {
+    flex-basis: calc((100% - var(--research-gap)) / 2);
+    max-width: calc((100% - var(--research-gap)) / 2);
+  }
+}
+
+/* 더 좁아지면 카드 1개 */
+@media (max-width: 500px) {
+  .research-area-wrap {
+    padding-inline: 0;
+  }
+
+  .research-area-list .card--content {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  #research-area-prev {
+    left: 8px;
+  }
+
+  #research-area-next {
+    right: 8px;
+  }
+}
+
+/* 아주 작은 화면에서는 버튼 숨김 */
+@media (max-width: 420px) {
+  .research-area-btn {
+    display: none !important;
+  }
 }
 
 /* contact */
@@ -278,6 +339,7 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   color: var(--color-text-gd);
   line-height: 1.7;
 }
+
 .contact-value {
   font-size: 14px;
   font-weight: 400;

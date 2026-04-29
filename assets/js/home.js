@@ -53,140 +53,118 @@ function renderProjects(projects) {
 function renderTopics(topics) {
     if (!researchAreaList || !Array.isArray(topics) || topics.length === 0) return;
 
-    const clipEl = researchAreaList.parentElement;
     const prevBtn = document.getElementById("research-area-prev");
     const nextBtn = document.getElementById("research-area-next");
     const dotsEl = document.getElementById("research-area-dots");
 
-    const GAP = 16;
     const MOBILE_HIDE_BUTTON_WIDTH = 420;
+    const LOOP_SET_COUNT = 3;
+    const MIDDLE_SET_INDEX = 1;
 
-    let currentPage = 0;
+    let currentIndex = topics.length * MIDDLE_SET_INDEX;
+    let isAnimating = false;
     let resizeTimer = null;
 
     if (dotsEl) dotsEl.style.display = "none";
 
-    function getCardWidth() {
-        const firstCard = researchAreaList.querySelector(".card--content");
-        if (!firstCard) return 0;
-
-        return firstCard.getBoundingClientRect().width;
+    function getCards() {
+        return researchAreaList.querySelectorAll(".card--content");
     }
 
     function getStep() {
-        return getCardWidth() + GAP;
-    }
+        const cards = getCards();
 
-    function getVisibleCount() {
-        const cardWidth = getCardWidth();
-        if (!cardWidth) return 1;
+        const currentCard = cards[currentIndex];
+        const nextCard = cards[currentIndex + 1];
 
-        const visible = Math.floor((clipEl.clientWidth + GAP) / (cardWidth + GAP));
-        return Math.max(1, Math.min(3, visible));
-    }
-
-    function getPageCount() {
-        const visibleCount = getVisibleCount();
-
-        if (visibleCount >= 3) {
-            return 1;
+        if (currentCard && nextCard) {
+            return nextCard.offsetLeft - currentCard.offsetLeft;
         }
 
-        if (visibleCount === 2) {
-            return Math.ceil(topics.length / 2);
+        const firstCard = cards[0];
+        const secondCard = cards[1];
+
+        if (firstCard && secondCard) {
+            return secondCard.offsetLeft - firstCard.offsetLeft;
         }
 
-        return topics.length;
+        return firstCard ? firstCard.getBoundingClientRect().width : 0;
     }
 
     function updateButtons() {
-        const visibleCount = getVisibleCount();
         const shouldHideForMobile = window.innerWidth <= MOBILE_HIDE_BUTTON_WIDTH;
-
-        if (shouldHideForMobile) {
-            if (prevBtn) prevBtn.style.display = "none";
-            if (nextBtn) nextBtn.style.display = "none";
-            return;
-        }
-
-        /*
-          3개 모드: 버튼 표시
-          2개 모드: 버튼 표시
-          1개 모드: 버튼 표시
-          아주 작은 모바일: 위 조건에서 숨김
-        */
-        const showButtons = topics.length > 1;
+        const showButtons = topics.length > 1 && !shouldHideForMobile;
 
         if (prevBtn) prevBtn.style.display = showButtons ? "flex" : "none";
         if (nextBtn) nextBtn.style.display = showButtons ? "flex" : "none";
     }
 
-    function goToPage(pageIndex) {
-        const visibleCount = getVisibleCount();
-        const pageCount = getPageCount();
-        const step = getStep();
+    function setTrackTransition(enabled) {
+        researchAreaList.style.transition = enabled
+            ? "transform 0.45s ease"
+            : "none";
+    }
 
-        if (!step || pageCount <= 0) return;
+    function updateTrackPosition(withTransition = true) {
+        const step = Math.round(getStep());
 
-        currentPage = (pageIndex + pageCount) % pageCount;
+        if (!step) return;
 
-        let targetLeft = 0;
+        setTrackTransition(withTransition);
+        researchAreaList.style.transform = `translateX(-${currentIndex * step}px)`;
+    }
 
-        if (visibleCount >= 3) {
-            /*
-              카드가 3개 보이는 경우:
-              1,2,3이 이미 전부 보이므로 버튼을 눌러도 같은 화면.
-            */
-            targetLeft = 0;
-        } else if (visibleCount === 2) {
-            /*
-              카드가 2개 보이는 경우:
-              page 0 -> 1,2
-              page 1 -> 3, empty
-              page 2 -> 5, empty ... 식으로 동작.
-              현재 topic이 3개라면 1,2 -> 3,empty -> 1,2 반복.
-            */
-            targetLeft = currentPage * 2 * step;
-        } else {
-            /*
-              카드가 1개 보이는 경우:
-              1 -> 2 -> 3 -> 1 반복.
-            */
-            targetLeft = currentPage * step;
+    function normalizeIndexIfNeeded() {
+        const realStart = topics.length * MIDDLE_SET_INDEX;
+        const realEnd = realStart + topics.length;
+
+        if (currentIndex >= realEnd) {
+            currentIndex -= topics.length;
+            updateTrackPosition(false);
+            return;
         }
 
-        clipEl.scrollTo({
-            left: targetLeft,
-            behavior: "smooth",
-        });
-
-        updateButtons();
+        if (currentIndex < realStart) {
+            currentIndex += topics.length;
+            updateTrackPosition(false);
+        }
     }
 
     function move(direction) {
-        goToPage(currentPage + direction);
-    }
+        if (isAnimating) return;
 
-    function resetPosition() {
-        currentPage = 0;
-        clipEl.scrollTo({
-            left: 0,
-            behavior: "auto",
-        });
-        updateButtons();
+        const step = getStep();
+        if (!step) return;
+
+        isAnimating = true;
+        currentIndex += direction;
+
+        updateTrackPosition(true);
     }
 
     function render() {
         researchAreaList.innerHTML = "";
-        researchAreaList.style.gap = `${GAP}px`;
 
-        topics.forEach((topic) => {
+        const loopItems = Array.from(
+            { length: LOOP_SET_COUNT },
+            () => topics
+        ).flat();
+
+        loopItems.forEach((topic, loopIndex) => {
+            const topicIndex = loopIndex % topics.length;
             const card = createContentCard(topic);
+
+            card.dataset.topicIndex = String(topicIndex);
+            card.dataset.loopIndex = String(loopIndex);
+
             researchAreaList.appendChild(card);
         });
 
         requestAnimationFrame(() => {
-            resetPosition();
+            requestAnimationFrame(() => {
+                updateTrackPosition(false);
+                updateButtons();
+            });
         });
     }
 
@@ -198,11 +176,22 @@ function renderTopics(topics) {
         move(1);
     });
 
+    researchAreaList.addEventListener("transitionend", (event) => {
+        if (event.propertyName !== "transform") return;
+
+        normalizeIndexIfNeeded();
+
+        requestAnimationFrame(() => {
+            isAnimating = false;
+        });
+    });
+
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(() => {
-            resetPosition();
+            updateTrackPosition(false);
+            updateButtons();
         }, 120);
     });
 
