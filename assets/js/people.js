@@ -16,7 +16,7 @@ function renderCurrentMembers(memberList) {
     currentContainer.innerHTML = "";
 
     const listDiv = document.createElement("div");
-    listDiv.className = "container--grid people-list people-members-list";
+    listDiv.className = "container--grid people-members-list";
 
     memberList
         .sort((a, b) => {
@@ -41,7 +41,7 @@ function renderFormerMembers(memberList) {
     formerContainer.innerHTML = "";
 
     const listDiv = document.createElement("div");
-    listDiv.className = "container--grid people-list people-members-list people-alumni-list";
+    listDiv.className = "container--grid people-members-list people-alumni-list";
 
     memberList
         .sort((a, b) => {
