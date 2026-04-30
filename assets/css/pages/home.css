@@ -357,13 +357,19 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   transform: scale(1.15);
 }
 
-/* 아주 작은 화면에서는 navigator 숨김 */
 @media (max-width: 420px) {
   .research-area-dots {
-    display: none !important;
+    display: flex;
+  }
+
+  .research-area-dots .research-area-btn {
+    display: none;
+  }
+
+  .research-dot {
+    display: block;
   }
 }
-
 /* contact */
 
 .contact {
