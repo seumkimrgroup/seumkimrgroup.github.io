@@ -258,6 +258,45 @@ function renderTopics(topics) {
         move(1);
     };
 
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    clipEl.addEventListener(
+        "touchstart",
+        (event) => {
+            touchStartX = event.changedTouches[0].clientX;
+            touchStartY = event.changedTouches[0].clientY;
+        },
+        { passive: true }
+    );
+
+    clipEl.addEventListener(
+        "touchend",
+        (event) => {
+            touchEndX = event.changedTouches[0].clientX;
+            touchEndY = event.changedTouches[0].clientY;
+
+            const diffX = touchStartX - touchEndX;
+            const diffY = touchStartY - touchEndY;
+            const threshold = 40;
+
+            // 세로 스크롤 의도가 더 크면 무시
+            if (Math.abs(diffY) > Math.abs(diffX)) return;
+
+            // 너무 짧은 움직임은 무시
+            if (Math.abs(diffX) < threshold) return;
+
+            if (diffX > 0) {
+                move(1);
+            } else {
+                move(-1);
+            }
+        },
+        { passive: true }
+    );
+
     researchAreaList.addEventListener("transitionend", (event) => {
         if (event.propertyName !== "transform") return;
 
