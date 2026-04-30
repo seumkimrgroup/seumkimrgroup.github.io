@@ -167,8 +167,8 @@ function renderTopics(topics) {
         prevBtn.classList.add("research-nav-btn");
         nextBtn.classList.add("research-nav-btn");
 
-        prevBtn.textContent = "‹";
-        nextBtn.textContent = "›";
+        prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
+        nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
         prevBtn.setAttribute("type", "button");
         nextBtn.setAttribute("type", "button");
         prevBtn.setAttribute("aria-label", "Previous research page");
