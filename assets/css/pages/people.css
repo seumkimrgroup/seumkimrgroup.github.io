@@ -61,9 +61,8 @@
 
 .people-head {
   display: flex;
-  flex: 1 1 320px;
   min-width: min(320px, 100%);
-  max-width: 520px;
+  max-width: 400px;
   flex-direction: column;
   gap: var(--space-sm);
 }
