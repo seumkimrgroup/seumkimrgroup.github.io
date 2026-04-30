@@ -68,6 +68,42 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   color: #555;
 }
 
+/* logo crossfade */
+
+body.home .brand-logo-wrap {
+  position: relative;
+  display: inline-flex;
+  height: 44px;
+}
+
+body.home .brand-logo--w,
+body.home .brand-logo--d {
+  transition: opacity 0.35s ease;
+}
+
+body.home .brand-logo--d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+body.home .navbar.nav-over-project .brand-logo--w {
+  opacity: 0;
+}
+
+body.home .navbar.nav-over-project .brand-logo--d {
+  opacity: 1;
+}
+
+body.home .navbar.nav-open.nav-over-project .brand-logo--w {
+  opacity: 1;
+}
+
+body.home .navbar.nav-open.nav-over-project .brand-logo--d {
+  opacity: 0;
+}
+
 /* project slider */
 
 .project {

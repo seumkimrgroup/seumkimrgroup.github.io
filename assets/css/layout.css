@@ -35,6 +35,14 @@
   color: var(--color-text);
   padding: 18px 0;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
 .nav-hamburger {
