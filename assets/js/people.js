@@ -5,8 +5,8 @@ import {
     getRolePriority,
 } from "./peoplecard.js";
 
-const currentContainer = document.getElementById("current-members");
-const formerContainer = document.getElementById("former-members");
+const currentContainer = document.getElementById("members-list");
+const formerContainer = document.getElementById("alumni-list");
 
 let members = [];
 

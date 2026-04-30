@@ -109,7 +109,7 @@ function renderMemberDetail(member) {
     );
 
     const role = !isFormer(member) ? formatRole(member.role) : "";
-    const affiliation = String(member.currentAffiliation || "").trim();
+    const affiliation = !isFormer(member) ? String(member.currentAffiliation || "").trim() : "";
     const subtitleParts = [role, affiliation].filter(Boolean);
     const subtitleHtml = subtitleParts.length
         ? `<h5>${subtitleParts.map(escapeHtml).join(" <br>\n          ")}</h5>`
@@ -117,7 +117,7 @@ function renderMemberDetail(member) {
 
     const nextAffiliation = String(member.nextAffiliation || "").trim();
     const joinedAtHtml = isFormer(member) && nextAffiliation
-        ? `<div class="member-detail-joined"><span class="member-detail-joined__label">Joined at</span><span class="member-detail-joined__value">${escapeHtml(nextAffiliation)}</span></div>`
+        ? `<div class="people-joined"><span class="people-joined-label">JOINED AT</span><span class="people-joined-value">${escapeHtml(nextAffiliation)}</span></div>`
         : "";
 
     const photoBlock = isFormer(member)
@@ -139,7 +139,7 @@ function renderMemberDetail(member) {
       ${photoBlock}
 
       <div class="people-head">
-        <h2 class="member-detail-name">${escapeHtml(member.name)}</h2>
+        <h2>${escapeHtml(member.name)}</h2>
         ${subtitleHtml}
         ${joinedAtHtml}
         ${renderMemberLinks(member)}

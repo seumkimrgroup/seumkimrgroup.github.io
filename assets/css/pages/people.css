@@ -29,11 +29,11 @@
 /* list */
 
 .people-members-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 }
 
 .people-alumni-list {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 /* detail */
@@ -62,7 +62,7 @@
   display: flex;
   width: 400px;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-sm);
 }
 
 .people-head .icon-links {
@@ -109,29 +109,3 @@
 }
 
 
-/* .member-detail-section-body {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-} */
-
-.member-detail-joined {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.member-detail-joined__label {
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: 0.08em;
-  color: var(--color-text-subtle);
-  text-transform: uppercase;
-}
-
-.member-detail-joined__value {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-}
