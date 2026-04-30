@@ -55,19 +55,28 @@
   justify-content: flex-start;
   padding: 12px 24px;
   background: var(--color-bg);
+  min-height: 100px;
 }
 
-.people-joined__label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+.people-joined {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+
+.people-joined-label {
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
   color: var(--color-text-gs);
 }
 
-.people-joined__value {
+.people-joined-value {
   font-size: 14px;
-  color: var(--color-text-muted);
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--color-text-n);
 }
 
 /* Current members: card--people + card--grid */
@@ -76,11 +85,9 @@
   grid-template-columns: auto 1fr;
   align-items: start;
   gap: var(--space-md);
-  min-height: 172px;
-  text-align: left;
 }
 
-.card--people.card--grid .people-photo {
+.card--people .people-photo {
   width: 120px;
   height: 150px;
   object-fit: cover;
@@ -89,23 +96,23 @@
   background: var(--color-surface);
 }
 
-.card--people .people-photo-placeholder,
-.member-detail-photo.people-photo-placeholder {
+.people-photo-placeholder {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
 }
 
-.card--people .people-info {
+.card--people .people-wrap {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
 }
 
 .card--people .people-head,
-.card--people .people-section {
+.card--people .people-description {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  width: auto;
 }
 
 /* ContentCard */

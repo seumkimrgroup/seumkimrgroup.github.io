@@ -5,13 +5,8 @@
   }
 
   .container--profile {
-    grid-template-columns: 143px minmax(0, 1fr);
+    grid-template-columns: 160px minmax(0, 1fr);
     gap: 24px;
-  }
-
-  .member-detail-photo {
-    width: 143px;
-    height: 143px;
   }
 }
 
@@ -101,14 +96,9 @@
   }
 
   .container--profile {
-    grid-template-columns: 126px minmax(0, 1fr);
+    grid-template-columns: 160px minmax(0, 1fr);
     gap: 20px;
     width: 100%;
-  }
-
-  .member-detail-photo {
-    width: 126px;
-    height: 126px;
   }
 
   .contact {
@@ -141,12 +131,7 @@
     justify-items: center;
   }
 
-  .member-detail-photo {
-    display: block;
-    margin: 0 auto;
-  }
-
-  .member-detail-main {
+  .people-head {
     width: 100%;
     align-items: flex-start;
     text-align: left;

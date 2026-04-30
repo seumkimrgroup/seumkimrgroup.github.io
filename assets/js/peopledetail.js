@@ -49,7 +49,7 @@ function renderInfoSection(title, items) {
     const itemsHtml = `<p>${items.map(escapeHtml).join(" <br>\n            ")}</p>`;
 
     return `
-    <div class="container container--gap-sm">
+    <div class="people-description">
       <h4>${escapeHtml(title)}</h4>
       ${itemsHtml}
     </div>
@@ -123,8 +123,8 @@ function renderMemberDetail(member) {
     const photoBlock = isFormer(member)
         ? ""
         : member.image
-            ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo member-detail-photo">`
-            : `<div class="people-photo people-photo-placeholder member-detail-photo"></div>`;
+            ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo">`
+            : `<div class="people-photo people-photo-placeholder"></div>`;
 
     const headerClass = isFormer(member)
         ? "container"
@@ -138,7 +138,7 @@ function renderMemberDetail(member) {
     <div class="${headerClass}">
       ${photoBlock}
 
-      <div class="member-detail-main">
+      <div class="people-head">
         <h2 class="member-detail-name">${escapeHtml(member.name)}</h2>
         ${subtitleHtml}
         ${joinedAtHtml}

@@ -358,7 +358,7 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   line-height: 1.7;
 }
 
-.contact-list {
+.contact-wrap {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
@@ -366,7 +366,7 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   max-width: 420px;
 }
 
-.contact-map-wrap {
+.contact-wrap-map {
   width: 100%;
   max-width: 420px;
   aspect-ratio: 4 / 3;
