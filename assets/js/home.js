@@ -53,50 +53,54 @@ function renderProjects(projects) {
 function renderTopics(topics) {
     if (!researchAreaList || !Array.isArray(topics) || topics.length === 0) return;
 
+    const clipEl = researchAreaList.parentElement;
     const prevBtn = document.getElementById("research-area-prev");
     const nextBtn = document.getElementById("research-area-next");
     const dotsEl = document.getElementById("research-area-dots");
 
-    const MOBILE_HIDE_BUTTON_WIDTH = 420;
-    const LOOP_SET_COUNT = 3;
-    const MIDDLE_SET_INDEX = 1;
+    if (!clipEl || !prevBtn || !nextBtn || !dotsEl) return;
 
-    let currentIndex = topics.length * MIDDLE_SET_INDEX;
+    let itemsPerPage = getItemsPerPage();
+    let realPages = [];
+    let pages = [];
+    let pageIndex = 0;
+    let activePageIndex = 0;
     let isAnimating = false;
     let resizeTimer = null;
 
-    if (dotsEl) dotsEl.style.display = "none";
-
-    function getCards() {
-        return researchAreaList.querySelectorAll(".card--content");
+    function getItemsPerPage() {
+        if (window.innerWidth <= 500) return 1;
+        if (window.innerWidth <= 950) return 2;
+        return 3;
     }
 
-    function getStep() {
-        const cards = getCards();
+    function chunkItems(items, size) {
+        const chunks = [];
 
-        const currentCard = cards[currentIndex];
-        const nextCard = cards[currentIndex + 1];
-
-        if (currentCard && nextCard) {
-            return nextCard.offsetLeft - currentCard.offsetLeft;
+        for (let i = 0; i < items.length; i += size) {
+            chunks.push(items.slice(i, i + size));
         }
 
-        const firstCard = cards[0];
-        const secondCard = cards[1];
-
-        if (firstCard && secondCard) {
-            return secondCard.offsetLeft - firstCard.offsetLeft;
-        }
-
-        return firstCard ? firstCard.getBoundingClientRect().width : 0;
+        return chunks;
     }
 
-    function updateButtons() {
-        const shouldHideForMobile = window.innerWidth <= MOBILE_HIDE_BUTTON_WIDTH;
-        const showButtons = topics.length > 1 && !shouldHideForMobile;
+    function buildPages() {
+        realPages = chunkItems(topics, itemsPerPage);
 
-        if (prevBtn) prevBtn.style.display = showButtons ? "flex" : "none";
-        if (nextBtn) nextBtn.style.display = showButtons ? "flex" : "none";
+        if (realPages.length <= 1) {
+            pages = [...realPages];
+            pageIndex = 0;
+            activePageIndex = 0;
+            return;
+        }
+
+        pages = [
+            realPages[realPages.length - 1],
+            ...realPages,
+            realPages[0],
+        ];
+
+        pageIndex = activePageIndex + 1;
     }
 
     function setTrackTransition(enabled) {
@@ -106,80 +110,159 @@ function renderTopics(topics) {
     }
 
     function updateTrackPosition(withTransition = true) {
-        const step = Math.round(getStep());
+        const pageWidth = clipEl.clientWidth;
 
-        if (!step) return;
+        if (!pageWidth) return;
 
         setTrackTransition(withTransition);
-        researchAreaList.style.transform = `translateX(-${currentIndex * step}px)`;
+        researchAreaList.style.transform = `translate3d(-${pageIndex * pageWidth}px, 0, 0)`;
     }
 
-    function normalizeIndexIfNeeded() {
-        const realStart = topics.length * MIDDLE_SET_INDEX;
-        const realEnd = realStart + topics.length;
+    function normalizePageIndexIfNeeded() {
+        if (realPages.length <= 1) return;
 
-        if (currentIndex >= realEnd) {
-            currentIndex -= topics.length;
+        if (pageIndex === 0) {
+            pageIndex = realPages.length;
+            activePageIndex = realPages.length - 1;
             updateTrackPosition(false);
             return;
         }
 
-        if (currentIndex < realStart) {
-            currentIndex += topics.length;
+        if (pageIndex === pages.length - 1) {
+            pageIndex = 1;
+            activePageIndex = 0;
             updateTrackPosition(false);
         }
     }
 
-    function move(direction) {
-        if (isAnimating) return;
+    function updateActivePageFromPageIndex() {
+        if (realPages.length <= 1) {
+            activePageIndex = 0;
+            return;
+        }
 
-        const step = getStep();
-        if (!step) return;
+        if (pageIndex === 0) {
+            activePageIndex = realPages.length - 1;
+            return;
+        }
+
+        if (pageIndex === pages.length - 1) {
+            activePageIndex = 0;
+            return;
+        }
+
+        activePageIndex = pageIndex - 1;
+    }
+
+    function updateNavigator() {
+        dotsEl.innerHTML = "";
+
+        if (realPages.length <= 1) {
+            dotsEl.classList.add("is-hidden");
+            return;
+        }
+
+        dotsEl.classList.remove("is-hidden");
+
+        prevBtn.classList.add("research-nav-btn");
+        nextBtn.classList.add("research-nav-btn");
+
+        prevBtn.textContent = "‹";
+        nextBtn.textContent = "›";
+        prevBtn.setAttribute("type", "button");
+        nextBtn.setAttribute("type", "button");
+        prevBtn.setAttribute("aria-label", "Previous research page");
+        nextBtn.setAttribute("aria-label", "Next research page");
+
+        dotsEl.appendChild(prevBtn);
+
+        realPages.forEach((_, index) => {
+            const dot = document.createElement("button");
+
+            dot.type = "button";
+            dot.className = "research-dot";
+            dot.setAttribute("aria-label", `Go to research page ${index + 1}`);
+
+            if (index === activePageIndex) {
+                dot.classList.add("is-active");
+                dot.setAttribute("aria-current", "true");
+            }
+
+            dot.addEventListener("click", () => {
+                goToRealPage(index);
+            });
+
+            dotsEl.appendChild(dot);
+        });
+
+        dotsEl.appendChild(nextBtn);
+    }
+
+    function goToRealPage(targetIndex) {
+        if (isAnimating || realPages.length <= 1) return;
 
         isAnimating = true;
-        currentIndex += direction;
+        activePageIndex = targetIndex;
+        pageIndex = targetIndex + 1;
 
+        updateNavigator();
         updateTrackPosition(true);
     }
 
-    function render() {
+    function move(direction) {
+        if (isAnimating || realPages.length <= 1) return;
+
+        isAnimating = true;
+        pageIndex += direction;
+
+        updateActivePageFromPageIndex();
+        updateNavigator();
+        updateTrackPosition(true);
+    }
+
+    function renderPages() {
         researchAreaList.innerHTML = "";
 
-        const loopItems = Array.from(
-            { length: LOOP_SET_COUNT },
-            () => topics
-        ).flat();
+        buildPages();
 
-        loopItems.forEach((topic, loopIndex) => {
-            const topicIndex = loopIndex % topics.length;
-            const card = createContentCard(topic);
+        pages.forEach((page) => {
+            const pageEl = document.createElement("div");
+            pageEl.className = "research-page";
 
-            card.dataset.topicIndex = String(topicIndex);
-            card.dataset.loopIndex = String(loopIndex);
+            page.forEach((topic) => {
+                const slot = document.createElement("div");
+                slot.className = "research-card-slot";
+                slot.style.flexBasis = `${100 / itemsPerPage}%`;
 
-            researchAreaList.appendChild(card);
+                const card = createContentCard(topic);
+                slot.appendChild(card);
+                pageEl.appendChild(slot);
+            });
+
+            researchAreaList.appendChild(pageEl);
         });
 
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 updateTrackPosition(false);
-                updateButtons();
+                updateNavigator();
             });
         });
     }
 
-    prevBtn?.addEventListener("click", () => {
+    prevBtn.onclick = () => {
         move(-1);
-    });
+    };
 
-    nextBtn?.addEventListener("click", () => {
+    nextBtn.onclick = () => {
         move(1);
-    });
+    };
 
     researchAreaList.addEventListener("transitionend", (event) => {
         if (event.propertyName !== "transform") return;
 
-        normalizeIndexIfNeeded();
+        normalizePageIndexIfNeeded();
+        updateNavigator();
 
         requestAnimationFrame(() => {
             isAnimating = false;
@@ -190,12 +273,20 @@ function renderTopics(topics) {
         clearTimeout(resizeTimer);
 
         resizeTimer = setTimeout(() => {
+            const nextItemsPerPage = getItemsPerPage();
+
+            if (nextItemsPerPage !== itemsPerPage) {
+                itemsPerPage = nextItemsPerPage;
+                activePageIndex = 0;
+                renderPages();
+                return;
+            }
+
             updateTrackPosition(false);
-            updateButtons();
         }, 120);
     });
 
-    render();
+    renderPages();
 }
 
 function setupAboutToggle() {

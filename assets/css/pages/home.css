@@ -179,15 +179,8 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 /* research areas */
 
 .research-area-wrap {
-  --research-gap: var(--space-md);
-  --research-button-size: 36px;
-  --research-button-space: 52px;
-
   position: relative;
   width: 100%;
-  padding-inline: var(--research-button-space);
-  box-sizing: border-box;
-  overflow: visible;
 }
 
 .research-area-clip {
@@ -201,7 +194,6 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
-  gap: var(--research-gap);
 
   width: 100%;
   min-width: 100%;
@@ -209,22 +201,37 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   will-change: transform;
 }
 
-.research-area-list .card--content {
-  position: relative;
-  box-sizing: border-box;
+.research-page {
+  flex: 0 0 100%;
+  max-width: 100%;
 
-  flex: 0 0 calc((100% - (var(--research-gap) * 2)) / 3);
-  max-width: calc((100% - (var(--research-gap) * 2)) / 3);
+  display: flex;
+  align-items: stretch;
+}
+
+.research-card-slot {
+  flex: 0 0 auto;
+  max-width: 100%;
+
+  padding-inline: 8px;
+  box-sizing: border-box;
+}
+
+.research-card-slot .card--content {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  height: 100%;
 
   border-color: transparent;
   overflow: hidden;
 }
 
 /*
-  카드 실제 내용 위에 border 전용 layer를 올림.
-  이미지가 있어도 경계선이 가려지지 않음.
+  이미지가 카드 border를 덮지 않도록,
+  카드 위에 border layer를 올린다.
 */
-.research-area-list .card--content::after {
+.research-card-slot .card--content::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -235,86 +242,88 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   border-radius: inherit;
 }
 
-.research-area-list .card--content:hover::after {
+.research-card-slot .card--content:hover::after {
   border-color: var(--color-border-strong);
 }
 
-.research-area-btn {
-  position: absolute;
-  top: 50%;
-  z-index: 5;
+/*
+  기존 좌우 버튼은 JS에서 research-area-dots 안으로 이동됨.
+  JS 로딩 전 잠깐 보이는 것을 방지.
+*/
+.research-area-wrap > .research-area-btn {
+  display: none;
+}
 
-  width: var(--research-button-size);
-  height: var(--research-button-size);
+/* < dots > navigator */
+
+.research-area-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.research-area-dots.is-hidden {
+  display: none;
+}
+
+.research-area-dots .research-area-btn {
+  position: static;
+  transform: none;
+  z-index: auto;
+
+  width: auto;
+  height: auto;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
+  padding: 0 6px;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
   color: var(--color-text);
-
-  font-size: 22px;
+  font-size: 24px;
+  line-height: 1;
   cursor: pointer;
-  transition: var(--transition);
 
-  transform: translateY(-50%);
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-#research-area-prev {
-  left: 0;
+.research-area-dots .research-area-btn:hover {
+  color: #555;
+  border: none;
+  box-shadow: none;
 }
 
-#research-area-next {
-  right: 0;
+.research-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+
+  border: none;
+  border-radius: 999px;
+
+  background: var(--color-border);
+  cursor: pointer;
+
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.research-area-btn:hover {
-  border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-hover);
+.research-dot.is-active {
+  background: var(--color-text);
+  transform: scale(1.15);
 }
 
-.research-area-dots {
-  display: none;
-}
-
-/* 화면이 좁아지면 카드 2개 */
-@media (max-width: 800px) {
-  .research-area-wrap {
-    --research-button-space: 44px;
-  }
-
-  .research-area-list .card--content {
-    flex-basis: calc((100% - var(--research-gap)) / 2);
-    max-width: calc((100% - var(--research-gap)) / 2);
-  }
-}
-
-/* 더 좁아지면 카드 1개 */
-@media (max-width: 500px) {
-  .research-area-wrap {
-    padding-inline: 0;
-  }
-
-  .research-area-list .card--content {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  #research-area-prev {
-    left: 8px;
-  }
-
-  #research-area-next {
-    right: 8px;
-  }
-}
-
-/* 아주 작은 화면에서는 버튼 숨김 */
+/* 아주 작은 화면에서는 navigator 숨김 */
 @media (max-width: 420px) {
-  .research-area-btn {
+  .research-area-dots {
     display: none !important;
   }
 }
