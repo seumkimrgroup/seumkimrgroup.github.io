@@ -43,9 +43,10 @@
 }
 
 .container--profile {
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: var(--space-lg);
-  grid-template-columns: 160px minmax(320px, 520px);
   width: min(100%, 800px);
 }
 
@@ -60,7 +61,9 @@
 
 .people-head {
   display: flex;
-  width: 400px;
+  flex: 1 1 320px;
+  min-width: min(320px, 100%);
+  max-width: 520px;
   flex-direction: column;
   gap: var(--space-sm);
 }
