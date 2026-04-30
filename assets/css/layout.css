@@ -170,6 +170,17 @@
   width: 100%;
   background: var(--color-seoultech-blue);
   padding: 36px 0 28px;
+  overflow-x: hidden;
+}
+
+.footer-divider {
+  width: calc(100% + 48px);
+  height: 1px;
+  background: rgba(247, 248, 250, 0.28);
+  margin: 0 0 16px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .footer-inner {
