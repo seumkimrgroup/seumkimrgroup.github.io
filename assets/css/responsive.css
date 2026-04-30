@@ -111,7 +111,7 @@
     height: 126px;
   }
 
-  .container--contact {
+  .contact {
     grid-template-columns: 1fr;
     gap: 20px;
   }

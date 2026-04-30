@@ -330,7 +330,9 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
 
 /* contact */
 
-.container--contact {
+.contact {
+  display: grid;
+  gap: var(--space-md);
   align-items: start;
   grid-template-columns: repeat(2, minmax(0, 420px));
 }
@@ -356,13 +358,17 @@ body.home .navbar.nav-open.nav-over-project .nav-links a:hover {
   line-height: 1.7;
 }
 
-.contact-list,
-.contact-map-wrap {
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
   width: 100%;
   max-width: 420px;
 }
 
 .contact-map-wrap {
+  width: 100%;
+  max-width: 420px;
   aspect-ratio: 4 / 3;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
