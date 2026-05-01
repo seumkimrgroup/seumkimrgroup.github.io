@@ -132,7 +132,7 @@
   flex: 1;
   padding-top: 160px;
   padding-bottom: 160px;
-  gap: clamp(48px, 8vw, 80px);
+  gap: clamp(56px, 8vw, 80px);
 }
 
 .section {
@@ -227,6 +227,12 @@
 }
 
 @media (max-width: 768px) {
+  .main {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    gap: 56px;
+  }
+
   .section {
     scroll-margin-top: 72px;
   }
@@ -303,6 +309,12 @@
 }
 
 @media (max-width: 480px) {
+  .main {
+    padding-top: 88px;
+    padding-bottom: 88px;
+    gap: 48px;
+  }
+
   .brand-logo {
     height: 32px;
   }
