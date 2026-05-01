@@ -227,6 +227,54 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    scroll-margin-top: 72px;
+  }
+
+  .navbar-inner {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .brand {
+    padding: 16px 0;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: flex;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 0;
+    transition: max-height 0.28s ease, opacity 0.2s ease, padding-bottom 0.28s ease;
+  }
+
+  .navbar.nav-open .nav-links {
+    max-height: 200px;
+    opacity: 1;
+    pointer-events: auto;
+    padding-bottom: 10px;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+  }
+
   .footer {
     padding: 30px 0 24px;
   }
@@ -255,6 +303,10 @@
 }
 
 @media (max-width: 480px) {
+  .brand-logo {
+    height: 28px;
+  }
+
   .footer {
     padding: 26px 0 22px;
   }

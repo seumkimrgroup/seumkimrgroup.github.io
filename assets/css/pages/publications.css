@@ -14,7 +14,7 @@
   outline: none;
   text-align: center;
   font-size: 15px;
-  color: var(--color-text-strong);
+  color: var(--color-text-nd);
   transition: var(--transition);
 }
 
@@ -72,4 +72,32 @@
   background: var(--color-accent);
   color: var(--color-bg);
   border-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .publications-search-box {
+    min-height: 40px;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .publications-search-card {
+    padding: 18px 20px 20px;
+  }
+
+  .publications-filter-controls {
+    align-items: center;
+  }
+
+  .publications-type-group {
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .publications-type-group .filter-btn {
+    min-height: 38px;
+    padding: 0 8px;
+  }
 }

@@ -11,7 +11,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   background: transparent;
-  color: var(--color-text-muted);
+  color: var(--color-text-gs);
   text-decoration: none;
   font-size: 14px;
   font-weight: 400;
@@ -20,7 +20,7 @@
 }
 
 .back-link:hover {
-  color: var(--color-text-strong);
+  color: var(--color-text-nd);
   border-color: var(--color-border-strong);
   background: rgba(0, 0, 0, 0.02);
   transform: translateX(-2px);
@@ -110,4 +110,35 @@
   filter: brightness(1.15);
 }
 
+@media (max-width: 640px) {
+  .people-members-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .people-members-list,
+  .people-alumni-list {
+    grid-template-columns: 1fr;
+  }
+
+  .container--profile {
+    gap: 18px;
+    justify-items: center;
+  }
+
+  .people-head {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .icon-links {
+    justify-content: flex-start;
+  }
+
+  .back-link {
+    margin-bottom: 16px;
+  }
+}
 
