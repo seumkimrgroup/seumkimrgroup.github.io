@@ -170,32 +170,33 @@
 .footer {
   width: 100%;
   background: var(--color-seoultech-blue);
-  padding: 28px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
+  padding: 42px 0 26px;
+  color: rgba(247, 248, 250, 0.78);
 }
 
+.footer-main,
+.footer-bottom,
 .footer-divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(247, 248, 250, 0.28);
+  width: min(100% - 48px, var(--navbar-width));
+  margin: 0 auto;
 }
 
-.footer-inner {
-  width: min(100% - 48px, var(--navbar-width));
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.footer-column {
+  min-width: 0;
+}
+
+.footer-brand {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.footer-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
+  align-items: flex-start;
+  gap: 22px;
 }
 
 .footer-logo-link {
@@ -217,12 +218,81 @@
   height: 35px;
 }
 
+.footer-heading {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247, 248, 250, 0.96);
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-contact-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: start;
+}
+
+.footer-contact-label {
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(247, 248, 250, 0.52);
+}
+
+.footer-contact-value {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(247, 248, 250, 0.78);
+}
+
+.footer a {
+  color: rgba(247, 248, 250, 0.82);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: rgba(247, 248, 250, 1);
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-nav a {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.footer-divider {
+  height: 1px;
+  margin-top: 34px;
+  background: rgba(247, 248, 250, 0.24);
+}
+
+.footer-bottom {
+  padding-top: 18px;
+}
+
 .footer-copy {
   margin: 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.6;
-  color: rgba(247, 248, 250, 0.72);
+  color: rgba(247, 248, 250, 0.62);
 }
 
 @media (max-width: 768px) {
@@ -281,16 +351,24 @@
   }
 
   .footer {
-    padding: 30px 0 24px;
+    padding: 36px 0 24px;
   }
 
-  .footer-inner {
+  .footer-main,
+  .footer-bottom,
+  .footer-divider {
     width: min(100% - 36px, var(--navbar-width));
   }
 
-  .footer-logos {
-    gap: 36px;
-    margin-bottom: 16px;
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    align-items: center;
+    gap: 18px;
   }
 
   .footer-logo--school {
@@ -299,6 +377,38 @@
 
   .footer-logo--lab {
     height: 30px;
+  }
+
+  .footer-heading {
+    margin-bottom: 12px;
+  }
+
+  .footer-contact-row {
+    grid-template-columns: 1fr;
+    row-gap: 1px;
+  }
+
+  .footer-contact-label,
+  .footer-contact-value {
+    text-align: center;
+  }
+
+  .footer-contact-list p {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .footer-contact-list span {
+    margin-bottom: 2px;
+  }
+
+  .footer-nav {
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-divider {
+    margin-top: 30px;
   }
 
   .footer-copy {
@@ -319,16 +429,21 @@
   }
 
   .footer {
-    padding: 26px 0 22px;
+    padding: 32px 0 22px;
   }
 
-  .footer-inner {
+  .footer-main,
+  .footer-bottom,
+  .footer-divider {
     width: min(100% - 28px, var(--navbar-width));
   }
 
-  .footer-logos {
-    gap: 24px;
-    margin-bottom: 14px;
+  .footer-main {
+    gap: 26px;
+  }
+
+  .footer-brand {
+    gap: 16px;
   }
 
   .footer-logo--school {
@@ -339,9 +454,19 @@
     height: 24px;
   }
 
+  .footer-heading {
+    font-size: 12px;
+  }
+
+  .footer-contact-list p,
+  .footer-nav a {
+    font-size: 11.8px;
+  }
+
   .footer-copy {
     max-width: 320px;
-    font-size: 11.5px;
+    margin: 0 auto;
+    font-size: 11.3px;
     line-height: 1.5;
   }
 }
