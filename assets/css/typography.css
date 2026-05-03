@@ -22,18 +22,18 @@
      base 14px  body text, UI
      md   16px  nav, buttons  (was also 15px — rounded up)
      lg   20px  section headings, brand
-     xl   30px  page titles
-     2xl  40px  display / hero sub
-     3xl  48px  hero                                          */
+     xl   24px  page titles
+     2xl  30px  display / hero sub
+     3xl  36px  hero                                          */
   --font-size-2xs: 0.6875rem;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.8125rem;
   --font-size-base: 0.875rem;
   --font-size-md: 1rem;
   --font-size-lg: 1.25rem;
-  --font-size-xl: 1.875rem;
-  --font-size-2xl: 2.5rem;
-  --font-size-3xl: 3rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
 
   /* Weight */
   --font-weight-light: 300;
@@ -78,31 +78,31 @@ h1 {
 }
 
 h2 {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-snug);
   color: var(--color-text-n);
 }
 
 h3 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-snug);
   color: var(--color-text-nd);
 }
 
 h4 {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-snug);
   color: var(--color-text-n);
 }
 
 h5 {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-light);
-  line-height: var(--line-height-normal);
-  color: var(--color-text-gs);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-n);
 }
 
 h6 {
@@ -142,4 +142,8 @@ p {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-snug);
+}
+
+.text-secondary {
+  color: var(--color-text-gs);
 }

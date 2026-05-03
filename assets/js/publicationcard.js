@@ -2,8 +2,8 @@ import { escapeHtml } from "./data.js";
 
 export function createPublicationCard(pub) {
     const cardInner = `
-    <h4>${escapeHtml(pub.title || "")}</h4>
-    <h5>${escapeHtml(pub.source || "")}</h5>
+    <h5>${escapeHtml(pub.title || "")}</h5>
+    <p class="text-secondary">${escapeHtml(pub.source || "")}</p>
     <p>${escapeHtml(pub.authors || "")}</p>
   `;
 
