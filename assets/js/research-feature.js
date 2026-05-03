@@ -71,13 +71,12 @@ export function createPanel(topic, allPublications) {
         <p class="areas-description">${escapeHtml(topic.description)}</p>
       </div>
     </div>
-    <div class="areas-articles">
+    <div class="container">
       <h4>Featured Articles</h4>
-      <div class="container"></div>
     </div>
   `;
 
-  const listEl = panel.querySelector(".areas-articles .container");
+  const listEl = panel.querySelector(".container");
   const articles = selectArticles(topicTags, allPublications);
 
   if (articles.length) {

@@ -112,7 +112,7 @@ function renderMemberDetail(member) {
     const affiliation = !isFormer(member) ? String(member.currentAffiliation || "").trim() : "";
     const subtitleParts = [role, affiliation].filter(Boolean);
     const subtitleHtml = subtitleParts.length
-        ? `<h5>${subtitleParts.map(escapeHtml).join(" <br>\n          ")}</h5>`
+        ? `<p class="text-secondary">${subtitleParts.map(escapeHtml).join(" <br>\n          ")}</p>`
         : "";
 
     const nextAffiliation = String(member.nextAffiliation || "").trim();

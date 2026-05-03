@@ -84,7 +84,7 @@ export function createCurrentMemberCard(member) {
     <div class="people-body">
       <div class="people-identity">
         <h3>${escapeHtml(member.name)}</h3>
-        <h5>${escapeHtml(formatRole(member.role))}</h5>
+        <p class="text-secondary">${escapeHtml(formatRole(member.role))}</p>
       </div>
       ${researchContent ? `
       <div class="people-section">
@@ -116,7 +116,7 @@ export function createAlumniMemberCard(member) {
     <div class="people-body">
         <div class="people-identity">
             <h3>${escapeHtml(member.name)}</h3>
-            <h5>${escapeHtml(statusLine)}</h5>
+            <p class="text-secondary">${escapeHtml(statusLine)}</p>
         </div>
         ${joinedAt ? `
         <div class="people-meta">
