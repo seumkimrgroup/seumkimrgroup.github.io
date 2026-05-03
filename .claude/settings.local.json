@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Remove-Item \"d:\\\\VScode_projects\\\\seumkimrgroup.github.io\\\\assets\\\\css\\\\pages\\\\home2.css\")",
+      "Bash(Remove-Item \"d:\\\\VScode_projects\\\\seumkimrgroup.github.io\\\\assets\\\\css\\\\pages\\\\contact.css\")"
+    ]
+  }
+}
