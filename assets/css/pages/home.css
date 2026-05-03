@@ -165,7 +165,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 }
 
 .project-title {
-  font-size: var(--font-size-2xl);
   color: #ffffff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
