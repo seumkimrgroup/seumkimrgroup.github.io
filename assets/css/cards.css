@@ -134,6 +134,10 @@
   padding: 18px 18px 20px;
 }
 
+.card-type {
+  color: var(--color-text-gs);
+}
+
 .card-links {
   margin-top: 2px;
   font-size: 13px;

@@ -32,6 +32,7 @@ export function createContentCard(item) {
       />
     </div>
     <div class="card-body">
+      ${item.type ? `<h6 class="card-type">${escapeHtml(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</h6>` : ""}
       <h4 class="card-title">${escapeHtml(item.title || "")}</h4>
       <p class="card-description">${escapeHtml(item.description || "")}</p>
       ${renderLinks(item.links)}

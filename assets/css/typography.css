@@ -1,0 +1,141 @@
+/*
+  typography.css — font tokens + base type styles (single source of truth)
+
+  Integration checklist (when wiring up globally):
+    - Remove --font-family from tokens.css
+    - Remove h1~h6, p, .text-* from base.css
+    - Load this file before base.css in HTML
+*/
+
+/* ============================================================
+   Tokens
+   ============================================================ */
+
+:root {
+  /* Family */
+  --font-family: 'Inter', 'Pretendard', 'Roboto', sans-serif;
+
+  /* Size scale
+     2xs  11px  tags, badges
+     xs   12px  labels, captions, footer secondary
+     sm   13px  footer body, card links
+     base 14px  body text, UI
+     md   16px  nav, buttons  (was also 15px — rounded up)
+     lg   20px  section headings, brand
+     xl   30px  page titles
+     2xl  40px  display / hero sub
+     3xl  48px  hero                                          */
+  --font-size-2xs:  0.6875rem;
+  --font-size-xs:   0.75rem;
+  --font-size-sm:   0.8125rem;
+  --font-size-base: 0.875rem;
+  --font-size-md:   1rem;
+  --font-size-lg:   1.25rem;
+  --font-size-xl:   1.875rem;
+  --font-size-2xl:  2.5rem;
+  --font-size-3xl:  3rem;
+
+  /* Weight */
+  --font-weight-light:    300;
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Line height */
+  --line-height-tight:   1.2;
+  --line-height-snug:    1.4;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-loose:   1.75;
+
+  /* Letter spacing */
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide:   0.04em;
+  --letter-spacing-wider:  0.08em;
+  --letter-spacing-caps:   0.12em;
+}
+
+
+/* ============================================================
+   Base elements
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+h1 {
+  font-size:   var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-bs);
+}
+
+h2 {
+  font-size:   var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-n);
+}
+
+h3 {
+  font-size:   var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-nd);
+}
+
+h4 {
+  font-size:   var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-n);
+}
+
+h5 {
+  font-size:   var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-gs);
+}
+
+h6 {
+  font-size:      var(--font-size-xs);
+  font-weight:    var(--font-weight-bold);
+  line-height:    var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+  color: var(--color-text-gs);
+}
+
+p {
+  font-size:   var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-gd);
+}
+
+
+/* ============================================================
+   Utility classes
+   (inline / anchor elements where tag selectors can't be used)
+   ============================================================ */
+
+.text-brand {
+  font-size:   var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+}
+
+.text-nav {
+  font-size:   var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-snug);
+}
+
+.text-ui {
+  font-size:   var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+}
