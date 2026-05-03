@@ -103,15 +103,11 @@
 .card--people .people-body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-xs);
 }
 
-.card--people .people-identity,
-.card--people .people-section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  width: auto;
+.card--people .people-body > .text-secondary {
+  margin-bottom: var(--space-md);
 }
 
 /* ContentCard */

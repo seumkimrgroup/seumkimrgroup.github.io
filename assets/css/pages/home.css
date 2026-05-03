@@ -206,7 +206,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   display: flex;
 }
 
-
 /* research areas */
 
 .areas-tab-title {
@@ -263,7 +262,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 .areas-description {
   margin: 0;
   max-width: 560px;
-  color: var(--color-text-gm);
 }
 
 .areas-tags {
@@ -271,7 +269,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   flex-wrap: wrap;
   gap: 6px;
 }
-
 
 /* lab updates */
 
@@ -393,7 +390,9 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   line-height: 1;
   cursor: pointer;
 
-  transition: color 0.2s ease, opacity 0.2s ease;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .updates-dots .updates-btn:hover {
@@ -413,7 +412,9 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   background: var(--color-border);
   cursor: pointer;
 
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .updates-dot.is-active {
