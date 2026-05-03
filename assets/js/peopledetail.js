@@ -49,7 +49,7 @@ function renderInfoSection(title, items) {
     const itemsHtml = `<p>${items.map(escapeHtml).join(" <br>\n            ")}</p>`;
 
     return `
-    <div class="people-description">
+    <div class="people-section">
       <h4>${escapeHtml(title)}</h4>
       ${itemsHtml}
     </div>
@@ -117,7 +117,7 @@ function renderMemberDetail(member) {
 
     const nextAffiliation = String(member.nextAffiliation || "").trim();
     const joinedAtHtml = isFormer(member) && nextAffiliation
-        ? `<div class="people-joined"><span class="people-joined-label">JOINED AT</span><span class="people-joined-value">${escapeHtml(nextAffiliation)}</span></div>`
+        ? `<div class="people-meta"><span class="people-meta-label">JOINED AT</span><span class="people-meta-value">${escapeHtml(nextAffiliation)}</span></div>`
         : "";
 
     const photoBlock = isFormer(member)
@@ -138,7 +138,7 @@ function renderMemberDetail(member) {
     <div class="${headerClass}">
       ${photoBlock}
 
-      <div class="people-head">
+      <div class="people-identity">
         <h2>${escapeHtml(member.name)}</h2>
         ${subtitleHtml}
         ${joinedAtHtml}

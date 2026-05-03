@@ -6,7 +6,7 @@
     "authors": "Hui Jun Jang*, Young In Lee*, Hyeon Seong Hwang, Sunjae Lee, Kanghee Won+, Se-Um Kim+",
     "type": "other",
     "link": "https://www.sciencedirect.com/science/article/abs/pii/S0167732225011298",
-    "tags": []
+    "tags": ["SW", "LC-COMP", "PSLC"]
   },
   {
     "title": "Broadband near-infrared reflective film from stacked opposite-handed chiral liquid crystals with pitch gradients",
@@ -15,7 +15,7 @@
     "authors": "Hyeon Seong Hwang*, Jongsu Lee*, Byungsoo Kang, Minhye Kim, Doyo Kim, Se-Um Kim",
     "type": "indexed",
     "link": "https://www.mdpi.com/2073-4352/15/7/597",
-    "tags": []
+    "tags": ["LC-COMP", "PSLC"]
   },
   {
     "title": "Numerical analysis for cost-effective temperature reduction in high-power light-emitting diodes using thermal via array",
@@ -24,7 +24,7 @@
     "authors": "Yong Jin Hwang*, Bo-Yeon Lee*, Min Ji Kim, Seung-Chul Park, Kanghee Won+, Se-Um Kim+",
     "type": "indexed",
     "link": "https://www.mdpi.com/2076-3417/15/12/6505",
-    "tags": []
+    "tags": ["ML-FEA", "THERM"]
   },
   {
     "title": "Tomographic strain indicator of chiral liquid crystalline elastomer",
@@ -33,7 +33,7 @@
     "authors": "Hye Joo Lee*, Se-Um Kim*, Hyo Seok Oh, Soon Mo Park, Jaeyub Hyun+, Young-Seok Kim+, Dae Seok Kim+",
     "type": "indexed",
     "link": "https://www.sciencedirect.com/science/article/abs/pii/S1385894725038744",
-    "tags": []
+    "tags": ["LC-COMP", "CLCE", "FEATURED"]
   },
   {
     "title": "Recent advances in electrochromic devices: from multicolor to flexible applications",
@@ -87,7 +87,7 @@
     "authors": "Mohsin Hassan Saeed*, Moon-Young Choi*, Kitae Kim, Jin-Hyeong Lee, Keumbee Kim, Dowon Kim, Se-Um Kim, Hyun Kim, Suk-kyun Ahn, Ruochen Lan+, Jun-Hee Na+",
     "type": "indexed",
     "link": "https://pubs.acs.org/doi/full/10.1021/acsami.3c13140",
-    "tags": []
+    "tags": ["LC-COMP", "LCE"]
   },
   {
     "title": "Voxelated opto-physically unclonable functions via irreplicable wrinkles",
@@ -96,7 +96,7 @@
     "authors": "Kitae Kim, Se-Um Kim, Moon-Young Choi, Mohsin Hassan Saeed, Youngmin Kim, Jun-Hee Na",
     "type": "indexed",
     "link": "https://www.nature.com/articles/s41377-023-01285-1",
-    "tags": []
+    "tags": ["LC-COMP"]
   },
   {
     "title": "2D Arrays of soft actuators performing out-of-plane local inflation for shape displays",
@@ -105,7 +105,7 @@
     "authors": "Moon-Young Choi*, Se-Um Kim*, Hogyeong Kim, Kitae Kim, Mohsin Hassan Saeed, Srinivas Pagidi, Jun-Hee Na",
     "type": "indexed",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adem.202300267",
-    "tags": []
+    "tags": ["TACTILE"]
   },
   {
     "title": "Recent progress in liquid crystal-based smart windows",
@@ -114,7 +114,7 @@
     "authors": "Hyeon Seong Hwang, Hyun Mok Cho, Se-Um Kim",
     "type": "other",
     "link": "https://www.e-jfpe.org/archive/view_article?pid=jfpe-2-1-61",
-    "tags": []
+    "tags": ["SW", "LC-COMP"]
   },
   {
     "title": "Versatile mechanochromic sensor based on highly stretchable chiral liquid crystalline elastomer",
@@ -123,7 +123,7 @@
     "authors": "Woong Chan Han*, Young-Joo Lee*, Se-Um Kim*, Hye Joo Lee, Young-Seok Kim+, Dae Seok Kim+",
     "type": "indexed",
     "link": "https://onlinelibrary.wiley.com/doi/10.1002/smll.202206299",
-    "tags": []
+    "tags": ["LC-COMP", "CLCE", "FEATURED"]
   },
   {
     "title": "Deformable photonic crystals based on chiral liquid crystals with thermal-mediative shape memory effect",
@@ -132,7 +132,7 @@
     "authors": "Min-Seok Park*, Kitae Kim*, Young-Joo Lee, Jun-Hee Na, Se-Um Kim",
     "type": "indexed",
     "link": "https://www.mdpi.com/1996-1944/16/1/35",
-    "tags": []
+    "tags": ["LC-COMP"]
   },
   {
     "title": "Reverse-engineered highly conformable leak and pressure reducing cushion for neonatal resuscitation mask",
@@ -141,7 +141,7 @@
     "authors": "Carolyn M. McGann*, Young-Joo Lee*, Se-Um Kim*, Danielle D. Weinberg*, Xincheng Zha, Matthew Huber, Michael W. Hast, Kayley Dear, Vinay Nadkarni, Elizabeth E. Foglia+, Shu Yang+",
     "type": "indexed",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/admt.202101364",
-    "tags": []
+    "tags": ["MECH"]
   },
   {
     "title": "Broadband and pixelated camouflage in inflating chiral nematic liquid crystalline elastomers",
@@ -150,7 +150,7 @@
     "authors": "Se-Um Kim, Young-Joo Lee, Jiaqi Liu, Dae Seok Kim, Haihuan Wang, Shu Yang",
     "type": "indexed",
     "link": "https://www.nature.com/articles/s41563-021-01075-3",
-    "tags": []
+    "tags": ["TACTILE", "LC-COMP", "CLCE", "MECH", "FEATURED"]
   },
   {
     "title": "Fabrication of transmittance tunable porous elastomers for smart window applications",
@@ -186,7 +186,7 @@
     "authors": "Kitae Kim*, Se-Um Kim*, Subi Choi, Kyuyoung Heo, Suk-kyun Ahn, Jun-Hee Na",
     "type": "indexed",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202002134",
-    "tags": []
+    "tags": ["LC-COMP"]
   },
   {
     "title": "Continuum soft actuators based on reprogrammable geometric constraints",
@@ -203,8 +203,8 @@
     "date": "201910",
     "authors": "Sin-Doo Lee, Se-Um Kim, Jeng-Hun Suh",
     "type": "patent",
-    "link": "",
-    "tags": []
+    "link": "https://patents.google.com/patent/US10503015B2/en",
+    "tags": ["LC-COMP"]
   },
   {
     "title": "Helical photonic crystal-based reflective-type color display and method for manufacturing the same",
@@ -213,7 +213,7 @@
     "authors": "Sin-Doo Lee, Se-Um Kim",
     "type": "patent",
     "link": "https://patents.google.com/patent/US10877311B2/en",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Programming emergent symmetries with saddle-splay elasticity",
@@ -240,7 +240,7 @@
     "authors": "Sang Hyun Lee, Sin-Hyung Lee, Se-Um Kim, Sujie Kang, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://opg.optica.org/oe/fulltext.cfm?uri=oe-27-8-11661",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Self-organized wrinkling of liquid crystalline polymer with plasma treatment",
@@ -267,7 +267,7 @@
     "authors": "Se-Um Kim*, Sang Hyun Lee*, Jaehyun Sim, Sin-Doo Lee, Jun-Hee Na",
     "type": "other",
     "link": "https://www.tandfonline.com/doi/full/10.1080/15980316.2018.1520158",
-    "tags": []
+    "tags": ["LC-COMP", "PSLC"]
   },
   {
     "title": "Generation of intensity-tunable structural color from helical photonic crystals for full color reflective-type display",
@@ -276,7 +276,7 @@
     "authors": "Se-Um Kim, Sin-Hyung Lee, In-Ho Lee, Bo-Yeon Lee, Jun-Hee Na, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://opg.optica.org/oe/fulltext.cfm?uri=oe-26-10-13561",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Design and fabrication of liquid crystal-based lenses",
@@ -285,7 +285,7 @@
     "authors": "Se-Um Kim, Jun-Hee Na, Chiwoo Kim, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://www.tandfonline.com/doi/full/10.1080/02678292.2017.1328748",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Reduction of gamma distortions in liquid crystal display by anisotropic voltage-dividing layer of reactive mesogens",
@@ -294,7 +294,7 @@
     "authors": "Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://www.tandfonline.com/doi/full/10.1080/02678292.2016.1205224",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Concept of active parallax barrier on polarizing interlayer for near-viewing autostereoscopic displays",
@@ -303,7 +303,7 @@
     "authors": "Se-Um Kim, Jiyoon Kim, Jeng-Hun Suh, Jun-Hee Na, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://opg.optica.org/oe/fulltext.cfm?uri=oe-24-22-25010",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Array of liquid crystal polymer-based Fabry-Perot resonators for image selection by polarization",
@@ -312,7 +312,7 @@
     "authors": "In-Ho Lee, Eui-Sang Yu, Se-Um Kim, Sin-Doo Lee",
     "type": "other",
     "link": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9940/1/Array-of-liquid-crystal-polymer-based-Fabry-Perot-resonators-for/10.1117/12.2236167.short",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "The domain mixing effect on the electro-optical properties of liquid crystals using polyimide doped with reactive mesogen",
@@ -321,7 +321,7 @@
     "authors": "Eui-Sang Yu, Se-Um Kim, Jeng-Hun Suh, Jiyoon Kim, Jun-Hee Na, Sin-Doo Lee",
     "type": "other",
     "link": "https://www.tandfonline.com/doi/full/10.1080/15980316.2016.1208631",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "New architectures of liquid-crystal-based lenticular lenses in index matching approach for display applications",
@@ -330,7 +330,7 @@
     "authors": "Sin-Doo Lee, Jiyoon Kim, Hyungjin Kim, Se-Um Kim, Chiwoo Kim",
     "type": "other",
     "link": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9769/97690L/New-architectures-of-liquid-crystal-based-lenticular-lenses-in-index/10.1117/12.2207592.short",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Importance of surface modification of a microcontact stamp for pattern fidelity of soluble organic semiconductors",
@@ -348,7 +348,7 @@
     "authors": "Jiyoon Kim, Jeng-Hun Suh, Bo-Yeon Lee, Se-Um Kim, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://opg.optica.org/oe/fulltext.cfm?uri=oe-23-10-12619",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Colloidal assembling template with wrinkled patterns based on liquid crystalline polymer",
@@ -369,13 +369,13 @@
     "tags": []
   },
   {
-    "title": "Lenticular lens array based on liquid crystal with a polarization-dependent focusing effect for 2D–3D image applications",
+    "title": "Lenticular lens array based on liquid crystal with a polarization-dependent focusing effect for 2D-3D image applications",
     "source": "Journal of Information Display 16(1), 11-15 (2015)",
     "date": "201501",
     "authors": "Jiyoon Kim, Se-Um Kim, Bo-Yeon Lee, Jeng-Hun Suh, Sin-Doo Lee",
     "type": "other",
     "link": "https://www.tandfonline.com/doi/full/10.1080/15980316.2015.1010615",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Combinatorial color arrays based on optical micro-resonators in monolithic architecture",
@@ -393,7 +393,7 @@
     "authors": "Jiyoon Kim, Se-Um Kim, Eui-Sang Yu, Sin-Doo Lee",
     "type": "other",
     "link": "https://sid.onlinelibrary.wiley.com/doi/10.1002/j.2168-0159.2014.tb00144.x",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Precise lens-on-lens architecture using selective wettability for image-depth representation",
@@ -411,7 +411,7 @@
     "authors": "Se-Um Kim, Sanghun Lee, Jun-Hee Na, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://www.sciencedirect.com/science/article/abs/pii/S0030401813009814?via%3Dihub",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Array of solid-state dye-sensitized solar cells with micropatterned TiO2 nanoparticles for a high-voltage power source",
@@ -429,7 +429,7 @@
     "authors": "Jun-Hee Na, Seung Chul Park, Se-Um Kim, Yoonseuk Choi, Sin-Doo Lee",
     "type": "indexed",
     "link": "https://opg.optica.org/oe/fulltext.cfm?uri=oe-20-2-864",
-    "tags": []
+    "tags": ["LC-EO"]
   },
   {
     "title": "Tunable lenticular lens array using liquid crystal on periodically undulated electrodes for autostereoscopic 2D/3D convertible displays",
@@ -438,6 +438,6 @@
     "authors": "Jun-Hee Na, Seung Chul Park, Se-Um Kim, Sin-Doo Lee",
     "type": "other",
     "link": "https://sid.onlinelibrary.wiley.com/doi/abs/10.1889/1.3621168",
-    "tags": []
+    "tags": ["LC-EO"]
   }
 ]

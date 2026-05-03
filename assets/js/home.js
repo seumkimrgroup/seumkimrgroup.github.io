@@ -4,7 +4,7 @@ import { createContentCard } from "./contentcard.js";
 const projectSlider = document.getElementById("project-slider");
 const projectPrev = document.getElementById("project-prev");
 const projectNext = document.getElementById("project-next");
-const researchAreaList = document.getElementById("research-area-list");
+const updatesTrack = document.getElementById("updates-track");
 const aboutMore = document.getElementById("about-more");
 const aboutMoreBtn = document.getElementById("about-more-btn");
 
@@ -50,13 +50,13 @@ function renderProjects(projects) {
     updateSlide();
 }
 
-function renderTopics(topics) {
-    if (!researchAreaList || !Array.isArray(topics) || topics.length === 0) return;
+function renderUpdates(topics) {
+    if (!updatesTrack || !Array.isArray(topics) || topics.length === 0) return;
 
-    const clipEl = researchAreaList.parentElement;
-    const prevBtn = document.getElementById("research-area-prev");
-    const nextBtn = document.getElementById("research-area-next");
-    const dotsEl = document.getElementById("research-area-dots");
+    const clipEl = updatesTrack.parentElement;
+    const prevBtn = document.getElementById("updates-prev");
+    const nextBtn = document.getElementById("updates-next");
+    const dotsEl = document.getElementById("updates-dots");
 
     if (!clipEl || !prevBtn || !nextBtn || !dotsEl) return;
 
@@ -104,7 +104,7 @@ function renderTopics(topics) {
     }
 
     function setTrackTransition(enabled) {
-        researchAreaList.style.transition = enabled
+        updatesTrack.style.transition = enabled
             ? "transform 0.45s ease"
             : "none";
     }
@@ -115,7 +115,7 @@ function renderTopics(topics) {
         if (!pageWidth) return;
 
         setTrackTransition(withTransition);
-        researchAreaList.style.transform = `translate3d(-${pageIndex * pageWidth}px, 0, 0)`;
+        updatesTrack.style.transform = `translate3d(-${pageIndex * pageWidth}px, 0, 0)`;
     }
 
     function normalizePageIndexIfNeeded() {
@@ -164,15 +164,12 @@ function renderTopics(topics) {
 
         dotsEl.classList.remove("is-hidden");
 
-        prevBtn.classList.add("research-nav-btn");
-        nextBtn.classList.add("research-nav-btn");
-
         prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
         nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
         prevBtn.setAttribute("type", "button");
         nextBtn.setAttribute("type", "button");
-        prevBtn.setAttribute("aria-label", "Previous research page");
-        nextBtn.setAttribute("aria-label", "Next research page");
+        prevBtn.setAttribute("aria-label", "Previous page");
+        nextBtn.setAttribute("aria-label", "Next page");
 
         dotsEl.appendChild(prevBtn);
 
@@ -180,8 +177,8 @@ function renderTopics(topics) {
             const dot = document.createElement("button");
 
             dot.type = "button";
-            dot.className = "research-dot";
-            dot.setAttribute("aria-label", `Go to research page ${index + 1}`);
+            dot.className = "updates-dot";
+            dot.setAttribute("aria-label", `Go to page ${index + 1}`);
 
             if (index === activePageIndex) {
                 dot.classList.add("is-active");
@@ -221,17 +218,17 @@ function renderTopics(topics) {
     }
 
     function renderPages() {
-        researchAreaList.innerHTML = "";
+        updatesTrack.innerHTML = "";
 
         buildPages();
 
         pages.forEach((page) => {
             const pageEl = document.createElement("div");
-            pageEl.className = "research-page";
+            pageEl.className = "updates-panel";
 
             page.forEach((topic) => {
                 const slot = document.createElement("div");
-                slot.className = "research-card-slot";
+                slot.className = "updates-slot";
                 slot.style.flexBasis = `${100 / itemsPerPage}%`;
 
                 const card = createContentCard(topic);
@@ -239,7 +236,7 @@ function renderTopics(topics) {
                 pageEl.appendChild(slot);
             });
 
-            researchAreaList.appendChild(pageEl);
+            updatesTrack.appendChild(pageEl);
         });
 
         requestAnimationFrame(() => {
@@ -297,7 +294,7 @@ function renderTopics(topics) {
         { passive: true }
     );
 
-    researchAreaList.addEventListener("transitionend", (event) => {
+    updatesTrack.addEventListener("transitionend", (event) => {
         if (event.propertyName !== "transform") return;
 
         normalizePageIndexIfNeeded();
@@ -344,10 +341,10 @@ async function initHomePage() {
         if (!Array.isArray(items)) return;
 
         const projects = items.filter((item) => item.type === "project");
-        const topics = items.filter((item) => item.type === "topic");
+        const updates = items.filter((item) => item.type === "news" || item.type === "highlight");
 
         renderProjects(projects);
-        renderTopics(topics);
+        renderUpdates(updates);
         setupAboutToggle();
     } catch (error) {
         console.error(error);

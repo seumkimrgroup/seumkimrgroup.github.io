@@ -4,8 +4,8 @@
     "subtitle": "",
     "title": "LC composite materials & systems",
     "image": "assets/images/contents/topic1.png",
-    "description": "Design and application of liquid crystal composites for responsive optical materials and functional device platforms.",
-    "tag": "",
+    "description": "We design liquid crystal composite materials and soft photonic systems by controlling molecular composition, polymer networks, chirality, and elastomeric mechanics. Our research focuses on how mesogenic monomers and various non-mesogenic additives can be synthesized, blended, and structured to produce stimuli-responsive materials. These material platforms are connected to tactile displays, mechanochromic indicators, and LC-based smart window systems. Through an integrated workflow spanning material synthesis, formulation, device fabrication, optical and mechanical characterization, our lab aims to control LC composite systems from molecular composition and material microstructure to device-level performance.",
+    "tag": ["SW", "TACTILE", "LC-COMP", "PSLC", "LCE", "CLCE"],
     "links": []
   },
   {
@@ -13,8 +13,8 @@
     "title": "LC-based electro-optical systems",
     "subtitle": "",
     "image": "assets/images/contents/topic2.png",
-    "description": "Electro-optical phase control, tunable optical filtering, and hybrid photonic devices based on liquid crystal anisotropy.",
-    "tag": "",
+    "description": "Our lab develops a wide range of LC-based electro-optical devices, including displays, tunable lenses, and phase modulators operating across diverse wavelength ranges. We are also particularly focused on chiral liquid crystal systems, whose helical structures enable unique optical functions such as structural coloration, wavelength filtering, and electrically tunable spectral responses. Building on these capabilities, we are extending our research scope toward silicon-based photonic platforms by incorporating LCs for active on-chip phase control. Through the development of LC–silicon hybrid structures, we aim to realize compact and reconfigurable photonic systems for optical signal processing, tunable light manipulation, and photonic quantum-state control.",
+    "tag": ["JQL", "LC-EO"],
     "links": []
   },
   {
@@ -22,8 +22,8 @@
     "title": "ML-assisted optimization of FEA",
     "subtitle": "",
     "image": "assets/images/contents/topic3.png",
-    "description": "Machine learning-assisted simulation workflows for thermal, electrical, and optical FEA and accelerated design optimization.",
-    "tag": "",
+    "description": "We develop simulation-driven workflows for multiphysics analysis and machine learning-assisted design optimization to study anisotropic material deformation, heat dissipation, electric-field distribution, and optical responses in functional materials and device systems. Our research focuses on highly coupled multiphysics of optoelectronic devices, linking heat generation, structural deformation, electric-field distribution, and device performance across material and device scales. To make these complex simulations more efficient, we leverage ML-assisted fast predictive models, data-driven optimization, and physics-informed neural networks to reduce computational cost and accelerate prediction, inverse design, and reliability-oriented device development.",
+    "tag": ["ML-FEA", "THERM", "MECH", "ELEC"],
     "links": []
   },
   {
@@ -32,25 +32,43 @@
     "title": "Joint Quantum Lab",
     "description": "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
     "image": "assets/images/contents/project1.jpg",
-    "tag": "",
+    "tag": ["JQL", "LC-EO"],
     "links": []
   },
   {
     "type": "project",
     "subtitle": "Advanced Materials",
-    "title": "Ferronematic Liquid Crystals",
+    "title": "Tatile displays",
     "description": "High-speed electro-optic response using ferroelectric liquid crystal systems.",
     "image": "assets/images/contents/project2.jpg",
-    "tag": "",
+    "tag": ["TACTILE", "LC-COMP", "CLCE", "MECH"],
     "links": []
   },
   {
     "type": "project",
     "subtitle": "",
-    "title": "",
+    "title": "LC-based smart window",
     "description": "Adaptive photonic structures using mechanically responsive LC materials.",
     "image": "assets/images/contents/project3.jpg",
-    "tag": "",
+    "tag": ["SW", "LC-COMP", "PSLC"],
+    "links": []
+  },
+  {
+    "type": "news",
+    "subtitle": "Lab News",
+    "title": "Se-Um Kim Research Group officially opens at SeoulTech",
+    "description": "Our lab has officially launched at Seoul National University of Science and Technology. We are actively recruiting motivated undergraduate and graduate students.",
+    "image": "assets/images/contents/news1.jpg",
+    "tag": [],
+    "links": []
+  },
+  {
+    "type": "news",
+    "subtitle": "Lab News",
+    "title": "New project on LC-based smart window systems kicks off",
+    "description": "A new research project focused on polymer-stabilized liquid crystal smart windows has begun, supported by a domestic research grant.",
+    "image": "assets/images/contents/news2.jpg",
+    "tag": ["SW", "LC-COMP", "PSLC"],
     "links": []
   },
   {
@@ -59,7 +77,7 @@
     "title": "",
     "description": "Some living organisms are cryptically coloured with a wide range of hues and patterns for camouflage. Using thin, flexible membranes made from a polymer network of liquid crystals that are arranged in helical shapes, we have developed a kind of artificial chromatophore that can change colors instantly—from near-infrared to visible to ultraviolet—on demand. These soft materials may find uses in distinct applications such as cryptography, adaptive optics, and soft robotics.",
     "image": "assets/images/contents/highlight2.jpg",
-    "tag": "",
+    "tag": ["TACTILE", "LC-COMP", "CLCE", "MECH"],
     "links": [
       {
         "text": "Penn Today",
@@ -85,7 +103,7 @@
     "title": "",
     "description": "We have designed a platform that programs the orientation of mechanically anisotropic molecules; thus, the surface wrinkles, promoted by such instabilities, can be patterned in the desired manner. The optics based on a spatial light modulator assembles wrinkle pixels of a notably small dimension over a large area at fast fabrication speed. This result enables new applications in optics such as image storage, informative labeling, and anti-counterfeiting.",
     "image": "assets/images/contents/highlight1.jpg",
-    "tag": "",
+    "tag": ["LC-COMP"],
     "links": [
       {
         "text": "NRF",

@@ -1,32 +1,87 @@
 /* Shared UI components used across pages */
 
-.site-btn {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   min-height: 36px;
-  padding: 0px 16px;
+  padding: 0 16px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);
   background: transparent;
-  color: var(--color-text-nd);
+  color: var(--color-text-gs);
+  font-family: inherit;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.4;
   cursor: pointer;
+  text-decoration: none;
   transition: var(--transition);
 }
 
-.site-btn:hover {
+.btn:hover {
   background: var(--color-accent-hover);
+  color: var(--color-text-n);
+  border-color: var(--color-border-strong);
 }
 
-.site-btn--primary {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+.btn.active {
+  background: rgba(55, 65, 81, 0.08);
+  border-color: transparent;
+  color: var(--color-text-n);
+}
+
+.btn.active:hover {
+  background: rgba(55, 65, 81, 0.14);
+  border-color: transparent;
+  color: var(--color-text-n);
+}
+
+.btn--primary {
+  border: 2px solid #7dd3fc;
+  color: #7dd3fc;
+}
+
+.btn--primary:hover {
+  background: #7dd3fc;
+  border-color: #7dd3fc;
   color: var(--color-bg);
 }
 
-.site-btn--primary:hover {
-  opacity: 0.92;
+.btn--back {
+  align-self: flex-start;
+  margin-bottom: 24px;
 }
+
+.btn--back:hover {
+  transform: translateX(-2px);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Tag pills */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid currentColor;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.tag--project  { color: #eab308; background: rgba(234, 179,   8, 0.10); }
+.tag--topic    { color: #535982; background: rgba( 83,  89, 130, 0.10); }
+.tag--method   { color: #65a30d; background: rgba(101, 163,  13, 0.10); }
+.tag--featured { color: #ea580c; background: rgba(234,  88,  12, 0.10); }

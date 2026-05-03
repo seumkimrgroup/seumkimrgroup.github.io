@@ -81,14 +81,14 @@ export function createCurrentMemberCard(member) {
 
     item.innerHTML = `
     ${imageHtml}
-    <div class="people-wrap">
-      <div class="people-head">
-        <h4>${escapeHtml(member.name)}</h4>
-        <p>${escapeHtml(formatRole(member.role))}</p>
+    <div class="people-body">
+      <div class="people-identity">
+        <h3>${escapeHtml(member.name)}</h3>
+        <h5>${escapeHtml(formatRole(member.role))}</h5>
       </div>
       ${researchContent ? `
-      <div class="people-description">
-        <h5>RESEARCH INTERESTS</h5>
+      <div class="people-section">
+        <h4>Research Interests</h4>
         <p>${researchContent}</p>
       </div>` : ""}
     </div>
@@ -113,15 +113,15 @@ export function createAlumniMemberCard(member) {
             : "";
 
     item.innerHTML = `
-    <div class="people-wrap">
-        <div class="people-head">
-            <h4>${escapeHtml(member.name)}</h4>
-            <p>${escapeHtml(statusLine)}</p>
+    <div class="people-body">
+        <div class="people-identity">
+            <h3>${escapeHtml(member.name)}</h3>
+            <h5>${escapeHtml(statusLine)}</h5>
         </div>
         ${joinedAt ? `
-        <div class="people-joined">
-            <span class="people-joined-label">JOINED AT</span>
-            <p class="people-joined-value">${escapeHtml(joinedAt)}</p>
+        <div class="people-meta">
+            <span class="people-meta-label">JOINED AT</span>
+            <p class="people-meta-value">${escapeHtml(joinedAt)}</p>
         </div>` : ""}
     </div>
     `;

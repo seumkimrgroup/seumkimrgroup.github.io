@@ -206,20 +206,15 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   display: flex;
 }
 
-.about-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 
-/* research areas */
+/* lab updates */
 
-.research-area-wrap {
+.updates-wrap {
   position: relative;
   width: 100%;
 }
 
-.research-area-clip {
+.updates-clip {
   width: 100%;
   overflow: hidden;
   padding-block: 1px;
@@ -227,7 +222,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   touch-action: pan-y;
 }
 
-.research-area-list {
+.updates-track {
   display: flex;
   flex-wrap: nowrap;
   align-items: stretch;
@@ -238,7 +233,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   will-change: transform;
 }
 
-.research-page {
+.updates-panel {
   flex: 0 0 100%;
   max-width: 100%;
 
@@ -246,7 +241,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   align-items: stretch;
 }
 
-.research-card-slot {
+.updates-slot {
   flex: 0 0 auto;
   max-width: 100%;
 
@@ -254,7 +249,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   box-sizing: border-box;
 }
 
-.research-card-slot .card--content {
+.updates-slot .card--content {
   position: relative;
   width: 100%;
   max-width: none;
@@ -268,7 +263,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   이미지가 카드 border를 덮지 않도록,
   카드 위에 border layer를 올린다.
 */
-.research-card-slot .card--content::after {
+.updates-slot .card--content::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -279,21 +274,21 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   border-radius: inherit;
 }
 
-.research-card-slot .card--content:hover::after {
+.updates-slot .card--content:hover::after {
   border-color: var(--color-border-strong);
 }
 
 /*
-  기존 좌우 버튼은 JS에서 research-area-dots 안으로 이동됨.
+  기존 좌우 버튼은 JS에서 updates-dots 안으로 이동됨.
   JS 로딩 전 잠깐 보이는 것을 방지.
 */
-.research-area-wrap > .research-area-btn {
+.updates-wrap > .updates-btn {
   display: none;
 }
 
 /* < dots > navigator */
 
-.research-area-dots {
+.updates-dots {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -303,11 +298,11 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   margin-top: 8px;
 }
 
-.research-area-dots.is-hidden {
+.updates-dots.is-hidden {
   display: none;
 }
 
-.research-area-dots .research-area-btn {
+.updates-dots .updates-btn {
   position: static;
   transform: none;
   z-index: auto;
@@ -335,13 +330,13 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-.research-area-dots .research-area-btn:hover {
+.updates-dots .updates-btn:hover {
   color: #555;
   border: none;
   box-shadow: none;
 }
 
-.research-dot {
+.updates-dot {
   width: 7px;
   height: 7px;
   padding: 0;
@@ -355,7 +350,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.research-dot.is-active {
+.updates-dot.is-active {
   background: var(--color-text);
   transform: scale(1.15);
 }
@@ -435,15 +430,15 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 }
 
 @media (max-width: 420px) {
-  .research-area-dots {
+  .updates-dots {
     display: flex;
   }
 
-  .research-area-dots .research-area-btn {
+  .updates-dots .updates-btn {
     display: none;
   }
 
-  .research-dot {
+  .updates-dot {
     display: block;
   }
 }
