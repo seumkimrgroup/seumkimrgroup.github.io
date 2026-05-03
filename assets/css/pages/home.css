@@ -165,7 +165,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 }
 
 .project-title {
-  font-size: 40px;
+  font-size: var(--font-size-2xl);
   color: #ffffff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
@@ -183,7 +183,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   background: rgba(0, 0, 0, 0.28);
   border: none;
   color: white;
-  font-size: 30px;
+  font-size: var(--font-size-xl);
   padding: 10px 16px;
   cursor: pointer;
 }
@@ -263,8 +263,8 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 .areas-description {
   margin: 0;
   max-width: 560px;
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-loose);
   color: var(--color-text-gm);
 }
 
@@ -395,7 +395,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   box-shadow: none;
 
   color: var(--color-text);
-  font-size: 24px;
+  font-size: var(--font-size-xl);
   line-height: 1;
   cursor: pointer;
 

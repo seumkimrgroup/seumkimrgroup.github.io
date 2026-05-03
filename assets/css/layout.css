@@ -219,10 +219,10 @@
 
 .footer-heading {
   margin: 0 0 16px;
-  font-size: 13px;
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
   text-transform: uppercase;
   color: rgba(247, 248, 250, 0.96);
 }
@@ -241,17 +241,17 @@
 }
 
 .footer-contact-label {
-  font-size: 12px;
-  line-height: 1.6;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
   color: rgba(247, 248, 250, 0.52);
 }
 
 .footer-contact-value {
   min-width: 0;
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
   color: rgba(247, 248, 250, 0.78);
 }
 
@@ -272,8 +272,8 @@
 }
 
 .footer-nav a {
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
 }
 
 .footer-divider {
@@ -289,8 +289,8 @@
 .footer-copy {
   margin: 0;
   text-align: center;
-  font-size: 12.5px;
-  line-height: 1.6;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-relaxed);
   color: rgba(247, 248, 250, 0.62);
 }
 
@@ -374,7 +374,7 @@
 
   .footer-heading {
     margin-bottom: 12px;
-    font-size: 12.5px;
+    font-size: var(--font-size-xs);
   }
 
   .footer-contact-list {
@@ -387,13 +387,13 @@
   }
 
   .footer-contact-label {
-    font-size: 11.8px;
+    font-size: var(--font-size-xs);
     text-align: left;
   }
 
   .footer-contact-value {
-    font-size: 12.5px;
-    line-height: 1.6;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
     text-align: left;
   }
 
@@ -403,7 +403,7 @@
   }
 
   .footer-nav a {
-    font-size: 12.5px;
+    font-size: var(--font-size-xs);
   }
 
   .footer-divider {
@@ -448,7 +448,7 @@
   }
 
   .footer-heading {
-    font-size: 12px;
+    font-size: var(--font-size-xs);
   }
 
   .footer-contact-row {
@@ -457,18 +457,18 @@
   }
 
   .footer-contact-label {
-    font-size: 11.3px;
+    font-size: var(--font-size-xs);
   }
 
   .footer-contact-value,
   .footer-nav a {
-    font-size: 11.8px;
+    font-size: var(--font-size-xs);
   }
 
   .footer-copy {
     max-width: 320px;
     margin: 0 auto;
-    font-size: 11.3px;
-    line-height: 1.5;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
   }
 }

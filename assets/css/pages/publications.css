@@ -13,7 +13,7 @@
   border-radius: var(--radius-pill);
   outline: none;
   text-align: center;
-  font-size: 15px;
+  font-size: var(--font-size-md);
   color: var(--color-text-nd);
   transition: var(--transition);
 }

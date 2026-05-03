@@ -66,16 +66,16 @@
 
 .people-meta-label {
   white-space: nowrap;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 300;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-snug);
+  font-weight: var(--font-weight-light);
   color: var(--color-text-gs);
 }
 
 .people-meta-value {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-snug);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text-n);
 }
 
@@ -140,7 +140,7 @@
 
 .card-links {
   margin-top: 2px;
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-gm);
 }
 
