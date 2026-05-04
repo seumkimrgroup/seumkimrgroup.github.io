@@ -373,7 +373,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 .modal-dialog {
   background: var(--color-bg);
   border-radius: var(--radius-md);
-  width: min(680px, calc(100vw - 48px));
+  width: min(480px, calc(100vw - 48px));
   max-height: 85vh;
   overflow-y: auto;
   position: relative;
@@ -409,15 +409,20 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 }
 
 .modal-dialog .media {
-  aspect-ratio: 16 / 10;
+  height: 260px;
   background: #fff;
+  position: relative;
+  overflow: hidden;
 }
 
 .modal-dialog .media img {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
-  object-fit: contain;
-  object-position: top;
+  width: auto;
+  max-width: none;
   display: block;
 }
 
