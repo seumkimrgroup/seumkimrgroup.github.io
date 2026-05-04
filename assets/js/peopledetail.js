@@ -127,7 +127,7 @@ function renderMemberDetail(member) {
             : `<div class="media"></div>`;
 
     const headerClass = isFormer(member)
-        ? "container"
+        ? "stack"
         : "container--grid container--profile";
 
     const detailSections = isFormer(member)

@@ -43,10 +43,6 @@
   max-width: 400px;
 }
 
-.container--profile .info .group {
-  margin-top: 12px;
-}
-
 .people-section {
   display: flex;
   flex-direction: column;
@@ -95,16 +91,6 @@
   .container--profile {
     gap: 18px;
     justify-items: center;
-  }
-
-  .container--profile .info {
-    width: 100%;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .container--profile .info .group {
-    justify-content: flex-start;
   }
 
   .btn--back {
