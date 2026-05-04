@@ -55,21 +55,28 @@
   },
   {
     "type": "news",
-    "subtitle": "Lab News",
-    "title": "Se-Um Kim Research Group officially opens at SeoulTech",
-    "description": "Our lab has officially launched at Seoul National University of Science and Technology. We are actively recruiting motivated undergraduate and graduate students.",
-    "image": "assets/images/contents/news1.jpg",
-    "tag": [],
+    "subtitle": "",
+    "title": "",
+    "description": "The 2nd 2026 Quantum Exchange Day was held at the Daejeon Convention Center to share research outcomes and promote exchange among researchers participating in the Quantum Platform Program. The event included research presentations, networking sessions, and awards for outstanding presentations. At the event, our group presented as part of the KIST-JQL 3 session, sharing recent progress from our JQL research activities.",
+    "image": "assets/images/contents/news2.jpg",
+    "tag": ["JQL", "LC-EO"],
+    "date": "Apr 24 2026",
     "links": []
   },
   {
     "type": "news",
     "subtitle": "",
-    "title": "New project on LC-based smart window systems kicks off",
-    "description": "A new research project focused on polymer-stabilized liquid crystal smart windows has begun, supported by a domestic research grant.",
-    "image": "assets/images/contents/news2.jpg",
-    "tag": ["SW", "LC-COMP", "PSLC"],
-    "links": []
+    "title": "",
+    "description": "The 2026 KIST–SeoulTech Quantum Science and Technology Joint Workshop was held at our university in connection with the KIST–SeoulTech MOU, which aims to strengthen research collaboration in quantum science and technology. Researchers from both institutions shared recent research progress and discussed future directions for joint research and academic exchange. At the workshop, our group presented research on a photonic quantum processor based on liquid crystal phase modulators.",
+    "image": "assets/images/contents/news1.jpg",
+    "tag": ["JQL", "LC-EO"],
+    "date": "Apr 17 2026",
+    "links": [
+      {
+        "text": "Workshop website",
+        "url": "https://indico.global/event/17372/"
+      }
+    ]
   },
   {
     "type": "highlight",
