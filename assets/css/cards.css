@@ -87,6 +87,7 @@
 .card--member .media {
   width: 120px;
   height: 150px;
+  border-radius: var(--radius-sm);
 }
 
 .card--member .media img {
@@ -133,14 +134,4 @@
 .card--member .info > .text-secondary,
 .card--alumni > .text-secondary {
   margin-bottom: var(--space-md);
-}
-
-@media (max-width: 768px) {
-  .card--publication {
-    padding: 18px 18px 20px;
-  }
-
-  .card--member {
-    min-height: 150px;
-  }
 }
