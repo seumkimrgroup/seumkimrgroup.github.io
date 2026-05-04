@@ -29,20 +29,6 @@
   box-shadow: 0 8px 18px -14px rgba(17, 17, 17, 0.4);
 }
 
-.publications-filter-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  flex: 0 0 auto;
-  align-items: center;
-}
-
-.publications-type-group {
-  justify-content: center;
-}
-
-
 @media (max-width: 768px) {
   .publications-search-box {
     min-height: 40px;
@@ -54,18 +40,7 @@
     padding: 18px 20px 20px;
   }
 
-  .publications-filter-controls {
-    align-items: center;
-  }
-
-  .publications-type-group {
-    width: 100%;
-    max-width: none;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .publications-type-group .btn {
+  .publications-search-card .btn {
     min-height: 38px;
     padding: 0 8px;
   }

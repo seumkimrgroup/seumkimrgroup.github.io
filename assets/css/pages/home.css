@@ -292,12 +292,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   max-width: 560px;
 }
 
-.areas-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
 /* lab updates */
 
 .updates-wrap {

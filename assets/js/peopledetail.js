@@ -92,7 +92,7 @@ function renderMemberLinks(member) {
         })
         .join("");
 
-    return `<div class="icon-links">${items}</div>`;
+    return `<div class="group">${items}</div>`;
 }
 
 function renderMemberDetail(member) {

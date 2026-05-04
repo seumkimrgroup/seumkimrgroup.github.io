@@ -58,10 +58,10 @@
   transform: translateX(-2px);
 }
 
-.btn-group {
+.group {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--space-sm);
   align-items: center;
 }
 

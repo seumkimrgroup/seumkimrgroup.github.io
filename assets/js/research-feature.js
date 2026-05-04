@@ -23,7 +23,7 @@ export function renderTags(tags) {
     return (ga === -1 ? 99 : ga) - (gb === -1 ? 99 : gb);
   });
 
-  return `<div class="areas-tags">
+  return `<div class="group">
     ${sorted.map((tag) => {
       const group = TAG_GROUP[tag];
       const cls = group ? `tag tag--${group}` : "tag";
