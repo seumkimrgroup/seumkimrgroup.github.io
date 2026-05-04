@@ -207,8 +207,43 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 
 /* research areas */
 
-.areas-tab-title {
-  display: block;
+.areas-tab {
+  justify-content: center;
+  min-width: 76px;
+}
+
+.areas-tab .tab-short,
+.areas-tab .tab-full {
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.areas-tab .tab-short {
+  max-width: 8em;
+  opacity: 1;
+  transition:
+    max-width 0.35s ease,
+    opacity 0.2s ease;
+}
+
+.areas-tab .tab-full {
+  max-width: 0;
+  opacity: 0;
+  transition:
+    max-width 0.42s ease,
+    opacity 0.28s ease 0.08s;
+}
+
+.areas-tab.active .tab-short {
+  max-width: 0;
+  opacity: 0;
+}
+
+.areas-tab.active .tab-full {
+  max-width: 30em;
+  opacity: 1;
 }
 
 .areas-clip {

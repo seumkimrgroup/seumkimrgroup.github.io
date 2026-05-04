@@ -93,7 +93,11 @@ function createTab(topic, index) {
   button.type = "button";
   button.className = "btn areas-tab";
   button.dataset.index = String(index);
-  button.innerHTML = `<span class="areas-tab-title">${escapeHtml(topic.title)}</span>`;
+
+  const tags = Array.isArray(topic.tag) ? topic.tag : [];
+  const shortName = tags.find((t) => TAG_GROUP[t] === "topic") ?? topic.title;
+
+  button.innerHTML = `<span class="tab-short">${escapeHtml(shortName)}</span><span class="tab-full">${escapeHtml(topic.title)}</span>`;
   return button;
 }
 
