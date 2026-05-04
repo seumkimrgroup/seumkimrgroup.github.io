@@ -1,5 +1,6 @@
 import { fetchJson, escapeHtml } from "./data.js";
 import { createContentCard } from "./contentcard.js";
+import { openModal } from "./modal.js";
 
 const projectSlider = document.getElementById("project-slider");
 const projectPrev = document.getElementById("project-prev");
@@ -232,6 +233,7 @@ function renderUpdates(topics) {
                 slot.style.flexBasis = `${100 / itemsPerPage}%`;
 
                 const card = createContentCard(topic);
+                card.addEventListener("click", () => openModal(topic));
                 slot.appendChild(card);
                 pageEl.appendChild(slot);
             });
