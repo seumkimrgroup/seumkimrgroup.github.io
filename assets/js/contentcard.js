@@ -16,7 +16,7 @@ function renderLinks(links) {
         joined = `${anchors.slice(0, -1).join(", ")}, and ${anchors[anchors.length - 1]}`;
     }
 
-    return `<p class="card-links">Read more at ${joined}.</p>`;
+    return `<p class="text-secondary">Read more at ${joined}.</p>`;
 }
 
 export function createContentCard(item) {
@@ -32,9 +32,9 @@ export function createContentCard(item) {
       />
     </div>
     <div class="card-body">
-      ${item.type ? `<h6 class="card-type">${escapeHtml(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</h6>` : ""}
-      <h4 class="card-title">${escapeHtml(item.title || "")}</h4>
-      <p class="card-description">${escapeHtml(item.description || "")}</p>
+      ${item.type ? `<h6>${escapeHtml(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</h6>` : ""}
+      <h4>${escapeHtml(item.title || "")}</h4>
+      <p>${escapeHtml(item.description || "")}</p>
       ${renderLinks(item.links)}
     </div>
   `;

@@ -12,13 +12,13 @@ export function createPublicationCard(pub) {
         item.href = pub.link;
         item.target = "_blank";
         item.rel = "noopener noreferrer";
-        item.className = "card card--interactive card--publication clickable";
+        item.className = "card card--publication";
         item.innerHTML = cardInner;
         return item;
     }
 
     const item = document.createElement("div");
-    item.className = "card card--publication";
+    item.className = "card card--publication card--static";
     item.innerHTML = cardInner;
     return item;
 }

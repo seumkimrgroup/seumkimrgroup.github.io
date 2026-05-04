@@ -64,7 +64,7 @@ function goToMember(member) {
 // 현재 재학 중인 멤버용 카드 DOM 요소를 생성해 반환 (사진 좌측 · 이름·역할·연구관심사 우측 grid 배치)
 export function createCurrentMemberCard(member) {
     const item = document.createElement("div");
-    item.className = "card card--interactive card--people card--grid";
+    item.className = "card card--people card--grid";
     item.addEventListener("click", () => goToMember(member));
 
     const imageHtml = member.image
@@ -96,7 +96,7 @@ export function createCurrentMemberCard(member) {
 // 졸업생용 카드 DOM 요소를 생성해 반환 (이름 + 학위·졸업연도 + 다음 소속 기관 표시)
 export function createAlumniMemberCard(member) {
     const item = document.createElement("div");
-    item.className = "card card--interactive card--people";
+    item.className = "card card--people";
     item.addEventListener("click", () => goToMember(member));
 
     const degree = getRoleMeta(member.role).degree;
