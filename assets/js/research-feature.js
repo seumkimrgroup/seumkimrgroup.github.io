@@ -61,7 +61,7 @@ export function createPanel(topic, allPublications) {
   const topicTags = Array.isArray(topic.tag) ? topic.tag : [];
 
   panel.innerHTML = `
-    <div class="areas-main">
+    <div class="split split--areas">
       <div class="media">
         <img src="${escapeHtml(topic.image)}" alt="${escapeHtml(topic.title)}">
       </div>

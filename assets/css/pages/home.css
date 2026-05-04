@@ -266,29 +266,24 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   gap: var(--space-lg);
 }
 
-.areas-main {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 36px;
-  align-items: start;
-}
-
-.areas-main .media {
+.split--areas .media {
+  flex: 0 0 360px;
   height: 320px;
 }
 
-.areas-main .media img {
+.split--areas .media img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.areas-main .info {
-  min-width: 0;
+.split--areas .info {
+  flex: 1;
+  min-width: 360px;
 }
 
-.areas-main .info > p {
+.split--areas .info > p {
   max-width: 560px;
 }
 
@@ -644,19 +639,6 @@ body.modal-open {
     gap: 20px;
   }
 
-  .areas-main {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .areas-main .media {
-    height: auto;
-    aspect-ratio: 16 / 10;
-  }
-
-  .areas-main .info {
-    justify-content: flex-start;
-  }
 }
 
 @media (max-width: 480px) {
