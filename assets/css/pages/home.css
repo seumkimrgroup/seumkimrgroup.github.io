@@ -307,7 +307,8 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 
 .updates-clip {
   width: 100%;
-  overflow: hidden;
+  overflow: clip;
+  overflow-clip-margin: 8px;
   padding-block: 1px;
   box-sizing: border-box;
   touch-action: pan-y;

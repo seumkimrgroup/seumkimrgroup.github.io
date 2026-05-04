@@ -28,5 +28,5 @@
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
-  --shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
