@@ -5,15 +5,16 @@ let overlayEl = null;
 function renderLinks(links) {
   if (!Array.isArray(links) || !links.length) return "";
   const anchors = links.map(
-    (l) => `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a>`
+    (l) =>
+      `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a>`,
   );
   const joined =
     anchors.length === 1
       ? anchors[0]
       : anchors.length === 2
-      ? `${anchors[0]} and ${anchors[1]}`
-      : `${anchors.slice(0, -1).join(", ")}, and ${anchors[anchors.length - 1]}`;
-  return `<p class="text-secondary">Read more at ${joined}.</p>`;
+        ? `${anchors[0]} and ${anchors[1]}`
+        : `${anchors.slice(0, -1).join(", ")}, and ${anchors[anchors.length - 1]}`;
+  return `<p class="text-secondary">More information:  ${joined}.</p>`;
 }
 
 function build() {
@@ -62,7 +63,9 @@ export function openModal(item) {
   img.alt = escapeHtml(item.title || "");
 
   const h6 = overlayEl.querySelector(".info h6");
-  h6.textContent = item.type ? item.type.charAt(0).toUpperCase() + item.type.slice(1) : "";
+  h6.textContent = item.type
+    ? item.type.charAt(0).toUpperCase() + item.type.slice(1)
+    : "";
   h6.hidden = !item.type;
 
   const h3 = overlayEl.querySelector(".info h3");

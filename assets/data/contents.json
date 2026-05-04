@@ -61,7 +61,12 @@
     "image": "assets/images/contents/news2.jpg",
     "tag": ["JQL", "LC-EO"],
     "date": "Apr 24 2026",
-    "links": []
+    "links": [
+      {
+        "text": "Program Schedule",
+        "url": "assets/images/contents/news2_1.pdf"
+      }
+    ]
   },
   {
     "type": "news",
@@ -75,6 +80,10 @@
       {
         "text": "Workshop website",
         "url": "https://indico.global/event/17372/"
+      },
+      {
+        "text": "Workshop poster",
+        "url": "assets/images/contents/news1_1.jpg"
       }
     ]
   },

@@ -1,29 +1,30 @@
 import { escapeHtml } from "./data.js";
 
 function renderLinks(links) {
-    if (!Array.isArray(links) || !links.length) return "";
+  if (!Array.isArray(links) || !links.length) return "";
 
-    const anchors = links.map((link) =>
-        `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.text)}</a>`
-    );
+  const anchors = links.map(
+    (link) =>
+      `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.text)}</a>`,
+  );
 
-    let joined;
-    if (anchors.length === 1) {
-        joined = anchors[0];
-    } else if (anchors.length === 2) {
-        joined = `${anchors[0]} and ${anchors[1]}`;
-    } else {
-        joined = `${anchors.slice(0, -1).join(", ")}, and ${anchors[anchors.length - 1]}`;
-    }
+  let joined;
+  if (anchors.length === 1) {
+    joined = anchors[0];
+  } else if (anchors.length === 2) {
+    joined = `${anchors[0]} and ${anchors[1]}`;
+  } else {
+    joined = `${anchors.slice(0, -1).join(", ")}, and ${anchors[anchors.length - 1]}`;
+  }
 
-    return `<p class="text-secondary">Read more at ${joined}.</p>`;
+  return `<p class="text-secondary">More information: ${joined}.</p>`;
 }
 
 export function createContentCard(item) {
-    const card = document.createElement("article");
-    card.className = "card card--update";
+  const card = document.createElement("article");
+  card.className = "card card--update";
 
-    card.innerHTML = `
+  card.innerHTML = `
     <div class="media">
       <img
         src="${item.image || ""}"
@@ -38,5 +39,5 @@ export function createContentCard(item) {
     </div>
   `;
 
-    return card;
+  return card;
 }
