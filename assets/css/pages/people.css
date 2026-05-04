@@ -24,24 +24,28 @@
   width: min(100%, 800px);
 }
 
-.people-photo {
+.container--profile .media {
   width: 160px;
   height: 200px;
-  object-fit: cover;
-  object-position: center top;
   border-radius: var(--radius-xs);
   align-self: start;
+  flex-shrink: 0;
 }
 
-.people-identity {
-  display: flex;
+.container--profile .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.container--profile .info {
   min-width: min(320px, 100%);
   max-width: 400px;
-  flex-direction: column;
-  gap: var(--space-sm);
 }
 
-.people-identity .icon-links {
+.container--profile .info .icon-links {
   margin-top: 12px;
 }
 
@@ -101,7 +105,7 @@
     justify-items: center;
   }
 
-  .people-identity {
+  .container--profile .info {
     width: 100%;
     align-items: flex-start;
     text-align: left;

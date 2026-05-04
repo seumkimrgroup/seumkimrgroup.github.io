@@ -64,12 +64,12 @@ function goToMember(member) {
 // 현재 재학 중인 멤버용 카드 DOM 요소를 생성해 반환 (사진 좌측 · 이름·역할·연구관심사 우측 grid 배치)
 export function createCurrentMemberCard(member) {
     const item = document.createElement("div");
-    item.className = "card card--people card--grid";
+    item.className = "card card--member";
     item.addEventListener("click", () => goToMember(member));
 
     const imageHtml = member.image
-        ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo">`
-        : `<div class="people-photo people-photo-placeholder"></div>`;
+        ? `<div class="media"><img src="${member.image}" alt="${escapeHtml(member.name)}"></div>`
+        : `<div class="media"></div>`;
 
     const researchEntry = (member.description || []).find(
         (d) => d.title === "RESEARCH INTERESTS"
@@ -81,7 +81,7 @@ export function createCurrentMemberCard(member) {
 
     item.innerHTML = `
     ${imageHtml}
-    <div class="people-body">
+    <div class="info">
       <h3>${escapeHtml(member.name)}</h3>
       <p class="text-secondary">${escapeHtml(formatRole(member.role))}</p>
       ${researchContent ? `
@@ -96,7 +96,7 @@ export function createCurrentMemberCard(member) {
 // 졸업생용 카드 DOM 요소를 생성해 반환 (이름 + 학위·졸업연도 + 다음 소속 기관 표시)
 export function createAlumniMemberCard(member) {
     const item = document.createElement("div");
-    item.className = "card card--people";
+    item.className = "card card--alumni";
     item.addEventListener("click", () => goToMember(member));
 
     const degree = getRoleMeta(member.role).degree;
@@ -109,15 +109,13 @@ export function createAlumniMemberCard(member) {
             : "";
 
     item.innerHTML = `
-    <div class="people-body">
-        <h3>${escapeHtml(member.name)}</h3>
-        <p class="text-secondary">${escapeHtml(statusLine)}</p>
-        ${joinedAt ? `
-        <div class="people-meta">
-            <span class="people-meta-label">JOINED AT</span>
-            <p class="people-meta-value">${escapeHtml(joinedAt)}</p>
-        </div>` : ""}
-    </div>
+    <h3>${escapeHtml(member.name)}</h3>
+    <p class="text-secondary">${escapeHtml(statusLine)}</p>
+    ${joinedAt ? `
+    <div class="people-meta">
+        <span class="people-meta-label">JOINED AT</span>
+        <p class="people-meta-value">${escapeHtml(joinedAt)}</p>
+    </div>` : ""}
     `;
 
     return item;

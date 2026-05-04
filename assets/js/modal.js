@@ -13,7 +13,7 @@ function renderLinks(links) {
       : anchors.length === 2
       ? `${anchors[0]} and ${anchors[1]}`
       : `${anchors.slice(0, -1).join(", ")}, and ${anchors[anchors.length - 1]}`;
-  return `<p class="modal-links">Read more at ${joined}.</p>`;
+  return `<p class="text-secondary">Read more at ${joined}.</p>`;
 }
 
 function build() {
@@ -22,14 +22,14 @@ function build() {
   el.innerHTML = `
     <div class="modal-dialog" role="dialog" aria-modal="true">
       <button class="modal-close" aria-label="Close">&times;</button>
-      <div class="modal-media">
-        <img class="modal-img" src="" alt="">
+      <div class="media">
+        <img src="" alt="">
       </div>
-      <div class="modal-body">
-        <h6 class="modal-type"></h6>
-        <h3 class="modal-title"></h3>
-        <p class="modal-description"></p>
-        <div class="modal-links-wrap"></div>
+      <div class="info">
+        <h6></h6>
+        <h3></h3>
+        <p></p>
+        <div class="links-wrap"></div>
       </div>
     </div>
   `;
@@ -57,15 +57,15 @@ function close() {
 export function openModal(item) {
   if (!overlayEl) overlayEl = build();
 
-  const img = overlayEl.querySelector(".modal-img");
+  const img = overlayEl.querySelector(".media img");
   img.src = item.image || "";
   img.alt = escapeHtml(item.title || "");
 
-  overlayEl.querySelector(".modal-type").textContent =
+  overlayEl.querySelector(".info h6").textContent =
     item.type ? item.type.charAt(0).toUpperCase() + item.type.slice(1) : "";
-  overlayEl.querySelector(".modal-title").textContent = item.title || "";
-  overlayEl.querySelector(".modal-description").textContent = item.description || "";
-  overlayEl.querySelector(".modal-links-wrap").innerHTML = renderLinks(item.links);
+  overlayEl.querySelector(".info h3").textContent = item.title || "";
+  overlayEl.querySelector(".info > p").textContent = item.description || "";
+  overlayEl.querySelector(".links-wrap").innerHTML = renderLinks(item.links);
 
   overlayEl.classList.add("is-open");
   document.body.classList.add("modal-open");

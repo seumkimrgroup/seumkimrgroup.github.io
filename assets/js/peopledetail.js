@@ -123,8 +123,8 @@ function renderMemberDetail(member) {
     const photoBlock = isFormer(member)
         ? ""
         : member.image
-            ? `<img src="${member.image}" alt="${escapeHtml(member.name)}" class="people-photo">`
-            : `<div class="people-photo people-photo-placeholder"></div>`;
+            ? `<div class="media"><img src="${member.image}" alt="${escapeHtml(member.name)}"></div>`
+            : `<div class="media"></div>`;
 
     const headerClass = isFormer(member)
         ? "container"
@@ -138,7 +138,7 @@ function renderMemberDetail(member) {
     <div class="${headerClass}">
       ${photoBlock}
 
-      <div class="people-identity">
+      <div class="info">
         <h2>${escapeHtml(member.name)}</h2>
         ${subtitleHtml}
         ${joinedAtHtml}

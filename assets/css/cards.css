@@ -22,28 +22,31 @@
   transform: none;
 }
 
-/* ContentCard */
+/* ── Structural primitives ── */
 
-.card-body {
+.media {
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface);
+}
+
+.info {
   display: flex;
   flex-direction: column;
+  gap: var(--space-sm);
 }
 
-.card-media {
-  width: 100%;
-  overflow: hidden;
-  background: #f4f6f8;
+.card .info {
+  gap: var(--space-xs);
 }
 
-.card-media img,
-.card-media-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.info p a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-border-strong);
 }
 
-/* PublicationCard */
+/* ── card--publication ── */
 
 .card--publication {
   display: flex;
@@ -52,16 +55,59 @@
   padding: 12px 24px;
 }
 
-/* PeopleCard */
+/* ── card--update ── */
 
-.card--people {
+.card--update {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  width: 100%;
+}
+
+.card--update .media {
+  aspect-ratio: 16 / 10;
+}
+
+.card--update .info {
+  padding: 18px 18px 20px;
+}
+
+/* ── card--member ── */
+
+.card--member {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: var(--space-md);
   padding: 12px 24px;
-  background: var(--color-bg);
   min-height: 100px;
 }
+
+.card--member .media {
+  width: 120px;
+  height: 150px;
+}
+
+.card--member .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ── card--alumni ── */
+
+.card--alumni {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: 12px 24px;
+  min-height: 100px;
+}
+
+/* ── People shared ── */
 
 .people-meta {
   display: flex;
@@ -84,64 +130,17 @@
   color: var(--color-text-n);
 }
 
-/* Current members: card--people + card--grid */
-.card--people.card--grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: start;
-  gap: var(--space-md);
-}
-
-.card--people .people-photo {
-  width: 120px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center top;
-  background: var(--color-surface);
-}
-
-.people-photo-placeholder {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-}
-
-.card--people .people-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.card--people .people-body > .text-secondary {
+.card--member .info > .text-secondary,
+.card--alumni > .text-secondary {
   margin-bottom: var(--space-md);
 }
-
-/* ContentCard */
-
-.card--content {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background: var(--color-bg);
-  border-radius: var(--radius-md);
-  width: 100%;
-}
-
-.card--content .card-media {
-  aspect-ratio: 16 / 10;
-}
-
-.card--content .card-body {
-  gap: var(--space-xs);
-  padding: 18px 18px 20px;
-}
-
 
 @media (max-width: 768px) {
   .card--publication {
     padding: 18px 18px 20px;
   }
 
-  .card--people.card--grid {
+  .card--member {
     min-height: 150px;
   }
 }

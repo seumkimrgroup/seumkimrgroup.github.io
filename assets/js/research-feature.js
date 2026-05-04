@@ -62,13 +62,13 @@ export function createPanel(topic, allPublications) {
 
   panel.innerHTML = `
     <div class="areas-main">
-      <div class="areas-media">
+      <div class="media">
         <img src="${escapeHtml(topic.image)}" alt="${escapeHtml(topic.title)}">
       </div>
-      <div class="areas-body">
+      <div class="info">
         ${renderTags(topicTags)}
         <h3>${escapeHtml(topic.title)}</h3>
-        <p class="areas-description">${escapeHtml(topic.description)}</p>
+        <p>${escapeHtml(topic.description)}</p>
       </div>
     </div>
     <div class="container">

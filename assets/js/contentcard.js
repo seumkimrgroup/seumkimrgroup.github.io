@@ -21,17 +21,16 @@ function renderLinks(links) {
 
 export function createContentCard(item) {
     const card = document.createElement("article");
-    card.className = `card card--content card--${item.type || "default"}`;
+    card.className = "card card--update";
 
     card.innerHTML = `
-    <div class="card-media">
+    <div class="media">
       <img
         src="${item.image || ""}"
         alt="${escapeHtml(item.title || "")}"
-        class="card-media-image"
       />
     </div>
-    <div class="card-body">
+    <div class="info">
       ${item.type ? `<h6>${escapeHtml(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</h6>` : ""}
       <h4>${escapeHtml(item.title || "")}</h4>
       <p>${escapeHtml(item.description || "")}</p>
