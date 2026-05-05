@@ -35,31 +35,51 @@
 
     <div class="main">
       <section class="section">
+        <h1 style="color: var(--color-text-n)">Join Us</h1>
         <div class="split split--recruit">
-          <div class="media">
-            <h2>Join Us</h2>
+          <div class="stack" style="gap: var(--space-lg)">
             <p>
-              We are looking for motivated undergraduate students, graduate
-              students, and visiting researchers to join our lab.
-              <br />
-              본 연구실에서는 학부연구생, 대학원생 및 방문 연구원을 상시
-              모집하고 있습니다.
+              We are looking for highly motivated undergraduate students,
+              graduate students, and visiting researchers to join our lab. 본
+              연구실에서는 학부연구생, 대학원생 및 방문 연구원을 상시 모집하고
+              있습니다.
             </p>
             <div class="group">
-              <button class="btn btn--primary" id="about-more-btn">More</button>
               <a href="people.html" class="btn">People</a>
+              <a href="publications.html" class="btn">Publications</a>
               <a href="#contact" class="btn">Contact</a>
             </div>
           </div>
-          <div class="info">
-            <div class="stack">
-              <div class="card card--recruit">
-                <h4>Undergraduate Program</h4>
+          <div class="stack" style="gap: var(--space-sm)">
+            <div class="card card--recruit">
+              <button class="card--recruit__btn" aria-expanded="false">
+                <span>Undergraduate Program</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                  class="card--recruit__chevron"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 9l6 6 6-6"
+                  />
+                </svg>
+              </button>
+
+              <div class="card--recruit__body">
+                <div
+                  class="footer-divider"
+                  style="background: rgba(0, 0, 0, 0.233)"
+                ></div>
                 <p>
                   We recommend that undergraduate students apply in the second
                   semester of the second year, or at the latest by the first
                   semester of the third year. Depending on your interest, you
-                  can transfer into an integrated B.S.-M.S. program. With in
+                  can transfer into an integrated B.S.-M.S. program. With a
                   limited timeframe, we aim to publish at least one SCI-indexed
                   paper.<br />
                   학부연구생은 2학년 2학기 또는 늦어도 3학년 1학기에 지원하는
@@ -69,32 +89,68 @@
                   1편 작성을 목표로 합니다.
                 </p>
               </div>
-              <div class="card card--recruit">
-                <h4>M.S. Program</h4>
+            </div>
+            <div class="card card--recruit">
+              <button class="card--recruit__btn" aria-expanded="false">
+                <span>M.S. Program</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                  class="card--recruit__chevron"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 9l6 6 6-6"
+                  />
+                </svg>
+              </button>
+              <div class="card--recruit__body">
                 <p>
                   We recommend gaining at least one semester of research
                   experience in the lab prior to applying for the M.S. program.
                   Due to limited positions, prior discussion is required before
                   application. M.S. students are expected to establish a
                   coherent research direction that can be consolidated into a
-                  single category, with the goal of publishing 2-3 SCI-indexed
+                  single category, with the goal of publishing 2–3 SCI-indexed
                   papers.<br />
                   석사과정 진학 전 최소 한학기 이상 연구실에서 연구 경험을 쌓는
                   것을 권장합니다. 정원(T/O) 확보를 위해 지원 신청 전 사전
                   조율이 필요합니다. 약 2년 이상의 연구 기간 동안 하나의
                   카테고리로 정리될 수 있는 연구 주제와 로드맵을 설정하고, SCI
-                  논문 2-3편 작성을 목표로 연구를 수행합니다.
+                  논문 2–3편 작성을 목표로 연구를 수행합니다.
                 </p>
               </div>
-              <div class="card card--recruit">
-                <h4>Ph.D. Program</h4>
+            </div>
+            <div class="card card--recruit">
+              <button class="card--recruit__btn" aria-expanded="false">
+                <span>Ph.D. Program</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                  class="card--recruit__chevron"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 9l6 6 6-6"
+                  />
+                </svg>
+              </button>
+              <div class="card--recruit__body">
                 <p>
                   We recommend that students who have completed their M.S. in
                   this lab continue to the Ph.D. program or transition into an
                   integrated Ph.D. track. Doctoral research involves long-term,
                   challenging projects, and students are expected to maintain a
                   high standard of research quality, independence, and
-                  originality.<br />
+                  originality.<br /><br />
                   본 연구실에서 석사과정을 수행한 이후 박사과정으로의 진학 또는
                   석박통합과정으로의 전환을 권장합니다. 박사과정에서는 매우
                   도전적인 연구를 수행하며 높은 수준의 연구 완성도와 창의성이
@@ -106,6 +162,17 @@
           </div>
         </div>
       </section>
+      <script>
+        document.querySelectorAll(".card--recruit__btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const isOpen = btn.getAttribute("aria-expanded") === "true";
+            document.querySelectorAll(".card--recruit__btn").forEach((b) => {
+              b.setAttribute("aria-expanded", "false");
+            });
+            if (!isOpen) btn.setAttribute("aria-expanded", "true");
+          });
+        });
+      </script>
 
       <section class="section" id="research">
         <h2>Research Areas</h2>
