@@ -56,7 +56,7 @@ export function selectArticles(topicTags, allPublications) {
 
 export function createPanel(topic, allPublications) {
   const panel = document.createElement("article");
-  panel.className = "areas-panel";
+  panel.className = "carousel__panel";
 
   const topicTags = Array.isArray(topic.tag) ? topic.tag : [];
 
@@ -119,7 +119,7 @@ async function initResearchFeature() {
     const topics = contents.filter((item) => item.type === "topic");
 
     if (!topics.length) {
-      track.innerHTML = `<article class="areas-panel"><p>No research topics found.</p></article>`;
+      track.innerHTML = `<article class="carousel__panel"><p>No research topics found.</p></article>`;
       return;
     }
 
@@ -139,7 +139,7 @@ async function initResearchFeature() {
     setActive(0);
   } catch (error) {
     console.error(error);
-    track.innerHTML = `<article class="areas-panel"><p>Research areas could not be loaded.</p></article>`;
+    track.innerHTML = `<article class="carousel__panel"><p>Research areas could not be loaded.</p></article>`;
   }
 }
 

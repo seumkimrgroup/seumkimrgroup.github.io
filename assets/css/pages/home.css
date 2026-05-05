@@ -113,22 +113,19 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   overflow: hidden;
 }
 
-.project-slider {
-  display: flex;
-  width: 100%;
+.project .carousel__track {
   height: 100%;
   transition: transform 0.6s ease;
 }
 
-.project-slide {
-  min-width: 100%;
+.project .carousel__panel {
   height: 100%;
   position: relative;
   background-size: cover;
   background-position: center;
 }
 
-.project-slide::after {
+.project .carousel__panel::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -139,7 +136,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   );
 }
 
-.project-slide-inner {
+.carousel__inner {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -246,28 +243,21 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   opacity: 1;
 }
 
-.areas-clip {
-  width: 100%;
-  overflow: hidden;
-}
-
-.areas-track {
-  display: flex;
-  width: 100%;
+.carousel--areas .carousel__track {
   transition: transform 0.46s ease;
-  will-change: transform;
 }
 
-.areas-panel {
-  flex: 0 0 100%;
-  min-width: 100%;
+.carousel--areas .carousel__panel {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
 }
 
+.split--areas {
+  grid-template-columns: 360px 1fr;
+}
+
 .split--areas .media {
-  flex: 0 0 360px;
   height: 320px;
 }
 
@@ -276,11 +266,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.split--areas .info {
-  flex: 1;
-  min-width: 360px;
 }
 
 .split--areas .info > p {
@@ -294,8 +279,7 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   width: 100%;
 }
 
-.updates-clip {
-  width: 100%;
+.carousel--updates {
   overflow: clip;
   overflow-clip-margin: 8px;
   padding-block: 1px;
@@ -303,21 +287,14 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   touch-action: pan-y;
 }
 
-.updates-track {
-  display: flex;
+.carousel--updates .carousel__track {
   flex-wrap: nowrap;
   align-items: stretch;
-
-  width: 100%;
   min-width: 100%;
-
-  will-change: transform;
 }
 
-.updates-panel {
-  flex: 0 0 100%;
+.carousel--updates .carousel__panel {
   max-width: 100%;
-
   display: flex;
   align-items: stretch;
 }
@@ -632,6 +609,10 @@ body.modal-open {
 
   body.home .brand-logo-wrap {
     height: 38px;
+  }
+
+  .split--areas {
+    grid-template-columns: 1fr;
   }
 
   .contact {

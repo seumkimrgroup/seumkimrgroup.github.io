@@ -85,6 +85,11 @@ if (navbar) {
       if (isOpen) {
         clearHideTimer();
         showNavbar();
+        if (window.scrollY <= topOffset) {
+          navbar.classList.add("nav-scrolled");
+        }
+      } else if (window.scrollY <= topOffset) {
+        navbar.classList.remove("nav-scrolled");
       }
     });
 

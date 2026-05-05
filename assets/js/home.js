@@ -16,11 +16,11 @@ function renderProjects(projects) {
 
     projects.forEach((project) => {
         const slide = document.createElement("div");
-        slide.className = "project-slide";
+        slide.className = "carousel__panel";
         slide.style.backgroundImage = `url(${project.image || ""})`;
 
         slide.innerHTML = `
-      <div class="project-slide-inner">
+      <div class="carousel__inner">
         <div class="project-content">
           <h6 class="project-subtitle">${escapeHtml(project.subtitle || "")}</h6>
           <h1 class="project-title">${escapeHtml(project.title || "")}</h1>
@@ -225,7 +225,7 @@ function renderUpdates(topics) {
 
         pages.forEach((page) => {
             const pageEl = document.createElement("div");
-            pageEl.className = "updates-panel";
+            pageEl.className = "carousel__panel";
 
             page.forEach((topic) => {
                 const slot = document.createElement("div");

@@ -14,8 +14,11 @@
   display: contents;
 }
 
+.split--profile {
+  grid-template-columns: 160px 1fr;
+}
+
 .split--profile .media {
-  flex: 0 0 160px;
   height: 200px;
   border-radius: var(--radius-xs);
 }
@@ -26,12 +29,6 @@
   object-fit: cover;
   object-position: center top;
   display: block;
-}
-
-.split--profile .info {
-  flex: 1 1 320px;
-  min-width: 320px;
-  max-width: 400px;
 }
 
 .people-section {
@@ -70,6 +67,17 @@
 @media (max-width: 640px) {
   .list--members {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .split--profile {
+    grid-template-columns: 1fr;
+  }
+
+  .split--profile .media {
+    width: 160px;
+    justify-self: center;
   }
 }
 
