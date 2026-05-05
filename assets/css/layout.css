@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  scroll-margin-top: 80px;
 }
 
 /* 글자, 반복요소 단순 쌓기 */
@@ -49,10 +50,4 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
-}
-
-@media (max-width: 768px) {
-  .section {
-    scroll-margin-top: 72px;
-  }
 }
