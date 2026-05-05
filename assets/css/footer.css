@@ -5,14 +5,12 @@
   color: rgba(247, 248, 250, 0.78);
 }
 
-.footer-main {
-  display: grid;
+.split--footer {
   grid-template-columns: 1fr 1.45fr 1fr;
   gap: 56px;
-  align-items: start;
 }
 
-.footer-column {
+.split--footer > * {
   min-width: 0;
 }
 
@@ -120,10 +118,9 @@
     padding: 36px 0 24px;
   }
 
-  .footer-main {
+  .split--footer {
     grid-template-columns: 1fr;
     gap: 30px;
-    text-align: left;
   }
 
   .footer-brand {

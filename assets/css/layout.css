@@ -51,3 +51,7 @@
   align-items: center;
   gap: var(--space-md);
 }
+
+.inner--footer {
+  --inner-width: 960px;
+}
