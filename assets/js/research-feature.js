@@ -103,8 +103,11 @@ function createTab(topic, index) {
 
 function setActive(index) {
   const tabs = tabsRoot.querySelectorAll(".areas-tab");
+  const panels = track.querySelectorAll(".carousel__panel");
   track.style.transform = `translateX(-${index * 100}%)`;
   tabs.forEach((tab, i) => tab.classList.toggle("active", i === index));
+  const activePanel = panels[index];
+  if (activePanel) track.parentElement.style.height = activePanel.offsetHeight + "px";
 }
 
 async function initResearchFeature() {

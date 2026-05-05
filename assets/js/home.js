@@ -3,8 +3,7 @@ import { createContentCard } from "./contentcard.js";
 import { openModal } from "./modal.js";
 
 const projectSlider = document.getElementById("project-slider");
-const projectPrev = document.getElementById("project-prev");
-const projectNext = document.getElementById("project-next");
+const projectNav = document.getElementById("project-nav");
 const updatesTrack = document.getElementById("updates-track");
 const aboutMore = document.getElementById("about-more");
 const aboutMoreBtn = document.getElementById("about-more-btn");
@@ -18,37 +17,58 @@ function renderProjects(projects) {
         const slide = document.createElement("div");
         slide.className = "carousel__panel";
         slide.style.backgroundImage = `url(${project.image || ""})`;
-
         slide.innerHTML = `
-      <div class="carousel__inner">
-        <div class="project-content">
-          <h6 class="project-subtitle">${escapeHtml(project.subtitle || "")}</h6>
-          <h1 class="project-title">${escapeHtml(project.title || "")}</h1>
-          <p class="project-desc">${escapeHtml(project.description || "")}</p>
-        </div>
-      </div>
-    `;
-
+          <div class="inner">
+            <div class="project-content">
+              <h6 class="project-subtitle">${escapeHtml(project.subtitle || "")}</h6>
+              <h1 class="project-title">${escapeHtml(project.title || "")}</h1>
+              <p class="project-desc">${escapeHtml(project.description || "")}</p>
+            </div>
+          </div>
+        `;
         projectSlider.appendChild(slide);
     });
 
     let currentIndex = 0;
 
-    function updateSlide() {
+    function goTo(index) {
+        currentIndex = (index + projects.length) % projects.length;
         projectSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        renderNav();
     }
 
-    projectNext?.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % projects.length;
-        updateSlide();
-    });
+    function renderNav() {
+        if (!projectNav || projects.length <= 1) return;
 
-    projectPrev?.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-        updateSlide();
-    });
+        projectNav.innerHTML = "";
 
-    updateSlide();
+        const prevBtn = document.createElement("button");
+        prevBtn.type = "button";
+        prevBtn.className = "project-nav-btn";
+        prevBtn.setAttribute("aria-label", "Previous project");
+        prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
+        prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+        projectNav.appendChild(prevBtn);
+
+        projects.forEach((_, i) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "project-dot" + (i === currentIndex ? " is-active" : "");
+            dot.setAttribute("aria-label", `Go to project ${i + 1}`);
+            dot.addEventListener("click", () => goTo(i));
+            projectNav.appendChild(dot);
+        });
+
+        const nextBtn = document.createElement("button");
+        nextBtn.type = "button";
+        nextBtn.className = "project-nav-btn";
+        nextBtn.setAttribute("aria-label", "Next project");
+        nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
+        nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+        projectNav.appendChild(nextBtn);
+    }
+
+    goTo(0);
 }
 
 function renderUpdates(topics) {
