@@ -1,12 +1,3 @@
-/*
-  typography.css — font tokens + base type styles (single source of truth)
-
-  Integration checklist (when wiring up globally):
-    - Remove --font-family from tokens.css
-    - Remove h1~h6, p, .text-* from base.css
-    - Load this file before base.css in HTML
-*/
-
 /* ============================================================
    Tokens
    ============================================================ */
