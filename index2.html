@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Se-Um Kim Research Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/typography.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/carousel.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/cards.css" />
+    <link rel="stylesheet" href="assets/css/test.css" />
+    <link rel="stylesheet" href="assets/css/pages/home.css" />
+  </head>
+
+  <body class="home">
+    <div class="navbar"></div>
+    <script src="assets/js/navbar.js"></script>
+
+    <div class="carousel carousel--project">
+      <div class="carousel__track" id="project-slider"></div>
+      <div class="carousel-nav carousel-nav--light" id="project-nav"></div>
+    </div>
+
+    <div class="main">
+      <section class="section">
+        <div class="split split--recruit">
+          <div class="media">
+            <h2>Join Us</h2>
+            <p>
+              We are looking for motivated undergraduate students, graduate
+              students, and visiting researchers to join our lab.
+              <br />
+              본 연구실에서는 학부연구생, 대학원생 및 방문 연구원을 상시
+              모집하고 있습니다.
+            </p>
+            <div class="group">
+              <button class="btn btn--primary" id="about-more-btn">More</button>
+              <a href="people.html" class="btn">People</a>
+              <a href="#contact" class="btn">Contact</a>
+            </div>
+          </div>
+          <div class="info">
+            <div class="stack">
+              <div class="card card--recruit">
+                <h4>Undergraduate Program</h4>
+                <p>
+                  We recommend that undergraduate students apply in the second
+                  semester of the second year, or at the latest by the first
+                  semester of the third year. Depending on your interest, you
+                  can transfer into an integrated B.S.–M.S. program. With in
+                  limited timeframe, we aim to publish at least one SCI-indexed
+                  paper.<br />
+                  학부연구생은 2학년 2학기 또는 늦어도 3학년 1학기에 지원하는
+                  것을 권장합니다. 이후 연구에 관심이 생기고 진학을 희망하는
+                  경우 학석 연계 과정으로 전환 가능합니다. 진학이 확정되지 않은
+                  경우 단기에 결과를 낼 수 있는 주제로 연구를 수행하며 SCI 논문
+                  1편 작성을 목표로 합니다.
+                </p>
+              </div>
+              <div class="card card--recruit">
+                <h4>M.S. Program</h4>
+                <p>
+                  We recommend gaining at least one semester of research
+                  experience in the lab prior to applying for the M.S. program.
+                  Due to limited positions, prior discussion is required before
+                  application. M.S. students are expected to establish a
+                  coherent research direction that can be consolidated into a
+                  single category, with the goal of publishing 2–3 SCI-indexed
+                  papers.<br />
+                  석사과정 진학 전 최소 한학기 이상 연구실에서 연구 경험을 쌓는
+                  것을 권장합니다. 정원(T/O) 확보를 위해 지원 신청 전 사전
+                  조율이 필요합니다. 약 2년 이상의 연구 기간 동안 하나의
+                  카테고리로 정리될 수 있는 연구 주제와 로드맵을 설정하고, SCI
+                  논문 2–3편 작성을 목표로 연구를 수행합니다.
+                </p>
+              </div>
+              <div class="card card--recruit">
+                <h4>Ph.D. Program</h4>
+                <p>
+                  We recommend that students who have completed their M.S. in
+                  this lab continue to the Ph.D. program or transition into an
+                  integrated Ph.D. track. Doctoral research involves long-term,
+                  challenging projects, and students are expected to maintain a
+                  high standard of research quality, independence, and
+                  originality.<br />
+                  본 연구실에서 석사과정을 수행한 이후 박사과정으로의 진학 또는
+                  석박통합과정으로의 전환을 권장합니다. 박사과정에서는 매우
+                  도전적인 연구를 수행하며 높은 수준의 연구 완성도와 창의성이
+                  요구됩니다. 높은 수준의 성과를 달성하고자 하는 분들의 지원을
+                  환영합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <h2>Research Areas</h2>
+
+        <div
+          class="group"
+          id="areas-tabs"
+          aria-label="Research area tabs"
+        ></div>
+
+        <div class="carousel carousel--areas">
+          <div class="carousel__track" id="areas-track"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Group Updates</h2>
+        <div class="carousel carousel--updates">
+          <div id="updates-track" class="carousel__track"></div>
+          <div class="carousel-nav carousel-nav--dark" id="updates-nav"></div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer"></footer>
+
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script type="module" src="assets/js/home.js"></script>
+    <script type="module" src="assets/js/research-feature.js"></script>
+  </body>
+</html>
