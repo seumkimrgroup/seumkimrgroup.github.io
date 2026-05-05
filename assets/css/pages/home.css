@@ -106,26 +106,24 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 
 /* project slider */
 
-.project {
+.carousel--project {
   position: relative;
-  width: 100%;
   height: 40vh;
-  overflow: hidden;
 }
 
-.project .carousel__track {
+.carousel--project .carousel__track {
   height: 100%;
   transition: transform 0.6s ease;
 }
 
-.project .carousel__panel {
+.carousel--project .carousel__panel {
   height: 100%;
   position: relative;
   background-size: cover;
   background-position: center;
 }
 
-.project .carousel__panel::after {
+.carousel--project .carousel__panel::after {
   content: "";
   position: absolute;
   inset: 0;

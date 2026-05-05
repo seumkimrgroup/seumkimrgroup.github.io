@@ -1,5 +1,5 @@
 const navbar = document.querySelector(".navbar");
-const project = document.querySelector(".project");
+const project = document.querySelector(".carousel--project");
 const hamburger = document.getElementById("nav-hamburger");
 
 if (navbar) {
