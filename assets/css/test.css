@@ -5,6 +5,10 @@
   border-radius: var(--radius-sm);
 }
 
+.section--recruit {
+  padding-top: 60px;
+}
+
 .card--recruit {
   display: flex;
   flex-direction: column;
@@ -36,14 +40,10 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  font-size: 16px;
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-snug);
   color: var(--color-text-n);
-}
-
-.card--recruit__btn:hover {
-  color: var(--color-seoultech-blue);
 }
 
 .card--recruit__chevron {
