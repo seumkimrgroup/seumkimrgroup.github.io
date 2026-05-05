@@ -13,7 +13,7 @@
     "title": "LC-based electro-optical systems",
     "subtitle": "",
     "image": "assets/images/contents/topic2.png",
-    "description": "Our lab develops a wide range of LC-based electro-optical devices, including displays, tunable lenses, and phase modulators operating across diverse wavelength ranges. We are also particularly focused on chiral liquid crystal systems, whose helical structures enable unique optical functions such as structural coloration, wavelength filtering, and electrically tunable spectral responses. Building on these capabilities, we are extending our research scope toward silicon-based photonic platforms by incorporating LCs for active on-chip phase control. Through the development of LC–silicon hybrid structures, we aim to realize compact and reconfigurable photonic systems for optical signal processing, tunable light manipulation, and photonic quantum-state control.",
+    "description": "Our lab develops a wide range of LC-based electro-optical devices, including displays, tunable lenses, and phase modulators operating across diverse wavelength ranges. We are also particularly focused on chiral liquid crystal systems, whose helical structures enable unique optical functions such as structural coloration, wavelength filtering, and electrically tunable spectral responses. Building on these capabilities, we are extending our research scope toward silicon-based photonic platforms by incorporating LCs for active on-chip phase control. Through the development of LC-silicon hybrid structures, we aim to realize compact and reconfigurable photonic systems for optical signal processing, tunable light manipulation, and photonic quantum-state control.",
     "tag": ["JQL", "LC-EO"],
     "links": []
   },
@@ -72,7 +72,7 @@
     "type": "news",
     "subtitle": "",
     "title": "",
-    "description": "The 2026 KIST–SeoulTech Quantum Science and Technology Joint Workshop was held at our university in connection with the KIST–SeoulTech MOU, which aims to strengthen research collaboration in quantum science and technology. Researchers from both institutions shared recent research progress and discussed future directions for joint research and academic exchange. At the workshop, our group presented research on a photonic quantum processor based on liquid crystal phase modulators.",
+    "description": "The 2026 KIST-SeoulTech Quantum Science and Technology Joint Workshop was held at our university in connection with the KIST-SeoulTech MOU, which aims to strengthen research collaboration in quantum science and technology. Researchers from both institutions shared recent research progress and discussed future directions for joint research and academic exchange. At the workshop, our group presented research on a photonic quantum processor based on liquid crystal phase modulators.",
     "image": "assets/images/contents/news1.jpg",
     "tag": ["JQL", "LC-EO"],
     "date": "Apr 17 2026",
