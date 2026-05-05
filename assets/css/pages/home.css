@@ -12,6 +12,10 @@ body.home .navbar {
     color 0.35s ease;
 }
 
+body.home .main {
+  padding-top: clamp(56px, 7vw, 96px);
+}
+
 /* 기본: project 아래에서는 검은색 */
 body.home .brand,
 body.home .nav-links a,
