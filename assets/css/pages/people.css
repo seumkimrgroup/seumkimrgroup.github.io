@@ -1,12 +1,12 @@
 /* ── People shared ── */
 
-.people-meta {
+.meta-row {
   display: flex;
   align-items: flex-start;
   gap: var(--space-xs);
 }
 
-.people-meta-label {
+.meta-row__label {
   white-space: nowrap;
   font-size: var(--font-size-base);
   line-height: var(--line-height-snug);
@@ -14,7 +14,7 @@
   color: var(--color-text-gs);
 }
 
-.people-meta-value {
+.meta-row__value {
   font-size: var(--font-size-base);
   line-height: var(--line-height-snug);
   font-weight: var(--font-weight-semibold);
@@ -37,10 +37,6 @@
 }
 
 /* detail */
-
-#member-detail-view {
-  display: contents;
-}
 
 .split--profile {
   grid-template-columns: 160px 1fr;

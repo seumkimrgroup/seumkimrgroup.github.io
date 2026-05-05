@@ -2,7 +2,7 @@ import { fetchJson, escapeHtml } from "./data.js";
 import { createPublicationCard } from "./publicationcard.js";
 import { formatRole } from "./peoplecard.js";
 
-const detailView = document.getElementById("member-detail-view");
+const detailView = document.getElementById("peopledetail-profile");
 
 let publications = [];
 
@@ -154,7 +154,7 @@ function renderMemberDetail(member) {
   const nextAffiliation = String(member.nextAffiliation || "").trim();
   const joinedAtHtml =
     isFormer(member) && nextAffiliation
-      ? `<div class="people-meta"><span class="people-meta-label">JOINED AT</span><span class="people-meta-value">${escapeHtml(nextAffiliation)}</span></div>`
+      ? `<div class="meta-row"><span class="meta-row__label">JOINED AT</span><span class="meta-row__value">${escapeHtml(nextAffiliation)}</span></div>`
       : "";
 
   const photoBlock = isFormer(member)
@@ -185,45 +185,26 @@ function renderMemberDetail(member) {
   `;
 
   if (pubs.length) {
-    const pubSection = document.getElementById("member-publications-section");
-    const pubList = document.getElementById("member-publication-list");
-    pubs.forEach((pub) => pubList.appendChild(createPublicationCard(pub)));
-    pubSection.style.display = "";
+    const pubSection = document.createElement("div");
+    pubSection.className = "stack";
+    pubSection.innerHTML = "<h4>Publications</h4>";
+    pubs.forEach((pub) => pubSection.appendChild(createPublicationCard(pub)));
+    detailView.appendChild(pubSection);
   }
-}
-
-function showError(message) {
-  if (!detailView) return;
-  detailView.innerHTML = `<h3>${escapeHtml(message)}</h3>`;
 }
 
 async function initPeopleDetailPage() {
-  try {
-    const id = new URLSearchParams(window.location.search).get("id");
+  const id = new URLSearchParams(window.location.search).get("id");
+  if (!id) return;
 
-    if (!id) {
-      showError("Member not found.");
-      return;
-    }
+  const [members, pubs] = await Promise.all([
+    fetchJson("assets/data/people.json"),
+    fetchJson("assets/data/publications.json"),
+  ]);
+  publications = pubs;
 
-    let members;
-    [members, publications] = await Promise.all([
-      fetchJson("assets/data/people.json"),
-      fetchJson("assets/data/publications.json"),
-    ]);
-
-    const member = members.find((m) => m.slug === id);
-
-    if (!member) {
-      showError("Member not found.");
-      return;
-    }
-
-    renderMemberDetail(member);
-  } catch (error) {
-    console.error(error);
-    showError("Member data could not be loaded.");
-  }
+  const member = members.find((m) => m.slug === id);
+  if (member) renderMemberDetail(member);
 }
 
 initPeopleDetailPage();

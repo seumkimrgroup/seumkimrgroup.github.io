@@ -118,9 +118,9 @@ export function createAlumniMemberCard(member) {
     ${
       joinedAt
         ? `
-    <div class="people-meta">
-        <span class="people-meta-label">JOINED AT</span>
-        <p class="people-meta-value">${escapeHtml(joinedAt)}</p>
+    <div class="meta-row">
+        <span class="meta-row__label">JOINED AT</span>
+        <span class="meta-row__value">${escapeHtml(joinedAt)}</span>
     </div>`
         : ""
     }
