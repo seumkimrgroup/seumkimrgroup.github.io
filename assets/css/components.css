@@ -2,6 +2,7 @@
 
 .btn {
   display: inline-flex;
+  align-self: flex-start;
   align-items: center;
   justify-content: center;
   min-height: 36px;
@@ -46,11 +47,6 @@
   background: #7dd3fc;
   border-color: #7dd3fc;
   color: var(--color-bg);
-}
-
-.btn--back {
-  align-self: flex-start;
-  margin-bottom: 24px;
 }
 
 .btn--back:hover {

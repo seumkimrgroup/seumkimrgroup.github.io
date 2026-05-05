@@ -113,8 +113,4 @@
   .list--alumni {
     grid-template-columns: 1fr;
   }
-
-  .btn--back {
-    margin-bottom: 16px;
-  }
 }
