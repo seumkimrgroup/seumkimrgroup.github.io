@@ -1,4 +1,4 @@
-document.querySelector('.footer').innerHTML = `
+document.querySelector(".footer").innerHTML = `
   <div class="inner inner--footer">
     <div class="split split--footer">
       <div class="footer-brand">
@@ -10,8 +10,8 @@ document.querySelector('.footer').innerHTML = `
         </a>
       </div>
       <div class="footer-contact">
-        <h2 class="footer-heading">Contact Us</h2>
-        <div class="footer-contact-list">
+        <h2 class="footer-heading">Contact</h2>
+        <div class="stack" style="gap: var(--space-sm);">
           <div class="meta-row">
             <span class="meta-row__label">Email</span>
             <a href="mailto:seumkim@seoultech.ac.kr" class="meta-row__value">seumkim@seoultech.ac.kr</a>
