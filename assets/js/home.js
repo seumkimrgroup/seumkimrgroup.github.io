@@ -44,7 +44,7 @@ function renderProjects(projects) {
 
         const prevBtn = document.createElement("button");
         prevBtn.type = "button";
-        prevBtn.className = "project-nav-btn";
+        prevBtn.className = "carousel-nav-btn";
         prevBtn.setAttribute("aria-label", "Previous project");
         prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
         prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
@@ -53,7 +53,7 @@ function renderProjects(projects) {
         projects.forEach((_, i) => {
             const dot = document.createElement("button");
             dot.type = "button";
-            dot.className = "project-dot" + (i === currentIndex ? " is-active" : "");
+            dot.className = "carousel-nav-dot" + (i === currentIndex ? " is-active" : "");
             dot.setAttribute("aria-label", `Go to project ${i + 1}`);
             dot.addEventListener("click", () => goTo(i));
             projectNav.appendChild(dot);
@@ -61,7 +61,7 @@ function renderProjects(projects) {
 
         const nextBtn = document.createElement("button");
         nextBtn.type = "button";
-        nextBtn.className = "project-nav-btn";
+        nextBtn.className = "carousel-nav-btn";
         nextBtn.setAttribute("aria-label", "Next project");
         nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
         nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
@@ -75,11 +75,9 @@ function renderUpdates(topics) {
     if (!updatesTrack || !Array.isArray(topics) || topics.length === 0) return;
 
     const clipEl = updatesTrack.parentElement;
-    const prevBtn = document.getElementById("updates-prev");
-    const nextBtn = document.getElementById("updates-next");
-    const dotsEl = document.getElementById("updates-dots");
+    const navEl = document.getElementById("updates-nav");
 
-    if (!clipEl || !prevBtn || !nextBtn || !dotsEl) return;
+    if (!clipEl || !navEl) return;
 
     let itemsPerPage = getItemsPerPage();
     let realPages = [];
@@ -89,6 +87,9 @@ function renderUpdates(topics) {
     let isAnimating = false;
     let resizeTimer = null;
 
+    const SVG_PREV = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
+    const SVG_NEXT = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
+
     function getItemsPerPage() {
         if (window.innerWidth <= 500) return 1;
         if (window.innerWidth <= 950) return 2;
@@ -97,11 +98,9 @@ function renderUpdates(topics) {
 
     function chunkItems(items, size) {
         const chunks = [];
-
         for (let i = 0; i < items.length; i += size) {
             chunks.push(items.slice(i, i + size));
         }
-
         return chunks;
     }
 
@@ -125,16 +124,12 @@ function renderUpdates(topics) {
     }
 
     function setTrackTransition(enabled) {
-        updatesTrack.style.transition = enabled
-            ? "transform 0.45s ease"
-            : "none";
+        updatesTrack.style.transition = enabled ? "transform 0.45s ease" : "none";
     }
 
     function updateTrackPosition(withTransition = true) {
         const pageWidth = clipEl.clientWidth;
-
         if (!pageWidth) return;
-
         setTrackTransition(withTransition);
         updatesTrack.style.transform = `translate3d(-${pageIndex * pageWidth}px, 0, 0)`;
     }
@@ -161,78 +156,70 @@ function renderUpdates(topics) {
             activePageIndex = 0;
             return;
         }
-
         if (pageIndex === 0) {
             activePageIndex = realPages.length - 1;
             return;
         }
-
         if (pageIndex === pages.length - 1) {
             activePageIndex = 0;
             return;
         }
-
         activePageIndex = pageIndex - 1;
     }
 
     function updateNavigator() {
-        dotsEl.innerHTML = "";
+        navEl.innerHTML = "";
 
         if (realPages.length <= 1) {
-            dotsEl.classList.add("is-hidden");
+            navEl.classList.add("is-hidden");
             return;
         }
 
-        dotsEl.classList.remove("is-hidden");
+        navEl.classList.remove("is-hidden");
 
-        prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
-        nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
-        prevBtn.setAttribute("type", "button");
-        nextBtn.setAttribute("type", "button");
+        const prevBtn = document.createElement("button");
+        prevBtn.type = "button";
+        prevBtn.className = "carousel-nav-btn";
         prevBtn.setAttribute("aria-label", "Previous page");
-        nextBtn.setAttribute("aria-label", "Next page");
-
-        dotsEl.appendChild(prevBtn);
+        prevBtn.innerHTML = SVG_PREV;
+        prevBtn.addEventListener("click", () => move(-1));
+        navEl.appendChild(prevBtn);
 
         realPages.forEach((_, index) => {
             const dot = document.createElement("button");
-
             dot.type = "button";
-            dot.className = "updates-dot";
+            dot.className = "carousel-nav-dot";
             dot.setAttribute("aria-label", `Go to page ${index + 1}`);
-
             if (index === activePageIndex) {
                 dot.classList.add("is-active");
                 dot.setAttribute("aria-current", "true");
             }
-
-            dot.addEventListener("click", () => {
-                goToRealPage(index);
-            });
-
-            dotsEl.appendChild(dot);
+            dot.addEventListener("click", () => goToRealPage(index));
+            navEl.appendChild(dot);
         });
 
-        dotsEl.appendChild(nextBtn);
+        const nextBtn = document.createElement("button");
+        nextBtn.type = "button";
+        nextBtn.className = "carousel-nav-btn";
+        nextBtn.setAttribute("aria-label", "Next page");
+        nextBtn.innerHTML = SVG_NEXT;
+        nextBtn.addEventListener("click", () => move(1));
+        navEl.appendChild(nextBtn);
     }
 
     function goToRealPage(targetIndex) {
         if (isAnimating || realPages.length <= 1) return;
-
         isAnimating = true;
         activePageIndex = targetIndex;
         pageIndex = targetIndex + 1;
-
         updateNavigator();
         updateTrackPosition(true);
     }
 
     function move(direction) {
         if (isAnimating || realPages.length <= 1) return;
-
         isAnimating = true;
         pageIndex += direction;
-
         updateActivePageFromPageIndex();
         updateNavigator();
         updateTrackPosition(true);
@@ -240,7 +227,6 @@ function renderUpdates(topics) {
 
     function renderPages() {
         updatesTrack.innerHTML = "";
-
         buildPages();
 
         pages.forEach((page) => {
@@ -269,18 +255,8 @@ function renderUpdates(topics) {
         });
     }
 
-    prevBtn.onclick = () => {
-        move(-1);
-    };
-
-    nextBtn.onclick = () => {
-        move(1);
-    };
-
     let touchStartX = 0;
     let touchStartY = 0;
-    let touchEndX = 0;
-    let touchEndY = 0;
 
     clipEl.addEventListener(
         "touchstart",
@@ -294,52 +270,33 @@ function renderUpdates(topics) {
     clipEl.addEventListener(
         "touchend",
         (event) => {
-            touchEndX = event.changedTouches[0].clientX;
-            touchEndY = event.changedTouches[0].clientY;
-
-            const diffX = touchStartX - touchEndX;
-            const diffY = touchStartY - touchEndY;
+            const diffX = touchStartX - event.changedTouches[0].clientX;
+            const diffY = touchStartY - event.changedTouches[0].clientY;
             const threshold = 40;
-
-            // 세로 스크롤 의도가 더 크면 무시
             if (Math.abs(diffY) > Math.abs(diffX)) return;
-
-            // 너무 짧은 움직임은 무시
             if (Math.abs(diffX) < threshold) return;
-
-            if (diffX > 0) {
-                move(1);
-            } else {
-                move(-1);
-            }
+            if (diffX > 0) { move(1); } else { move(-1); }
         },
         { passive: true }
     );
 
     updatesTrack.addEventListener("transitionend", (event) => {
         if (event.propertyName !== "transform") return;
-
         normalizePageIndexIfNeeded();
         updateNavigator();
-
-        requestAnimationFrame(() => {
-            isAnimating = false;
-        });
+        requestAnimationFrame(() => { isAnimating = false; });
     });
 
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-
         resizeTimer = setTimeout(() => {
             const nextItemsPerPage = getItemsPerPage();
-
             if (nextItemsPerPage !== itemsPerPage) {
                 itemsPerPage = nextItemsPerPage;
                 activePageIndex = 0;
                 renderPages();
                 return;
             }
-
             updateTrackPosition(false);
         }, 120);
     });

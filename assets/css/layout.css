@@ -32,21 +32,6 @@
   gap: var(--space-md);
 }
 
-.carousel {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel__track {
-  display: flex;
-  width: 100%;
-  will-change: transform;
-}
-
-.carousel__panel {
-  flex: 0 0 100%;
-  min-width: 100%;
-}
 
 .inner {
   --inner-width: var(--container-width);

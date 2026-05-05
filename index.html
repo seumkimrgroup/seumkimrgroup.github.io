@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/carousel.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/cards.css" />
@@ -28,7 +29,7 @@
 
     <div class="carousel carousel--project">
       <div class="carousel__track" id="project-slider"></div>
-      <div class="project-nav" id="project-nav"></div>
+      <div class="carousel-nav carousel-nav--light" id="project-nav"></div>
     </div>
 
     <div class="main">
@@ -104,18 +105,14 @@
 
       <section class="section">
         <h2>Group Updates</h2>
-        <div class="updates-wrap">
-          <button id="updates-prev" class="updates-btn">‹</button>
-          <div class="carousel carousel--updates">
-            <div id="updates-track" class="carousel__track"></div>
-          </div>
-          <button id="updates-next" class="updates-btn">›</button>
+        <div class="carousel carousel--updates">
+          <div id="updates-track" class="carousel__track"></div>
+          <div class="carousel-nav carousel-nav--dark" id="updates-nav"></div>
         </div>
-        <div class="updates-dots" id="updates-dots"></div>
       </section>
     </div>
 
-    <footer class="footer" id="contact"></footer>
+    <footer class="footer"></footer>
 
     <script src="assets/js/footer.js"></script>
     <script src="assets/js/nav.js"></script>

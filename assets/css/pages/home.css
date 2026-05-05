@@ -108,44 +108,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   opacity: 0;
 }
 
-/* project slider */
-
-.carousel--project {
-  position: relative;
-  height: 40vh;
-}
-
-.carousel--project .carousel__track {
-  height: 100%;
-  transition: transform 0.6s ease;
-}
-
-.carousel--project .carousel__panel {
-  height: 100%;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.carousel--project .carousel__panel::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.52),
-    rgba(0, 0, 0, 0.28)
-  );
-}
-
-.carousel--project .carousel__panel > .inner {
-  position: relative;
-  z-index: 2;
-  padding-bottom: 48px;
-}
 
 .project-content {
   color: white;
@@ -169,52 +131,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 
-.project-nav {
-  position: absolute;
-  bottom: 12px;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  z-index: 3;
-}
-
-.project-nav-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.project-nav-btn:hover {
-  color: #ffffff;
-}
-
-.project-dot {
-  width: 7px;
-  height: 7px;
-  padding: 0;
-  border: none;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.45);
-  cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-
-.project-dot.is-active {
-  background: #ffffff;
-  transform: scale(1.15);
-}
 
 /* about section */
 
@@ -267,20 +183,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
   opacity: 1;
 }
 
-.carousel--areas {
-  transition: height 0.46s ease;
-}
-
-.carousel--areas .carousel__track {
-  align-items: flex-start;
-  transition: transform 0.46s ease;
-}
-
-.carousel--areas .carousel__panel {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
 
 .split--areas {
   grid-template-columns: 360px 1fr;
@@ -302,31 +204,6 @@ body.home .navbar.nav-open.nav-over-project .brand-logo--d {
 }
 
 /* lab updates */
-
-.updates-wrap {
-  position: relative;
-  width: 100%;
-}
-
-.carousel--updates {
-  overflow: clip;
-  overflow-clip-margin: 8px;
-  padding-block: 1px;
-  box-sizing: border-box;
-  touch-action: pan-y;
-}
-
-.carousel--updates .carousel__track {
-  flex-wrap: nowrap;
-  align-items: stretch;
-  min-width: 100%;
-}
-
-.carousel--updates .carousel__panel {
-  max-width: 100%;
-  display: flex;
-  align-items: stretch;
-}
 
 .updates-slot {
   flex: 0 0 auto;
@@ -497,86 +374,6 @@ body.modal-open {
   border-color: var(--color-border-strong);
 }
 
-/*
-  기존 좌우 버튼은 JS에서 updates-dots 안으로 이동됨.
-  JS 로딩 전 잠깐 보이는 것을 방지.
-*/
-.updates-wrap > .updates-btn {
-  display: none;
-}
-
-/* < dots > navigator */
-
-.updates-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: 24px;
-
-  margin-top: 8px;
-}
-
-.updates-dots.is-hidden {
-  display: none;
-}
-
-.updates-dots .updates-btn {
-  position: static;
-  transform: none;
-  z-index: auto;
-
-  width: auto;
-  height: 24px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 6px;
-  line-height: 0;
-
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-
-  color: var(--color-text);
-  font-size: var(--font-size-xl);
-  line-height: 1;
-  cursor: pointer;
-
-  transition:
-    color 0.2s ease,
-    opacity 0.2s ease;
-}
-
-.updates-dots .updates-btn:hover {
-  color: #555;
-  border: none;
-  box-shadow: none;
-}
-
-.updates-dot {
-  width: 7px;
-  height: 7px;
-  padding: 0;
-
-  border: none;
-  border-radius: 999px;
-
-  background: var(--color-border);
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-
-.updates-dot.is-active {
-  background: var(--color-text);
-  transform: scale(1.15);
-}
 
 .contact {
   display: grid;
@@ -652,16 +449,3 @@ body.modal-open {
   }
 }
 
-@media (max-width: 420px) {
-  .updates-dots {
-    display: flex;
-  }
-
-  .updates-dots .updates-btn {
-    display: none;
-  }
-
-  .updates-dot {
-    display: block;
-  }
-}

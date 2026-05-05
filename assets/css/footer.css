@@ -173,10 +173,6 @@
     font-size: var(--font-size-xs);
   }
 
-  .footer-divider {
-    margin: var(--space-md) 0;
-  }
-
   .footer-copy {
     font-size: 12px;
     line-height: 1.55;
