@@ -15,24 +15,27 @@
   gap: 24px;
 }
 
+/* 글자, 반복요소 단순 쌓기 */
 .stack {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
 }
 
+/* 서로 다른 크기, 다른 역할 자식 여러개가 grid 타입으로 배치 */
 .split {
   display: grid;
   gap: var(--space-lg);
   align-items: start;
 }
 
+/* 동일한 자식 여러개가 grid 타입으로 배치 */
 .list {
   display: grid;
   gap: var(--space-md);
 }
 
-
+/* 특정 크기 갖는 가운데 정렬 내부 wrapper */
 .inner {
   --inner-width: var(--container-width);
   width: calc(100% - 32px);
