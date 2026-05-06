@@ -1,0 +1,20 @@
+[
+  {
+    "program": "Undergraduate",
+    "tags": ["SW", "ML-FEA", "PSLC"],
+    "body_en": "We recommend that undergraduate students apply in the second semester of the second year, or at the latest by the first semester of the third year. Depending on your interest, students can transfer into an integrated B.S.-M.S. program. With a limited timeframe, we aim to publish at least one SCI-indexed paper.",
+    "body_ko": "학부연구생은 2학년 2학기 또는 늦어도 3학년 1학기에 지원하는 것을 권장합니다. 이후 연구에 관심이 생기고 진학을 희망하는 경우 학석 연계 과정으로 전환 가능합니다. 진학이 확정되지 않은 경우 단기에 결과를 낼 수 있는 주제로 연구를 수행하며 SCI 논문 1편 작성을 목표로 합니다."
+  },
+  {
+    "program": "M.S. course",
+    "tags": ["JQL", "TACTILE", "LC-EO", "LC-COMP", "ML-FEA"],
+    "body_en": "We recommend gaining at least one semester of research experience in the lab prior to applying for the M.S. program. Due to limited positions, prior discussion is required before application. M.S. students are expected to establish a coherent research direction that can be consolidated into a single category, with the goal of publishing 2-3 SCI-indexed papers.",
+    "body_ko": "석사과정 진학 전 최소 한학기 이상 연구실에서 연구 경험을 쌓는 것을 권장합니다. 정원(T/O) 확보를 위해 지원 신청 전 사전 조율이 필요합니다. 약 2년 이상의 연구 기간 동안 하나의 카테고리로 정리될 수 있는 연구 주제와 로드맵을 설정하고, SCI 논문 2-3편 작성을 목표로 연구를 수행합니다."
+  },
+  {
+    "program": "Ph.D. course",
+    "tags": ["JQL", "TACTILE", "LC-EO", "LC-COMP", "ML-FEA"],
+    "body_en": "We recommend that students who have completed their M.S. in this lab continue to the Ph.D. program or transition into an integrated M.S.-Ph.D. track. students are expected to pursue challenging research projects with a high standard of quality, independence, and originality.",
+    "body_ko": "본 연구실에서 석사과정을 수행한 후 박사과정으로의 진학 또는 석박통합과정으로의 전환을 권장합니다. 박사과정에서는 장기적이고 도전적인 연구를 수행하게 되며 독립성과 창의성이 핵심적으로 요구됩니다. 우수한 성과를 지향하는 분들의 지원을 환영합니다."
+  }
+]
