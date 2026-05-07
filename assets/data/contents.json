@@ -1,0 +1,138 @@
+[
+  {
+    "type": "topic",
+    "subtitle": "",
+    "title": "LC composite materials & systems",
+    "image": "assets/images/contents/topic1.png",
+    "description": "We design liquid crystal composite materials and soft photonic systems by controlling molecular composition, polymer networks, chirality, and elastomeric mechanics. Our research focuses on how mesogenic monomers and various non-mesogenic additives can be synthesized, blended, and structured to produce stimuli-responsive materials. These material platforms are connected to tactile displays, mechanochromic indicators, and LC-based smart window systems. Through an integrated workflow spanning material synthesis, formulation, device fabrication, optical and mechanical characterization, our lab aims to control LC composite systems from molecular composition and material microstructure to device-level performance.",
+    "tag": ["SW", "TACTILE", "LC-COMP", "PSLC", "LCE", "CLCE"],
+    "links": []
+  },
+  {
+    "type": "topic",
+    "title": "LC-based electro-optical systems",
+    "subtitle": "",
+    "image": "assets/images/contents/topic2.png",
+    "description": "Our lab develops a wide range of LC-based electro-optical devices, including displays, tunable lenses, and phase modulators operating across diverse wavelength ranges. We are also particularly focused on chiral liquid crystal systems, whose helical structures enable unique optical functions such as structural coloration, wavelength filtering, and electrically tunable spectral responses. Building on these capabilities, we are extending our research scope toward silicon-based photonic platforms by incorporating LCs for active on-chip phase control. Through the development of LC-silicon hybrid structures, we aim to realize compact and reconfigurable photonic systems for optical signal processing, tunable light manipulation, and photonic quantum-state control.",
+    "tag": ["JQL", "LC-EO"],
+    "links": []
+  },
+  {
+    "type": "topic",
+    "title": "ML-assisted optimization of FEA",
+    "subtitle": "",
+    "image": "assets/images/contents/topic3.png",
+    "description": "We develop simulation-driven workflows for multiphysics analysis and machine learning-assisted design optimization to study anisotropic material deformation, heat dissipation, electric-field distribution, and optical responses in functional materials and device systems. Our research focuses on highly coupled multiphysics of optoelectronic devices, linking heat generation, structural deformation, electric-field distribution, and device performance across material and device scales. To make these complex simulations more efficient, we leverage ML-assisted fast predictive models, data-driven optimization, and physics-informed neural networks to reduce computational cost and accelerate prediction, inverse design, and reliability-oriented device development.",
+    "tag": ["ML-FEA", "THERM", "MECH", "ELEC"],
+    "links": []
+  },
+  {
+    "type": "project",
+    "subtitle": "Participating in",
+    "title": "Joint Quantum Lab",
+    "description": "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
+    "image": "assets/images/contents/project1.jpg",
+    "tag": ["JQL", "LC-EO"],
+    "links": []
+  },
+  {
+    "type": "project",
+    "subtitle": "Advanced Materials",
+    "title": "Tatile displays",
+    "description": "High-speed electro-optic response using ferroelectric liquid crystal systems.",
+    "image": "assets/images/contents/project2.jpg",
+    "tag": ["TACTILE", "LC-COMP", "CLCE", "MECH"],
+    "links": []
+  },
+  {
+    "type": "project",
+    "subtitle": "",
+    "title": "LC-based smart window",
+    "description": "Adaptive photonic structures using mechanically responsive LC materials.",
+    "image": "assets/images/contents/project3.jpg",
+    "tag": ["SW", "LC-COMP", "PSLC"],
+    "links": []
+  },
+  {
+    "type": "news",
+    "subtitle": "",
+    "title": "",
+    "description": "The 2nd 2026 Quantum Exchange Day was held at the Daejeon Convention Center to share research outcomes and promote exchange among researchers participating in the Quantum Platform Program. The event included research presentations, networking sessions, and awards for outstanding presentations. At the event, our group presented as part of the KIST-JQL 3 session, sharing recent progress from our JQL research activities.",
+    "image": "assets/images/contents/news2.jpg",
+    "tag": ["JQL", "LC-EO"],
+    "date": "Apr 24 2026",
+    "links": [
+      {
+        "text": "Program Schedule",
+        "url": "assets/images/contents/news2_1.pdf"
+      }
+    ]
+  },
+  {
+    "type": "news",
+    "subtitle": "",
+    "title": "",
+    "description": "The 2026 KIST-SeoulTech Quantum Science and Technology Joint Workshop was held at our university in connection with the KIST-SeoulTech MOU, which aims to strengthen research collaboration in quantum science and technology. Researchers from both institutions shared recent research progress and discussed future directions for joint research and academic exchange. At the workshop, our group presented research on a photonic quantum processor based on liquid crystal phase modulators.",
+    "image": "assets/images/contents/news1.jpg",
+    "tag": ["JQL", "LC-EO"],
+    "date": "Apr 17 2026",
+    "links": [
+      {
+        "text": "Workshop website",
+        "url": "https://indico.global/event/17372/"
+      },
+      {
+        "text": "Workshop poster",
+        "url": "assets/images/contents/news1_1.jpg"
+      }
+    ]
+  },
+  {
+    "type": "highlight",
+    "subtitle": "",
+    "title": "",
+    "description": "Some living organisms are cryptically coloured with a wide range of hues and patterns for camouflage. Using thin, flexible membranes made from a polymer network of liquid crystals that are arranged in helical shapes, we have developed a kind of artificial chromatophore that can change colors instantly—from near-infrared to visible to ultraviolet—on demand. These soft materials may find uses in distinct applications such as cryptography, adaptive optics, and soft robotics.",
+    "image": "assets/images/contents/highlight2.jpg",
+    "tag": ["TACTILE", "LC-COMP", "CLCE", "MECH"],
+    "links": [
+      {
+        "text": "Penn Today",
+        "url": "https://penntoday.upenn.edu/news/engineering-polymer-network-act-active-camouflage-demand"
+      },
+      {
+        "text": "Penn Engineering Today",
+        "url": "https://www.seas.upenn.edu/stories/penn-engineerings-artificial-chromatophores-enable-surfaces-with-squid-like-active-camouflage/"
+      },
+      {
+        "text": "Nature Research Highlight",
+        "url": "https://www.nature.com/articles/d41586-021-02458-x"
+      },
+      {
+        "text": "physicsworld",
+        "url": "https://physicsworld.com/a/inflatable-liquid-crystalline-elastomers-create-complex-colour-changing-displays/"
+      }
+    ]
+  },
+  {
+    "type": "highlight",
+    "subtitle": "",
+    "title": "",
+    "description": "We have designed a platform that programs the orientation of mechanically anisotropic molecules; thus, the surface wrinkles, promoted by such instabilities, can be patterned in the desired manner. The optics based on a spatial light modulator assembles wrinkle pixels of a notably small dimension over a large area at fast fabrication speed. This result enables new applications in optics such as image storage, informative labeling, and anti-counterfeiting.",
+    "image": "assets/images/contents/highlight1.jpg",
+    "tag": ["LC-COMP"],
+    "links": [
+      {
+        "text": "NRF",
+        "url": "https://www.nrf.re.kr/cms/board/subject/view?menu_no=95&page=&nts_no=144157&search_type=NTS_TITLE&search_keyword=&nts_type="
+      },
+      {
+        "text": "Korea Lecture News",
+        "url": "https://www.lecturernews.com/news/articleView.html?idxno=54590"
+      },
+      {
+        "text": "CNU News",
+        "url": "https://plus.cnu.ac.kr/_prog/_board/?mode=V&no=2471386&code=sub07_0703&site_dvs_cd=kr&menu_dvs_cd=0703&skey=&sval=&site_dvs=&ntt_tag=&GotoPage=44"
+      }
+    ]
+  }
+]
