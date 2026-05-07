@@ -42,6 +42,6 @@ document.querySelector(".footer").innerHTML = `
   </div>
   <div class="footer-divider"></div>
   <div class="inner">
-    <p class="footer-copy">©2026 Se-Um Kim Research Group, Seoul National University of Science and Technology. All rights reserved.</p>
+    <p class="footer-copy">©2026 Se-Um Kim Research Group in Seoultech. All rights reserved.</p>
   </div>
 `;

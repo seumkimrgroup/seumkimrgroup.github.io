@@ -1,0 +1,63 @@
+[
+  {
+    "subtitle": "Participating in",
+    "title": "Joint Quantum Lab",
+    "description": "We develop scalable quantum photonic systems based on LC-SiN photonic integrated circuits.",
+    "tag": ["JQL", "LC-EO"],
+    "sections": [
+      {
+        "title": "",
+        "content": [
+          "Photonic integrated circuits (PICs) are emerging as a core hardware platform for scalable quantum processors. LN platforms provide high-speed modulation, but scalable integration and packaging remain challenging. In SiN platforms, conventional thermo-optic tuning suffers from high power consumption, slow response, and thermal crosstalk."
+        ]
+      },
+      {
+        "title": "Our Approach",
+        "content": [
+          "We develop LC-SiN PICs by introducing LCs as an active cladding layer above SiN waveguides. This hybrid structure combines the manufacturability of SiN photonics with the large optical anisotropy of LCs, enabling compact and low-voltage phase control. Based on our recent demonstration of wafer-scale fabrication feasibility, we are extending this platform toward packaged quantum photonic processor modules with multi-channel I/O."
+        ]
+      }
+    ],
+    "background": "/assets/images/projects/project3_bg.jpg",
+    "image": "/assets/images/projects/project3.jpg",
+    "slug": "jql"
+  },
+  {
+    "subtitle": "",
+    "title": "Tactile displays",
+    "description": "High-speed electro-optic response using ferroelectric liquid crystal systems.",
+    "tag": ["TACTILE", "LC-COMP", "CLCE", "MECH"],
+    "sections": [
+      {
+        "title": "",
+        "content": ["."]
+      },
+      {
+        "title": "",
+        "content": ["."]
+      }
+    ],
+    "background": "/assets/images/projects/project2_bg.jpg",
+    "image": "/assets/images/projects/project2.jpg",
+    "slug": "tactile"
+  },
+  {
+    "subtitle": "",
+    "title": "LC-based smart window",
+    "description": "Adaptive photonic structures using mechanically responsive LC materials.",
+    "tag": ["SW", "LC-COMP", "PSLC"],
+    "sections": [
+      {
+        "title": "",
+        "content": ["."]
+      },
+      {
+        "title": "",
+        "content": ["."]
+      }
+    ],
+    "background": "/assets/images/projects/project1_bg.jpg",
+    "image": "/assets/images/projects/project1.jpg",
+    "slug": "sw"
+  }
+]
