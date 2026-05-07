@@ -8,7 +8,7 @@
     "office": "",
     "joinYear": 2026,
     "leaveYear": null,
-    "image": "assets/images/people/ihchoi.jpg",
+    "image": "/assets/images/people/ihchoi.jpg",
     "links": [
       {
         "type": "email",
@@ -38,7 +38,7 @@
     "office": "",
     "joinYear": 2025,
     "leaveYear": null,
-    "image": "assets/images/people/jwchoi.jpg",
+    "image": "/assets/images/people/jwchoi.jpg",
     "links": [
       {
         "type": "email",
@@ -72,7 +72,7 @@
     "office": "",
     "joinYear": 2025,
     "leaveYear": null,
-    "image": "assets/images/people/mhkim.jpg",
+    "image": "/assets/images/people/mhkim.jpg",
     "links": [
       {
         "type": "email",
@@ -108,7 +108,7 @@
     "office": "",
     "joinYear": 2025,
     "leaveYear": null,
-    "image": "assets/images/people/hskim.jpg",
+    "image": "/assets/images/people/hskim.jpg",
     "links": [
       {
         "type": "email",
@@ -141,7 +141,7 @@
     "office": "",
     "joinYear": 2025,
     "leaveYear": null,
-    "image": "assets/images/people/dkim.jpg",
+    "image": "/assets/images/people/dkim.jpg",
     "links": [
       {
         "type": "email",
@@ -174,7 +174,7 @@
     "office": "",
     "joinYear": 2025,
     "leaveYear": null,
-    "image": "assets/images/people/abna.jpg",
+    "image": "/assets/images/people/abna.jpg",
     "links": [
       {
         "type": "email",
@@ -206,7 +206,7 @@
     "office": "",
     "joinYear": 2025,
     "leaveYear": null,
-    "image": "assets/images/people/hjko.jpg",
+    "image": "/assets/images/people/hjko.jpg",
     "links": [
       {
         "type": "email",
@@ -238,7 +238,7 @@
     "office": "",
     "joinYear": 2024,
     "leaveYear": null,
-    "image": "assets/images/people/mjkim.jpg",
+    "image": "/assets/images/people/mjkim.jpg",
     "links": [
       {
         "type": "email",
@@ -271,7 +271,7 @@
     "office": "",
     "joinYear": 2024,
     "leaveYear": null,
-    "image": "assets/images/people/slee.jpg",
+    "image": "/assets/images/people/slee.jpg",
     "links": [
       {
         "type": "email",
@@ -339,7 +339,7 @@
     "office": "",
     "joinYear": 2024,
     "leaveYear": null,
-    "image": "assets/images/people/jhkim.jpg",
+    "image": "/assets/images/people/jhkim.jpg",
     "links": [
       {
         "type": "email",
@@ -372,7 +372,7 @@
     "office": "",
     "joinYear": 2024,
     "leaveYear": null,
-    "image": "assets/images/people/hsoh.jpg",
+    "image": "/assets/images/people/hsoh.jpg",
     "links": [
       {
         "type": "email",
@@ -476,7 +476,7 @@
     "office": "",
     "joinYear": 2023,
     "leaveYear": null,
-    "image": "assets/images/people/hshwang.jpg",
+    "image": "/assets/images/people/hshwang.jpg",
     "links": [
       {
         "type": "email",
@@ -518,7 +518,7 @@
         "value": ""
       }
     ],
-    "image": "",
+    "image": "/assets/images/people/hmcho.jpg",
     "description": [
       {
         "title": "EDUCATION",
@@ -546,7 +546,7 @@
     "office": "",
     "joinYear": 2023,
     "leaveYear": 2024,
-    "image": "",
+    "image": "/assets/images/people/jhlee.jpg",
     "links": [
       {
         "type": "email",
@@ -578,7 +578,7 @@
     "office": "",
     "joinYear": 2023,
     "leaveYear": 2024,
-    "image": "",
+    "image": "/assets/images/people/jelee.jpg",
     "links": [
       {
         "type": "email",
@@ -610,7 +610,7 @@
     "office": "",
     "joinYear": 2022,
     "leaveYear": 2023,
-    "image": "",
+    "image": "/assets/images/people/m-spark.jpg",
     "links": [
       {
         "type": "email",
