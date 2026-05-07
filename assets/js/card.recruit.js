@@ -23,8 +23,8 @@ export function createRecruitCard(program) {
     <div class="card--recruit__main">
       <div class="card--recruit__content">
         <h5>${escapeHtml(program.program || "")}</h5>
-        ${renderTags(program.tags)}
         <div class="card--recruit__body">
+          ${renderTags(program.tags)}
           ${program.body_en ? `<p>${escapeHtml(program.body_en)}</p>` : ""}
           ${program.body_ko ? `<p class="text-secondary">${escapeHtml(program.body_ko)}</p>` : ""}
         </div>

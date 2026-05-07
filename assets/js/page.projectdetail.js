@@ -1,0 +1,126 @@
+const detailRoot = document.getElementById("project-detail");
+
+const params = new URLSearchParams(window.location.search);
+const slug = params.get("slug");
+
+function escapeHtml(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function renderTags(tags = []) {
+  if (!tags.length) return "";
+
+  return `
+    <div class="project-detail-tags">
+      ${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+    </div>
+  `;
+}
+
+function renderSections(sections = []) {
+  if (!sections.length) return "";
+
+  return sections
+    .map((section) => {
+      const title = section.title
+        ? `<h2>${escapeHtml(section.title)}</h2>`
+        : "";
+
+      const content = Array.isArray(section.content)
+        ? section.content
+            .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+            .join("")
+        : "";
+
+      return `
+        <section class="project-detail-section">
+          ${title}
+          ${content}
+        </section>
+      `;
+    })
+    .join("");
+}
+
+function renderImages(images = []) {
+  if (!images.length) return "";
+
+  return `
+    <div class="project-detail-images">
+      ${images
+        .map(
+          (image) => `
+            <figure class="project-detail-image">
+              <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || "")}" />
+            </figure>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderProject(project) {
+  document.title = `${project.title} | Se-Um Kim Research Group`;
+
+  detailRoot.innerHTML = `
+    <header class="project-detail-hero">
+      ${
+        project.background
+          ? `<img class="project-detail-bg" src="${escapeHtml(project.background)}" alt="" />`
+          : ""
+      }
+
+      <div class="project-detail-hero-content">
+        ${
+          project.subtitle
+            ? `<p class="project-detail-subtitle">${escapeHtml(project.subtitle)}</p>`
+            : ""
+        }
+        <h1>${escapeHtml(project.title)}</h1>
+        ${
+          project.description
+            ? `<p class="project-detail-desc">${escapeHtml(project.description)}</p>`
+            : ""
+        }
+        ${renderTags(project.tag)}
+      </div>
+    </header>
+
+    <div class="project-detail-body">
+      ${renderSections(project.sections)}
+      ${renderImages(project.images)}
+    </div>
+  `;
+}
+
+async function initProjectDetail() {
+  if (!slug) {
+    detailRoot.innerHTML = `<p class="project-detail-error">Project slug is missing.</p>`;
+    return;
+  }
+
+  try {
+    const response = await fetch("/assets/data/projects.json");
+    const projects = await response.json();
+
+    const project = projects.find((item) => item.slug === slug);
+
+    if (!project) {
+      detailRoot.innerHTML = `<p class="project-detail-error">Project not found.</p>`;
+      return;
+    }
+
+    renderProject(project);
+  } catch (error) {
+    console.error(error);
+    detailRoot.innerHTML = `<p class="project-detail-error">Failed to load project data.</p>`;
+  }
+}
+
+initProjectDetail();

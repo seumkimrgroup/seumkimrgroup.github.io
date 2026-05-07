@@ -42,8 +42,8 @@ export function createPanel(topic, allPublications) {
         <img src="${escapeHtml(topic.image)}" alt="${escapeHtml(topic.title)}">
       </div>
       <div class="stack stack--sm">
-        ${renderTags(topicTags)}
         <h3>${escapeHtml(topic.title)}</h3>
+        ${renderTags(topicTags)}
         <p>${escapeHtml(topic.description)}</p>
       </div>
     </div>

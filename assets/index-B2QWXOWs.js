@@ -1,4 +1,4 @@
-import{e as c,f as C}from"./data-oa-38m4R.js";import{c as X}from"./card.publication-DEcl1Oq-.js";function D(e){if(!Array.isArray(e)||!e.length)return"";const t=e.map(r=>`<a href="${c(r.url)}" target="_blank" rel="noopener noreferrer">${c(r.text)}</a>`);let n;return t.length===1?n=t[0]:t.length===2?n=`${t[0]} and ${t[1]}`:n=`${t.slice(0,-1).join(", ")}, and ${t[t.length-1]}`,`<p class="text-secondary">More information: ${n}.</p>`}function V(e){const t=document.createElement("article");return t.className="card card--update",t.innerHTML=`
+import"./components.cards-tGjZ0gJw.js";import{e as c,f as C}from"./data-S4SCuinP.js";import{c as X}from"./card.publication-CirH_ktY.js";function D(e){if(!Array.isArray(e)||!e.length)return"";const t=e.map(r=>`<a href="${c(r.url)}" target="_blank" rel="noopener noreferrer">${c(r.text)}</a>`);let n;return t.length===1?n=t[0]:t.length===2?n=`${t[0]} and ${t[1]}`:n=`${t.slice(0,-1).join(", ")}, and ${t[t.length-1]}`,`<p class="text-secondary">More information: ${n}.</p>`}function V(e){const t=document.createElement("article");return t.className="card card--update",t.innerHTML=`
     <div class="media">
       <img
         src="${e.image||""}"
@@ -28,8 +28,8 @@ import{e as c,f as C}from"./data-oa-38m4R.js";import{c as X}from"./card.publicat
     <div class="card--recruit__main">
       <div class="card--recruit__content">
         <h5>${c(e.program||"")}</h5>
-        ${S(e.tags)}
         <div class="card--recruit__body">
+          ${S(e.tags)}
           ${e.body_en?`<p>${c(e.body_en)}</p>`:""}
           ${e.body_ko?`<p class="text-secondary">${c(e.body_ko)}</p>`:""}
         </div>
@@ -52,8 +52,8 @@ import{e as c,f as C}from"./data-oa-38m4R.js";import{c as X}from"./card.publicat
         <img src="${c(e.image)}" alt="${c(e.title)}">
       </div>
       <div class="stack stack--sm">
-        ${S(r)}
         <h3>${c(e.title)}</h3>
+        ${S(r)}
         <p>${c(e.description)}</p>
       </div>
     </div>
