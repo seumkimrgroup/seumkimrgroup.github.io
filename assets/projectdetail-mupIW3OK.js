@@ -1,4 +1,4 @@
-import"./components.cards-tGjZ0gJw.js";const i=document.getElementById("project-detail"),l=new URLSearchParams(window.location.search),s=l.get("slug");function r(e=""){return String(e).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}function o(e=[]){return e.length?`
+import"./components.cards-BPO2N5aJ.js";const i=document.getElementById("project-detail"),l=new URLSearchParams(window.location.search),s=l.get("slug");function r(e=""){return String(e).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}function o(e=[]){return e.length?`
     <div class="project-detail-tags">
       ${e.map(t=>`<span>${r(t)}</span>`).join("")}
     </div>
