@@ -1,80 +1,18 @@
-import { fetchJson, escapeHtml } from "./data.js";
+import { fetchJson } from "./data.js";
 import { createContentCard } from "./card.content.js";
 import { openModal } from "./modal.js";
 import { createRecruitCard } from "./card.recruit.js";
+import { renderProjectSlider } from "./section.projects.js";
 
-const projectSlider = document.getElementById("project-slider");
-const projectNav = document.getElementById("project-nav");
-const updatesTrack = document.getElementById("updates-track");
-
-function renderProjects(projects) {
-    if (!projectSlider || !Array.isArray(projects) || projects.length === 0) return;
-
-    projectSlider.innerHTML = "";
-
-    projects.forEach((project) => {
-        const slide = document.createElement("div");
-        slide.className = "carousel__panel";
-        slide.style.backgroundImage = `url(${project.background || ""})`;
-        slide.innerHTML = `
-          <div class="inner">
-            <div class="project-content">
-              <h6 class="project-subtitle">${escapeHtml(project.subtitle || "")}</h6>
-              <h1 class="project-title">${escapeHtml(project.title || "")}</h1>
-              <p class="project-desc">${escapeHtml(project.description || "")}</p>
-            </div>
-          </div>
-        `;
-        projectSlider.appendChild(slide);
-    });
-
-    let currentIndex = 0;
-
-    function goTo(index) {
-        currentIndex = (index + projects.length) % projects.length;
-        projectSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        renderNav();
-    }
-
-    function renderNav() {
-        if (!projectNav || projects.length <= 1) return;
-
-        projectNav.innerHTML = "";
-
-        const prevBtn = document.createElement("button");
-        prevBtn.type = "button";
-        prevBtn.className = "carousel-nav-btn";
-        prevBtn.setAttribute("aria-label", "Previous project");
-        prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
-        prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
-        projectNav.appendChild(prevBtn);
-
-        projects.forEach((_, i) => {
-            const dot = document.createElement("button");
-            dot.type = "button";
-            dot.className = "carousel-nav-dot" + (i === currentIndex ? " is-active" : "");
-            dot.setAttribute("aria-label", `Go to project ${i + 1}`);
-            dot.addEventListener("click", () => goTo(i));
-            projectNav.appendChild(dot);
-        });
-
-        const nextBtn = document.createElement("button");
-        nextBtn.type = "button";
-        nextBtn.className = "carousel-nav-btn";
-        nextBtn.setAttribute("aria-label", "Next project");
-        nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
-        nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
-        projectNav.appendChild(nextBtn);
-    }
-
-    goTo(0);
-}
+const projectSlider = document.querySelector("#projects .carousel__track");
+const projectNav = document.querySelector("#projects .carousel-nav");
+const updatesTrack = document.querySelector("#lab-updates .carousel__track");
 
 function renderUpdates(topics) {
     if (!updatesTrack || !Array.isArray(topics) || topics.length === 0) return;
 
     const clipEl = updatesTrack.parentElement;
-    const navEl = document.getElementById("updates-nav");
+    const navEl = clipEl.querySelector(".carousel-nav");
 
     if (!clipEl || !navEl) return;
 
@@ -314,7 +252,7 @@ async function initHomePage() {
             ? items.filter((item) => item.type === "news" || item.type === "highlight")
             : [];
 
-        renderProjects(projects);
+        renderProjectSlider(projects, projectSlider, projectNav);
         renderUpdates(updates);
     } catch (error) {
         console.error(error);

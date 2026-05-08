@@ -1,1 +1,0 @@
-async function t(e){const l=await fetch(e,{cache:"no-store"});if(!l.ok)throw new Error(`Failed to load ${e}: ${l.status}`);return await l.json()}function a(e){return String(e??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;")}export{a as e,t as f};

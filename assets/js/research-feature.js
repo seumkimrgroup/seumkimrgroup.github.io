@@ -2,8 +2,8 @@ import { fetchJson, escapeHtml } from "./data.js";
 import { createPublicationCard } from "./card.publication.js";
 import { TAG_GROUP, renderTags } from "./tags.js";
 
-const tabsRoot = document.getElementById("areas-tabs");
-const track = document.getElementById("areas-track");
+const tabsRoot = document.querySelector("#research-areas .group");
+const track = document.querySelector("#research-areas .carousel__track");
 
 export function selectArticles(topicTags, allPublications) {
   const pubTags = (pub) => (Array.isArray(pub.tags) ? pub.tags : []);

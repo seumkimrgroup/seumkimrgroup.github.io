@@ -3,7 +3,7 @@
     "subtitle": "Participating in",
     "title": "Joint Quantum Lab",
     "description": "We develop scalable quantum photonic systems based on LC-SiN photonic integrated circuits.",
-    "tag": ["JQL", "LC-EO"],
+    "tag": ["JQL"],
     "sections": [
       {
         "title": "",
@@ -26,7 +26,7 @@
     "subtitle": "",
     "title": "Tactile displays",
     "description": "High-speed electro-optic response using ferroelectric liquid crystal systems.",
-    "tag": ["TACTILE", "LC-COMP", "CLCE", "MECH"],
+    "tag": ["TACTILE"],
     "sections": [
       {
         "title": "",
@@ -45,7 +45,7 @@
     "subtitle": "",
     "title": "LC-based smart window",
     "description": "Adaptive photonic structures using mechanically responsive LC materials.",
-    "tag": ["SW", "LC-COMP", "PSLC"],
+    "tag": ["SW"],
     "sections": [
       {
         "title": "",

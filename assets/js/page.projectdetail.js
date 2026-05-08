@@ -1,16 +1,9 @@
+import { fetchJson, escapeHtml } from "./data.js";
+
 const detailRoot = document.getElementById("project-detail");
 
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
-
-function escapeHtml(value = "") {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
 
 function renderTags(tags = []) {
   if (!tags.length) return "";
@@ -69,7 +62,7 @@ function renderProject(project) {
   document.title = `${project.title} | Se-Um Kim Research Group`;
 
   detailRoot.innerHTML = `
-    <header class="project-detail-hero">
+    <header class="project-detail-hero" style="view-transition-name: project-hero">
       ${
         project.background
           ? `<img class="project-detail-bg" src="${escapeHtml(project.background)}" alt="" />`
@@ -106,9 +99,7 @@ async function initProjectDetail() {
   }
 
   try {
-    const response = await fetch("/assets/data/projects.json");
-    const projects = await response.json();
-
+    const projects = await fetchJson("/assets/data/projects.json");
     const project = projects.find((item) => item.slug === slug);
 
     if (!project) {
