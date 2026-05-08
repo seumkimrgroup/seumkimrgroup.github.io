@@ -27,33 +27,6 @@
     "links": []
   },
   {
-    "type": "project",
-    "subtitle": "Participating in",
-    "title": "Joint Quantum Lab",
-    "description": "We develop scalable quantum photonic systems using liquid crystal-based phase control.",
-    "image": "/assets/images/contents/project1.jpg",
-    "tag": ["JQL", "LC-EO"],
-    "links": []
-  },
-  {
-    "type": "project",
-    "subtitle": "Advanced Materials",
-    "title": "Tatile displays",
-    "description": "High-speed electro-optic response using ferroelectric liquid crystal systems.",
-    "image": "/assets/images/contents/project2.jpg",
-    "tag": ["TACTILE", "LC-COMP", "CLCE", "MECH"],
-    "links": []
-  },
-  {
-    "type": "project",
-    "subtitle": "",
-    "title": "LC-based smart window",
-    "description": "Adaptive photonic structures using mechanically responsive LC materials.",
-    "image": "/assets/images/contents/project3.jpg",
-    "tag": ["SW", "LC-COMP", "PSLC"],
-    "links": []
-  },
-  {
     "type": "news",
     "subtitle": "",
     "title": "",

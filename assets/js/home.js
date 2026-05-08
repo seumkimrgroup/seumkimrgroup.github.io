@@ -15,7 +15,7 @@ function renderProjects(projects) {
     projects.forEach((project) => {
         const slide = document.createElement("div");
         slide.className = "carousel__panel";
-        slide.style.backgroundImage = `url(${project.image || ""})`;
+        slide.style.backgroundImage = `url(${project.background || ""})`;
         slide.innerHTML = `
           <div class="inner">
             <div class="project-content">
@@ -305,12 +305,14 @@ function renderUpdates(topics) {
 
 async function initHomePage() {
     try {
-        const items = await fetchJson("/assets/data/contents.json");
+        const [projects, items] = await Promise.all([
+            fetchJson("/assets/data/projects.json"),
+            fetchJson("/assets/data/contents.json"),
+        ]);
 
-        if (!Array.isArray(items)) return;
-
-        const projects = items.filter((item) => item.type === "project");
-        const updates = items.filter((item) => item.type === "news" || item.type === "highlight");
+        const updates = Array.isArray(items)
+            ? items.filter((item) => item.type === "news" || item.type === "highlight")
+            : [];
 
         renderProjects(projects);
         renderUpdates(updates);
