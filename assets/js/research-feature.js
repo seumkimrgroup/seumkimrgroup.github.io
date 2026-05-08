@@ -77,14 +77,22 @@ function createTab(topic, index) {
   return button;
 }
 
+let _ro = null;
+
 function setActive(index) {
   const tabs = tabsRoot.querySelectorAll(".areas-tab");
   const panels = track.querySelectorAll(".carousel__panel");
   track.style.transform = `translateX(-${index * 100}%)`;
   tabs.forEach((tab, i) => tab.classList.toggle("active", i === index));
+
   const activePanel = panels[index];
-  if (activePanel)
+  if (!activePanel) return;
+
+  if (_ro) _ro.disconnect();
+  _ro = new ResizeObserver(() => {
     track.parentElement.style.height = activePanel.offsetHeight + "px";
+  });
+  _ro.observe(activePanel);
 }
 
 async function initResearchFeature() {
