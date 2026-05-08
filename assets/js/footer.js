@@ -18,7 +18,7 @@ document.querySelector(".footer").innerHTML = `
           </div>
           <div class="meta-row">
             <span class="meta-row__label">Phone</span>
-            <a href="tel:+8229706425" class="meta-row__value">+82-2-970-6425</a>
+            <a href="tel:+8229706425" class="meta-row__value">+82-2-970-6415</a>
           </div>
           <div class="meta-row">
             <span class="meta-row__label">Office</span>
