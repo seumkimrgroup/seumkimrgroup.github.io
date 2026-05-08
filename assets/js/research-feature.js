@@ -41,18 +41,18 @@ export function createPanel(topic, allPublications) {
       <div class="media">
         <img src="${escapeHtml(topic.image)}" alt="${escapeHtml(topic.title)}">
       </div>
-      <div class="stack stack--sm">
+      <div class="stack--sm">
         <h3>${escapeHtml(topic.title)}</h3>
         ${renderTags(topicTags)}
         <p>${escapeHtml(topic.description)}</p>
       </div>
     </div>
-    <div class="stack">
+    <div class="stack--sm">
       <h4>Featured Articles</h4>
     </div>
   `;
 
-  const listEl = panel.querySelector(":scope > .stack");
+  const listEl = panel.querySelector(":scope > .stack--sm");
   const articles = selectArticles(topicTags, allPublications);
 
   if (articles.length) {

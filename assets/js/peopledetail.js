@@ -84,7 +84,7 @@ function renderInfoSection(title, items) {
   const itemsHtml = `<p>${items.map(escapeHtml).join(" <br>\n            ")}</p>`;
 
   return `
-    <div class="stack stack--sm">
+    <div class="stack--sm">
       <h4>${escapeHtml(title)}</h4>
       ${itemsHtml}
     </div>
@@ -173,7 +173,7 @@ function renderMemberDetail(member) {
     <div class="${headerClass}">
       ${photoBlock}
 
-      <div class="stack stack--sm">
+      <div class="stack--sm">
         <h2>${escapeHtml(member.name)}</h2>
         ${subtitleHtml}
         ${joinedAtHtml}

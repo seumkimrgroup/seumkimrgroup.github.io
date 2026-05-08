@@ -1,4 +1,4 @@
-import{f as k,e as c}from"./data-DHEFmF89.js";import{r as w,T as U}from"./tags-DQn_rVfm.js";import{c as V}from"./card.publication-C7vp3-38.js";const _=document.querySelector("#projects .carousel__track"),E=document.querySelector("#projects .carousel-nav");async function D(){if(!_)return;const e=await k("/assets/data/projects.json");if(!Array.isArray(e)||e.length===0)return;_.innerHTML="",e.map(r=>{const s=document.createElement("div");return s.className="carousel__panel",s.style.backgroundImage=`url(${r.background||""})`,s.innerHTML=`
+import{f as k,e as c}from"./data-CiJffPBJ.js";import{r as w,T as U}from"./tags-Bu5423Jq.js";import{c as V}from"./card.publication-CRgtZNtT.js";const _=document.querySelector("#projects .carousel__track"),E=document.querySelector("#projects .carousel-nav");async function D(){if(!_)return;const e=await k("/assets/data/projects.json");if(!Array.isArray(e)||e.length===0)return;_.innerHTML="",e.map(r=>{const s=document.createElement("div");return s.className="carousel__panel",s.style.backgroundImage=`url(${r.background||""})`,s.innerHTML=`
           <div class="inner">
             <div class="stack">
               ${r.subtitle?`<h6>${c(r.subtitle)}</h6>`:""}
@@ -54,13 +54,13 @@ import{f as k,e as c}from"./data-DHEFmF89.js";import{r as w,T as U}from"./tags-D
       <div class="media">
         <img src="${c(e.image)}" alt="${c(e.title)}">
       </div>
-      <div class="stack stack--sm">
+      <div class="stack--sm">
         <h3>${c(e.title)}</h3>
         ${w(a)}
         <p>${c(e.description)}</p>
       </div>
     </div>
-    <div class="stack">
+    <div class="stack--sm">
       <h4>Featured Articles</h4>
     </div>
-  `;const r=n.querySelector(":scope > .stack"),s=ne(a,t);return s.length?s.forEach(d=>r.appendChild(V(d))):r.innerHTML="<p>No related publications found.</p>",n}function ae(e,t){const n=document.createElement("button");n.type="button",n.className="btn areas-tab",n.dataset.index=String(t);const r=(Array.isArray(e.tag)?e.tag:[]).find(s=>U[s]==="topic")??e.title;return n.innerHTML=`<span class="tab-short">${c(r)}</span><span class="tab-full">${c(e.title)}</span>`,n}let T=null;function H(e){const t=A.querySelectorAll(".areas-tab"),n=m.querySelectorAll(".carousel__panel");m.style.transform=`translateX(-${e*100}%)`,t.forEach((r,s)=>r.classList.toggle("active",s===e));const a=n[e];a&&(T&&T.disconnect(),T=new ResizeObserver(()=>{m.parentElement.style.height=a.offsetHeight+"px"}),T.observe(a))}async function se(){if(!(!A||!m))try{const[e,t]=await Promise.all([k("/assets/data/contents.json"),k("/assets/data/publications.json")]),n=e.filter(a=>a.type==="topic");if(!n.length){m.innerHTML='<article class="carousel__panel"><p>No research topics found.</p></article>';return}A.innerHTML="",m.innerHTML="",n.forEach((a,r)=>{const s=ae(a,r),d=re(a,t);s.addEventListener("click",()=>H(r)),A.appendChild(s),m.appendChild(d)}),H(0)}catch(e){console.error(e),m.innerHTML='<article class="carousel__panel"><p>Research areas could not be loaded.</p></article>'}}se();
+  `;const r=n.querySelector(":scope > .stack--sm"),s=ne(a,t);return s.length?s.forEach(d=>r.appendChild(V(d))):r.innerHTML="<p>No related publications found.</p>",n}function ae(e,t){const n=document.createElement("button");n.type="button",n.className="btn areas-tab",n.dataset.index=String(t);const r=(Array.isArray(e.tag)?e.tag:[]).find(s=>U[s]==="topic")??e.title;return n.innerHTML=`<span class="tab-short">${c(r)}</span><span class="tab-full">${c(e.title)}</span>`,n}let T=null;function H(e){const t=A.querySelectorAll(".areas-tab"),n=m.querySelectorAll(".carousel__panel");m.style.transform=`translateX(-${e*100}%)`,t.forEach((r,s)=>r.classList.toggle("active",s===e));const a=n[e];a&&(T&&T.disconnect(),T=new ResizeObserver(()=>{m.parentElement.style.height=a.offsetHeight+"px"}),T.observe(a))}async function se(){if(!(!A||!m))try{const[e,t]=await Promise.all([k("/assets/data/contents.json"),k("/assets/data/publications.json")]),n=e.filter(a=>a.type==="topic");if(!n.length){m.innerHTML='<article class="carousel__panel"><p>No research topics found.</p></article>';return}A.innerHTML="",m.innerHTML="",n.forEach((a,r)=>{const s=ae(a,r),d=re(a,t);s.addEventListener("click",()=>H(r)),A.appendChild(s),m.appendChild(d)}),H(0)}catch(e){console.error(e),m.innerHTML='<article class="carousel__panel"><p>Research areas could not be loaded.</p></article>'}}se();
