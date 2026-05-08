@@ -1,19 +1,10 @@
 import { fetchJson, escapeHtml } from "./data.js";
+import { renderTags } from "./tags.js";
 
 const detailRoot = document.getElementById("project-detail");
 
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
-
-function renderTags(tags = []) {
-  if (!tags.length) return "";
-
-  return `
-    <div class="project-detail-tags">
-      ${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
-    </div>
-  `;
-}
 
 function renderSections(sections = []) {
   if (!sections.length) return "";
@@ -62,26 +53,17 @@ function renderProject(project) {
   document.title = `${project.title} | Se-Um Kim Research Group`;
 
   detailRoot.innerHTML = `
-    <header class="project-detail-hero" style="view-transition-name: project-hero">
-      ${
-        project.background
-          ? `<img class="project-detail-bg" src="${escapeHtml(project.background)}" alt="" />`
-          : ""
-      }
-
-      <div class="project-detail-hero-content">
-        ${
-          project.subtitle
-            ? `<p class="project-detail-subtitle">${escapeHtml(project.subtitle)}</p>`
-            : ""
-        }
-        <h1>${escapeHtml(project.title)}</h1>
-        ${
-          project.description
-            ? `<p class="project-detail-desc">${escapeHtml(project.description)}</p>`
-            : ""
-        }
-        ${renderTags(project.tag)}
+    <header style="view-transition-name: project-hero">
+      ${project.background ? `<img src="${escapeHtml(project.background)}" alt="" />` : ""}
+      <div class="inner">
+        <div class="stack">
+          ${project.subtitle ? `<h6>${escapeHtml(project.subtitle)}</h6>` : ""}
+          <div class="meta-row">
+            <h1>${escapeHtml(project.title)}</h1>
+            ${renderTags(project.tag)}
+          </div>
+          ${project.description ? `<p>${escapeHtml(project.description)}</p>` : ""}
+        </div>
       </div>
     </header>
 
