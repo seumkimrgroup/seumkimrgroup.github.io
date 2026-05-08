@@ -7,7 +7,9 @@ function toggleCard(card, btn) {
   const isOpen = card.classList.contains("is-open");
   document.querySelectorAll(".card--recruit.is-open").forEach((other) => {
     other.classList.remove("is-open");
-    other.querySelector(".card--recruit__btn").setAttribute("aria-expanded", "false");
+    other
+      .querySelector(".card--recruit__btn")
+      .setAttribute("aria-expanded", "false");
   });
   if (!isOpen) {
     card.classList.add("is-open");
@@ -26,7 +28,7 @@ export function createRecruitCard(program) {
         <div class="card--recruit__body">
           ${renderTags(program.tags)}
           ${program.body_en ? `<p>${escapeHtml(program.body_en)}</p>` : ""}
-          ${program.body_ko ? `<p class="text-secondary">${escapeHtml(program.body_ko)}</p>` : ""}
+          ${program.body_ko ? `<p>${escapeHtml(program.body_ko)}</p>` : ""}
         </div>
       </div>
       <button class="card--recruit__btn" aria-expanded="false" aria-label="Toggle details">
