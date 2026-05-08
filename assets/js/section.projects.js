@@ -1,8 +1,14 @@
-import { escapeHtml } from "./data.js";
+import { fetchJson, escapeHtml } from "./data.js";
 import { renderTags } from "./tags.js";
 
-export function renderProjectSlider(projects, sliderEl, navEl) {
-    if (!sliderEl || !Array.isArray(projects) || projects.length === 0) return;
+const sliderEl = document.querySelector("#projects .carousel__track");
+const navEl = document.querySelector("#projects .carousel-nav");
+
+async function init() {
+    if (!sliderEl) return;
+
+    const projects = await fetchJson("/assets/data/projects.json");
+    if (!Array.isArray(projects) || projects.length === 0) return;
 
     sliderEl.innerHTML = "";
 
@@ -29,16 +35,9 @@ export function renderProjectSlider(projects, sliderEl, navEl) {
 
     let currentIndex = 0;
 
-    function updateViewTransitionName(index) {
-        slides.forEach((slide, i) => {
-            slide.style.setProperty("view-transition-name", i === index ? "project-hero" : "none");
-        });
-    }
-
     function goTo(index) {
         currentIndex = (index + projects.length) % projects.length;
         sliderEl.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateViewTransitionName(currentIndex);
         renderNav();
     }
 
@@ -75,3 +74,5 @@ export function renderProjectSlider(projects, sliderEl, navEl) {
 
     goTo(0);
 }
+
+init();

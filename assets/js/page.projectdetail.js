@@ -1,99 +1,66 @@
 import { fetchJson, escapeHtml } from "./data.js";
 import { renderTags } from "./tags.js";
 
-const detailRoot = document.getElementById("project-detail");
+const projectsEl = document.querySelector("#projects");
+const sliderEl = document.querySelector("#projects .carousel__track");
+const navEl = document.querySelector("#projects .carousel-nav");
+const innerEl = document.querySelector("#projects > .inner");
 
-const params = new URLSearchParams(window.location.search);
-const slug = params.get("slug");
+const slug = new URLSearchParams(window.location.search).get("slug");
 
 function renderSections(sections = []) {
-  if (!sections.length) return "";
+    if (!innerEl || !sections.length) return;
 
-  return sections
-    .map((section) => {
-      const title = section.title
-        ? `<h2>${escapeHtml(section.title)}</h2>`
-        : "";
+    const stack = document.createElement("div");
+    stack.className = "stack";
 
-      const content = Array.isArray(section.content)
-        ? section.content
-            .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-            .join("")
-        : "";
+    sections.forEach((section) => {
+        const el = document.createElement("section");
+        if (section.title) {
+            el.innerHTML += `<h2>${escapeHtml(section.title)}</h2>`;
+        }
+        if (Array.isArray(section.content)) {
+            section.content.forEach((p) => {
+                el.innerHTML += `<p>${escapeHtml(p)}</p>`;
+            });
+        }
+        stack.appendChild(el);
+    });
 
-      return `
-        <section class="project-detail-section">
-          ${title}
-          ${content}
-        </section>
-      `;
-    })
-    .join("");
+    innerEl.appendChild(stack);
 }
 
-function renderImages(images = []) {
-  if (!images.length) return "";
+async function init() {
+    if (!sliderEl || !slug) return;
 
-  return `
-    <div class="project-detail-images">
-      ${images
-        .map(
-          (image) => `
-            <figure class="project-detail-image">
-              <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || "")}" />
-            </figure>
-          `,
-        )
-        .join("")}
-    </div>
-  `;
-}
+    const all = await fetchJson("/assets/data/projects.json");
+    const project = all.find((p) => p.slug === slug);
+    if (!project) return;
 
-function renderProject(project) {
-  document.title = `${project.title} | Se-Um Kim Research Group`;
+    document.title = `${project.title} | Se-Um Kim Research Group`;
 
-  detailRoot.innerHTML = `
-    <header style="view-transition-name: project-hero">
-      ${project.background ? `<img src="${escapeHtml(project.background)}" alt="" />` : ""}
+    projectsEl.style.backgroundImage = `url(${project.background || ""})`;
+
+    sliderEl.innerHTML = "";
+
+    const slide = document.createElement("div");
+    slide.className = "carousel__panel";
+    slide.innerHTML = `
       <div class="inner">
         <div class="stack">
           ${project.subtitle ? `<h6>${escapeHtml(project.subtitle)}</h6>` : ""}
           <div class="meta-row">
-            <h1>${escapeHtml(project.title)}</h1>
+            <h1>${escapeHtml(project.title || "")}</h1>
             ${renderTags(project.tag)}
           </div>
-          ${project.description ? `<p>${escapeHtml(project.description)}</p>` : ""}
+          <p>${escapeHtml(project.description || "")}</p>
+          <a class="btn btn--primary" href="/">← Back</a>
         </div>
       </div>
-    </header>
+    `;
+    sliderEl.appendChild(slide);
 
-    <div class="project-detail-body">
-      ${renderSections(project.sections)}
-      ${renderImages(project.images)}
-    </div>
-  `;
+    renderSections(project.sections);
 }
 
-async function initProjectDetail() {
-  if (!slug) {
-    detailRoot.innerHTML = `<p class="project-detail-error">Project slug is missing.</p>`;
-    return;
-  }
-
-  try {
-    const projects = await fetchJson("/assets/data/projects.json");
-    const project = projects.find((item) => item.slug === slug);
-
-    if (!project) {
-      detailRoot.innerHTML = `<p class="project-detail-error">Project not found.</p>`;
-      return;
-    }
-
-    renderProject(project);
-  } catch (error) {
-    console.error(error);
-    detailRoot.innerHTML = `<p class="project-detail-error">Failed to load project data.</p>`;
-  }
-}
-
-initProjectDetail();
+init();

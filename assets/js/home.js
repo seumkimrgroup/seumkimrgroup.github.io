@@ -2,7 +2,6 @@ import { fetchJson } from "./data.js";
 import { createContentCard } from "./card.content.js";
 import { openModal } from "./modal.js";
 import { createRecruitCard } from "./card.recruit.js";
-import { renderProjectSlider } from "./section.projects.js";
 
 const projectSlider = document.querySelector("#projects .carousel__track");
 const projectNav = document.querySelector("#projects .carousel-nav");
@@ -243,16 +242,12 @@ function renderUpdates(topics) {
 
 async function initHomePage() {
     try {
-        const [projects, items] = await Promise.all([
-            fetchJson("/assets/data/projects.json"),
-            fetchJson("/assets/data/contents.json"),
-        ]);
+        const items = await fetchJson("/assets/data/contents.json");
 
         const updates = Array.isArray(items)
             ? items.filter((item) => item.type === "news" || item.type === "highlight")
             : [];
 
-        renderProjectSlider(projects, projectSlider, projectNav);
         renderUpdates(updates);
     } catch (error) {
         console.error(error);
