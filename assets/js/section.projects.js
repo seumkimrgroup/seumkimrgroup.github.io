@@ -25,7 +25,7 @@ async function init() {
                 ${renderTags(project.tag)}
               </div>
               <p>${escapeHtml(project.description || "")}</p>
-              ${project.slug ? `<div class="group"><a class="btn btn--primary" href="/projectdetail/?slug=${escapeHtml(project.slug)}">Read more</a></div>` : ""}
+              ${project.slug ? `<div class="group"><a class="btn btn--primary" href="/project/?slug=${escapeHtml(project.slug)}">Read more</a></div>` : ""}
             </div>
           </div>
         `;
