@@ -267,3 +267,8 @@ async function initRecruit() {
 
 initHomePage();
 initRecruit();
+
+document.getElementById("btn-contact")?.addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector(".footer")?.scrollIntoView({ behavior: "smooth" });
+});
