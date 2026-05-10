@@ -1,5 +1,5 @@
 document.querySelector(".footer").innerHTML = `
-  <div class="inner inner--footer">
+  <div class="inner--90">
     <div class="split split--footer">
       <div class="footer-brand">
         <a href="https://www.seoultech.ac.kr" class="footer-logo-link" aria-label="SeoulTech">
@@ -41,7 +41,7 @@ document.querySelector(".footer").innerHTML = `
     </div>
   </div>
   <div class="footer-divider"></div>
-  <div class="inner">
+  <div class="inner--90">
     <p class="footer-copy">©2026 Se-Um Kim Research Group in Seoultech. All rights reserved.</p>
   </div>
 `;

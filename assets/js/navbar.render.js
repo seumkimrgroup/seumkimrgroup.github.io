@@ -13,7 +13,7 @@ const logoHtml = isHome
   : `<img src="/assets/images/logos/logow.png" alt="Se-Um Kim Research Group" class="brand-logo">`;
 
 document.querySelector(".navbar").innerHTML = `
-  <div class="inner inner--nav">
+  <div class="inner--nav">
     <a href="/" class="brand">${logoHtml}</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
       <span class="hamburger-icon"></span>

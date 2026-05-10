@@ -1,37 +1,59 @@
 import { fetchJson, escapeHtml } from "./data.js";
-import { renderTags } from "./tags.js";
 
-const projectsEl = document.querySelector("#projects");
-const sliderEl = document.querySelector("#projects .carousel__track");
-const navEl = document.querySelector("#projects .carousel-nav");
-const innerEl = document.querySelector("#projects > .inner");
-
+const introEl = document.querySelector("#project-intro");
+const mainEl = document.querySelector("#project-main");
 const slug = new URLSearchParams(window.location.search).get("slug");
 
-function renderSections(sections = []) {
-    if (!innerEl || !sections.length) return;
+function renderIntro(section, background) {
+    if (background) introEl.style.backgroundImage = `url(${escapeHtml(background)})`;
+
+    const inner = document.createElement("div");
+    inner.className = "inner--60";
 
     const stack = document.createElement("div");
     stack.className = "stack";
 
-    sections.forEach((section) => {
-        const el = document.createElement("section");
-        if (section.title) {
-            el.innerHTML += `<h2>${escapeHtml(section.title)}</h2>`;
-        }
-        if (Array.isArray(section.content)) {
-            section.content.forEach((p) => {
-                el.innerHTML += `<p>${escapeHtml(p)}</p>`;
-            });
-        }
-        stack.appendChild(el);
-    });
+    let html = "";
+    if (section.title) html += `<h1>${escapeHtml(section.title)}</h1>`;
+    if (Array.isArray(section.content)) {
+        section.content.forEach((p) => { html += `<p>${escapeHtml(p)}</p>`; });
+    }
+    if (section.image) {
+        html += `<div class="media"><img src="${escapeHtml(section.image)}" alt="" /></div>`;
+    }
 
-    innerEl.appendChild(stack);
+    stack.innerHTML = html;
+    inner.appendChild(stack);
+    introEl.appendChild(inner);
+}
+
+function renderBody(section) {
+    const el = document.createElement("section");
+    el.className = "section";
+
+    const inner = document.createElement("div");
+    inner.className = "inner--75";
+
+    const stack = document.createElement("div");
+    stack.className = "stack stack--lg";
+
+    let html = "";
+    if (section.title) html += `<h2>${escapeHtml(section.title)}</h2>`;
+    if (Array.isArray(section.content)) {
+        section.content.forEach((p) => { html += `<p>${escapeHtml(p)}</p>`; });
+    }
+    if (section.image) {
+        html += `<div class="media"><img src="${escapeHtml(section.image)}" alt="${escapeHtml(section.title || "")}" /></div>`;
+    }
+
+    stack.innerHTML = html;
+    inner.appendChild(stack);
+    el.appendChild(inner);
+    return el;
 }
 
 async function init() {
-    if (!sliderEl || !slug) return;
+    if (!introEl || !mainEl || !slug) return;
 
     const all = await fetchJson("/assets/data/projects.json");
     const project = all.find((p) => p.slug === slug);
@@ -39,28 +61,19 @@ async function init() {
 
     document.title = `${project.title} | Se-Um Kim Research Group`;
 
-    projectsEl.style.backgroundImage = `url(${project.background || ""})`;
+    (project.sections || []).forEach((section, i) => {
+        if (i === 0) renderIntro(section, project.background);
+        else mainEl.appendChild(renderBody(section));
+    });
 
-    sliderEl.innerHTML = "";
-
-    const slide = document.createElement("div");
-    slide.className = "carousel__panel";
-    slide.innerHTML = `
-      <div class="inner">
-        <div class="stack">
-          ${project.subtitle ? `<h6>${escapeHtml(project.subtitle)}</h6>` : ""}
-          <div class="meta-row">
-            <h1>${escapeHtml(project.title || "")}</h1>
-            ${renderTags(project.tag)}
-          </div>
-          <p>${escapeHtml(project.description || "")}</p>
-          <a class="btn btn--primary" href="/">← Back</a>
-        </div>
-      </div>
-    `;
-    sliderEl.appendChild(slide);
-
-    renderSections(project.sections);
+    const spacer = document.createElement("div");
+    spacer.className = "spacer--32";
+    mainEl.appendChild(spacer);
+    const backBtn = document.createElement("a");
+    backBtn.className = "btn btn--back";
+    backBtn.href = "/";
+    backBtn.textContent = "‹ Back";
+    mainEl.appendChild(backBtn);
 }
 
 init();

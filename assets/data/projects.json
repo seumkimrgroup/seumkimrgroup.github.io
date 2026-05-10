@@ -6,20 +6,35 @@
     "tag": ["JQL"],
     "sections": [
       {
-        "title": "",
+        "title": "Joint Quantum Lab",
         "content": [
-          "Photonic integrated circuits (PICs) are emerging as a core hardware platform for scalable quantum processors. LN platforms provide high-speed modulation, but scalable integration and packaging remain challenging. In SiN platforms, conventional thermo-optic tuning suffers from high power consumption, slow response, and thermal crosstalk."
-        ]
+          "We develop scalable quantum photonic systems based on LC-SiN photonic integrated circuits. In collaboration with KIST, we aim to establish an integrated research platform for the full-cycle design, fabrication, and evaluation of quantum photonic systems."
+        ],
+        "image": ""
+      },
+      {
+        "title": "What JQL is",
+        "content": [
+          "The Joint Quantum Lab (JQL) is a collaborative research program designed to support researchers transitioning into quantum science and technology. It provides a platform where universities, national research institutes, and industry can build early-stage collaborations and carry out exploratory joint research. JQL promotes multidisciplinary research across materials, photonics, devices, packaging, and system integration. Through this program, our laboratory collaborates with KIST to develop scalable quantum photonic systems based on LC-SiN photonic integrated circuits."
+        ],
+        "image": ""
+      },
+      {
+        "title": "Overview",
+        "content": [
+          "Photonic integrated circuits (PICs) are emerging as a core hardware platform for scalable quantum processors. LN platforms offer high-speed modulation, but scalable integration and packaging remain challenging. In SiN platforms, conventional thermo-optic tuning suffers from high power consumption, slow response, and thermal crosstalk."
+        ],
+        "image": ""
       },
       {
         "title": "Our Approach",
         "content": [
           "We develop LC-SiN PICs by introducing LCs as an active cladding layer above SiN waveguides. This hybrid structure combines the manufacturability of SiN photonics with the large optical anisotropy of LCs, enabling compact and low-voltage phase control. Based on our recent demonstration of wafer-scale fabrication feasibility, we are extending this platform toward packaged quantum photonic processor modules with multi-channel I/O."
-        ]
+        ],
+        "image": ""
       }
     ],
     "background": "/assets/images/projects/project3_bg.png",
-    "image": "/assets/images/projects/project3.jpg",
     "slug": "jql"
   },
   {
@@ -30,11 +45,13 @@
     "sections": [
       {
         "title": "",
-        "content": ["."]
+        "content": ["."],
+        "image": "/assets/images/projects/project2.jpg"
       },
       {
         "title": "",
-        "content": ["."]
+        "content": ["."],
+        "image": "/assets/images/projects/project2.jpg"
       }
     ],
     "background": "/assets/images/projects/project2_bg.png",
@@ -49,11 +66,13 @@
     "sections": [
       {
         "title": "",
-        "content": ["."]
+        "content": ["."],
+        "image": "/assets/images/projects/project1.jpg"
       },
       {
         "title": "",
-        "content": ["."]
+        "content": ["."],
+        "image": "/assets/images/projects/project1.jpg"
       }
     ],
     "background": "/assets/images/projects/project1_bg.png",
