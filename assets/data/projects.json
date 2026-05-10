@@ -24,14 +24,14 @@
         "content": [
           "Photonic integrated circuits (PICs) are emerging as a core hardware platform for scalable quantum processors. LN platforms offer high-speed modulation, but scalable integration and packaging remain challenging. In SiN platforms, conventional thermo-optic tuning suffers from high power consumption, slow response, and thermal crosstalk."
         ],
-        "image": ""
+        "image": "/assets/images/projects/project3_2.png"
       },
       {
         "title": "Our Approach",
         "content": [
           "We develop LC-SiN PICs by introducing LCs as an active cladding layer above SiN waveguides. This hybrid structure combines the manufacturability of SiN photonics with the large optical anisotropy of LCs, enabling compact and low-voltage phase control. Based on our recent demonstration of wafer-scale fabrication feasibility, we are extending this platform toward packaged quantum photonic processor modules with multi-channel I/O."
         ],
-        "image": ""
+        "image": "/assets/images/projects/project3_3.png"
       }
     ],
     "background": "/assets/images/projects/project3_bg.png",
