@@ -5,6 +5,24 @@ const introBodyEl = heroEl?.querySelector(".stack");
 const bodyEl = document.querySelector("#project-body");
 const slug = new URLSearchParams(window.location.search).get("slug");
 
+function animateHeroText(container) {
+    const WINDOW = 700;
+
+    container.querySelectorAll("h1, p").forEach((el) => {
+        const words = el.textContent.trim().split(/\s+/);
+        el.innerHTML = "";
+
+        for (let i = 0; i < words.length; i += 2) {
+            const span = document.createElement("span");
+            span.className = "word-pair";
+            span.style.animationDelay = `${Math.random() * WINDOW}ms`;
+            span.textContent = words.slice(i, i + 2).join(" ");
+            el.appendChild(span);
+            if (i + 2 < words.length) el.appendChild(document.createTextNode(" "));
+        }
+    });
+}
+
 function renderIntro(section, background) {
     if (background) heroEl.style.backgroundImage = `url(${escapeHtml(background)})`;
 
@@ -17,6 +35,7 @@ function renderIntro(section, background) {
         html += `<div class="media"><img src="${escapeHtml(section.image)}" alt="" /></div>`;
     }
     introBodyEl.innerHTML = html;
+    animateHeroText(introBodyEl);
 }
 
 function renderBody(section) {
