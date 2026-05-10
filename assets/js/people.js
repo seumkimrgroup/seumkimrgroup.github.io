@@ -15,9 +15,6 @@ function renderCurrentMembers(memberList) {
 
     currentContainer.innerHTML = "";
 
-    const listDiv = document.createElement("div");
-    listDiv.className = "list list--members";
-
     memberList
         .sort((a, b) => {
             const priorityDiff = getRolePriority(a) - getRolePriority(b);
@@ -29,19 +26,14 @@ function renderCurrentMembers(memberList) {
             return String(a.name || "").localeCompare(String(b.name || ""));
         })
         .forEach((member) => {
-            listDiv.appendChild(createCurrentMemberCard(member));
+            currentContainer.appendChild(createCurrentMemberCard(member));
         });
-
-    currentContainer.appendChild(listDiv);
 }
 
 function renderFormerMembers(memberList) {
     if (!formerContainer) return;
 
     formerContainer.innerHTML = "";
-
-    const listDiv = document.createElement("div");
-    listDiv.className = "list list--alumni";
 
     memberList
         .sort((a, b) => {
@@ -54,10 +46,8 @@ function renderFormerMembers(memberList) {
             return String(a.name || "").localeCompare(String(b.name || ""));
         })
         .forEach((member) => {
-            listDiv.appendChild(createAlumniMemberCard(member));
+            formerContainer.appendChild(createAlumniMemberCard(member));
         });
-
-    formerContainer.appendChild(listDiv);
 }
 
 function renderMembers() {
