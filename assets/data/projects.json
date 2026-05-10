@@ -39,33 +39,33 @@
   },
   {
     "subtitle": "Toward device-level",
-    "title": "Tactile displays",
+    "title": "Tactile Displays",
     "description": "We develop deformable photonic crystal films based on chiral liquid crystalline elastomers",
     "tag": ["TACTILE"],
     "sections": [
       {
-        "title": "Tactile displays",
+        "title": "Tactile Displays",
         "content": [
           "We develop deformable photonic crystal films based on chiral liquid crystalline elastomers (CLCEs). By integrating these films with addressable actuation platforms capable of driving individual pixels, we aim to realize large-area, state-memorizable tactile displays that can express both shape and color."
         ],
         "image": ""
       },
       {
-        "title": "What tactile displays are",
+        "title": "What Tactile Displays Are",
         "content": [
           "Tactile displays deliver information through physical surface deformation, vibration, texture, or force feedback. Unlike conventional visual displays, they provide visual–tactile feedback by allowing digital information to be both seen and physically felt through a reconfigurable surface. Recent tactile interfaces have moved beyond simple vibration feedback toward shape-changing surfaces that can render buttons, patterns, textures, and three-dimensional topographies. This direction is especially important for tangible user interfaces, wearable devices, assistive technologies, and immersive interaction systems."
         ],
         "image": ""
       },
       {
-        "title": "High-sensitivity CLCEs",
+        "title": "High-Sensitivity CLCEs",
         "content": [
           "CLCEs form a self-organized helical structure that reflects selected wavelengths of light, producing structural color without dyes, pigments, filters, or backlight units. We have developed highly deformation-sensitive CLCE films in which even small local inflation can produce a large shift in reflected color across the visible wavelength range. This high deformation sensitivity allows modest tactile actuation to generate strong optical contrast while minimizing mechanical strain on the device."
         ],
         "image": ""
       },
       {
-        "title": "Our approach",
+        "title": "Our Approach",
         "content": [
           "To move this material platform toward practical devices, we pursue large-area and highly uniform CLCE films that can generate consistent color responses across an extended surface. This scalability allows deformation-sensitive photonic films to move beyond small laboratory samples toward realistic display components. By integrating the CLCE color layer with an addressable actuation substrate, each tactile pixel can locally deform the film and convert strain into visible color. Through this combination of scalable CLCE fabrication and individually addressable actuation arrays, we aim to control both shape and color across a large-area surface for tangible visual–tactile displays."
         ],
