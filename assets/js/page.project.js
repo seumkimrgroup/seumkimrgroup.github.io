@@ -52,8 +52,6 @@ async function init() {
     const project = all.find((p) => p.slug === slug);
     if (!project) return;
 
-    document.title = `${project.title} | Se-Um Kim Research Group`;
-
     (project.sections || []).forEach((section, i) => {
         if (i === 0) renderIntro(section, project.background);
         else bodyEl.appendChild(renderBody(section));
