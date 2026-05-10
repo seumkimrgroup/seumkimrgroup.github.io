@@ -5,7 +5,8 @@ const bodyEl = document.querySelector("#project-body");
 const slug = new URLSearchParams(window.location.search).get("slug");
 
 function renderIntro(section, background) {
-    if (background) introEl.style.backgroundImage = `url(${escapeHtml(background)})`;
+    const heroEl = introEl.closest(".hero");
+    if (background && heroEl) heroEl.style.backgroundImage = `url(${escapeHtml(background)})`;
 
     const inner = document.createElement("div");
     inner.className = "inner--60";
