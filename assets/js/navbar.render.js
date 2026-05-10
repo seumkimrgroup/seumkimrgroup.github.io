@@ -8,9 +8,7 @@ function navLink(href, label) {
   return `<a href="${href}" class="${cls}">${label}</a>`;
 }
 
-const logoHtml = isHome
-  ? `<span class="brand-logo-wrap"><img src="/assets/images/logos/logow.png" alt="Se-Um Kim Research Group" class="brand-logo brand-logo--w"><img src="/assets/images/logos/logod.png" alt="" aria-hidden="true" class="brand-logo brand-logo--d"></span>`
-  : `<img src="/assets/images/logos/logow.png" alt="Se-Um Kim Research Group" class="brand-logo">`;
+const logoHtml = `<span class="brand-logo-wrap"><img src="/assets/images/logos/logow.png" alt="Se-Um Kim Research Group" class="brand-logo brand-logo--w"><img src="/assets/images/logos/logod.png" alt="" aria-hidden="true" class="brand-logo brand-logo--d"></span>`;
 
 document.querySelector(".navbar").innerHTML = `
   <div class="inner--nav">
