@@ -1,12 +1,12 @@
 import { fetchJson, escapeHtml } from "./data.js";
 
-const introEl = document.querySelector("#project-intro");
+const heroEl = document.querySelector("#project-intro");
+const introBodyEl = heroEl?.querySelector(".stack");
 const bodyEl = document.querySelector("#project-body");
 const slug = new URLSearchParams(window.location.search).get("slug");
 
 function renderIntro(section, background) {
-    const heroEl = introEl.closest(".hero");
-    if (background && heroEl) heroEl.style.backgroundImage = `url(${escapeHtml(background)})`;
+    if (background) heroEl.style.backgroundImage = `url(${escapeHtml(background)})`;
 
     let html = "";
     if (section.title) html += `<h1>${escapeHtml(section.title)}</h1>`;
@@ -16,7 +16,7 @@ function renderIntro(section, background) {
     if (section.image) {
         html += `<div class="media"><img src="${escapeHtml(section.image)}" alt="" /></div>`;
     }
-    introEl.innerHTML = html;
+    introBodyEl.innerHTML = html;
 }
 
 function renderBody(section) {
@@ -37,7 +37,7 @@ function renderBody(section) {
 }
 
 async function init() {
-    if (!introEl || !bodyEl || !slug) return;
+    if (!heroEl || !introBodyEl || !bodyEl || !slug) return;
 
     const all = await fetchJson("/assets/data/projects.json");
     const project = all.find((p) => p.slug === slug);
