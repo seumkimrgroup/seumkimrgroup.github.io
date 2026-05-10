@@ -8,12 +8,6 @@ function renderIntro(section, background) {
     const heroEl = introEl.closest(".hero");
     if (background && heroEl) heroEl.style.backgroundImage = `url(${escapeHtml(background)})`;
 
-    const inner = document.createElement("div");
-    inner.className = "inner--60";
-
-    const stack = document.createElement("div");
-    stack.className = "stack";
-
     let html = "";
     if (section.title) html += `<h1>${escapeHtml(section.title)}</h1>`;
     if (Array.isArray(section.content)) {
@@ -22,10 +16,7 @@ function renderIntro(section, background) {
     if (section.image) {
         html += `<div class="media"><img src="${escapeHtml(section.image)}" alt="" /></div>`;
     }
-
-    stack.innerHTML = html;
-    inner.appendChild(stack);
-    introEl.appendChild(inner);
+    introEl.innerHTML = html;
 }
 
 function renderBody(section) {
