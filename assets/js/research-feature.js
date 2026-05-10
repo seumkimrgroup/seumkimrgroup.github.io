@@ -47,12 +47,12 @@ export function createPanel(topic, allPublications) {
         <p>${escapeHtml(topic.description)}</p>
       </div>
     </div>
-    <div class="stack--sm">
+    <div class="stack">
       <h4>Featured Articles</h4>
     </div>
   `;
 
-  const listEl = panel.querySelector(":scope > .stack--sm");
+  const listEl = panel.querySelector(":scope > .stack");
   const articles = selectArticles(topicTags, allPublications);
 
   if (articles.length) {
