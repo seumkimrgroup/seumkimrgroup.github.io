@@ -77,20 +77,45 @@
     "slug": "tactile"
   },
   {
-    "subtitle": "",
-    "title": "LC-based smart window",
-    "description": "Adaptive photonic structures using mechanically responsive LC materials.",
+    "subtitle": "Toward reverse-mode",
+    "title": "PSLC Smart Windows",
+    "description": "We create practical smart window devices based on polymer-stabilized liquid crystals.",
     "tag": ["SW"],
     "sections": [
       {
-        "title": "",
-        "content": ["."],
-        "image": "/assets/images/projects/project1.jpg"
+        "title": "PSLC Smart Windows",
+        "content": [
+          "We create practical smart window devices based on polymer-stabilized liquid crystals (PSLCs). Our work connects LC material formulation and scalable processing to develop low-power smart windows for architectural and mobility platforms."
+        ],
+        "image": ""
       },
       {
-        "title": "",
-        "content": ["."],
-        "image": "/assets/images/projects/project1.jpg"
+        "title": "What Smart Windows Are",
+        "content": [
+          "Smart windows are adaptive optical surfaces capable of modulating light transmission, scattering, reflection, or absorption in response to external stimuli. They are already used in office partitions and meeting-room privacy glass, building windows for glare and daylight control, switchable projection screens in commercial spaces, and electronically dimmable windows in aircraft. Similar adaptive glass concepts are also being explored for vehicles, including panoramic sunroofs, passenger windows, and mobility display surfaces."
+        ],
+        "image": ""
+      },
+      {
+        "title": "Drawbacks of PDLCs",
+        "content": [
+          "Polymer-dispersed liquid crystal (PDLC) smart windows have been widely used because they offer fast electrical switching, a simple device structure, and good scalability for large-area films. However, PDLC smart windows are typically opaque in the voltage-off state and become transparent only when voltage is applied. Therefore, continuous power is required to maintain transparency, which can be a practical limitation for applications that normally need to remain clear."
+        ],
+        "image": ""
+      },
+      {
+        "title": "PSLCs",
+        "content": [
+          "Our target is a reverse-mode smart window that remains transparent without power and switches to a light-scattering state only when voltage is applied. Compared with PDLCs, PSLCs offer a broader design space for tuning normally transparent or normally scattering modes, low-voltage operation, haze, transparency, response time, and optical contrast."
+        ],
+        "image": ""
+      },
+      {
+        "title": "Our approach",
+        "content": [
+          "Our approach focuses on material screening and scalable processing for device-level PSLC smart windows. We investigate diverse LC mixtures by varying mesogenic and non-mesogenic components to improve electro-optic performance and device stability. In parallel, we explore alignment-layer-free processing, flexible substrates, and fabrication processes compatible with large-area devices. This platform is initially directed toward architectural smart windows, with further expansion toward vehicle glass and mobility display applications."
+        ],
+        "image": ""
       }
     ],
     "background": "/assets/images/projects/project1_bg.png",
