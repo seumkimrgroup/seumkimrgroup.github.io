@@ -1,7 +1,7 @@
 import { fetchJson, escapeHtml } from "./data.js";
 
 const introEl = document.querySelector("#project-intro");
-const mainEl = document.querySelector("#project-main");
+const bodyEl = document.querySelector("#project-body");
 const slug = new URLSearchParams(window.location.search).get("slug");
 
 function renderIntro(section, background) {
@@ -28,14 +28,8 @@ function renderIntro(section, background) {
 }
 
 function renderBody(section) {
-    const el = document.createElement("section");
-    el.className = "section";
-
-    const inner = document.createElement("div");
-    inner.className = "inner--75";
-
     const stack = document.createElement("div");
-    stack.className = "stack stack--lg";
+    stack.className = "stack";
 
     let html = "";
     if (section.title) html += `<h2>${escapeHtml(section.title)}</h2>`;
@@ -47,13 +41,11 @@ function renderBody(section) {
     }
 
     stack.innerHTML = html;
-    inner.appendChild(stack);
-    el.appendChild(inner);
-    return el;
+    return stack;
 }
 
 async function init() {
-    if (!introEl || !mainEl || !slug) return;
+    if (!introEl || !bodyEl || !slug) return;
 
     const all = await fetchJson("/assets/data/projects.json");
     const project = all.find((p) => p.slug === slug);
@@ -63,17 +55,9 @@ async function init() {
 
     (project.sections || []).forEach((section, i) => {
         if (i === 0) renderIntro(section, project.background);
-        else mainEl.appendChild(renderBody(section));
+        else bodyEl.appendChild(renderBody(section));
     });
 
-    const spacer = document.createElement("div");
-    spacer.className = "spacer--32";
-    mainEl.appendChild(spacer);
-    const backBtn = document.createElement("a");
-    backBtn.className = "btn btn--back";
-    backBtn.href = "/";
-    backBtn.textContent = "‹ Back";
-    mainEl.appendChild(backBtn);
 }
 
 init();
