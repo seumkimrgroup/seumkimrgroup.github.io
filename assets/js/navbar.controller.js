@@ -1,5 +1,5 @@
 const navbar = document.querySelector(".navbar");
-const project = document.querySelector(".carousel--project");
+const project = document.querySelector(".hero");
 const hamburger = document.getElementById("nav-hamburger");
 
 if (navbar) {
@@ -38,9 +38,9 @@ if (navbar) {
 
   function updateNavbarColor() {
     if (!project) return;
-    const projectBottom = project.offsetTop + project.offsetHeight;
+    const rect = project.getBoundingClientRect();
     const navbarHeight = navbar.offsetHeight;
-    if (window.scrollY + navbarHeight < projectBottom) {
+    if (rect.bottom > navbarHeight) {
       navbar.classList.add("nav-over-project");
     } else {
       navbar.classList.remove("nav-over-project");
