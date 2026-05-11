@@ -12,21 +12,21 @@ document.querySelector(".footer").innerHTML = `
       <div class="footer-contact">
         <h2 class="footer-heading">Contact</h2>
         <div class="stack" style="gap: var(--space-sm);">
-          <div class="meta-row">
-            <span class="meta-row__label">Email</span>
-            <a href="mailto:seumkim@seoultech.ac.kr" class="meta-row__value">seumkim@seoultech.ac.kr</a>
+          <div class="row">
+            <span class="row__label">Email</span>
+            <a href="mailto:seumkim@seoultech.ac.kr" class="row__value">seumkim@seoultech.ac.kr</a>
           </div>
-          <div class="meta-row">
-            <span class="meta-row__label">Phone</span>
-            <a href="tel:+8229706425" class="meta-row__value">+82-2-970-6415</a>
+          <div class="row">
+            <span class="row__label">Phone</span>
+            <a href="tel:+8229706425" class="row__value">+82-2-970-6415</a>
           </div>
-          <div class="meta-row">
-            <span class="meta-row__label">Office</span>
-            <span class="meta-row__value">Mirae-Hall Unit 523</span>
+          <div class="row">
+            <span class="row__label">Office</span>
+            <span class="row__value">Mirae-Hall Unit 523</span>
           </div>
-          <div class="meta-row">
-            <span class="meta-row__label">Address</span>
-            <span class="meta-row__value">Seoul National University of Science and Technology, 232 Gongneung-ro, Nowon-gu, Seoul 01811, Republic of Korea</span>
+          <div class="row">
+            <span class="row__label">Address</span>
+            <span class="row__value">Seoul National University of Science and Technology, 232 Gongneung-ro, Nowon-gu, Seoul 01811, Republic of Korea</span>
           </div>
         </div>
       </div>

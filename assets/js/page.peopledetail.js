@@ -86,7 +86,7 @@ function renderMemberDetail(member) {
   const nextAffiliation = String(member.nextAffiliation || "").trim();
   const joinedAtHtml =
     isFormer(member) && nextAffiliation
-      ? `<div class="meta-row"><span class="meta-row__label">JOINED AT</span><span class="meta-row__value">${escapeHtml(nextAffiliation)}</span></div>`
+      ? `<div class="row"><span class="row__label">JOINED AT</span><span class="row__value">${escapeHtml(nextAffiliation)}</span></div>`
       : "";
 
   const photoBlock = isFormer(member)

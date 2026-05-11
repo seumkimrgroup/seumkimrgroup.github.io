@@ -20,7 +20,7 @@ async function init() {
           <div class="inner">
             <div class="stack">
               ${project.subtitle ? `<h6>${escapeHtml(project.subtitle)}</h6>` : ""}
-              <div class="meta-row">
+              <div class="row">
                 <h1>${escapeHtml(project.title || "")}</h1>
                 ${renderTags(project.tag)}
               </div>

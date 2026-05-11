@@ -41,9 +41,8 @@ const LINK_CONFIG = {
 
 const FALLBACK_SVG = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/><path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"/></svg>`;
 
-export function renderIconLinks(links) {
-  if (!links || !links.length) return "";
-  const items = links.map(({ type, value }) => {
+function buildIconLinkItems(links) {
+  return links.map(({ type, value }) => {
     const config = LINK_CONFIG[type];
     const href = config ? escapeHtml(config.href(value)) : escapeHtml(value);
     const label = config ? config.label : "External link";
@@ -51,5 +50,14 @@ export function renderIconLinks(links) {
     const external = !config || config.external;
     return `<a href="${href}" class="icon-link" data-type="${escapeHtml(type)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}><span class="icon-link__icon">${svg}</span></a>`;
   }).join("");
-  return `<div class="group">${items}</div>`;
+}
+
+export function renderIconLinkItems(links) {
+  if (!links || !links.length) return "";
+  return buildIconLinkItems(links);
+}
+
+export function renderIconLinks(links) {
+  if (!links || !links.length) return "";
+  return `<div class="group">${buildIconLinkItems(links)}</div>`;
 }
