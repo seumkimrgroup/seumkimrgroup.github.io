@@ -1,7 +1,7 @@
 import { escapeHtml } from "./util.data.js";
 import { renderTags } from "./component.tags.js";
 
-const CHEVRON_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>`;
+const CHEVRON_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><line x1="5" y1="8.5" x2="12" y2="15.5"/><line x1="12" y1="15.5" x2="19" y2="8.5"/></svg>`;
 
 function toggleCard(card, btn) {
   const isOpen = card.classList.contains("is-open");
