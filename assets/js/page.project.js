@@ -12,13 +12,13 @@ function animateHeroText(container) {
         const words = el.textContent.trim().split(/\s+/);
         el.innerHTML = "";
 
-        for (let i = 0; i < words.length; i += 2) {
+        for (let i = 0; i < words.length; i++) {
             const span = document.createElement("span");
             span.className = "word-pair";
             span.style.animationDelay = `${Math.random() * WINDOW}ms`;
-            span.textContent = words.slice(i, i + 2).join(" ");
+            span.textContent = words[i];
             el.appendChild(span);
-            if (i + 2 < words.length) el.appendChild(document.createTextNode(" "));
+            if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
         }
     });
 }
