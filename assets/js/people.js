@@ -4,9 +4,19 @@ import {
     createAlumniMemberCard,
     getRolePriority,
 } from "./card.people.js";
+import { renderIconLinks } from "./icon-links.js";
 
 const currentContainer = document.getElementById("members-list");
 const formerContainer = document.getElementById("alumni-list");
+
+const piLinksEl = document.getElementById("pi-links");
+if (piLinksEl) {
+    piLinksEl.outerHTML = renderIconLinks([
+        { type: "email", value: "seumkim@seoultech.ac.kr" },
+        { type: "scholar", value: "https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en" },
+        { type: "linkedin", value: "https://www.linkedin.com/in/seumkim/" },
+    ]);
+}
 
 let members = [];
 
