@@ -48,7 +48,7 @@ function buildIconLinkItems(links) {
     const label = config ? config.label : "External link";
     const svg = config ? config.svg : FALLBACK_SVG;
     const external = !config || config.external;
-    return `<a href="${href}" class="icon-link" data-type="${escapeHtml(type)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}><span class="icon-link__icon">${svg}</span></a>`;
+    return `<a href="${href}" class="icon" data-type="${escapeHtml(type)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${svg}</a>`;
   }).join("");
 }
 

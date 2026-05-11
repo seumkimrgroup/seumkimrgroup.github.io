@@ -22,7 +22,7 @@ export function createRecruitCard(program) {
   card.innerHTML = `
     <div class="split">
       <h5>${escapeHtml(program.program || "")}</h5>
-      <button aria-expanded="false" aria-label="Toggle details">
+      <button class="icon" aria-expanded="false" aria-label="Toggle details">
         ${CHEVRON_SVG}
       </button>
     </div>
