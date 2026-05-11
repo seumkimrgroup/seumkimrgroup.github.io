@@ -3,6 +3,8 @@ import { createPublicationCard } from "./component.card.publication.js";
 import { formatRole } from "./component.card.people.js";
 import { renderIconLinks } from "./component.iconlinks.js";
 
+let publications = [];
+
 function isFormer(member) {
   return member.status === "former";
 }
@@ -61,7 +63,7 @@ function renderMemberLinks(member) {
   return renderIconLinks(getMemberLinks(member));
 }
 
-function renderMemberDetail(member) {
+function renderMemberDetail(member, detailView) {
   const pubs = getMemberPublications(member);
 
   const educationSection = renderInfoSection(
@@ -129,6 +131,9 @@ async function initPeopleDetailPage() {
   const id = new URLSearchParams(window.location.search).get("id");
   if (!id) return;
 
+  const detailView = document.getElementById("peopledetail-profile");
+  if (!detailView) return;
+
   const [members, pubs] = await Promise.all([
     fetchJson("/assets/data/people.json"),
     fetchJson("/assets/data/publications.json"),
@@ -136,7 +141,7 @@ async function initPeopleDetailPage() {
   publications = pubs;
 
   const member = members.find((m) => m.slug === id);
-  if (member) renderMemberDetail(member);
+  if (member) renderMemberDetail(member, detailView);
 }
 
 initPeopleDetailPage();
