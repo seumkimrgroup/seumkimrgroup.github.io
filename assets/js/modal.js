@@ -26,7 +26,7 @@ function build() {
       <div class="media">
         <img src="" alt="">
       </div>
-      <div class="info">
+      <div class="stack--sm">
         <h6></h6>
         <h3></h3>
         <p></p>
@@ -62,16 +62,16 @@ export function openModal(item) {
   img.src = item.image || "";
   img.alt = escapeHtml(item.title || "");
 
-  const h6 = overlayEl.querySelector(".info h6");
+  const h6 = overlayEl.querySelector(".stack--sm h6");
   h6.textContent = item.type
     ? item.type.charAt(0).toUpperCase() + item.type.slice(1)
     : "";
   h6.hidden = !item.type;
 
-  const h3 = overlayEl.querySelector(".info h3");
+  const h3 = overlayEl.querySelector(".stack--sm h3");
   h3.textContent = item.title || "";
   h3.hidden = !item.title;
-  overlayEl.querySelector(".info > p").textContent = item.description || "";
+  overlayEl.querySelector(".stack--sm > p").textContent = item.description || "";
   overlayEl.querySelector(".links-wrap").innerHTML = renderLinks(item.links);
 
   overlayEl.classList.add("is-open");

@@ -31,7 +31,7 @@ export function createContentCard(item) {
         alt="${escapeHtml(item.title || "")}"
       />
     </div>
-    <div class="info">
+    <div class="stack--xs">
       ${item.type ? `<h6>${escapeHtml(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</h6>` : ""}
       ${item.title ? `<h4>${escapeHtml(item.title)}</h4>` : ""}
       <p>${escapeHtml(item.description || "")}</p>

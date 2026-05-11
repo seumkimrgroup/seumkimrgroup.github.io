@@ -81,7 +81,7 @@ export function createCurrentMemberCard(member) {
 
   item.innerHTML = `
     ${imageHtml}
-    <div class="info">
+    <div class="stack--xs">
       <h4>${escapeHtml(member.name)}</h4>
       <p class="text-secondary">${escapeHtml(formatRole(member.role))}</p>
       ${
