@@ -1,10 +1,5 @@
 import { escapeHtml } from "./util.data.js";
 
-const TYPE_GRADIENT = {
-  highlight: "gradient--gold",
-  news: "gradient--steel",
-};
-
 function renderLinks(links) {
   if (!Array.isArray(links) || !links.length) return "";
 
@@ -37,7 +32,7 @@ export function createContentCard(item) {
       />
     </div>
     <div class="stack--xs">
-      ${item.type ? `<h6 class="${TYPE_GRADIENT[item.type] || ""}">${escapeHtml(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</h6>` : ""}
+      ${item.type ? `<h6>${escapeHtml(item.type.charAt(0).toUpperCase() + item.type.slice(1))}</h6>` : ""}
       ${item.title ? `<h4>${escapeHtml(item.title)}</h4>` : ""}
       <p>${escapeHtml(item.description || "")}</p>
       ${renderLinks(item.links)}
