@@ -1,4 +1,4 @@
-import { escapeHtml } from "./data.js";
+import { escapeHtml } from "./util.data.js";
 
 const LINK_CONFIG = {
   email: {

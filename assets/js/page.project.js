@@ -1,4 +1,4 @@
-import { fetchJson, escapeHtml } from "./data.js";
+import { fetchJson, escapeHtml } from "./util.data.js";
 
 const heroEl = document.querySelector("#project-intro");
 const introBodyEl = heroEl?.querySelector(".stack");

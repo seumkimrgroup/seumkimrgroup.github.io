@@ -1,5 +1,5 @@
-import { fetchJson } from "./data.js";
-import { createRecruitCard } from "./card.recruit.js";
+import { fetchJson } from "./util.data.js";
+import { createRecruitCard } from "./component.card.recruit.js";
 
 const container = document.getElementById("recruit-cards");
 

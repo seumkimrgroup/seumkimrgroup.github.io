@@ -1,5 +1,5 @@
-import { escapeHtml } from "./data.js";
-import { renderTags } from "./tags.js";
+import { escapeHtml } from "./util.data.js";
+import { renderTags } from "./component.tags.js";
 
 const CHEVRON_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>`;
 

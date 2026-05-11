@@ -1,6 +1,6 @@
-import { fetchJson, escapeHtml } from "./data.js";
-import { createPublicationCard } from "./card.publication.js";
-import { TAG_GROUP, renderTags } from "./tags.js";
+import { fetchJson, escapeHtml } from "./util.data.js";
+import { createPublicationCard } from "./component.card.publication.js";
+import { TAG_GROUP, renderTags } from "./component.tags.js";
 
 const tabsRoot = document.querySelector("#research-areas .group");
 const track = document.querySelector("#research-areas .carousel__track");

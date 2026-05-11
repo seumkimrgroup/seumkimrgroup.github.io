@@ -1,10 +1,10 @@
-import { fetchJson } from "./data.js";
+import { fetchJson } from "./util.data.js";
 import {
     createCurrentMemberCard,
     createAlumniMemberCard,
     getRolePriority,
-} from "./card.people.js";
-import { renderIconLinks } from "./icon-links.js";
+} from "./component.card.people.js";
+import { renderIconLinks } from "./component.iconlinks.js";
 
 const currentContainer = document.getElementById("members-list");
 const formerContainer = document.getElementById("alumni-list");

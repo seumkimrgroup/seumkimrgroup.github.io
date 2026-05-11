@@ -1,4 +1,4 @@
-import { escapeHtml } from "./data.js";
+import { escapeHtml } from "./util.data.js";
 
 function renderLinks(links) {
   if (!Array.isArray(links) || !links.length) return "";

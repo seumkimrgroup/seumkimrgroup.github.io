@@ -1,7 +1,7 @@
-import { fetchJson, escapeHtml } from "./data.js";
-import { createPublicationCard } from "./card.publication.js";
-import { formatRole } from "./card.people.js";
-import { renderIconLinks } from "./icon-links.js";
+import { fetchJson, escapeHtml } from "./util.data.js";
+import { createPublicationCard } from "./component.card.publication.js";
+import { formatRole } from "./component.card.people.js";
+import { renderIconLinks } from "./component.iconlinks.js";
 
 function isFormer(member) {
   return member.status === "former";

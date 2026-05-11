@@ -1,5 +1,5 @@
-import { fetchJson } from "./data.js";
-import { createPublicationCard } from "./card.publication.js";
+import { fetchJson } from "./util.data.js";
+import { createPublicationCard } from "./component.card.publication.js";
 
 const container = document.getElementById("publication-list");
 const searchInput = document.getElementById("searchInput");

@@ -1,7 +1,7 @@
-import { fetchJson } from "./data.js";
-import { createContentCard } from "./card.content.js";
-import { openModal } from "./modal.js";
-import { createRecruitCard } from "./card.recruit.js";
+import { fetchJson } from "./util.data.js";
+import { createContentCard } from "./component.card.content.js";
+import { openModal } from "./component.modal.js";
+import { createRecruitCard } from "./component.card.recruit.js";
 
 const projectSlider = document.querySelector("#projects .carousel__track");
 const projectNav = document.querySelector("#projects .carousel-nav");

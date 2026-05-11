@@ -1,5 +1,5 @@
-import { fetchJson, escapeHtml } from "./data.js";
-import { renderTags } from "./tags.js";
+import { fetchJson, escapeHtml } from "./util.data.js";
+import { renderTags } from "./component.tags.js";
 
 const sliderEl = document.querySelector("#projects .carousel__track");
 const navEl = document.querySelector("#projects .carousel-nav");

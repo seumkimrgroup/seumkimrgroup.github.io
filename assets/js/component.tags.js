@@ -1,4 +1,4 @@
-import { escapeHtml } from "./data.js";
+import { escapeHtml } from "./util.data.js";
 
 export const TAG_GROUP = {
   JQL: "project", TACTILE: "project", SW: "project",
