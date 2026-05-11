@@ -8,7 +8,7 @@ const slug = new URLSearchParams(window.location.search).get("slug");
 function animateHeroText(container) {
     const WINDOW = 700;
 
-    container.querySelectorAll("h1, p").forEach((el) => {
+    container.querySelectorAll("p").forEach((el) => {
         const words = el.textContent.trim().split(/\s+/);
         el.innerHTML = "";
 
@@ -39,6 +39,9 @@ function renderIntro(section, background) {
 }
 
 function renderBody(section) {
+    const sec = document.createElement("section");
+    sec.className = "section";
+
     const stack = document.createElement("div");
     stack.className = "stack";
 
@@ -52,7 +55,8 @@ function renderBody(section) {
     }
 
     stack.innerHTML = html;
-    return stack;
+    sec.appendChild(stack);
+    return sec;
 }
 
 async function init() {
@@ -64,7 +68,11 @@ async function init() {
 
     (project.sections || []).forEach((section, i) => {
         if (i === 0) renderIntro(section, project.background);
-        else bodyEl.appendChild(renderBody(section));
+        else {
+            const el = renderBody(section);
+            bodyEl.appendChild(el);
+            if (i === 1) animateHeroText(el);
+        }
     });
 
 }
