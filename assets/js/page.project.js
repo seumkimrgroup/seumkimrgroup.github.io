@@ -33,6 +33,7 @@ function renderIntro(section, background) {
     }
     if (section.image) {
         html += `<div class="media"><img src="${escapeHtml(section.image)}" alt="" /></div>`;
+        if (section.caption) html += `<p class="text-secondary">${escapeHtml(section.caption)}</p>`;
     }
     introBodyEl.innerHTML = html;
     animateHeroText(introBodyEl);
@@ -52,6 +53,7 @@ function renderBody(section) {
     }
     if (section.image) {
         html += `<div class="media"><img src="${escapeHtml(section.image)}" alt="${escapeHtml(section.title || "")}" /></div>`;
+        if (section.caption) html += `<p class="text-secondary">${escapeHtml(section.caption)}</p>`;
     }
 
     stack.innerHTML = html;
