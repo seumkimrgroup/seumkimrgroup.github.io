@@ -30,8 +30,8 @@ async function init() {
       501: { slidesPerView: 2, spaceBetween: 16 },
       951: { slidesPerView: 3, spaceBetween: 16 },
     },
-    pagination: { el: "#upd-pagination", clickable: true },
-    navigation: { prevEl: "#upd-prev", nextEl: "#upd-next" },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    navigation: { prevEl: ".swiper-button-prev", nextEl: ".swiper-button-next" },
   });
 }
 
