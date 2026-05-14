@@ -18,11 +18,8 @@ async function init() {
   projects.forEach((project) => {
     const slide = document.createElement("div");
     slide.className = "swiper-slide";
-
-    const panel = document.createElement("div");
-    panel.className = "carousel__panel";
-    panel.style.backgroundImage = `url(${project.background || ""})`;
-    panel.innerHTML = `
+    slide.style.backgroundImage = `url(${project.background || ""})`;
+    slide.innerHTML = `
       <div class="inner">
         <div class="stack">
           ${project.subtitle ? `<h6>${escapeHtml(project.subtitle)}</h6>` : ""}
@@ -36,7 +33,6 @@ async function init() {
       </div>
     `;
 
-    slide.appendChild(panel);
     wrapper.appendChild(slide);
   });
 

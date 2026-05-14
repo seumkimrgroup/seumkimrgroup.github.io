@@ -3,7 +3,7 @@ import { createPublicationCard } from "./component.card.publication.js";
 import { TAG_GROUP, renderTags } from "./component.tags.js";
 
 const tabsRoot = document.querySelector("#research-areas .group");
-const track = document.querySelector("#research-areas .carousel__track");
+const wrapperEl = document.querySelector("#research-swiper .swiper-wrapper");
 
 export function selectArticles(topicTags, allPublications) {
   const pubTags = (pub) => (Array.isArray(pub.tags) ? pub.tags : []);
@@ -30,13 +30,10 @@ export function selectArticles(topicTags, allPublications) {
   return result.sort(byDateDesc);
 }
 
-export function createPanel(topic, allPublications) {
-  const panel = document.createElement("article");
-  panel.className = "carousel__panel";
-
+export function createPanel(slideEl, topic, allPublications) {
   const topicTags = Array.isArray(topic.tag) ? topic.tag : [];
 
-  panel.innerHTML = `
+  slideEl.innerHTML = `
     <div class="split split--46">
       <div class="media">
         <img src="${escapeHtml(topic.image)}" alt="${escapeHtml(topic.title)}">
@@ -52,7 +49,7 @@ export function createPanel(topic, allPublications) {
     </div>
   `;
 
-  const listEl = panel.querySelector(":scope > .stack");
+  const listEl = slideEl.querySelector(":scope > .stack");
   const articles = selectArticles(topicTags, allPublications);
 
   if (articles.length) {
@@ -60,8 +57,6 @@ export function createPanel(topic, allPublications) {
   } else {
     listEl.innerHTML = `<p>No related publications found.</p>`;
   }
-
-  return panel;
 }
 
 function createTab(topic, index) {
@@ -77,26 +72,8 @@ function createTab(topic, index) {
   return button;
 }
 
-let _ro = null;
-
-function setActive(index) {
-  const tabs = tabsRoot.querySelectorAll(".areas-tab");
-  const panels = track.querySelectorAll(".carousel__panel");
-  track.style.transform = `translateX(-${index * 100}%)`;
-  tabs.forEach((tab, i) => tab.classList.toggle("active", i === index));
-
-  const activePanel = panels[index];
-  if (!activePanel) return;
-
-  if (_ro) _ro.disconnect();
-  _ro = new ResizeObserver(() => {
-    track.parentElement.style.height = activePanel.offsetHeight + "px";
-  });
-  _ro.observe(activePanel);
-}
-
 async function initResearchFeature() {
-  if (!tabsRoot || !track) return;
+  if (!tabsRoot || !wrapperEl) return;
 
   try {
     const [contents, publications] = await Promise.all([
@@ -107,27 +84,44 @@ async function initResearchFeature() {
     const topics = contents.filter((item) => item.type === "topic");
 
     if (!topics.length) {
-      track.innerHTML = `<article class="carousel__panel"><p>No research topics found.</p></article>`;
+      wrapperEl.innerHTML = `<div class="swiper-slide"><p>No research topics found.</p></div>`;
       return;
     }
 
     tabsRoot.innerHTML = "";
-    track.innerHTML = "";
+    wrapperEl.innerHTML = "";
 
     topics.forEach((topic, index) => {
       const tab = createTab(topic, index);
-      const panel = createPanel(topic, publications);
-
-      tab.addEventListener("click", () => setActive(index));
-
+      if (index === 0) tab.classList.add("active");
       tabsRoot.appendChild(tab);
-      track.appendChild(panel);
+
+      const slide = document.createElement("div");
+      slide.className = "swiper-slide";
+      createPanel(slide, topic, publications);
+      wrapperEl.appendChild(slide);
     });
 
-    setActive(0);
+    const swiper = new Swiper("#research-swiper", {
+      autoHeight: true,
+      speed: 460,
+      loop: false,
+      on: {
+        slideChange(sw) {
+          const tabs = tabsRoot.querySelectorAll(".areas-tab");
+          tabs.forEach((tab, i) =>
+            tab.classList.toggle("active", i === sw.activeIndex),
+          );
+        },
+      },
+    });
+
+    tabsRoot.querySelectorAll(".areas-tab").forEach((tab, i) => {
+      tab.addEventListener("click", () => swiper.slideTo(i));
+    });
   } catch (error) {
     console.error(error);
-    track.innerHTML = `<article class="carousel__panel"><p>Research areas could not be loaded.</p></article>`;
+    wrapperEl.innerHTML = `<div class="swiper-slide"><p>Research areas could not be loaded.</p></div>`;
   }
 }
 
