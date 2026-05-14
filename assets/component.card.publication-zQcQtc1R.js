@@ -1,4 +1,4 @@
-import{e as a}from"./util.data-CjdvwwLR.js";function i(r){const n=`
+import{e as a}from"./util.data-QhEPzZg9.js";function i(r){const n=`
     <h5>${a(r.title||"")}</h5>
     <p class="text-secondary">${a(r.source||"")}</p>
     <p>${a(r.authors||"")}</p>

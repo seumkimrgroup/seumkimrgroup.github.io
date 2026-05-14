@@ -50,7 +50,7 @@ async function init() {
     prevBtn.type = "button";
     prevBtn.className = "carousel-nav-btn";
     prevBtn.setAttribute("aria-label", "Previous project");
-    prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>`;
+    prevBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>`;
     prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
     navEl.appendChild(prevBtn);
 
@@ -68,7 +68,7 @@ async function init() {
     nextBtn.type = "button";
     nextBtn.className = "carousel-nav-btn";
     nextBtn.setAttribute("aria-label", "Next project");
-    nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>`;
+    nextBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>`;
     nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
     navEl.appendChild(nextBtn);
   }
