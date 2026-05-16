@@ -24,11 +24,11 @@
       rel="stylesheet"
     />
 
-    <script type="module" crossorigin src="/assets/publications-COMCwPrd.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/util.data-BcTPkeiS.js">
-    <link rel="modulepreload" crossorigin href="/assets/component.card.publication-FsR9e0fM.js">
-    <link rel="stylesheet" crossorigin href="/assets/util-CTvJrJrg.css">
-    <link rel="stylesheet" crossorigin href="/assets/publications-MbES05_Y.css">
+    <script type="module" crossorigin src="/assets/publications-z1EkKcX2.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/util.data-mXuYSEU2.js">
+    <link rel="modulepreload" crossorigin href="/assets/component.card.publication-D8k3yeRY.js">
+    <link rel="stylesheet" crossorigin href="/assets/util-CPC-NADr.css">
+    <link rel="stylesheet" crossorigin href="/assets/publications-DSvCzEJ3.css">
   </head>
 
   <body>
@@ -45,16 +45,37 @@
               placeholder="Search by title, journal, author, and year"
             />
 
-            <div class="group">
-              <button class="btn active" data-type="all">All</button>
+            <div class="group" style="align-items: center">
+              <button class="btn is-active" data-type="all">All</button>
               <button class="btn" data-type="indexed">Indexed</button>
               <button class="btn" data-type="patent">Patent</button>
               <button class="btn" data-type="other">Other</button>
+              <div class="spacer-x--24"></div>
+              <div class="stack--xs" style="align-items: center">
+                <span
+                  style="
+                    font-size: var(--font-size-xs);
+                    color: var(--color-text-gs);
+                  "
+                  >TAGS</span
+                >
+                <button class="morph" data-toggle="tags"></button>
+              </div>
+              <div class="stack--xs" style="align-items: center">
+                <span
+                  style="
+                    font-size: var(--font-size-xs);
+                    color: var(--color-text-gs);
+                  "
+                  >TYPE</span
+                >
+                <button class="morph" data-toggle="type"></button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="spacer--32"></div>
+        <div class="spacer-y--32"></div>
         <div class="stack" id="publications"></div>
       </section>
     </div>
