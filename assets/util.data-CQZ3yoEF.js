@@ -20,17 +20,17 @@
       </div>
 
       <div class="stack--xs">
-        <p class="footer-heading">Contact</p>
+        <h6>Contact</h6>
         <div class="row">
-          ${N}
-          <a href="mailto:seumkim@seoultech.ac.kr">seumkim@seoultech.ac.kr</a>
+          <span class="icon">${N}</span>
+          <p><a href="mailto:seumkim@seoultech.ac.kr">seumkim@seoultech.ac.kr</a></p>
         </div>
         <div class="row">
-          ${O}
-          <span>Mirae-Hall Unit 523, 232 Gongneung-ro, Nowon-gu, Seoul 01811, Republic of Korea</span>
+          <span class="icon">${O}</span>
+          <p>Mirae-Hall Unit 523, 232 Gongneung-ro, Nowon-gu, Seoul 01811, Republic of Korea</p>
         </div>
       </div>
 
     </div>
   </div>
-`;const t=document.querySelector(".navbar"),w=document.querySelector(".hero"),l=document.getElementById("nav");if(t){let a=function(){t.classList.remove("is-hidden")},p=function(){t.classList.add("is-hidden")},u=function(){s&&(clearTimeout(s),s=null)},f=function(r){u(),!(window.scrollY<=n)&&(t.classList.contains("is-open")||(s=setTimeout(p,r??e)))},v=function(){if(!w)return;const r=w.getBoundingClientRect(),d=t.offsetHeight;r.bottom>d?t.classList.add("is-over-project"):t.classList.remove("is-over-project")},g=function(){const r=window.scrollY,d=r-o;if(v(),r<=n){a(),t.classList.remove("is-scrolled"),u(),o=r;return}t.classList.add("is-scrolled"),!(Math.abs(d)<c)&&(d>0?(p(),u()):d<0&&(a(),f()),o=r)},o=window.scrollY,s=null;const c=12,n=20,e=1800,i=3600;l&&(l.addEventListener("click",()=>{const r=t.classList.toggle("is-open");l.setAttribute("aria-expanded",String(r)),r?(u(),a(),window.scrollY<=n&&t.classList.add("is-scrolled")):window.scrollY<=n&&t.classList.remove("is-scrolled")}),document.querySelectorAll(".nav-links a").forEach(r=>{r.addEventListener("click",()=>{t.classList.remove("is-open"),l.setAttribute("aria-expanded","false")})})),window.addEventListener("scroll",()=>{t.classList.contains("is-open")&&(t.classList.remove("is-open"),l&&l.setAttribute("aria-expanded","false"),f(i))},{passive:!0}),window.addEventListener("scroll",g,{passive:!0}),window.addEventListener("resize",v),v(),g()}async function B(o){const s=await fetch(o,{cache:"no-store"});if(!s.ok)throw new Error(`Failed to load ${o}: ${s.status}`);return await s.json()}function T(o){return String(o??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;")}export{H as I,I as a,M as b,b as c,S as d,T as e,B as f,E as g,x as h,y as i,z as j,_ as k,A as l};
+`;const t=document.querySelector(".navbar"),w=document.querySelector(".hero"),l=document.getElementById("nav");if(t){let a=function(){t.classList.remove("is-hidden")},v=function(){t.classList.add("is-hidden")},u=function(){s&&(clearTimeout(s),s=null)},f=function(r){u(),!(window.scrollY<=n)&&(t.classList.contains("is-open")||(s=setTimeout(v,r??e)))},p=function(){if(!w)return;const r=w.getBoundingClientRect(),d=t.offsetHeight;r.bottom>d?t.classList.add("is-over-project"):t.classList.remove("is-over-project")},g=function(){const r=window.scrollY,d=r-o;if(p(),r<=n){a(),t.classList.remove("is-scrolled"),u(),o=r;return}t.classList.add("is-scrolled"),!(Math.abs(d)<c)&&(d>0?(v(),u()):d<0&&(a(),f()),o=r)},o=window.scrollY,s=null;const c=12,n=20,e=1800,i=3600;l&&(l.addEventListener("click",()=>{const r=t.classList.toggle("is-open");l.setAttribute("aria-expanded",String(r)),r?(u(),a(),window.scrollY<=n&&t.classList.add("is-scrolled")):window.scrollY<=n&&t.classList.remove("is-scrolled")}),document.querySelectorAll(".nav-links a").forEach(r=>{r.addEventListener("click",()=>{t.classList.remove("is-open"),l.setAttribute("aria-expanded","false")})})),window.addEventListener("scroll",()=>{t.classList.contains("is-open")&&(t.classList.remove("is-open"),l&&l.setAttribute("aria-expanded","false"),f(i))},{passive:!0}),window.addEventListener("scroll",g,{passive:!0}),window.addEventListener("resize",p),p(),g()}async function B(o){const s=await fetch(o,{cache:"no-store"});if(!s.ok)throw new Error(`Failed to load ${o}: ${s.status}`);return await s.json()}function T(o){return String(o??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;")}export{H as I,I as a,M as b,b as c,S as d,T as e,B as f,E as g,x as h,y as i,z as j,_ as k,A as l};
