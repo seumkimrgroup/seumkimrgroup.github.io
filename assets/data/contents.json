@@ -5,7 +5,7 @@
     "title": "LC composite materials & systems",
     "image": "/assets/images/contents/topic1.png",
     "description": "We design liquid crystal composite materials and soft photonic systems by controlling molecular composition, polymer networks, chirality, and elastomeric mechanics. Our research focuses on how mesogenic monomers and various non-mesogenic additives can be synthesized, blended, and structured to produce stimuli-responsive materials. These material platforms are connected to tactile displays, mechanochromic indicators, and LC-based smart window systems. Through an integrated workflow spanning material synthesis, formulation, device fabrication, optical and mechanical characterization, our lab aims to control LC composite systems from molecular composition and material microstructure to device-level performance.",
-    "tag": ["SW", "TACTILE", "LC-COMP", "PSLC", "LCE", "CLCE"],
+    "tag": ["LC-SW", "TACTILE", "LC-COMP", "PSLC", "LCE", "CLCE"],
     "links": []
   },
   {

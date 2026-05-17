@@ -81,7 +81,7 @@
     "subtitle": "Realizing reverse-mode",
     "title": "LC Smart Windows",
     "description": "We create practical smart window devices based on polymer-stabilized liquid crystals.",
-    "tag": ["SW"],
+    "tag": ["LC-SW"],
     "sections": [
       {
         "title": "LC Smart Windows",
@@ -121,6 +121,6 @@
     ],
     "background": "/assets/images/projects/project1_bg.png",
     "image": "/assets/images/projects/project1.jpg",
-    "slug": "sw"
+    "slug": "lc-sw"
   }
 ]

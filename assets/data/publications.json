@@ -6,7 +6,7 @@
     "authors": "Hui Jun Jang*, Young In Lee*, Hyeon Seong Hwang, Sunjae Lee, Kanghee Won+, Se-Um Kim+",
     "type": "other",
     "link": "https://www.sciencedirect.com/science/article/abs/pii/S0167732225011298",
-    "tags": ["SW", "LC-COMP", "PSLC"]
+    "tags": ["LC-SW", "LC-COMP", "PSLC"]
   },
   {
     "title": "Broadband near-infrared reflective film from stacked opposite-handed chiral liquid crystals with pitch gradients",
@@ -114,7 +114,7 @@
     "authors": "Hyeon Seong Hwang, Hyun Mok Cho, Se-Um Kim",
     "type": "other",
     "link": "https://www.e-jfpe.org/archive/view_article?pid=jfpe-2-1-61",
-    "tags": ["SW", "LC-COMP"]
+    "tags": ["LC-SW", "LC-COMP"]
   },
   {
     "title": "Versatile mechanochromic sensor based on highly stretchable chiral liquid crystalline elastomer",
