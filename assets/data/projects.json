@@ -56,7 +56,7 @@
           "Tactile displays deliver information through physical surface deformation, vibration, texture, or force feedback. Unlike conventional visual displays, they provide visual–tactile feedback by allowing digital information to be both seen and physically felt through a reconfigurable surface. Recent tactile interfaces have moved beyond simple vibration feedback toward shape-changing surfaces that can render buttons, patterns, textures, and three-dimensional topographies. This direction is especially important for tangible user interfaces, wearable devices, assistive technologies, and immersive interaction systems."
         ],
         "image": "/assets/images/projects/project2_1.png",
-        "caption": "Materiable, MIT Tangible Media Group (left). Dot pad, Dot Inc. (right)"
+        "caption": "Materiable, MIT Tangible Media Group (left). Dot pad, Dot Inc. (right)."
       },
       {
         "title": "High-Sensitivity CLCEs",
@@ -95,7 +95,8 @@
         "content": [
           "Smart windows are adaptive optical surfaces capable of modulating light transmission, scattering, reflection, or absorption in response to external stimuli. They are already used in office partitions and meeting-room privacy glass, building windows for glare and daylight control, switchable projection screens in commercial spaces, and electronically dimmable windows in aircraft. Similar adaptive glass concepts are also being explored for vehicles, including panoramic sunroofs, passenger windows, and mobility display surfaces."
         ],
-        "image": ""
+        "image": "/assets/images/projects/project1_1.png",
+        "caption": "Electrochromic smart window, SGC (left). PDLC-based smart sunroof, BMW iX (right)."
       },
       {
         "title": "Drawbacks of PDLCs",
@@ -109,14 +110,14 @@
         "content": [
           "Our target is a reverse-mode smart window that remains transparent without power and switches to a light-scattering state only when voltage is applied. Compared with PDLCs, PSLCs offer a broader design space for tuning normally transparent or normally scattering modes, low-voltage operation, haze, transparency, response time, and optical contrast."
         ],
-        "image": ""
+        "image": "/assets/images/projects/project1_3.png"
       },
       {
         "title": "Our approach",
         "content": [
           "Our approach focuses on material screening and scalable processing for device-level PSLC smart windows. We investigate diverse LC mixtures by varying mesogenic and non-mesogenic components to improve electro-optic performance and device stability. In parallel, we explore alignment-layer-free processing, flexible substrates, and fabrication processes compatible with large-area devices. This platform is initially directed toward architectural smart windows, with further expansion toward vehicle glass and mobility display applications."
         ],
-        "image": ""
+        "image": "/assets/images/projects/project1_4.png"
       }
     ],
     "background": "/assets/images/projects/project1_bg.png",
