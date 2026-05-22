@@ -1,12 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 4096">
-  <defs>
-    <linearGradient id="g" x1="0" y1="449" x2="0" y2="3418" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"   stop-color="#F2D060"/>
-      <stop offset="40%"  stop-color="#D4AF37"/>
-      <stop offset="100%" stop-color="#8B6914"/>
-    </linearGradient>
-  </defs>
-  <g class="faces" fill="url(#g)" stroke="none">
+  <g class="faces" fill="#225500" stroke="none">
     <path d="M 1903.4766,476.88281 l 3.7265,2.56446 10.6641,329.70312 -23.5,134.36133 -167.6719,-287.61719 z"/>
     <path d="M 1457.1191,665.4140600000001 l 194.002,1.2168 -374.3496,252.74609 -363.46486,102.34175 200.71486,-228.92573 z"/>
     <path d="M 1685.0801,672.6621100000001 l -171.6719,266.8457 a 12.0012,12.0012 0 0 0 -1.8105,8.01758 l 28.3046,220.85551 -240.0156,-235.65434 z"/>
@@ -41,7 +34,7 @@
   <path
     class="lines"
     fill="none"
-    stroke="#ffffff"
+    stroke="#111111"
     stroke-width="24"
     stroke-linecap="round"
     stroke-linejoin="round"
