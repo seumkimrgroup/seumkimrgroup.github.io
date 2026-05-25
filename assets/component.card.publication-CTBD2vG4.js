@@ -3,4 +3,4 @@ import{e as s}from"./util.data-DWoenNad.js";const c={JQL:"project",TACTILE:"proj
     <h5>${s(t.title||"")}</h5>
     <p class="color-secondary">${s(t.source||"")}</p>
     ${i}
-  `;if(t.link){const r=document.createElement("a");return r.href=t.link,r.target="_blank",r.rel="noopener noreferrer",r.className="card card--publication",r.innerHTML=o,f.set(r,t),r}const e=document.createElement("div");return e.className="card card--publication card--static",e.innerHTML=o,f.set(e,t),e}export{c as T,E as a,g as b,$ as c,C as d,f as p,h as r};
+  `;if(t.link){const r=document.createElement("a");return r.href=t.link,r.target="_blank",r.rel="noopener noreferrer",r.className="card card--publication",r.innerHTML=o,f.set(r,t),r}const e=document.createElement("div");return e.className="card card--publication card--static",e.innerHTML=o,f.set(e,t),e}export{c as T,C as a,g as b,$ as c,E as d,f as p,h as r};
