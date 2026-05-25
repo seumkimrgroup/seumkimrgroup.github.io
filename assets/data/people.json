@@ -196,7 +196,7 @@
     "slug": "abna"
   },
   {
-    "name": "Hyun Jin Ko",
+    "name": "Hyunjin Ko",
     "status": "current",
     "role": "Undergraduate",
     "email": "hynnk77@seoultech.ac.kr",
@@ -204,7 +204,7 @@
     "office": "",
     "joinYear": 2025,
     "leaveYear": null,
-    "image": "/assets/images/people/hjko.jpg",
+    "image": "/assets/images/people/hko.jpg",
     "links": [
       {
         "type": "email",
@@ -223,7 +223,7 @@
     ],
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "slug": "hjko"
+    "slug": "hko"
   },
   {
     "name": "Min Ji Kim",
