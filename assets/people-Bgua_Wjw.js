@@ -1,4 +1,4 @@
-import{i as u,d as f,g as p,f as h}from"./util.data-Bgxvqn9R.js";import{r as v,c as g,a as b,g as m}from"./component.iconlinks-DEaCwJU6.js";u();f();p();const t=document.getElementById("members"),a=document.getElementById("alumni");function S(){const e=document.querySelector("#pi");e&&(e.innerHTML=`
+import{i as u,d as f,g as p,f as h}from"./util.data-Bgxvqn9R.js";import{r as v,c as g,a as b,g as m}from"./component.iconlinks-DJUITgIS.js";u();f();p();const t=document.getElementById("members"),a=document.getElementById("alumni");function S(){const e=document.querySelector("#pi");e&&(e.innerHTML=`
     <h6>Principal Investigator</h6>
     <div class="split">
       <div class="media">
