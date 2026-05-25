@@ -9,7 +9,7 @@
     </div>
   `}function _(){const e=document.querySelector(".navbar"),i=document.querySelector(".hero"),n=document.getElementById("nav");if(!e)return;let a=window.scrollY,t=null;const s=12,r=20,d=1800,g=3600;function u(){e.classList.remove("is-hidden")}function v(){e.classList.add("is-hidden")}function c(){t&&(clearTimeout(t),t=null)}function p(o){c(),!(window.scrollY<=r)&&(e.classList.contains("is-open")||(t=setTimeout(v,o??d)))}function h(){if(!i)return;const o=i.getBoundingClientRect(),l=e.offsetHeight;o.bottom>l*.25?e.classList.add("is-over-hero"):e.classList.remove("is-over-hero")}function f(){const o=window.scrollY,l=o-a;if(h(),o<=r){u(),e.classList.remove("is-scrolled"),c(),a=o;return}e.classList.add("is-scrolled"),!(Math.abs(l)<s)&&(l>0?(v(),c()):l<0&&(u(),p()),a=o)}n&&(n.addEventListener("click",()=>{const o=e.classList.toggle("is-open");n.setAttribute("aria-expanded",String(o)),o?(c(),u(),window.scrollY<=r&&e.classList.add("is-scrolled")):window.scrollY<=r&&e.classList.remove("is-scrolled")}),document.querySelectorAll(".nav-links a").forEach(o=>{o.addEventListener("click",()=>{e.classList.remove("is-open"),n.setAttribute("aria-expanded","false")})})),window.addEventListener("scroll",()=>{e.classList.contains("is-open")&&(e.classList.remove("is-open"),n&&n.setAttribute("aria-expanded","false"),p(g))},{passive:!0}),window.addEventListener("scroll",f,{passive:!0}),window.addEventListener("resize",h),h(),f()}function S(){document.querySelector(".footer").innerHTML=`
     <div class="inner--90">
-      <div class="split split--46">
+      <div class="split">
 
         <div class="stack--16">
           <a href="https://www.seoultech.ac.kr" class="icon brand" aria-label="SeoulTech">

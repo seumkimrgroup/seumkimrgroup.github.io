@@ -1,6 +1,6 @@
-import{i as u,d as f,g as p,f as h}from"./util.data-Btegk-lG.js";import{r as v,c as g,a as b,g as m}from"./component.iconlinks-BsgHRqcy.js";u();f();p();const t=document.getElementById("members"),a=document.getElementById("alumni");function S(){const e=document.querySelector("#pi");e&&(e.innerHTML=`
+import{i as u,d as f,g as p,f as h}from"./util.data-diC6Jxad.js";import{r as v,c as g,a as b,g as m}from"./component.iconlinks-K1BlDMwZ.js";u();f();p();const t=document.getElementById("members"),a=document.getElementById("alumni");function S(){const e=document.querySelector("#pi");e&&(e.innerHTML=`
     <h6>Principal Investigator</h6>
-    <div class="split split--profile">
+    <div class="split">
       <div class="media">
         <img src="/assets/images/people/s-ukim.png" alt="Se-Um Kim" />
       </div>
@@ -18,4 +18,4 @@ import{i as u,d as f,g as p,f as h}from"./util.data-Btegk-lG.js";import{r as v,c
       <h4>Education</h4>
       <p>Ph.D. in Electrical and Computer Engineering, Seoul National University, 2016<br />B.S. in Electrical Engineering, Seoul National University, 2010</p>
     </div>
-  `)}S();let s=[];function d(e,r,n){return e.sort((i,o)=>{const l=m(i)-m(o);if(l!==0)return l;const c=n?(i[r]||9999)-(o[r]||9999):(o[r]||0)-(i[r]||0);return c!==0?c:String(i.name||"").localeCompare(String(o.name||""))})}function y(e){t&&(t.innerHTML="",d(e,"joinYear",!0).forEach(r=>t.appendChild(g(r))))}function C(e){a&&(a.innerHTML="",d(e,"leaveYear",!1).forEach(r=>a.appendChild(b(r))))}function E(){const e=s.filter(n=>n.status==="current"),r=s.filter(n=>n.status==="former");y(e),C(r)}async function M(){try{s=await h("/assets/data/people.json"),E()}catch(e){console.error(e),t&&(t.innerHTML="<h5>Member data could not be loaded.</h5>")}}M();
+  `)}S();let s=[];function d(e,r,n){return e.sort((i,o)=>{const c=m(i)-m(o);if(c!==0)return c;const l=n?(i[r]||9999)-(o[r]||9999):(o[r]||0)-(i[r]||0);return l!==0?l:String(i.name||"").localeCompare(String(o.name||""))})}function y(e){t&&(t.innerHTML="",d(e,"joinYear",!0).forEach(r=>t.appendChild(g(r))))}function C(e){a&&(a.innerHTML="",d(e,"leaveYear",!1).forEach(r=>a.appendChild(b(r))))}function E(){const e=s.filter(n=>n.status==="current"),r=s.filter(n=>n.status==="former");y(e),C(r)}async function M(){try{s=await h("/assets/data/people.json"),E()}catch(e){console.error(e),t&&(t.innerHTML="<h5>Member data could not be loaded.</h5>")}}M();
