@@ -57,7 +57,7 @@
     "image": "/assets/images/people/mhkim.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "minhyeral14@seoultech.ac.kr" }],
+    "links": [{ "type": "email", "value": "minhyeral14@seoultech.ac.kr" }, { "type": "orcid", "value": "https://orcid.org/0009-0004-5193-7941" }],
     "description": [
       {
         "title": "EDUCATION",
@@ -138,7 +138,7 @@
     "image": "/assets/images/people/abna.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "nab5191@naver.com" }],
+    "links": [{ "type": "email", "value": "nab5191@naver.com" }, { "type": "orcid", "value": "https://orcid.org/0009-0002-7836-1677" }],
     "description": [
       { "title": "EDUCATION", "content": [] },
       {
@@ -287,7 +287,7 @@
     "image": "/assets/images/people/hsoh.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "ohs07@naver.com" }],
+    "links": [{ "type": "email", "value": "ohs07@naver.com" }, { "type": "orcid", "value": "https://orcid.org/0009-0005-2222-5993" }],
     "description": [
       {
         "title": "EDUCATION",
@@ -371,7 +371,7 @@
     "image": "/assets/images/people/hshwang.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "he9312@seoultech.ac.kr" }],
+    "links": [{ "type": "email", "value": "he9312@seoultech.ac.kr" }, { "type": "orcid", "value": "https://orcid.org/0009-0006-6957-7918" }],
     "description": [
       {
         "title": "EDUCATION",

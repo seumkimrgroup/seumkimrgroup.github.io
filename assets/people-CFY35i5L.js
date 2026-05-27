@@ -1,4 +1,4 @@
-import{c as e,i as t,l as n,r,s as i,t as a}from"./jsx-runtime-xRtisvN1.js";import{i as o,n as s,o as c,r as l}from"./component.iconlinks-Cy3SD2vf.js";var u=t(),d=a();n(),e(),i();var f=document.getElementById(`members`),p=document.getElementById(`alumni`);function m(){let e=document.querySelector(`#pi`);e&&(e.innerHTML=`
+import{c as e,i as t,l as n,r,s as i,t as a}from"./jsx-runtime-CPM6PKJo.js";import{i as o,n as s,o as c,r as l}from"./component.iconlinks-IQFihNHg.js";var u=t(),d=a();n(),e(),i();var f=document.getElementById(`members`),p=document.getElementById(`alumni`);function m(){let e=document.querySelector(`#pi`);e&&(e.innerHTML=`
     <h6>Principal Investigator</h6>
     <div class="split">
       <div class="media">
@@ -7,7 +7,7 @@ import{c as e,i as t,l as n,r,s as i,t as a}from"./jsx-runtime-xRtisvN1.js";impo
       <div class="stack--8">
         <h2>Se-Um Kim</h2>
         <p class="color-secondary">Associate Professor, Department of Electrical and Information Engineering, Seoul National University of Science and Technology<br />겸직연구원, KIST 양자기술연구단<br />대표이사, 주식회사 LUXON<br />편집이사, 한국조명·전기설비학회<br />편집이사, 한국전기자동차학회</p>
-        <div class="group">${s([{type:`email`,value:`seumkim@seoultech.ac.kr`},{type:`scholar`,value:`https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en`},{type:`linkedin`,value:`https://www.linkedin.com/in/seumkim/`}],{wrap:!1})}</div>
+        <div class="group">${s([{type:`email`,value:`seumkim@seoultech.ac.kr`},{type:`scholar`,value:`https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en`},{type:`orcid`,value:`https://orcid.org/0000-0001-6897-0706`},{type:`linkedin`,value:`https://www.linkedin.com/in/seumkim/`}],{wrap:!1})}</div>
       </div>
     </div>
     <div class="stack--8">
