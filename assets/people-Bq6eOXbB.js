@@ -5,9 +5,11 @@ import{c as e,i as t,l as n,r,s as i,t as a}from"./jsx-runtime-CdNpcH6_.js";impo
         <img src="/assets/images/people/s-ukim.png" alt="Se-Um Kim" />
       </div>
       <div class="stack--8">
-        <h2>Se-Um Kim</h2>
+        <div class="row" style="align-items: flex-end">
+          <h2>Se-Um Kim</h2>
+          <div class="group">${s([{type:`email`,value:`seumkim@seoultech.ac.kr`},{type:`scholar`,value:`https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en`},{type:`orcid`,value:`https://orcid.org/0000-0001-6897-0706`},{type:`linkedin`,value:`https://www.linkedin.com/in/seumkim/`}],{wrap:!1})}</div>
+        </div>
         <p class="color-secondary">Associate Professor, Department of Electrical and Information Engineering, Seoul National University of Science and Technology<br />겸직연구원, KIST 양자기술연구단<br />대표이사, 주식회사 LUXON<br />편집이사, 한국조명·전기설비학회<br />편집이사, 한국전기자동차학회</p>
-        <div class="group">${s([{type:`email`,value:`seumkim@seoultech.ac.kr`},{type:`scholar`,value:`https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en`},{type:`orcid`,value:`https://orcid.org/0000-0001-6897-0706`},{type:`linkedin`,value:`https://www.linkedin.com/in/seumkim/`}],{wrap:!1})}</div>
       </div>
     </div>
     <div class="stack--8">
