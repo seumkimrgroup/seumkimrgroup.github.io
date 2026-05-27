@@ -12,10 +12,21 @@
     "image": "/assets/images/people/ihchoi.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "yihyeonchoi11@gmail.com" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "yihyeonchoi11@gmail.com"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
-      { "title": "RESEARCH INTERESTS", "content": [] }
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
+      {
+        "title": "RESEARCH INTERESTS",
+        "content": []
+      }
     ]
   },
   {
@@ -31,9 +42,17 @@
     "image": "/assets/images/people/jwchoi.jpg",
     "currentAffiliation": "Department of Materials Science & Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "wlxhana@seoultech.ac.kr" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "wlxhana@seoultech.ac.kr"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
         "content": [
@@ -57,7 +76,12 @@
     "image": "/assets/images/people/mhkim.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "minhyeral14@seoultech.ac.kr" }, { "type": "orcid", "value": "https://orcid.org/0009-0004-5193-7941" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "minhyeral14@seoultech.ac.kr"
+      }
+    ],
     "description": [
       {
         "title": "EDUCATION",
@@ -88,9 +112,17 @@
     "image": "/assets/images/people/hskim.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "khs1273@naver.com" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "khs1273@naver.com"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
         "content": [
@@ -113,9 +145,17 @@
     "image": "/assets/images/people/dkim.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "doyoo0413@seoultech.ac.kr" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "doyoo0413@seoultech.ac.kr"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
         "content": [
@@ -138,12 +178,22 @@
     "image": "/assets/images/people/abna.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "nab5191@naver.com" }, { "type": "orcid", "value": "https://orcid.org/0009-0002-7836-1677" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "nab5191@naver.com"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
-        "content": ["LC composite materials and systems"]
+        "content": [
+          "LC composite materials and systems"
+        ]
       }
     ]
   },
@@ -160,12 +210,22 @@
     "image": "/assets/images/people/hjko.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "hynnk77@seoultech.ac.kr" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "hynnk77@seoultech.ac.kr"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
-        "content": ["LC-based electro-optical systems"]
+        "content": [
+          "LC-based electro-optical systems"
+        ]
       }
     ]
   },
@@ -182,9 +242,17 @@
     "image": "/assets/images/people/mjkim.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "kimminji0624@seoultech.ac.kr" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "kimminji0624@seoultech.ac.kr"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
         "content": [
@@ -207,9 +275,17 @@
     "image": "/assets/images/people/slee.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "sangbaek62@gmail.com" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "sangbaek62@gmail.com"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
         "content": [
@@ -232,7 +308,12 @@
     "image": "",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "Wuxi Hengxin",
-    "links": [{ "type": "email", "value": "ddwd1473@naver.com" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "ddwd1473@naver.com"
+      }
+    ],
     "description": [
       {
         "title": "EDUCATION",
@@ -262,9 +343,17 @@
     "image": "/assets/images/people/jhkim.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "dyne0822@gmail.com" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "dyne0822@gmail.com"
+      }
+    ],
     "description": [
-      { "title": "EDUCATION", "content": [] },
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
       {
         "title": "RESEARCH INTERESTS",
         "content": [
@@ -287,7 +376,12 @@
     "image": "/assets/images/people/hsoh.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "ohs07@naver.com" }, { "type": "orcid", "value": "https://orcid.org/0009-0005-2222-5993" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "ohs07@naver.com"
+      }
+    ],
     "description": [
       {
         "title": "EDUCATION",
@@ -297,7 +391,10 @@
       },
       {
         "title": "RESEARCH INTERESTS",
-        "content": ["Electrochromic devices", "Reflective displays"]
+        "content": [
+          "Electrochromic devices",
+          "Reflective displays"
+        ]
       }
     ]
   },
@@ -354,7 +451,9 @@
       },
       {
         "title": "RESEARCH INTERESTS",
-        "content": ["FEM based thermal managenemts"]
+        "content": [
+          "FEM based thermal managenemts"
+        ]
       }
     ]
   },
@@ -371,7 +470,12 @@
     "image": "/assets/images/people/hshwang.jpg",
     "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
     "nextAffiliation": "",
-    "links": [{ "type": "email", "value": "he9312@seoultech.ac.kr" }, { "type": "orcid", "value": "https://orcid.org/0009-0006-6957-7918" }],
+    "links": [
+      {
+        "type": "email",
+        "value": "he9312@seoultech.ac.kr"
+      }
+    ],
     "description": [
       {
         "title": "EDUCATION",
@@ -410,7 +514,12 @@
           "B.S. in Electrical and Information Engineering, Seoul National University of Science and Technology, 2025"
         ]
       },
-      { "title": "RESEARCH INTERESTS", "content": ["electrochromic devices"] }
+      {
+        "title": "RESEARCH INTERESTS",
+        "content": [
+          "electrochromic devices"
+        ]
+      }
     ]
   },
   {
@@ -434,7 +543,10 @@
           "B.S. in Electrical and Information Engineering, Seoul National University of Science and Technology, 2024"
         ]
       },
-      { "title": "RESEARCH INTERESTS", "content": [] }
+      {
+        "title": "RESEARCH INTERESTS",
+        "content": []
+      }
     ]
   },
   {
@@ -458,7 +570,10 @@
           "B.S. in Electrical and Information Engineering, Seoul National University of Science and Technology, 2024"
         ]
       },
-      { "title": "RESEARCH INTERESTS", "content": [] }
+      {
+        "title": "RESEARCH INTERESTS",
+        "content": []
+      }
     ]
   },
   {
@@ -482,7 +597,10 @@
           "B.S. in Electrical and Information Engineering, Seoul National University of Science and Technology, 2023"
         ]
       },
-      { "title": "RESEARCH INTERESTS", "content": [] }
+      {
+        "title": "RESEARCH INTERESTS",
+        "content": []
+      }
     ]
   }
 ]
