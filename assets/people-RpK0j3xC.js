@@ -1,4 +1,4 @@
-import{c as e,i as t,l as n,r,s as i,t as a}from"./jsx-runtime-CPM6PKJo.js";import{i as o,n as s,o as c,r as l}from"./component.iconlinks-IQFihNHg.js";var u=t(),d=a();n(),e(),i();var f=document.getElementById(`members`),p=document.getElementById(`alumni`);function m(){let e=document.querySelector(`#pi`);e&&(e.innerHTML=`
+import{c as e,i as t,l as n,r,s as i,t as a}from"./jsx-runtime-DqILTNPt.js";import{i as o,n as s,o as c,r as l}from"./component.iconlinks-BYev_Qj-.js";var u=t(),d=a();n(),e(),i();var f=document.getElementById(`members`),p=document.getElementById(`alumni`);function m(){let e=document.querySelector(`#pi`);e&&(e.innerHTML=`
     <h6>Principal Investigator</h6>
     <div class="split">
       <div class="media">
