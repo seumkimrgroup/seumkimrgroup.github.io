@@ -34,7 +34,7 @@
         "image": "/assets/images/projects/project3_3.png"
       }
     ],
-    "background": "/assets/images/projects/project3_bg.png",
+    "background": "/assets/images/projects/project3_bg.webp",
     "slug": "jql"
   },
   {
@@ -73,7 +73,7 @@
         "image": ""
       }
     ],
-    "background": "/assets/images/projects/project2_bg.png",
+    "background": "/assets/images/projects/project2_bg.webp",
     "image": "/assets/images/projects/project2.jpg",
     "slug": "tactile"
   },
@@ -120,7 +120,7 @@
         "image": "/assets/images/projects/project1_4.png"
       }
     ],
-    "background": "/assets/images/projects/project1_bg.png",
+    "background": "/assets/images/projects/project1_bg.webp",
     "image": "/assets/images/projects/project1.jpg",
     "slug": "lc-sw"
   }
