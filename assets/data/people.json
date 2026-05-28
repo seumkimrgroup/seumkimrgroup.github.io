@@ -80,6 +80,10 @@
       {
         "type": "email",
         "value": "minhyeral14@seoultech.ac.kr"
+      },
+      {
+        "type": "orcid",
+        "value": "https://orcid.org/0009-0004-5193-7941"
       }
     ],
     "description": [
@@ -182,6 +186,10 @@
       {
         "type": "email",
         "value": "nab5191@naver.com"
+      },
+      {
+        "type": "orcid",
+        "value": "https://orcid.org/0009-0002-7836-1677"
       }
     ],
     "description": [
@@ -380,6 +388,10 @@
       {
         "type": "email",
         "value": "ohs07@naver.com"
+      },
+      {
+        "type": "orcid",
+        "value": "https://orcid.org/0009-0005-2222-5993"
       }
     ],
     "description": [
@@ -474,6 +486,10 @@
       {
         "type": "email",
         "value": "he9312@seoultech.ac.kr"
+      },
+      {
+        "type": "orcid",
+        "value": "https://orcid.org/0009-0006-6957-7918"
       }
     ],
     "description": [
