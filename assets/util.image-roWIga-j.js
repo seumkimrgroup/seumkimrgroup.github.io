@@ -1,0 +1,1 @@
+var e=e=>e?.replace(/\.(png|jpe?g)$/i,`.webp`)??e;export{e as t};
