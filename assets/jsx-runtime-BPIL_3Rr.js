@@ -2,7 +2,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
     <div class="inner--120 row" style="justify-content: space-between; align-items: center;">
       <a href="/" class="icon brand"><span><img src="/assets/images/logos/logod.webp" alt="Se-Um Kim Research Group"><img src="/assets/images/logos/logow.webp" alt="" aria-hidden="true"></span></a>
       <button class="icon" id="nav" aria-label="Menu" aria-expanded="false">${l}</button>
-      <div class="group" style="column-gap: 24px">
+      <div class="group--12" style="column-gap: 24px">
         ${r(`/people/`,`People`)}
         ${r(`/publications/`,`Publications`)}
       </div>
@@ -17,13 +17,13 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
     <hr />
 
     <div class="inner--90 footer-bottom">
-      <div class="group">
+      <div class="group--12">
         <small><a href="/">Home</a></small>
         <small><a href="/project/?slug=jql">Project</a></small>
         <small><a href="/people/">People</a></small>
         <small><a href="/publications/">Publications</a></small>
       </div>
-      <div class="group">
+      <div class="group--16">
         <a class="icon" href="https://www.google.com/maps/place/%EC%84%9C%EC%9A%B8%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EB%8C%80%ED%95%99%EA%B5%90+%EB%AF%B8%EB%9E%98%EA%B4%80/data=!4m14!1m7!3m6!1s0x357cbbd569641237:0x7b8fe3317caedc65!2z7ISc7Jq46rO87ZWZ6riw7Iig64yA7ZWZ6rWQ!8m2!3d37.6316684!4d127.0774813!16s%2Fm%2F02pyxlf!3m5!1s0x357cbbd569f365ff:0xf63e018b9c2140ae!8m2!3d37.6291161!4d127.081324!16s%2Fg%2F11c38k4rtt?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" aria-label="Lab location" data-type="location" target="_blank" rel="noopener">${x}</a>
         <a class="icon" href="https://www.seoultech.ac.kr" aria-label="Seoul National University of Science and Technology" data-type="seoultech" target="_blank" rel="noopener">${ee}</a>
         <a class="icon" href="https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en" aria-label="Google Scholar" data-type="scholar" target="_blank" rel="noopener">${h}</a>
