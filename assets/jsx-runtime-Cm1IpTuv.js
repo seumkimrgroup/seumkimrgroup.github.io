@@ -9,7 +9,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
     </div>
   `)}function S(){let e=document.querySelector(`.navbar`),t=document.querySelector(`.hero`),n=document.getElementById(`nav`);if(!e)return;let r=window.scrollY,i=null,a=0,o=3600;function s(){e.classList.remove(`is-hidden`)}function c(){Date.now()<a||e.classList.add(`is-hidden`)}function l(){i&&=(clearTimeout(i),null)}function u(t){l(),!(window.scrollY<=20)&&(e.classList.contains(`is-open`)||(i=setTimeout(c,t??1800)))}function d(){if(!t)return;let n=t.getBoundingClientRect(),r=e.offsetHeight;n.bottom>r*.25?e.classList.add(`is-over-hero`):e.classList.remove(`is-over-hero`)}function f(){let t=window.scrollY;if(Date.now()<a){r=t;return}let n=t-r;if(d(),t<=20){s(),e.classList.remove(`is-scrolled`),l(),r=t;return}e.classList.add(`is-scrolled`),!(Math.abs(n)<12)&&(n>0?(c(),l()):n<0&&(s(),u()),r=t)}n&&(n.addEventListener(`click`,()=>{let t=e.classList.toggle(`is-open`);n.setAttribute(`aria-expanded`,String(t)),t?(l(),s(),window.scrollY<=20&&e.classList.add(`is-scrolled`)):window.scrollY<=20&&e.classList.remove(`is-scrolled`)}),document.querySelectorAll(`.navbar .group a`).forEach(t=>{t.addEventListener(`click`,()=>{e.classList.remove(`is-open`),n.setAttribute(`aria-expanded`,`false`)})})),window.addEventListener(`scroll`,()=>{e.classList.contains(`is-open`)&&(e.classList.remove(`is-open`),n&&n.setAttribute(`aria-expanded`,`false`),u(o))},{passive:!0}),window.addEventListener(`scroll`,f,{passive:!0}),window.addEventListener(`resize`,d),window.addEventListener(`navbar-keep`,()=>{a=Date.now()+1e3,r=window.scrollY,u(o)},{passive:!0}),d(),f()}function ne(){document.querySelector(`.footer`).innerHTML=`
     <div class="inner--90 footer-top">
-      <img src="/assets/images/logos/logo--slate-600.png" alt="Se-Um Kim Research Group" />
+      <a href="/" class="icon brand"><img src="/assets/images/logos/logo--slate-600.png" alt="Se-Um Kim Research Group" /></a>
       <p><a href="mailto:seumkim@seoultech.ac.kr">seumkim@seoultech.ac.kr</a></p>
       <p>Mirae-Hall Unit 523, 232 Gongneung-ro, Nowon-gu, Seoul 01811, Republic of Korea</p>
     </div>
@@ -25,7 +25,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
       <div class="group">
         <a class="icon" href="https://www.google.com/maps/place/%EC%84%9C%EC%9A%B8%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EB%8C%80%ED%95%99%EA%B5%90+%EB%AF%B8%EB%9E%98%EA%B4%80/data=!4m14!1m7!3m6!1s0x357cbbd569641237:0x7b8fe3317caedc65!2z7ISc7Jq46rO87ZWZ6riw7Iig64yA7ZWZ6rWQ!8m2!3d37.6316684!4d127.0774813!16s%2Fm%2F02pyxlf!3m5!1s0x357cbbd569f365ff:0xf63e018b9c2140ae!8m2!3d37.6291161!4d127.081324!16s%2Fg%2F11c38k4rtt?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" aria-label="Lab location" data-type="location" target="_blank" rel="noopener">${x}</a>
-        <a class="icon" href="https://www.seoultech.ac.kr" aria-label="Seoul National University of Science and Technology" data-type="seoultech">${ee}</a>
+        <a class="icon" href="https://www.seoultech.ac.kr" aria-label="Seoul National University of Science and Technology" data-type="seoultech" target="_blank" rel="noopener">${ee}</a>
         <a class="icon" href="https://scholar.google.com/citations?user=SetJCVgAAAAJ&hl=en" aria-label="Google Scholar" data-type="scholar" target="_blank" rel="noopener">${h}</a>
       </div>
     </div>
