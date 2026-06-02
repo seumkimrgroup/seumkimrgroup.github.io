@@ -14,7 +14,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       <p>Mirae-Hall Unit 523, 232 Gongneung-ro, Nowon-gu, Seoul 01811, Republic of Korea</p>
     </div>
 
-    <hr class="footer-divider" />
+    <hr />
 
     <div class="inner--90 footer-bottom">
       <div class="group">
