@@ -19,7 +19,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
     <div class="inner--90 footer-bottom">
       <div class="group">
         <small><a href="/">Home</a></small>
-        <small><a href="/project/">Project</a></small>
+        <small><a href="/project/?slug=jql">Project</a></small>
         <small><a href="/people/">People</a></small>
         <small><a href="/publications/">Publications</a></small>
       </div>
