@@ -57,7 +57,7 @@
         "title": "RESEARCH INTERESTS",
         "content": [
           "LC-based electro-optical systems",
-          "ferronematic LCs",
+          "Ferronematic LCs",
           "LC synthesis"
         ]
       }
@@ -80,10 +80,6 @@
       {
         "type": "email",
         "value": "minhyeral14@seoultech.ac.kr"
-      },
-      {
-        "type": "orcid",
-        "value": "https://orcid.org/0009-0004-5193-7941"
       }
     ],
     "description": [
@@ -120,6 +116,10 @@
       {
         "type": "email",
         "value": "khs1273@naver.com"
+      },
+      {
+        "type": "orcid",
+        "value": "https://orcid.org/0009-0004-5193-7941"
       }
     ],
     "description": [
@@ -298,7 +298,7 @@
         "title": "RESEARCH INTERESTS",
         "content": [
           "FEM based thermal managenemts",
-          "PINN-assisted optimization of FEM"
+          "ML-assisted FEM optimization"
         ]
       }
     ]
@@ -533,7 +533,7 @@
       {
         "title": "RESEARCH INTERESTS",
         "content": [
-          "electrochromic devices"
+          "Electrochromic devices"
         ]
       }
     ]
