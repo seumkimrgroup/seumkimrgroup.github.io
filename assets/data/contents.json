@@ -22,7 +22,7 @@
     "title": "ML-assisted optimization of FEA",
     "subtitle": "",
     "image": "/assets/images/contents/topic3.png",
-    "description": "We develop simulation-driven workflows for multiphysics analysis and machine learning-assisted design optimization to study anisotropic material deformation, heat dissipation, electric-field distribution, and optical responses in functional materials and device systems. Our research focuses on highly coupled multiphysics of optoelectronic devices, linking heat generation, structural deformation, electric-field distribution, and device performance across material and device scales. To make these complex simulations more efficient, we leverage ML-assisted fast predictive models, data-driven optimization, and physics-informed neural networks to reduce computational cost and accelerate prediction, inverse design, and reliability-oriented device development.",
+    "description": "We develop simulation-driven workflows for multiphysics analysis and ML-assisted design optimization of functional materials and device systems. Our work connects deformation, heat dissipation, electric-field distribution, and optical response with device performance across device scales. By leveraging fast predictive models, data-driven optimization, and physics-informed neural networks, we aim to accelerate prediction, inverse design, and reliability-oriented device development.",
     "tag": ["ML-FEA", "THERM", "MECH", "ELEC"],
     "links": []
   },
