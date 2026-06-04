@@ -10,10 +10,10 @@
   },
   {
     "type": "topic",
-    "title": "LC-based electro-optical systems",
+    "title": "LC-based electro-optical devices",
     "subtitle": "",
     "image": "/assets/images/contents/topic2.png",
-    "description": "Our lab develops a wide range of LC-based electro-optical devices, including displays, tunable lenses, and phase modulators operating across diverse wavelength ranges. We are also particularly focused on chiral liquid crystal systems, whose helical structures enable unique optical functions such as structural coloration, wavelength filtering, and electrically tunable spectral responses. Building on these capabilities, we are extending our research scope toward silicon-based photonic platforms by incorporating LCs for active on-chip phase control. Through the development of LC-silicon hybrid structures, we aim to realize compact and reconfigurable photonic systems for optical signal processing, tunable light manipulation, and photonic quantum-state control.",
+    "description": "We develop a wide range of LC-based electro-optical devices, including displays, tunable lenses, and phase modulators operating across diverse wavelength ranges. Our work also focuses on chiral liquid crystals whose helical structures provide functions such as structural coloration, wavelength filtering, and electrically tunable spectral responses. We are extending our research toward silicon photonic platforms by integrating LCs for active on-chip phase control, aiming to realize compact and reconfigurable systems for optical signal processing and photonic quantum-state control.",
     "tag": ["JQL", "LC-EO"],
     "links": []
   },
