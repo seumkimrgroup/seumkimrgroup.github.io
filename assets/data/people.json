@@ -1,5 +1,35 @@
 [
   {
+    "slug": "ykim",
+    "name": "Yeonji Kim",
+    "status": "current",
+    "role": "Undergraduate",
+    "email": "duswl2824@naver.com",
+    "phone": "",
+    "office": "",
+    "joinYear": 2026,
+    "leaveYear": null,
+    "image": "/assets/images/people/ykim.jpg",
+    "currentAffiliation": "Department of Electrical and Information Engineering, Seoul National University of Science and Technology",
+    "nextAffiliation": "",
+    "links": [
+      {
+        "type": "email",
+        "value": "duswl2824@naver.com"
+      }
+    ],
+    "description": [
+      {
+        "title": "EDUCATION",
+        "content": []
+      },
+      {
+        "title": "RESEARCH INTERESTS",
+        "content": []
+      }
+    ]
+  },
+  {
     "slug": "ihchoi",
     "name": "I Hyeon Choi",
     "status": "current",
@@ -199,9 +229,7 @@
       },
       {
         "title": "RESEARCH INTERESTS",
-        "content": [
-          "LC composite materials and systems"
-        ]
+        "content": ["LC composite materials and systems"]
       }
     ]
   },
@@ -231,9 +259,7 @@
       },
       {
         "title": "RESEARCH INTERESTS",
-        "content": [
-          "LC-based electro-optical devices"
-        ]
+        "content": ["LC-based electro-optical devices"]
       }
     ]
   },
@@ -403,10 +429,7 @@
       },
       {
         "title": "RESEARCH INTERESTS",
-        "content": [
-          "Electrochromic devices",
-          "Reflective displays"
-        ]
+        "content": ["Electrochromic devices", "Reflective displays"]
       }
     ]
   },
@@ -463,9 +486,7 @@
       },
       {
         "title": "RESEARCH INTERESTS",
-        "content": [
-          "FEM based thermal managenemts"
-        ]
+        "content": ["FEM based thermal managenemts"]
       }
     ]
   },
@@ -532,9 +553,7 @@
       },
       {
         "title": "RESEARCH INTERESTS",
-        "content": [
-          "Electrochromic devices"
-        ]
+        "content": ["Electrochromic devices"]
       }
     ]
   },
