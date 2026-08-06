@@ -1,5 +1,24 @@
 [
   {
+    "type": "news",
+    "subtitle": "",
+    "title": "",
+    "description": "Our group and OptiQ-Labs were jointly selected for the 2026 Quantum Technology Commercialization Support Program organized by the Seoul Metropolitan Government and the Seoul Business Agency. OptiQ-Labs is developing ultra-narrow linewidth laser systems for ion-trap quantum computers, and our group is responsible for the tunable optical filter inside the system. Our LC-based filter enables electrical tuning of the transmission wavelength, a route to more compact and reconfigurable laser system architectures for quantum computing.",
+    "image": "/assets/images/contents/news3.jpg",
+    "tag": ["LC-EO"],
+    "date": "05 Aug 2026",
+    "links": [
+      {
+        "text": "Donga Ilbo",
+        "url": "https://www.donga.com/news/It/article/all/20260805/134425300/1"
+      },
+      {
+        "text": "IT Donga",
+        "url": "https://it.donga.com/109305/"
+      }
+    ]
+  },
+  {
     "type": "topic",
     "subtitle": "",
     "title": "LC composite materials & systems",
